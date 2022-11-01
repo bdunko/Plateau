@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/maps/stratum1 - Copy.tmx</SourceFile>
+  <SourceTime>2020-09-15T18:52:52.1048451-04:00</SourceTime>
+  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/Content/maps/stratum1 - Copy.xnb</DestFile>
+  <DestTime>2020-09-15T19:06:03.7661063-04:00</DestTime>
+  <Importer>TiledMapImporter</Importer>
+  <ImporterTime>2020-08-29T17:17:30-04:00</ImporterTime>
+  <Processor>TiledMapProcessor</Processor>
+  <ProcessorTime>2020-08-29T17:17:30-04:00</ProcessorTime>
+  <Dependencies />
+  <BuildAsset>
+    <string>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/Content/maps/updtileset.xnb</string>
+    <string>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/Content/maps/towntileset.xnb</string>
+    <string>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/Content/maps/decor_tileset.xnb</string>
+  </BuildAsset>
+  <BuildOutput />
+</PipelineBuildEvent>

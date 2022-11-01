@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/maps/farm.tmx</SourceFile>
+  <SourceTime>2021-08-01T18:17:14.8821146-04:00</SourceTime>
+  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/maps/farm.xnb</DestFile>
+  <DestTime>2021-08-28T17:09:23.8230315-04:00</DestTime>
+  <Importer>TiledMapImporter</Importer>
+  <ImporterTime>2020-08-29T17:17:30-04:00</ImporterTime>
+  <Processor>TiledMapProcessor</Processor>
+  <ProcessorTime>2020-08-29T17:17:30-04:00</ProcessorTime>
+  <Dependencies />
+  <BuildAsset>
+    <string>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/maps/updtileset.xnb</string>
+    <string>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/maps/decor_tileset_0.xnb</string>
+  </BuildAsset>
+  <BuildOutput />
+</PipelineBuildEvent>
