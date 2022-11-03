@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/items/products/alchemy/moss_bottle.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/products/alchemy/moss_bottle.png</SourceFile>
   <SourceTime>2019-09-23T22:08:44-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/items/products/alchemy/moss_bottle.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:20.8869907-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/products/alchemy/moss_bottle.xnb</DestFile>
+  <DestTime>2022-11-02T16:29:27.8603979-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

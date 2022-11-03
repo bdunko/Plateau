@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/items/mining/diamond.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/mining/diamond.png</SourceFile>
   <SourceTime>2021-09-03T18:59:13.6282164-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/items/mining/diamond.xnb</DestFile>
-  <DestTime>2021-09-03T19:02:10.790936-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/mining/diamond.xnb</DestFile>
+  <DestTime>2022-11-02T16:29:24.0953958-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

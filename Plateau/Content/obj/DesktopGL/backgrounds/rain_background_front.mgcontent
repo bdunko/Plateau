@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/backgrounds/rain_background_front.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/backgrounds/rain_background_front.png</SourceFile>
   <SourceTime>2019-09-07T15:38:48-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/backgrounds/rain_background_front.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:15.7734582-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/backgrounds/rain_background_front.xnb</DestFile>
+  <DestTime>2022-11-02T16:29:17.7577038-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

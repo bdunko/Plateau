@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/interface/icons/frame_VI.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/interface/icons/frame_VI.png</SourceFile>
   <SourceTime>2021-07-20T23:32:45.6744336-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/interface/icons/frame_VI.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:16.3584764-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/interface/icons/frame_VI.xnb</DestFile>
+  <DestTime>2022-11-02T16:29:18.6777043-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

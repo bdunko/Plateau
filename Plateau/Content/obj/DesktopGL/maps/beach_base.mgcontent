@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/maps/beach_base.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/maps/beach_base.png</SourceFile>
   <SourceTime>2020-12-22T23:47:02.960047-05:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/maps/beach_base.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:22.1760279-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/beach_base.xnb</DestFile>
+  <DestTime>2022-11-02T16:29:30.0409206-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/sprites/placeables/block_mythril_greyscale.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/block_mythril_greyscale.png</SourceFile>
   <SourceTime>2021-10-24T14:54:03.00743-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/sprites/placeables/block_mythril_greyscale.xnb</DestFile>
-  <DestTime>2021-10-24T15:12:58.3801192-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/placeables/block_mythril_greyscale.xnb</DestFile>
+  <DestTime>2022-11-02T16:30:00.4616579-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

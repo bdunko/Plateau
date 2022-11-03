@@ -4,8 +4,6 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/../../.assets/files/sprites/placeables/glass_sheet_spritesheet.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/../../.assets/files/sprites/placeables/glass_sheet_spritesheet_greyscale.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/backgrounds/cloud_lg1.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/backgrounds/cloud_lg2.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/backgrounds/cloud_lg3.png</File>
@@ -1459,59 +1457,133 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/apple_cider.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/apple_muffin.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/apple_preserves.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/autumn_mash.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/autumn_salsa.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/autumnal_wine.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/baked_potato.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/baked_snapper.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/banana_chips.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/banana_jam.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/banana_sundae.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/beernana.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/berry_milkshake.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/blackberry_digestif.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/blackberry_preserves.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/blind_dinner.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/bloody_marie.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/blueberry_cordial.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/blueberry_jelly.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/blueberry_pancakes.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/boar_jerky.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/boar_stew.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/breakfast_potatoes.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/briny_beet.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/buttered_rolls.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/campfire_coffee.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/cherry_cheesecake.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/cherry_jelly.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/cherry_raisins.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/cherwine.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/chickweed_blend.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/clam_linguini.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/coconut_boar.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/coconut_chips.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/coconut_milk.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/coconut_rum.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/coleslaw.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/cream_of_mushroom.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/creamy_spinach.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/creamy_squid.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/crispy_grasshopper.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/dark_tea.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/deluxe_sushi.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/dried_apple.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/dried_citrus.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/dried_olives.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/dried_strawberry.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/dwarven_stew.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/eel_roll.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/egg_scramble.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/eggplant_parmesan.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/elderberry_aperitif.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/elderberry_jam.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/elderberry_tart.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/escargot.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/farmers_stew.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/french_onion_soup.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/fresh_salad.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/fried_catfish.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/fried_egg.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/fried_fish.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/fried_oysters.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/good_ol_pickles.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/grilled_salmon.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/homestyle_jelly.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/honey_stir_fry.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/klippfisk.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/lemon_shortcake.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/lemonade.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/lethal_sashimi.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/lichen_juice.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/luminous_stew.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/marinated_olive.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/marmalade.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/meaty_pizza.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/mint_choco_bar.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/minty_melt.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/mountain_bread.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/mountain_teriyaki.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/mushroom_stir_fry.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/persimmon_jam.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/pickled_beet_egg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/pickled_carrot.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/pickled_onion.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/pineapple_salsa.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/potato_and_beet_fries.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/potato_crisps.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/pumpkin_cider.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/raspberry_jelly.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/raspberry_liqueur.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/ratatouille.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/raw_calamari.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/rejuvenation_tea.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/roasted_pumpkin.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/sardine_snack.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/savory_roast.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/seafood_basket.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/seafood_paella.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/seared_tuna.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/seasonal_piperade.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/seaweed_snack.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/shrimp_gumbo.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/sour_wine.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/souse_egg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/spicy_bacon.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/spring_pizza.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/stewed_veggies.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/stormfish.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/strawberry_blast_jam.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/strawberry_salad.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/strawberry_salad-export.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/strawberry_spirit.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/stuffed_flounder.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/super_juice.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/survivors_surprise.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/sushi_roll.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/sweet_coco_treat.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/swordfish_pot.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/tomato_salsa.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/tomato_soup.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/tropical_rum.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/vanilla_ice_cream.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/veggie_chips.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/veggie_side_roast.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/waterless_melon.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/watermelon_ice.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/watermelon_jelly.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/watermelon_wine.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/wild_popcorn.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/wrapped_cabbage.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/black_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/blue_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/dark_brown_dye.png</File>
@@ -2735,8 +2807,80 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
-    <File>sprites/placeables/glass_sheet_spritesheet.png</File>
-    <File>sprites/placeables/glass_sheet_spritesheet_greyscale.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

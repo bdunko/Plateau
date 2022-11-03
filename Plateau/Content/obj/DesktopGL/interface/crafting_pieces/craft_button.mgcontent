@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/interface/crafting_pieces/craft_button.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/craft_button.png</SourceFile>
   <SourceTime>2019-08-03T00:46:14-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/interface/crafting_pieces/craft_button.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:16.233476-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/interface/crafting_pieces/craft_button.xnb</DestFile>
+  <DestTime>2022-11-02T16:29:18.4627054-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1044,12 +1044,12 @@ namespace Plateau.Components
                 new ScrapbookPage.CookingRecipeComponent(cookingRecipe1Pos, GameState.GetCookingRecipeForResult(ItemDict.SEASONAL_PIPERADE), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
                 new ScrapbookPage.CookingRecipeComponent(cookingRecipe2Pos, GameState.GetCookingRecipeForResult(ItemDict.COCONUT_BOAR), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
                 new ScrapbookPage.CookingRecipeComponent(cookingRecipe3Pos, GameState.GetCookingRecipeForResult(ItemDict.POTATO_AND_BEET_FRIES), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
-                new ScrapbookPage.CookingRecipeComponent(cookingRecipe4Pos, GameState.GetCookingRecipeForResult(ItemDict.PICKLED_BEET_EGGS), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
+                new ScrapbookPage.CookingRecipeComponent(cookingRecipe4Pos, GameState.GetCookingRecipeForResult(ItemDict.PICKLED_BEET_EGG), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
                 new ScrapbookPage.CookingRecipeComponent(cookingRecipe5Pos, GameState.GetCookingRecipeForResult(ItemDict.SUPER_JUICE), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
                 new ScrapbookPage.CookingRecipeComponent(cookingRecipe6Pos, GameState.GetCookingRecipeForResult(ItemDict.RATATOUILLE), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING)));
             pages.Add(new ScrapbookPage("Cookbook Ice", new ScrapbookPage.ImageComponent(new Vector2(0, 0), content.Load<Texture2D>(Paths.INTERFACE_SCRAPBOOK_PAGE_COOKBOOK_ICE), Color.White),
                 new ScrapbookPage.CookingRecipeComponent(cookingRecipe1Pos, GameState.GetCookingRecipeForResult(ItemDict.MINTY_MELT), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
-                new ScrapbookPage.CookingRecipeComponent(cookingRecipe2Pos, GameState.GetCookingRecipeForResult(ItemDict.VANILLA_ICECREAM), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
+                new ScrapbookPage.CookingRecipeComponent(cookingRecipe2Pos, GameState.GetCookingRecipeForResult(ItemDict.VANILLA_ICE_CREAM), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
                 new ScrapbookPage.CookingRecipeComponent(cookingRecipe3Pos, GameState.GetCookingRecipeForResult(ItemDict.BERRY_MILKSHAKE), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
                 new ScrapbookPage.CookingRecipeComponent(cookingRecipe4Pos, GameState.GetCookingRecipeForResult(ItemDict.BANANA_SUNDAE), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING),
                 new ScrapbookPage.CookingRecipeComponent(cookingRecipe5Pos, GameState.GetCookingRecipeForResult(ItemDict.MINT_CHOCO_BAR), numbers, ScrapbookPage.CookingRecipeComponent.RecipeType.COOKING)));

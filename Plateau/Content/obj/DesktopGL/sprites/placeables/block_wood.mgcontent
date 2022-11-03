@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/sprites/placeables/block_wood.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/block_wood.png</SourceFile>
   <SourceTime>2019-05-21T19:27:52-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/sprites/placeables/block_wood.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:48.5670452-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/placeables/block_wood.xnb</DestFile>
+  <DestTime>2022-11-02T16:30:00.5003824-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

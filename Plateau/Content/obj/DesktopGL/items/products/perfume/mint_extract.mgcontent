@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/items/products/perfume/mint_extract.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/products/perfume/mint_extract.png</SourceFile>
   <SourceTime>2019-12-12T00:11:04-05:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/items/products/perfume/mint_extract.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:21.4059896-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/products/perfume/mint_extract.xnb</DestFile>
+  <DestTime>2022-11-02T16:29:28.9653983-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

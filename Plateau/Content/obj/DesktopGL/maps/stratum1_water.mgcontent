@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/maps/stratum1_water.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum1_water.png</SourceFile>
   <SourceTime>2020-12-22T01:24:39.1966925-05:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/maps/stratum1_water.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:30.6690435-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/stratum1_water.xnb</DestFile>
+  <DestTime>2022-11-02T16:29:40.9298431-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

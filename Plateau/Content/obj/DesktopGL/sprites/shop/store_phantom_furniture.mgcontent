@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/sprites/shop/store_phantom_furniture.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/shop/store_phantom_furniture.png</SourceFile>
   <SourceTime>2019-09-21T17:09:40-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/sprites/shop/store_phantom_furniture.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:50.4600464-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/shop/store_phantom_furniture.xnb</DestFile>
+  <DestTime>2022-11-02T16:30:04.1440512-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

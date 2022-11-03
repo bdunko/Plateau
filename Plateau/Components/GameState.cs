@@ -1777,8 +1777,8 @@ namespace Plateau.Components
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.DARK_TEA, ItemDict.CAVE_SOYBEAN, ItemDict.SASSAFRAS, ItemDict.SASSAFRAS, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.STRAWBERRY_SALAD, ItemDict.STRAWBERRY, ItemDict.SPINACH, ItemDict.SPINACH, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.FRESH_SALAD, ItemDict.WATERMELON_SLICE, ItemDict.CUCUMBER, ItemDict.TOMATO, CookingRecipe.LengthEnum.NONE));
-            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.VANILLA_ICECREAM, ItemDict.VANILLA_EXTRACT, ItemDict.SNOW_CRYSTAL, ItemDict.SNOW_CRYSTAL, CookingRecipe.LengthEnum.NONE));
-            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.PICKLED_BEET_EGGS, ItemDict.EGG, ItemDict.BEET, ItemDict.SPICY_LEAF, CookingRecipe.LengthEnum.NONE));
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.VANILLA_ICE_CREAM, ItemDict.VANILLA_EXTRACT, ItemDict.SNOW_CRYSTAL, ItemDict.SNOW_CRYSTAL, CookingRecipe.LengthEnum.NONE));
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.PICKLED_BEET_EGG, ItemDict.EGG, ItemDict.BEET, ItemDict.SPICY_LEAF, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.CHERRY_CHEESECAKE, ItemDict.MOUNTAIN_WHEAT, ItemDict.CHEESE, ItemDict.CHERRY, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.SURVIVORS_SURPRISE, ItemDict.EARTHWORM, ItemDict.CAVEWORM, ItemDict.SOLDIER_ANT, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.LEMON_SHORTCAKE, ItemDict.MOUNTAIN_WHEAT, ItemDict.BUTTER, ItemDict.LEMON, CookingRecipe.LengthEnum.NONE));

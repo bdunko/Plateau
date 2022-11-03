@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/interface/scrapbook_pieces/page_workbench.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/interface/scrapbook_pieces/page_workbench.png</SourceFile>
   <SourceTime>2021-09-05T20:10:25.01978-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/interface/scrapbook_pieces/page_workbench.xnb</DestFile>
-  <DestTime>2021-09-05T20:18:31.3494266-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/interface/scrapbook_pieces/page_workbench.xnb</DestFile>
+  <DestTime>2022-11-02T16:29:20.2903533-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

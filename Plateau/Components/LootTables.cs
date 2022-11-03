@@ -913,7 +913,7 @@ namespace Plateau.Components
             TRASHCAN = new LootTable(1, 3, new LootEntry(ItemDict.HONEY_BEE, 3), new LootEntry(ItemDict.GLASSES, 1), new LootEntry(ItemDict.BAKED_POTATO, 1), 
                 new LootEntry(ItemDict.BRICKS, 1), new LootEntry(ItemDict.EGG, 1), new LootEntry(ItemDict.BROWN_CICADA, 3), new LootEntry(ItemDict.EARTHWORM, 7), new LootEntry(ItemDict.CARP, 1), 
                 new LootEntry(ItemDict.STONE, 2), new LootEntry(ItemDict.LUCKY_COIN, 1), new LootEntry(ItemDict.QUALITY_COMPOST, 1), new LootEntry(ItemDict.PINK_DYE, 1), 
-                new LootEntry(ItemDict.VANILLA_ICECREAM, 1), new LootEntry(ItemDict.FRIED_FISH, 1), new LootEntry(ItemDict.COLESLAW, 1), new LootEntry(ItemDict.WILD_MEAT, 1), 
+                new LootEntry(ItemDict.VANILLA_ICE_CREAM, 1), new LootEntry(ItemDict.FRIED_FISH, 1), new LootEntry(ItemDict.COLESLAW, 1), new LootEntry(ItemDict.WILD_MEAT, 1), 
                 new LootEntry(ItemDict.WEEDS, 12), new LootEntry(ItemDict.BLACK_FEATHER, 3), new LootEntry(ItemDict.WHITE_FEATHER, 3), new LootEntry(ItemDict.CLAY, 7), 
                 new LootEntry(ItemDict.LOAMY_COMPOST, 10), new LootEntry(ItemDict.TIGHTIES, 1), new LootEntry(ItemDict.ANCIENT_KEY, 1));
             IRON_ROCK = new MiningLootTable(2, 3, new LootEntry(ItemDict.IRON_ORE, 180), new LootEntry(ItemDict.SCRAP_IRON, 75), new LootEntry(ItemDict.AMETHYST, 15), new LootEntry(ItemDict.STONE, 50), new LootEntry(ItemDict.IGNEOUS_KEY, 1));
@@ -1009,7 +1009,7 @@ namespace Plateau.Components
                 new LootEntry(ItemDict.SPORTBALL_UNIFORM, 1), new LootEntry(ItemDict.RAINCOAT, 1), new LootEntry(ItemDict.ISLANDER_TATTOO, 1), new LootEntry(ItemDict.TIGHTIES, 1), new LootEntry(ItemDict.SUPER_SHORTS, 1),
                 new LootEntry(ItemDict.BUTTON_DOWN, 1), new LootEntry(ItemDict.LINEN_BUTTON, 1), new LootEntry(ItemDict.TURTLENECK, 1), new LootEntry(ItemDict.STRIPED_SHIRT, 1), new LootEntry(ItemDict.WING_SANDLES, 1),
                 new LootEntry(ItemDict.FLASH_HEELS, 1), new LootEntry(ItemDict.MISMATTCHED, 1), new LootEntry(ItemDict.FESTIVE_SOCKS, 1)); 
-            VENDING_MACHINE = new LootTable(1, 2, new LootEntry(ItemDict.SUPER_JUICE, 1), new LootEntry(ItemDict.WATERMELON_ICE, 1), new LootEntry(ItemDict.VANILLA_ICECREAM, 1), new LootEntry(ItemDict.MINTY_MELT, 1),
+            VENDING_MACHINE = new LootTable(1, 2, new LootEntry(ItemDict.SUPER_JUICE, 1), new LootEntry(ItemDict.WATERMELON_ICE, 1), new LootEntry(ItemDict.VANILLA_ICE_CREAM, 1), new LootEntry(ItemDict.MINTY_MELT, 1),
                 new LootEntry(ItemDict.BERRY_MILKSHAKE, 3), new LootEntry(ItemDict.TOMATO_SOUP, 1), new LootEntry(ItemDict.CREAM_OF_MUSHROOM, 1), new LootEntry(ItemDict.DARK_TEA, 5), new LootEntry(ItemDict.REJUVENATION_TEA, 5),
                 new LootEntry(ItemDict.SWEET_COCO_TREAT, 1)); 
             FILING_CABINET = new LootTable(1, 1, new LootEntry(ItemDict.BUBBLE_WALLPAPER, 1)); //todo

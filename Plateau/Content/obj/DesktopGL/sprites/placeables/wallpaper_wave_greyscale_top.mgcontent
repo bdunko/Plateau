@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/sprites/placeables/wallpaper_wave_greyscale_top.png</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_wave_greyscale_top.png</SourceFile>
   <SourceTime>2019-07-27T02:29:48-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/sprites/placeables/wallpaper_wave_greyscale_top.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:50.3020459-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/placeables/wallpaper_wave_greyscale_top.xnb</DestFile>
+  <DestTime>2022-11-02T16:30:03.8443916-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -24,7 +24,7 @@ namespace Plateau.Entities
         private static DialogueNode spinDialogueRoot, smallItemPrize, rareItemPrize, boostPrize, boostJackpot, trilobiteJackpot, goldJackpot, smallTrilobitePrize, bigMiss;
         private bool spunToday, doneSpinning;
         private EntityPlayer spinner;
-        private static List<Item> SMALL_PRIZES = new List<Item> { ItemDict.EGGPLANT, ItemDict.EGG, ItemDict.CACTUS, ItemDict.CACAO_BEAN, ItemDict.VANILLA_EXTRACT, ItemDict.MINT_EXTRACT, ItemDict.MINT_CHOCO_BAR, ItemDict.VANILLA_ICECREAM,
+        private static List<Item> SMALL_PRIZES = new List<Item> { ItemDict.EGGPLANT, ItemDict.EGG, ItemDict.CACTUS, ItemDict.CACAO_BEAN, ItemDict.VANILLA_EXTRACT, ItemDict.MINT_EXTRACT, ItemDict.MINT_CHOCO_BAR, ItemDict.VANILLA_ICE_CREAM,
              ItemDict.STRAWBERRY, ItemDict.WATERMELON_ICE, ItemDict.WATERMELON_SLICE, ItemDict.IRON_BAR, ItemDict.MYTHRIL_BAR, ItemDict.GOLD_BAR, ItemDict.BANANA, ItemDict.COCONUT, ItemDict.CABBAGE, ItemDict.BUTTERFLY_CHARM, ItemDict.BUTTERFLY_CLIP,
              ItemDict.CAMEL_HAT, ItemDict.BATHROBE, ItemDict.STRIPED_SHIRT, ItemDict.SAILCLOTH, ItemDict.CYCLE_PENDANT, ItemDict.GAIA_PENDANT, ItemDict.STREAMLINE_PENDANT, ItemDict.NEUTRALIZED_PENDANT, ItemDict.FLORAL_RING, ItemDict.GLIMMER_RING, ItemDict.LUMINOUS_RING};
         private static List<Item> BIG_PRIZES = new List<Item> { ItemDict.PEARL, ItemDict.PRISMATIC_FEATHER, ItemDict.GOLDEN_EGG, ItemDict.GOLDEN_COCONUT, ItemDict.GOLDEN_BANANA, ItemDict.GOLDEN_WOOL, ItemDict.ADAMANTITE_BAR, 

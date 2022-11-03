@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Game1/Game1/Content/maps/interior.tmx</SourceFile>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior.tmx</SourceFile>
   <SourceTime>2021-07-12T00:07:41.9861743-04:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/maps/interior.xnb</DestFile>
-  <DestTime>2021-08-28T17:09:24.0080321-04:00</DestTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/interior.xnb</DestFile>
+  <DestTime>2022-11-02T16:29:32.0033563-04:00</DestTime>
   <Importer>TiledMapImporter</Importer>
   <ImporterTime>2020-08-29T17:17:30-04:00</ImporterTime>
   <Processor>TiledMapProcessor</Processor>
   <ProcessorTime>2020-08-29T17:17:30-04:00</ProcessorTime>
   <Dependencies />
   <BuildAsset>
-    <string>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/maps/updtileset.xnb</string>
-    <string>D:/Code/Plateau/Game1/Game1/Content/bin/DesktopGL/maps/decor_tileset.xnb</string>
+    <string>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/updtileset.xnb</string>
+    <string>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/decor_tileset.xnb</string>
   </BuildAsset>
   <BuildOutput />
 </PipelineBuildEvent>

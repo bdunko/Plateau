@@ -31,7 +31,7 @@ namespace Plateau.Entities
         private static Item[] CECILY_GIFTS = { ItemDict.WRAPPED_CABBAGE, ItemDict.COCONUT_BOAR, ItemDict.FARMERS_STEW, ItemDict.VEGGIE_SIDE_ROAST, ItemDict.BAKED_SNAPPER, ItemDict.HONEY_STIR_FRY }; 
         private static Item[] TROY_GIFTS = { ItemDict.BLUEGILL, ItemDict.CARP, ItemDict.CATFISH, ItemDict.LAKE_TROUT, ItemDict.SALMON, ItemDict.PIKE, ItemDict.TUNA, ItemDict.RED_SNAPPER, ItemDict.STRIPED_BASS, ItemDict.HERRING };
         private static Item[] RAUL_GIFTS = { ItemDict.COCONUT, ItemDict.GOLD_ORE, ItemDict.PEARL, ItemDict.OYSTER, ItemDict.HARDWOOD, ItemDict.IRON_ORE, ItemDict.CRAB, ItemDict.CLAM };
-        private static Item[] ROCKWELL_GIFTS = { ItemDict.OLIVE, ItemDict.BANANA, ItemDict.CHERRY, ItemDict.LEMON, ItemDict.ORANGE, ItemDict.APPLE, ItemDict.HARDWOOD, ItemDict.ADAMANTITE_ORE };
+        private static Item[] ROCKWELL_GIFTS = { ItemDict.OLIVE, ItemDict.BANANA, ItemDict.CHERRY, ItemDict.LEMON, ItemDict.ORANGE, ItemDict.APPLE, ItemDict.HARDWOOD, ItemDict.ADAMANTITE_ORE, ItemDict.TRILOBITE };
         private static Item[] CAMUS_GIFTS = { ItemDict.IRON_BAR, ItemDict.MYTHRIL_BAR, ItemDict.GOLD_BAR, ItemDict.ADAMANTITE_BAR };
         private static Item[] THEO_GIFTS = { ItemDict.PAINTING_ACCEPTANCE, ItemDict.PAINTING_BALANCE, ItemDict.PAINTING_BLACK, ItemDict.PAINTING_COFFEE, ItemDict.PAINTING_DICHOTOMY, 
             ItemDict.PAINTING_FIREBALL, ItemDict.PAINTING_LION, ItemDict.PAINTING_MINTGREEN, ItemDict.PAINTING_GROVE, ItemDict.PAINTING_PUZZLE, ItemDict.PAINTING_TOXIN, ItemDict.PAINTING_CREAMPUFF, 
@@ -41,7 +41,7 @@ namespace Plateau.Entities
         private static Item[] CHARLOTTE_GIFTS = { ItemDict.AMETHYST, ItemDict.EGGPLANT, ItemDict.QUARTZ, ItemDict.TOPAZ, ItemDict.RUBY, ItemDict.WOOD, ItemDict.WEEDS };
         private static Item[] SKYE_GIFTS = { ItemDict.SWEATER, ItemDict.SCARF, ItemDict.STRIPED_SOCKS, ItemDict.SUPER_SHORTS, ItemDict.TIGHTIES, ItemDict.BUNNY_EARS, ItemDict.CAT_EARS, ItemDict.OVERALLS, ItemDict.STRIPED_SHIRT, ItemDict.PLAID_BUTTON, ItemDict.TURTLENECK};
         private static Item[] FINLEY_GIFTS = { ItemDict.SKY_ROSE, ItemDict.CHANTERELLE, ItemDict.SHIITAKE, ItemDict.CAVE_SOYBEAN, ItemDict.EMERALD_MOSS, ItemDict.CAVE_FUNGI, ItemDict.VANILLA_BEAN,
-            ItemDict.CACAO_BEAN, ItemDict.MAIZE, ItemDict.PINEAPPLE, ItemDict.MOREL, ItemDict.MOREL, ItemDict.CACTUS, ItemDict.BAMBOO};
+            ItemDict.CACAO_BEAN, ItemDict.MAIZE, ItemDict.PINEAPPLE, ItemDict.MOREL, ItemDict.CACTUS, ItemDict.BAMBOO};
         private static Item[] ELLE_GIFTS_SPRING = { ItemDict.SPINACH_SEEDS, ItemDict.POTATO_SEEDS, ItemDict.CARROT_SEEDS, ItemDict.QUALITY_COMPOST };
         private static Item[] ELLE_GIFTS_SUMMER = { ItemDict.ONION_SEEDS, ItemDict.CUCUMBER_SEEDS, ItemDict.TOMATO_SEEDS, ItemDict.QUALITY_COMPOST };
         private static Item[] ELLE_GIFTS_AUTUMN = { ItemDict.BROCCOLI_SEEDS, ItemDict.BEET_SEEDS, ItemDict.BELLPEPPER_SEEDS, ItemDict.QUALITY_COMPOST };
@@ -143,7 +143,7 @@ namespace Plateau.Entities
                 LETTERS.Add(new Letter(GameState.FLAG_LETTER_GIFT_CECILY, new DialogueNode("\"<NAME>, I accidentally prepared a bit too much food yesterday, so here's some for you. These might be leftovers, but that doesn't mean they aren't delicious!\"\n-Cecily", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
                     area.AddEntity(new EntityItem(CECILY_GIFTS[Util.RandInt(0, CECILY_GIFTS.Length - 1)], new Vector2(position.X, position.Y - 10)));
                 })));
-                LETTERS.Add(new Letter(GameState.FLAG_LETTER_GIFT_TROY, new DialogueNode("\"Good morning <NAME>! The fish were biting up a storm yesterday, so I caught a bit more than I needed, so here's a little something for you. Have a good one!\"\n-Troy", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
+                LETTERS.Add(new Letter(GameState.FLAG_LETTER_GIFT_TROY, new DialogueNode("\"Good morning <NAME>! The fish were biting up a storm yesterday, so I caught a bit more than I needed. Here's a little something for you. Don't worry, I refrigerated it overnight. Have a good one!\"\n-Troy", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
                     for (int i = 0; i < 3; i++)
                     {
                         area.AddEntity(new EntityItem(TROY_GIFTS[Util.RandInt(0, TROY_GIFTS.Length - 1)], new Vector2(position.X, position.Y - 10)));
@@ -156,7 +156,7 @@ namespace Plateau.Entities
                         area.AddEntity(new EntityItem(gift, new Vector2(position.X, position.Y - 10)));
                     }
                 })));
-                LETTERS.Add(new Letter(GameState.FLAG_LETTER_GIFT_ROCKWELL, new DialogueNode("\"<NAME>. Found something you might want while walking Ika. here you go.\"\n-Rockwell", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
+                LETTERS.Add(new Letter(GameState.FLAG_LETTER_GIFT_ROCKWELL, new DialogueNode("\"<NAME>. Found something you might want while walking Ika. Here you go.\"\n-Rockwell", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
                     area.AddEntity(new EntityItem(ROCKWELL_GIFTS[Util.RandInt(0, ROCKWELL_GIFTS.Length - 1)], new Vector2(position.X, position.Y - 10)));
                 })));
                 LETTERS.Add(new Letter(GameState.FLAG_LETTER_GIFT_FINLEY, new DialogueNode("\"<NAME>, I found this priceless artifact during my explorations. Perhaps you can discern its purpose?\"\n-Finley", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
@@ -290,9 +290,13 @@ namespace Plateau.Entities
 
         public override void Update(float deltaTime, Area area)
         {
-            if(!checkedMailToday)
+            //check if has mail
+            if (!checkedMailToday)
             {
-                foreach(Letter letter in LETTERS)
+                GameState.SetFlag(GameState.FLAG_LETTER_GIFT_ROCKWELL, 1);
+                GameState.SetFlag(GameState.FLAG_LETTER_GIFT_HIMEKO, 1);
+
+                foreach (Letter letter in LETTERS)
                 {
                     if(GameState.GetFlagValue(letter.flag) != 0)
                     {
@@ -302,7 +306,6 @@ namespace Plateau.Entities
                 }
                 checkedMailToday = true;
             }
-            //check if has mail
         }
 
         public string GetLeftShiftClickAction(EntityPlayer player)
