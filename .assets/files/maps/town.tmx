@@ -820,7 +820,9 @@
   <object id="107" x="544" y="216">
    <properties>
     <property name="entity" value="signpost"/>
-    <property name="text" value="^ Cable Car to Mountain\n\n&lt;- Elevator to Beach"/>
+    <property name="text">^ Cable Car to Mountain
+
+&lt;- Elevator to Beach</property>
    </properties>
    <point/>
   </object>

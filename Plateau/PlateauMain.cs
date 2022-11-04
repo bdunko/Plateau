@@ -79,12 +79,13 @@ namespace Plateau
         private static RenderTarget2D mainTarget, lightsTarget, uiTarget;
         private Effect lightsShader;
         private CutsceneManager.Cutscene currentCutscene;
-        private bool cutsceneTransitionFadeToBlack;
         private bool cutsceneTransitionDone;
-        private float blackFadedTimer;
-        private static float WAIT_TIME_WHILE_BLACK_FADED = 0.5f;
+        private bool cutsceneReady;
 
         private AnimatedSprite lightMaskSmall, lightMaskMedium, lightMaskLarge;
+
+        private bool mainMenuTransitionStarted = false;
+        private bool mainMenuTransitionDone = false;
 
         public PlateauMain()
         {
@@ -92,9 +93,8 @@ namespace Plateau
 
             currentState = PlateauGameState.MAINMENU;
             currentCutscene = null;
+            cutsceneReady = false;
             cutsceneTransitionDone = false;
-            cutsceneTransitionFadeToBlack = false;
-            blackFadedTimer = 0.0f;
 
             IsFixedTimeStep = true; //nonvariable time steps...
             TargetElapsedTime = TimeSpan.FromMilliseconds(16.66667f); //60fps
@@ -218,8 +218,6 @@ namespace Plateau
             lightsTarget = new RenderTarget2D(GRAPHICS.GraphicsDevice, NATIVE_RESOLUTION_WIDTH * SCALE, NATIVE_RESOLUTION_HEIGHT * SCALE);
             mainTarget = new RenderTarget2D(GRAPHICS.GraphicsDevice, NATIVE_RESOLUTION_WIDTH * SCALE, NATIVE_RESOLUTION_HEIGHT * SCALE);
             uiTarget = new RenderTarget2D(GRAPHICS.GraphicsDevice, NATIVE_RESOLUTION_WIDTH * SCALE, NATIVE_RESOLUTION_HEIGHT * SCALE);
-
-
         }
 
         protected override void Initialize()
@@ -277,9 +275,6 @@ namespace Plateau
             LootTables.Initialize();
             mmi.LoadContent(Content, camera.GetBoundingBox());
             world.LoadContent(Content, GraphicsDevice, player, camera.GetBoundingBox());
-            //set spawn here
-            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.FARM]);
-            world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseOutside");
 
             lightsShader = Content.Load<Effect>(Paths.SHADER_LIGHTS);
 
@@ -346,6 +341,23 @@ namespace Plateau
 
                 if (currentState == PlateauGameState.CUTSCENE)
                 {
+                    //start of cutscene, need to hide ui and initiate transition
+                    if(!cutsceneReady)
+                    {
+                        if (currentCutscene.transitionIn == CutsceneManager.CutsceneTransition.FADE)
+                        {
+                            cutsceneTransitionDone = false;
+                            ui.TransitionFadeToBlack();
+                        }
+                        else
+                        {
+                            cutsceneTransitionDone = true;
+                            currentCutscene.OnActivation(player, world, camera);
+                            ui.Hide();
+                        }
+                        cutsceneReady = true;
+                    }
+
                     if (!cutsceneTransitionDone)
                     {
                         player.StopAllMovement();
@@ -354,34 +366,22 @@ namespace Plateau
                         world.Update(deltaTime, gameTime, player, ui, camera, true); //update current area
                         if (ui.IsTransitionReady())
                         {
-                            if (!cutsceneTransitionFadeToBlack) //if we haven't faded to black yet...
+                            if (!currentCutscene.IsComplete())
                             {
-                                blackFadedTimer += deltaTime;
-
-                                if (blackFadedTimer >= WAIT_TIME_WHILE_BLACK_FADED) //if we're done fading to black
-                                {
-                                    cutsceneTransitionFadeToBlack = true;
-                                    if (!currentCutscene.IsComplete())
-                                    {
-                                        currentCutscene.OnActivation(player, world, camera);
-                                        ui.Hide();
-                                        ui.TransitionFadeIn();
-                                        blackFadedTimer = 0.0f;
-                                    } else
-                                    {
-                                        currentCutscene.OnFinish(player, world, camera);
-                                        camera.Update(1f, player, world.GetCurrentArea().MapPixelWidth(), world.GetCurrentArea().MapPixelHeight());
-                                        ui.Unhide();
-                                        ui.TransitionFadeIn();
-                                        currentCutscene = null;
-                                        currentState = PlateauGameState.NORMAL;
-                                    }
-                                }
+                                currentCutscene.OnActivation(player, world, camera);
+                                ui.Hide();
+                                ui.TransitionFadeIn();
                             }
                             else
                             {
-                                cutsceneTransitionDone = true;
+                                currentCutscene.OnFinish(player, world, camera);
+                                camera.Update(1f, player, world.GetCurrentArea().MapPixelWidth(), world.GetCurrentArea().MapPixelHeight());
+                                ui.Unhide();
+                                ui.TransitionFadeIn();
+                                currentCutscene = null;
+                                currentState = PlateauGameState.NORMAL;
                             }
+                            cutsceneTransitionDone = true;
                         }
                     }
                     else
@@ -392,9 +392,18 @@ namespace Plateau
                         world.Update(deltaTime, gameTime, player, ui, camera, true); //update current area
                         if (currentCutscene.IsComplete())
                         {
-                            cutsceneTransitionFadeToBlack = false;
-                            cutsceneTransitionDone = false;
-                            ui.TransitionFadeToBlack();
+                            if (currentCutscene.transitionOut == CutsceneManager.CutsceneTransition.FADE)
+                            {
+                                cutsceneTransitionDone = false;
+                                ui.TransitionFadeToBlack();
+                            } else
+                            {
+                                currentCutscene.OnFinish(player, world, camera);
+                                camera.Update(1f, player, world.GetCurrentArea().MapPixelWidth(), world.GetCurrentArea().MapPixelHeight());
+                                ui.Unhide();
+                                currentCutscene = null;
+                                currentState = PlateauGameState.NORMAL;
+                            }
                         } 
                     }
                 }
@@ -422,30 +431,47 @@ namespace Plateau
                     mmi.Update(deltaTime, camera.GetBoundingBox());
                     if (mmi.GetState() != MainMenuInterface.MainMenuState.NONE)
                     {
-                        if (mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_1)
+                        ui.Update(deltaTime, player, camera.GetBoundingBox(), world.GetCurrentArea(), world.GetTimeData(), world); //update the interface
+                        if (!mainMenuTransitionStarted)
                         {
-                            SAVE_MANAGER = new SaveManager(SaveManager.FILE_NAME_1);
+                            ui.Hide();
+                            ui.TransitionFadeToBlack();
+                            mainMenuTransitionStarted = true;
                         }
-                        else if (mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_2)
+                        else if (!mainMenuTransitionDone)
                         {
-                            SAVE_MANAGER = new SaveManager(SaveManager.FILE_NAME_2);
+                            if (ui.IsTransitionReady())
+                                mainMenuTransitionDone = true;
                         }
-                        else if (mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_3)
+                        else
                         {
-                            SAVE_MANAGER = new SaveManager(SaveManager.FILE_NAME_3);
-                        }
-                        SAVE_MANAGER.LoadFile(player, world);
-                        currentState = PlateauGameState.NORMAL;
-                        UpdateWindowed();
-                        for(int i = 0; i < RESOLUTIONS.Length; i++)
-                        {
-                            if(RESOLUTIONS[i].scale == GameState.GetFlagValue(GameState.FLAG_SETTINGS_RESOLUTION_SCALE))
+                            if (mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_1)
                             {
-                                ChangeResolution(RESOLUTIONS[i]);
+                                SAVE_MANAGER = new SaveManager(SaveManager.FILE_NAME_1);
                             }
+                            else if (mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_2)
+                            {
+                                SAVE_MANAGER = new SaveManager(SaveManager.FILE_NAME_2);
+                            }
+                            else if (mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_3)
+                            {
+                                SAVE_MANAGER = new SaveManager(SaveManager.FILE_NAME_3);
+                            }
+                            SAVE_MANAGER.LoadFile(player, world);
+                            currentState = PlateauGameState.NORMAL;
+                            UpdateWindowed();
+                            for (int i = 0; i < RESOLUTIONS.Length; i++)
+                            {
+                                if (RESOLUTIONS[i].scale == GameState.GetFlagValue(GameState.FLAG_SETTINGS_RESOLUTION_SCALE))
+                                {
+                                    ChangeResolution(RESOLUTIONS[i]);
+                                }
+                            }
+                            Update(gameTime);
+                            debugConsole = new DebugConsole(world, SAVE_MANAGER, player);
+                            ui.Unhide();
+                            ui.TransitionFadeIn();
                         }
-                        Update(gameTime);
-                        debugConsole = new DebugConsole(world, SAVE_MANAGER, player);
                     }
                 }
                 else if (currentState == PlateauGameState.NORMAL)
@@ -482,20 +508,15 @@ namespace Plateau
                     {
                         currentCutscene = CutsceneManager.CUTSCENE_SLEEP;
                         SAVE_MANAGER.SaveFile(player, world);
-                        currentState = PlateauGameState.CUTSCENE;
-                        cutsceneTransitionDone = false;
-                        cutsceneTransitionFadeToBlack = false;
-                        ui.TransitionFadeToBlack();
                     } else
                     {
                         currentCutscene = world.GetCutsceneIfPossible(player);
-                        if (currentCutscene != null)
-                        {
-                            currentState = PlateauGameState.CUTSCENE;
-                            cutsceneTransitionDone = false;
-                            cutsceneTransitionFadeToBlack = false;
-                            ui.TransitionFadeToBlack();
-                        }
+                    }
+
+                    if (currentCutscene != null)
+                    {
+                        currentState = PlateauGameState.CUTSCENE;
+                        cutsceneReady = false;
                     }
                 }
                 SoundSystem.Update(deltaTime, player, world);
@@ -556,13 +577,14 @@ namespace Plateau
 
         protected override void Draw(GameTime gameTime)
         {
-
             if (currentState == PlateauGameState.MAINMENU)
             {
+                ui.Hide();
                 GRAPHICS.GraphicsDevice.SetRenderTarget(mainTarget);
                 GRAPHICS.GraphicsDevice.Clear(Color.CadetBlue);
                 spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend);
                 mmi.Draw(spriteBatch, camera.GetBoundingBox());
+                ui.Draw(spriteBatch, camera.GetBoundingBox(), 0.99f);
                 spriteBatch.End();
 
                 GRAPHICS.GraphicsDevice.SetRenderTarget(null);
@@ -574,7 +596,7 @@ namespace Plateau
             else if (currentState == PlateauGameState.NORMAL || currentState == PlateauGameState.DEBUG || currentState == PlateauGameState.CUTSCENE)
             {
                 if (currentState != PlateauGameState.CUTSCENE || currentCutscene.background == CutsceneManager.CutsceneBackground.WORLD || 
-                    (cutsceneTransitionFadeToBlack == false && currentCutscene.IsComplete() == false) || (cutsceneTransitionFadeToBlack == true && currentCutscene.IsComplete() == true))
+                    (cutsceneTransitionDone == false && currentCutscene.IsComplete() == false) || (cutsceneTransitionDone == true && currentCutscene.IsComplete() == true))
                 {
                     //lighting mask
                     GRAPHICS.GraphicsDevice.SetRenderTarget(lightsTarget);
@@ -719,7 +741,7 @@ namespace Plateau
                 lightsShader.Parameters["lightMask"].SetValue(lightsTarget);
                 lightsShader.Parameters["darknessLevel"].SetValue(world.GetDarkLevel() * world.GetCurrentArea().GetDarkLevel(player.GetAdjustedPosition()));
                 if (currentState != PlateauGameState.CUTSCENE || currentCutscene.background == CutsceneManager.CutsceneBackground.WORLD ||
-                    (cutsceneTransitionFadeToBlack == false && currentCutscene.IsComplete() == false) || (cutsceneTransitionFadeToBlack == true && currentCutscene.IsComplete() == true))
+                    (cutsceneTransitionDone == false && currentCutscene.IsComplete() == false) || (cutsceneTransitionDone == true && currentCutscene.IsComplete() == true))
                 {
                     lightsShader.CurrentTechnique.Passes[0].Apply();
                 }

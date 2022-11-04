@@ -17,6 +17,11 @@ namespace Plateau.Components
             WORLD, BLACK, SKY, WHITE, SPECTRUM
         }
 
+        public enum CutsceneTransition
+        {
+            FADE, NONE
+        }
+
         public class Cutscene
         {
             public abstract class CSAction
@@ -380,11 +385,12 @@ namespace Plateau.Components
             public bool isComplete;
             public string id;
             public CutsceneBackground background;
+            public CutsceneTransition transitionIn, transitionOut;
             public Func<EntityPlayer, World, bool> activationConditionFunction;
             public Action<EntityPlayer, World, Camera> onActivationFunction;
             public Action<EntityPlayer, World, Camera> onFinishFunction;
 
-            public Cutscene(string id, Func<EntityPlayer, World, bool> activationConditionFunction, Action<EntityPlayer, World, Camera> onActivationFunction, Action<EntityPlayer, World, Camera> onFinishFunction, CutsceneBackground background, params CSAction[] script)
+            public Cutscene(string id, Func<EntityPlayer, World, bool> activationConditionFunction, Action<EntityPlayer, World, Camera> onActivationFunction, Action<EntityPlayer, World, Camera> onFinishFunction, CutsceneBackground background, CutsceneTransition transitionIn, CutsceneTransition transitionOut, params CSAction[] script)
             {
                 this.id = id;
                 this.script = new List<CSAction>();
@@ -397,17 +403,25 @@ namespace Plateau.Components
                 this.onFinishFunction = onFinishFunction;
                 this.currentAction = 0;
                 this.background = background;
+                this.transitionIn = transitionIn;
+                this.transitionOut = transitionOut;
                 this.activationConditionFunction = activationConditionFunction;
             }
 
             public void OnActivation(EntityPlayer player, World world, Camera camera)
             {
-                this.onActivationFunction(player, world, camera);
+                if (onActivationFunction != null)
+                {
+                    this.onActivationFunction(player, world, camera);
+                }
             }
 
             public void OnFinish(EntityPlayer player, World world, Camera camera)
             {
-                this.onFinishFunction(player, world, camera);
+                if (onFinishFunction != null)
+                {
+                    this.onFinishFunction(player, world, camera);
+                }
             }
 
             public bool CheckActivationCondition(EntityPlayer player, World world)
@@ -449,7 +463,7 @@ namespace Plateau.Components
             }
         }
 
-        public static Cutscene CUTSCENE_TEST, CUTSCENE_END_OF_DAY, CUTSCENE_SLEEP;
+        public static Cutscene CUTSCENE_TEST, CUTSCENE_SLEEP, CUTSCENE_INTRO;
         private static DummyController dummyController;
 
         private static List<Cutscene> CUTSCENES;
@@ -468,12 +482,25 @@ namespace Plateau.Components
                 (entityPlayer, world, cam) => { 
                     player.AddNotification(new EntityPlayer.Notification("this is a onCutsceneEnd test", Color.Red)); 
                 },
-                CutsceneBackground.SKY,
+                CutsceneBackground.WORLD,
+                CutsceneTransition.FADE,
+                CutsceneTransition.NONE,
                 new Cutscene.GroupedCSAction(new Cutscene.MovePlayerByCSAction(100, player), new Cutscene.PanCameraByCSAction(new Vector2(100, 0))),
                 new Cutscene.WaitCSAction(1.0f),
                 new Cutscene.DialogueCSAction(player, new DialogueNode("THIS IS A TEST DIALOGUE", DialogueNode.PORTRAIT_BAD)),
                 new Cutscene.MovePlayerByCSAction(-50, player),
                 new Cutscene.PanCameraByCSAction(new Vector2(-50, 0))
+                ));
+
+            CUTSCENES.Add(CUTSCENE_INTRO = new Cutscene("CUTSCENE_INTRO",
+                (entityPlayer, world) => { return true; },
+                null,
+                null,
+                CutsceneBackground.SPECTRUM,
+                CutsceneTransition.NONE,
+                CutsceneTransition.FADE,
+                new Cutscene.WaitCSAction(1.0f),
+                new Cutscene.DialogueCSAction(player, new DialogueNode("Welcome", DialogueNode.PORTRAIT_BAD))
                 ));
 
             CUTSCENES.Add(CUTSCENE_SLEEP = new Cutscene("CUTSCENE_SLEEP",
@@ -510,6 +537,8 @@ namespace Plateau.Components
                     }
                 },
                 CutsceneBackground.SKY,
+                CutsceneTransition.FADE,
+                CutsceneTransition.FADE,
                 new Cutscene.WaitCSAction(1.0f),
                 new Cutscene.DialogueCSAction(player, (player, world, area) => { //dialogue if player is not resting at tent/bed
                     return (player.GetTargettedTileEntity() is TEntitySleepable || player.GetTargettedTileEntity() is TEntityFarmhouse) ? null : new DialogueNode("It's getting late...|I better get to bed.", DialogueNode.PORTRAIT_BAD);
@@ -520,7 +549,7 @@ namespace Plateau.Components
                 }),
                 new Cutscene.DialogueCSAction(player, new DialogueNode("...Your progress will be saved overnight.\n\nSweet dreams.", DialogueNode.PORTRAIT_BAD)),
                 new Cutscene.WaitCSAction(2.0f)
-                )); //END CUTSCENE
+                )); 
         }
 
         public static Cutscene GetCutsceneById(string id)

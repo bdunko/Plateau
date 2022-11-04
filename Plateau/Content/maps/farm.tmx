@@ -671,7 +671,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="22" name="cutscenes" visible="0" locked="1"/>
+ <objectgroup id="22" name="cutscenes" locked="1"/>
  <objectgroup id="11" name="waypoints">
   <object id="6" x="32" y="352">
    <properties>

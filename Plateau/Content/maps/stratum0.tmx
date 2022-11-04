@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="385" height="118" tilewidth="8" tileheight="8" infinite="0" nextlayerid="69" nextobjectid="402">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="385" height="118" tilewidth="8" tileheight="8" infinite="0" nextlayerid="69" nextobjectid="404">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="Tranquil Trail"/>
@@ -1261,10 +1261,15 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="37" name="cutscenes">
+ <objectgroup id="37" name="cutscenes" visible="0">
   <object id="27" x="864" y="304" width="194.667" height="88">
    <properties>
     <property name="id" value="CUTSCENE_TEST"/>
+   </properties>
+  </object>
+  <object id="402" x="56" y="569.667" width="194.667" height="126.333">
+   <properties>
+    <property name="id" value="CUTSCENE_INTRO"/>
    </properties>
   </object>
  </objectgroup>
@@ -1467,7 +1472,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="3" name="spawnzones" visible="0">
+ <objectgroup id="3" name="spawnzones" visible="0" locked="1">
   <object id="230" x="106.5" y="826.5" width="216.277" height="62.728">
    <properties>
     <property name="coal_rock" value="0.25"/>
@@ -1927,7 +1932,7 @@
   <object id="312" x="216" y="680">
    <properties>
     <property name="entity" value="signpost"/>
-    <property name="text" value="Hold A to walk left or D to walk right. You can review the keyboard controls in the bottom left corner of the screen. You can also see contextual options for the left and right mouse buttons in the bottom right corner of the screen. "/>
+    <property name="text" value="Hold A to walk left or D to walk right. You can review the keyboard controls in the bottom left corner of the screen.|You can also see contextual options for the left and right mouse buttons in the bottom right corner of the screen. "/>
    </properties>
    <point/>
   </object>
@@ -2318,6 +2323,12 @@
   <object id="374" x="624" y="64">
    <properties>
     <property name="name" value="SPtop2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="403" x="144" y="680">
+   <properties>
+    <property name="name" value="SPtutorial"/>
    </properties>
    <point/>
   </object>

@@ -410,7 +410,8 @@ namespace Plateau.Components
         private AnimatedSprite dialogueBox, bounceArrow;
         private static float DIALOGUE_BOX_ANIMATION_LENGTH = 0.033f; //0.33 per 4 frames
         private bool inDialogue;
-        private int currentDialogueNumChars;
+        private float currentDialogueNumChars;
+        private static float DIALOGUE_CHARS_PER_FRAME = 0.5f; //speed of dialogue
         private static Vector2 DIALOGUE_BOX_LOCATION = new Vector2(65.5f, 8);
         private static Vector2 DIALOGUE_PORTRAIT_LOCATION = DIALOGUE_BOX_LOCATION + new Vector2(7, 8);
         private static Vector2 DIALOGUE_TEXT_LOCATION = DIALOGUE_BOX_LOCATION + new Vector2(50, 8);
@@ -541,6 +542,14 @@ namespace Plateau.Components
             this.isMouseOverScrapbookMC = false;
             this.isMouseOverSettingsMC = false;
             this.isMouseOverEditModeMC = false;
+            mouseLeftAction = "";
+            mouseRightAction = "";
+            mouseLeftShiftAction = "";
+            mouseRightShiftAction = "";
+            leftAction = "";
+            rightAction = "";
+            downAction = "";
+            upAction = "";
         }
 
         public bool IsItemHeld()
@@ -2893,7 +2902,7 @@ namespace Plateau.Components
         public void TransitionFadeIn()
         {
             interfaceState = InterfaceState.TRANSITION_FADE_IN;
-            transitionAlpha = 1.0f;
+            transitionAlpha = 3.0f;
             transitionPosition = new Vector2(0, 0);
         }
 
@@ -2926,7 +2935,6 @@ namespace Plateau.Components
             foreach(EntityPlayer.TimedEffect effect in appliedEffects)
             {
                 RectangleF rect = new RectangleF(effectX, effectY, 12, 12);
-                Util.DrawDebugRect(rect, Color.Red);
                 effectRects.Add(rect);
                 if(rect.Contains(controller.GetMousePos()))
                 {
@@ -3053,7 +3061,6 @@ namespace Plateau.Components
             } else if (interfaceState == InterfaceState.TRANSITION_FADE_TO_BLACK)
             {
                 transitionAlpha += TRANSITION_ALPHA_SPEED * deltaTime;
-                //a bit diff than other transitions... used for cutscnee stuff - intended to do FadeToBlack THEN immediately afterwards FadeIn
             } else if (interfaceState == InterfaceState.TRANSITION_FADE_IN)
             {
                 transitionAlpha -= TRANSITION_ALPHA_SPEED * deltaTime;
@@ -3122,7 +3129,7 @@ namespace Plateau.Components
                 }
                 else
                 {
-                    currentDialogueNumChars++;
+                    currentDialogueNumChars+=DIALOGUE_CHARS_PER_FRAME;
                     if (controller.GetMouseLeftPress())
                     {
                         if (currentDialogueNumChars < currentDialogue.dialogueTexts[dialogueNodePage].Length)
@@ -4506,6 +4513,7 @@ namespace Plateau.Components
 
         public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, float layerDepth)
         {
+
             if(editMode && !GameState.CheckFlag(GameState.FLAG_SETTINGS_HIDE_GRID))
             {
                 sb.Draw(grid, gridLocation, Color.White * GRID_OPACITY);
@@ -5127,6 +5135,7 @@ namespace Plateau.Components
                 }
             }
 
+
             Vector2 leftActionStrSize = PlateauMain.FONT.MeasureString(leftAction) * PlateauMain.FONT_SCALE;
             Vector2 rightActionStrSize = PlateauMain.FONT.MeasureString(rightAction) * PlateauMain.FONT_SCALE;
             Vector2 upActionStrSize = PlateauMain.FONT.MeasureString(upAction) * PlateauMain.FONT_SCALE;
@@ -5352,7 +5361,7 @@ namespace Plateau.Components
                     else
                     {
                         sb.Draw(currentDialogue.portrait, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_PORTRAIT_LOCATION), Color.White);
-                        QUEUED_STRINGS.Add(new QueuedString(currentDialogue.GetText(currentDialogueNumChars, dialogueNodePage), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_TEXT_LOCATION), Color.Black));
+                        QUEUED_STRINGS.Add(new QueuedString(currentDialogue.GetText((int)currentDialogueNumChars, dialogueNodePage), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_TEXT_LOCATION), Color.Black));
                         if (currentDialogueNumChars >= currentDialogue.dialogueTexts[dialogueNodePage].Length)
                         {
                             bounceArrow.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_BOUNCE_ARROW_LOCATION), Color.White, layerDepth);

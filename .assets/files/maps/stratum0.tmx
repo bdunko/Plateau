@@ -1268,13 +1268,13 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#ff00ff" id="36" name="zones" visible="0">
-  <object id="21" x="1318.5" y="306.5" width="338.5" height="86.167">
+ <objectgroup color="#ff00ff" id="36" name="zones">
+  <object id="21" x="1318.5" y="284.5" width="338.5" height="108.167">
    <properties>
     <property name="name" value="Cumulus Park"/>
    </properties>
   </object>
-  <object id="24" x="2091" y="708.5" width="449.833" height="154.167">
+  <object id="24" x="2091" y="708.5" width="478.5" height="154.167">
    <properties>
     <property name="name" value="Cumulus Reservoir"/>
    </properties>
@@ -1321,7 +1321,7 @@
   </object>
   <object id="72" x="2656" y="192" width="363.667" height="96.6667">
    <properties>
-    <property name="name" value="Artist Paradise"/>
+    <property name="name" value="Artist's Paradise"/>
    </properties>
   </object>
   <object id="73" x="2800" y="600" width="180.773" height="90.5151">
@@ -1334,17 +1334,17 @@
     <property name="name" value="Window Cavern"/>
    </properties>
   </object>
-  <object id="76" x="1640" y="79.6667" width="427.5" height="108">
+  <object id="76" x="1640" y="43" width="427.5" height="144.667">
    <properties>
     <property name="name" value="Cloud Landing"/>
    </properties>
   </object>
-  <object id="107" x="2732" y="12" width="299.167" height="120">
+  <object id="107" x="2732" y="0" width="299.167" height="132">
    <properties>
     <property name="name" value="Eagle's Vantage"/>
    </properties>
   </object>
-  <object id="264" x="894" y="720" width="451.667" height="137.5">
+  <object id="264" x="894.667" y="720" width="451" height="137.5">
    <properties>
     <property name="name" value="Apple Valley"/>
    </properties>

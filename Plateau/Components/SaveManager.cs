@@ -39,12 +39,19 @@ namespace Plateau.Components
 
             if(loadedStates.Count == 0) //new game init
             {
-                for(int i = 0; i < 28; i++)
+                //place player in tutorial cave cave
+                world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.S0]);
+                world.GetCurrentArea().MoveToWaypoint(player, "SPtutorial");
+                for (int i = 0; i < 28; i++)
                 {
                     world.AdvanceDay(player);
                 }
             } else
             {
+                //place player in front of house
+                world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.FARM]);
+                world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseOutside");
+
                 foreach (SaveState saveState in loadedStates)
                 {
                     if (saveState.GetIdentifier() == SaveState.Identifier.PLAYER)
@@ -146,12 +153,35 @@ namespace Plateau.Components
                         CutsceneManager.LoadSave(saveState);
                     } else if (saveState.GetIdentifier() == SaveState.Identifier.CHARACTER)
                     {
-                        EntityCharacter.CharacterEnum.TryParse(saveState.TryGetData("character", "ERROR"), out EntityCharacter.CharacterEnum characterEnum);
+                        Enum.TryParse(saveState.TryGetData("character", "ERROR"), out EntityCharacter.CharacterEnum characterEnum);
                         world.GetCharacter(characterEnum).LoadSave(saveState);
                     } else if (saveState.GetIdentifier() == SaveState.Identifier.SOULCHEST)
                     {
                         PEntitySoulchest.LoadSave(saveState);
                     }
+                }
+
+                //now that flags are loaded, move player to their house
+                int houseUpgradeLevel = GameState.GetFlagValue(GameState.FLAG_HOUSE_UPGRADE_LEVEL);
+                switch (houseUpgradeLevel) //move player to their bed/house
+                {
+                    case 0:
+                        world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.FARM]);
+                        world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseOutside");
+                        break;
+                    case 1:
+                        world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                        world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseCabinBed");
+                        break;
+                    case 2:
+                        world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                        world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseHouseBed");
+                        break;
+                    case 3:
+                    default:
+                        world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                        world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseMansionBed");
+                        break;
                 }
             }
         }
