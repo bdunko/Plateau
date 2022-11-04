@@ -1443,7 +1443,7 @@ namespace Plateau
                         position = position - new Vector2(0, 1);
                     }
                     TileEntity toAdd = (TileEntity)EntityFactory.GetEntity(enType, ItemDict.NONE, position, this);
-                    DialogueNode signText = new DialogueNode(tiledObject.Properties["text"], DialogueNode.PORTRAIT_BAD);
+                    DialogueNode signText = new DialogueNode(tiledObject.Properties["text"], DialogueNode.PORTRAIT_SYSTEM);
                     ((TEntitySignpost)toAdd).SetDialogueNode(signText);
                     AddTileEntity(toAdd);
                 } else if (entityType.Equals("spirit"))
@@ -1512,7 +1512,7 @@ namespace Plateau
                     bool moves = bool.Parse(tiledObject.Properties["moves"]);
                     for (int i = 0; i < dialogueStrings.Length; i++)
                     {
-                        dialogues[i] = new DialogueNode(dialogueStrings[i], DialogueNode.PORTRAIT_BAD);
+                        dialogues[i] = new DialogueNode(dialogueStrings[i], DialogueNode.PORTRAIT_SYSTEM);
                     }
 
                     Entity toAdd;

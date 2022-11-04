@@ -24,16 +24,16 @@ namespace Plateau.Entities
             }
         }
 
-        private static DialogueNode dislikeDialogue1 = new DialogueNode("This isn't what I ordered, haiku. I guess humans don't make food that matches my request...", DialogueNode.PORTRAIT_BAD);
-        private static DialogueNode dislikeDialogue2 = new DialogueNode("The dish is nice and all, but I was hoping for something different, haiku. Sorry!", DialogueNode.PORTRAIT_BAD);
-        private static DialogueNode dislikeDialogue3 = new DialogueNode("Eww! This isn't what I asked for at all! I demand to speak with the manager, haiku!", DialogueNode.PORTRAIT_BAD);
-        private static DialogueNode likeDialogue1 = new DialogueNode("Wow, this is amazing! Here, take some trilobites as a tip, haiku!", DialogueNode.PORTRAIT_BAD);
-        private static DialogueNode likeDialogue2 = new DialogueNode("Perfect! I've never tasted flavors like this before, haiku. Take these as your payment.", DialogueNode.PORTRAIT_BAD);
-        private static DialogueNode likeDialogue3 = new DialogueNode("How did you know just what I was thinking of, haiku? Here's your tip!", DialogueNode.PORTRAIT_BAD);
-        private static DialogueNode fullLikeDialogue = new DialogueNode("I'm full for today, haiku. I hope you come back tommorrow.", DialogueNode.PORTRAIT_BAD);
-        private static DialogueNode fullDislikeDialogue = new DialogueNode("I'm done eating for today. Try to do better next time, haiku.", DialogueNode.PORTRAIT_BAD);
-        private static DialogueNode notFoodDialogue = new DialogueNode("I don't think that's edible, haiku...", DialogueNode.PORTRAIT_BAD);
-        private static DialogueNode notCuisineDialogue = new DialogueNode("That's boring! I want hand-cooked human cuisine, haiku!", DialogueNode.PORTRAIT_BAD);
+        private static DialogueNode dislikeDialogue1 = new DialogueNode("This isn't what I ordered, haiku. I guess humans don't make food that matches my request...", DialogueNode.PORTRAIT_SYSTEM);
+        private static DialogueNode dislikeDialogue2 = new DialogueNode("The dish is nice and all, but I was hoping for something different, haiku. Sorry!", DialogueNode.PORTRAIT_SYSTEM);
+        private static DialogueNode dislikeDialogue3 = new DialogueNode("Eww! This isn't what I asked for at all! I demand to speak with the manager, haiku!", DialogueNode.PORTRAIT_SYSTEM);
+        private static DialogueNode likeDialogue1 = new DialogueNode("Wow, this is amazing! Here, take some trilobites as a tip, haiku!", DialogueNode.PORTRAIT_SYSTEM);
+        private static DialogueNode likeDialogue2 = new DialogueNode("Perfect! I've never tasted flavors like this before, haiku. Take these as your payment.", DialogueNode.PORTRAIT_SYSTEM);
+        private static DialogueNode likeDialogue3 = new DialogueNode("How did you know just what I was thinking of, haiku? Here's your tip!", DialogueNode.PORTRAIT_SYSTEM);
+        private static DialogueNode fullLikeDialogue = new DialogueNode("I'm full for today, haiku. I hope you come back tommorrow.", DialogueNode.PORTRAIT_SYSTEM);
+        private static DialogueNode fullDislikeDialogue = new DialogueNode("I'm done eating for today. Try to do better next time, haiku.", DialogueNode.PORTRAIT_SYSTEM);
+        private static DialogueNode notFoodDialogue = new DialogueNode("I don't think that's edible, haiku...", DialogueNode.PORTRAIT_SYSTEM);
+        private static DialogueNode notCuisineDialogue = new DialogueNode("That's boring! I want hand-cooked human cuisine, haiku!", DialogueNode.PORTRAIT_SYSTEM);
 
         private bool hasEaten;
         private static int TIP_AMOUNT_MIN = 2;
@@ -47,16 +47,16 @@ namespace Plateau.Entities
             {
                 requests = new RequestPair[]
                 {
-                    new RequestPair(new DialogueNode("Do you have anything spicy, haiku? I need to burn off some weight!", DialogueNode.PORTRAIT_BAD), Item.Tag.SPICY), 
-                    new RequestPair(new DialogueNode("What do I want to eat? Maybe something salty, haiku.", DialogueNode.PORTRAIT_BAD), Item.Tag.SALTY),
-                    new RequestPair(new DialogueNode("I'm here on a dare. Give me the most bitter human food you can find, haiku!", DialogueNode.PORTRAIT_BAD), Item.Tag.BITTER),
-                    new RequestPair(new DialogueNode("I want something sweet like me, haiku!", DialogueNode.PORTRAIT_BAD), Item.Tag.SWEET),
-                    new RequestPair(new DialogueNode("I'm parched, haiku. Do you have any drinks?", DialogueNode.PORTRAIT_BAD), Item.Tag.DRINK),
-                    new RequestPair(new DialogueNode("The menu said that breakfast is available 24 hours a day. So get me some breakfast food, haiku!", DialogueNode.PORTRAIT_BAD), Item.Tag.BREAKFAST),
-                    new RequestPair(new DialogueNode("You're taking orders, haiku? Find me something meaty!", DialogueNode.PORTRAIT_BAD), Item.Tag.MEATY),
-                    new RequestPair(new DialogueNode("Hi, haiku! I'm on a diet, what kinds of foods do humans make with vegetables? I want something like that!", DialogueNode.PORTRAIT_BAD), Item.Tag.VEGGIE),
-                    new RequestPair(new DialogueNode("Something made from fruit please, Mr. Waiter!", DialogueNode.PORTRAIT_BAD), Item.Tag.FRUIT),
-                    new RequestPair(new DialogueNode("Here's my ID, haiku. I'll take the strongest alcohol you've got.", DialogueNode.PORTRAIT_BAD), Item.Tag.ALCOHOL)
+                    new RequestPair(new DialogueNode("Do you have anything spicy, haiku? I need to burn off some weight!", DialogueNode.PORTRAIT_SYSTEM), Item.Tag.SPICY), 
+                    new RequestPair(new DialogueNode("What do I want to eat? Maybe something salty, haiku.", DialogueNode.PORTRAIT_SYSTEM), Item.Tag.SALTY),
+                    new RequestPair(new DialogueNode("I'm here on a dare. Give me the most bitter human food you can find, haiku!", DialogueNode.PORTRAIT_SYSTEM), Item.Tag.BITTER),
+                    new RequestPair(new DialogueNode("I want something sweet like me, haiku!", DialogueNode.PORTRAIT_SYSTEM), Item.Tag.SWEET),
+                    new RequestPair(new DialogueNode("I'm parched, haiku. Do you have any drinks?", DialogueNode.PORTRAIT_SYSTEM), Item.Tag.DRINK),
+                    new RequestPair(new DialogueNode("The menu said that breakfast is available 24 hours a day. So get me some breakfast food, haiku!", DialogueNode.PORTRAIT_SYSTEM), Item.Tag.BREAKFAST),
+                    new RequestPair(new DialogueNode("You're taking orders, haiku? Find me something meaty!", DialogueNode.PORTRAIT_SYSTEM), Item.Tag.MEATY),
+                    new RequestPair(new DialogueNode("Hi, haiku! I'm on a diet, what kinds of foods do humans make with vegetables? I want something like that!", DialogueNode.PORTRAIT_SYSTEM), Item.Tag.VEGGIE),
+                    new RequestPair(new DialogueNode("Something made from fruit please, Mr. Waiter!", DialogueNode.PORTRAIT_SYSTEM), Item.Tag.FRUIT),
+                    new RequestPair(new DialogueNode("Here's my ID, haiku. I'll take the strongest alcohol you've got.", DialogueNode.PORTRAIT_SYSTEM), Item.Tag.ALCOHOL)
                 };
             }
             dialogues = new DialogueNode[1];

@@ -487,7 +487,7 @@ namespace Plateau.Components
                 CutsceneTransition.NONE,
                 new Cutscene.GroupedCSAction(new Cutscene.MovePlayerByCSAction(100, player), new Cutscene.PanCameraByCSAction(new Vector2(100, 0))),
                 new Cutscene.WaitCSAction(1.0f),
-                new Cutscene.DialogueCSAction(player, new DialogueNode("THIS IS A TEST DIALOGUE", DialogueNode.PORTRAIT_BAD)),
+                new Cutscene.DialogueCSAction(player, new DialogueNode("THIS IS A TEST DIALOGUE", DialogueNode.PORTRAIT_SYSTEM)),
                 new Cutscene.MovePlayerByCSAction(-50, player),
                 new Cutscene.PanCameraByCSAction(new Vector2(-50, 0))
                 ));
@@ -500,7 +500,7 @@ namespace Plateau.Components
                 CutsceneTransition.NONE,
                 CutsceneTransition.FADE,
                 new Cutscene.WaitCSAction(1.0f),
-                new Cutscene.DialogueCSAction(player, new DialogueNode("Welcome", DialogueNode.PORTRAIT_BAD))
+                new Cutscene.DialogueCSAction(player, new DialogueNode("Welcome", DialogueNode.PORTRAIT_SYSTEM))
                 ));
 
             CUTSCENES.Add(CUTSCENE_SLEEP = new Cutscene("CUTSCENE_SLEEP",
@@ -541,13 +541,13 @@ namespace Plateau.Components
                 CutsceneTransition.FADE,
                 new Cutscene.WaitCSAction(1.0f),
                 new Cutscene.DialogueCSAction(player, (player, world, area) => { //dialogue if player is not resting at tent/bed
-                    return (player.GetTargettedTileEntity() is TEntitySleepable || player.GetTargettedTileEntity() is TEntityFarmhouse) ? null : new DialogueNode("It's getting late...|I better get to bed.", DialogueNode.PORTRAIT_BAD);
+                    return (player.GetTargettedTileEntity() is TEntitySleepable || player.GetTargettedTileEntity() is TEntityFarmhouse) ? null : new DialogueNode("It's getting late...|I better get to bed.", DialogueNode.PORTRAIT_SYSTEM);
                 }),
                 new Cutscene.WaitCSAction(1.0f),
                 new Cutscene.DialogueCSAction(player, (player, world, area) => { //dialogue for shipped value
-                    return TEntityShippingBin.TOTAL_VALUE > 0 ? new DialogueNode("You shipped " + TEntityShippingBin.TOTAL_VALUE + " gold worth of items today! Good work!", DialogueNode.PORTRAIT_BAD) : null;
+                    return TEntityShippingBin.TOTAL_VALUE > 0 ? new DialogueNode("You shipped " + TEntityShippingBin.TOTAL_VALUE + " gold worth of items today! Good work!", DialogueNode.PORTRAIT_SYSTEM) : null;
                 }),
-                new Cutscene.DialogueCSAction(player, new DialogueNode("...Your progress will be saved overnight.\n\nSweet dreams.", DialogueNode.PORTRAIT_BAD)),
+                new Cutscene.DialogueCSAction(player, new DialogueNode("...Your progress will be saved overnight.\n\nSweet dreams.", DialogueNode.PORTRAIT_SYSTEM)),
                 new Cutscene.WaitCSAction(2.0f)
                 )); 
         }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/sailcloth_sailcloth.png</SourceFile>
-  <SourceTime>2019-06-05T17:40:58-04:00</SourceTime>
+  <SourceTime>2022-11-04T17:41:01.7518405-04:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/clothes/sailcloth_sailcloth.xnb</DestFile>
-  <DestTime>2022-11-02T16:29:57.7324543-04:00</DestTime>
+  <DestTime>2022-11-04T17:41:05.2574839-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

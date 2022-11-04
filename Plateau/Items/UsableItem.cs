@@ -42,16 +42,16 @@ namespace Plateau.Items
 
         private static DialogueNode GeneratePerfumeDialogue(AppliedEffects.Effect perfumeEffect, string afterUse)
         {
-            DialogueNode perfumeDialogue = new DialogueNode("Apply the perfume?", DialogueNode.PORTRAIT_BAD);
+            DialogueNode perfumeDialogue = new DialogueNode("Apply the perfume?", DialogueNode.PORTRAIT_SYSTEM);
             perfumeDialogue.decisionLeftText = "Yes";
             perfumeDialogue.decisionRightText = "No";
-            perfumeDialogue.decisionLeftNode = new DialogueNode(afterUse, DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+            perfumeDialogue.decisionLeftNode = new DialogueNode(afterUse, DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
             {
                 player.ClearPerfumeEffects();
                 player.ApplyEffect(perfumeEffect, AppliedEffects.LENGTH_VERY_LONG);
                 player.GetHeldItem().Subtract(1);
             });
-            perfumeDialogue.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+            perfumeDialogue.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
 
             return perfumeDialogue;
         }
@@ -97,7 +97,7 @@ namespace Plateau.Items
 
             if (SEA_ELEMENT_DIALOGUE == null)
             {
-                DialogueNode success = new DialogueNode("Its purpose complete, the stone shatters.", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                DialogueNode success = new DialogueNode("Its purpose complete, the stone shatters.", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
                     Vector2 playerLocation = player.GetAdjustedPosition();
                     for (int i = 0; i < 500; i++)
@@ -112,18 +112,18 @@ namespace Plateau.Items
                     world.SetWeather(World.Weather.RAINY);
                     player.GetHeldItem().Subtract(1);
                 });
-                DialogueNode failure = new DialogueNode("Using the stone achieves nothing, as the weather is already rainy.", DialogueNode.PORTRAIT_BAD);
+                DialogueNode failure = new DialogueNode("Using the stone achieves nothing, as the weather is already rainy.", DialogueNode.PORTRAIT_SYSTEM);
 
-                SEA_ELEMENT_DIALOGUE = new DialogueNode("Activate the Sea Element?", DialogueNode.PORTRAIT_BAD);
+                SEA_ELEMENT_DIALOGUE = new DialogueNode("Activate the Sea Element?", DialogueNode.PORTRAIT_SYSTEM);
                 SEA_ELEMENT_DIALOGUE.decisionLeftText = "Yes";
                 SEA_ELEMENT_DIALOGUE.decisionRightText = "No";
                 SEA_ELEMENT_DIALOGUE.decisionLeftNode = new DialogueNode((player, area, world) => { return world.GetWeather() != World.Weather.RAINY; }, success, failure);
-                SEA_ELEMENT_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                SEA_ELEMENT_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
             }
 
             if (SKY_ELEMENT_DIALOGUE == null)
             {
-                DialogueNode success = new DialogueNode("Its purpose complete, the stone shatters.", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                DialogueNode success = new DialogueNode("Its purpose complete, the stone shatters.", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
                     Vector2 playerLocation = player.GetAdjustedPosition();
                     for (int i = 0; i < 500; i++)
@@ -138,21 +138,21 @@ namespace Plateau.Items
                     world.SetWeather(World.Weather.SUNNY);
                     player.GetHeldItem().Subtract(1);
                 });
-                DialogueNode failure = new DialogueNode("Using the stone achieves nothing, as the weather is already sunny.", DialogueNode.PORTRAIT_BAD);
+                DialogueNode failure = new DialogueNode("Using the stone achieves nothing, as the weather is already sunny.", DialogueNode.PORTRAIT_SYSTEM);
 
-                SKY_ELEMENT_DIALOGUE = new DialogueNode("Activate the Sky Element?", DialogueNode.PORTRAIT_BAD);
+                SKY_ELEMENT_DIALOGUE = new DialogueNode("Activate the Sky Element?", DialogueNode.PORTRAIT_SYSTEM);
                 SKY_ELEMENT_DIALOGUE.decisionLeftText = "Yes";
                 SKY_ELEMENT_DIALOGUE.decisionRightText = "No";
                 SKY_ELEMENT_DIALOGUE.decisionLeftNode = new DialogueNode((player, area, world) => { return world.GetWeather() != World.Weather.SUNNY; }, success, failure);
-                SKY_ELEMENT_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                SKY_ELEMENT_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
             }
 
             if (PRIMEVAL_ELEMENT_DIALOGUE == null)
             {
-                PRIMEVAL_ELEMENT_DIALOGUE = new DialogueNode("Activate the Primeval Element?", DialogueNode.PORTRAIT_BAD);
+                PRIMEVAL_ELEMENT_DIALOGUE = new DialogueNode("Activate the Primeval Element?", DialogueNode.PORTRAIT_SYSTEM);
                 PRIMEVAL_ELEMENT_DIALOGUE.decisionLeftText = "Yes";
                 PRIMEVAL_ELEMENT_DIALOGUE.decisionRightText = "No";
-                PRIMEVAL_ELEMENT_DIALOGUE.decisionLeftNode = new DialogueNode("Its purpose complete, the stone shatters.", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                PRIMEVAL_ELEMENT_DIALOGUE.decisionLeftNode = new DialogueNode("Its purpose complete, the stone shatters.", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
                     Vector2 playerLocation = player.GetAdjustedPosition();
                     Vector2 centerLocation = new Vector2(playerLocation.X, playerLocation.Y + 16);
@@ -180,12 +180,12 @@ namespace Plateau.Items
 
                     player.GetHeldItem().Subtract(1);
                 });
-                PRIMEVAL_ELEMENT_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                PRIMEVAL_ELEMENT_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
             }
 
             if (LAND_ELEMENT_DIALOGUE == null)
             {
-                DialogueNode firstUse = new DialogueNode("The crystal undulates vigorously.\nYour current position has been remembered.", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                DialogueNode firstUse = new DialogueNode("The crystal undulates vigorously.\nYour current position has been remembered.", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
                     for (int i = 0; i < 40; i++)
                     {
@@ -202,22 +202,22 @@ namespace Plateau.Items
                     GameState.LAND_ELEMENT_PRIMED = true;
                 });
 
-                DialogueNode secondUse = new DialogueNode("", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                DialogueNode secondUse = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
                     player.TransitionTo(GameState.LAND_ELEMENT_AREA, new Vector2(GameState.LAND_ELEMENT_X, GameState.LAND_ELEMENT_Y), Area.TransitionZone.Animation.TO_UP);
                     GameState.LAND_ELEMENT_PRIMED = false;
                     player.GetHeldItem().Subtract(1);
                 });
 
-                DialogueNode cancel = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                DialogueNode cancel = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
 
-                DialogueNode promptSecondUse = new DialogueNode("Activate the Land Element?\nThis will teleport you to the stored location.", DialogueNode.PORTRAIT_BAD);
+                DialogueNode promptSecondUse = new DialogueNode("Activate the Land Element?\nThis will teleport you to the stored location.", DialogueNode.PORTRAIT_SYSTEM);
                 promptSecondUse.decisionLeftText = "Yes";
                 promptSecondUse.decisionLeftNode = secondUse;
                 promptSecondUse.decisionRightText = "No";
                 promptSecondUse.decisionRightNode = cancel;
 
-                DialogueNode promptFirstUse = new DialogueNode("Activate the Land Element?\nThis cause your current location to be stored for later recall.", DialogueNode.PORTRAIT_BAD);
+                DialogueNode promptFirstUse = new DialogueNode("Activate the Land Element?\nThis cause your current location to be stored for later recall.", DialogueNode.PORTRAIT_SYSTEM);
                 promptFirstUse.decisionLeftText = "Yes";
                 promptFirstUse.decisionLeftNode = firstUse;
                 promptFirstUse.decisionRightText = "No";
@@ -230,10 +230,10 @@ namespace Plateau.Items
 
             if (BURST_STONE_DIALOGUE == null)
             {
-                BURST_STONE_DIALOGUE = new DialogueNode("Use the Burst Stone?", DialogueNode.PORTRAIT_BAD);
+                BURST_STONE_DIALOGUE = new DialogueNode("Use the Burst Stone?", DialogueNode.PORTRAIT_SYSTEM);
                 BURST_STONE_DIALOGUE.decisionLeftText = "Yes";
                 BURST_STONE_DIALOGUE.decisionRightText = "No";
-                BURST_STONE_DIALOGUE.decisionLeftNode = new DialogueNode("Kaboom!", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                BURST_STONE_DIALOGUE.decisionLeftNode = new DialogueNode("Kaboom!", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
 
                     Vector2 playerLocation = player.GetAdjustedPosition();
@@ -277,15 +277,15 @@ namespace Plateau.Items
 
                     player.GetHeldItem().Subtract(1);
                 });
-                BURST_STONE_DIALOGUE.decisionRightNode = new DialogueNode("Probably a wise decision.", DialogueNode.PORTRAIT_BAD);
+                BURST_STONE_DIALOGUE.decisionRightNode = new DialogueNode("Probably a wise decision.", DialogueNode.PORTRAIT_SYSTEM);
             }
 
             if (UNSTABLE_LIQUID_DIALOGUE == null)
             {
-                UNSTABLE_LIQUID_DIALOGUE = new DialogueNode("Use the Unstable Liquid?", DialogueNode.PORTRAIT_BAD);
+                UNSTABLE_LIQUID_DIALOGUE = new DialogueNode("Use the Unstable Liquid?", DialogueNode.PORTRAIT_SYSTEM);
                 UNSTABLE_LIQUID_DIALOGUE.decisionLeftText = "Yes";
                 UNSTABLE_LIQUID_DIALOGUE.decisionRightText = "No";
-                UNSTABLE_LIQUID_DIALOGUE.decisionLeftNode = new DialogueNode("Kaboom!", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                UNSTABLE_LIQUID_DIALOGUE.decisionLeftNode = new DialogueNode("Kaboom!", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
 
                     Vector2 playerLocation = player.GetAdjustedPosition();
@@ -318,15 +318,15 @@ namespace Plateau.Items
                     }
                     player.GetHeldItem().Subtract(1);
                 });
-                UNSTABLE_LIQUID_DIALOGUE.decisionRightNode = new DialogueNode("Probably a wise decision.", DialogueNode.PORTRAIT_BAD);
+                UNSTABLE_LIQUID_DIALOGUE.decisionRightNode = new DialogueNode("Probably a wise decision.", DialogueNode.PORTRAIT_SYSTEM);
             }
 
             if (MOSS_BOTTLE_DIALOGUE == null)
             {
-                MOSS_BOTTLE_DIALOGUE = new DialogueNode("Use the Moss Bottle?", DialogueNode.PORTRAIT_BAD);
+                MOSS_BOTTLE_DIALOGUE = new DialogueNode("Use the Moss Bottle?", DialogueNode.PORTRAIT_SYSTEM);
                 MOSS_BOTTLE_DIALOGUE.decisionLeftText = "Yes";
                 MOSS_BOTTLE_DIALOGUE.decisionRightText = "No";
-                MOSS_BOTTLE_DIALOGUE.decisionLeftNode = new DialogueNode("Kaboom!", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                MOSS_BOTTLE_DIALOGUE.decisionLeftNode = new DialogueNode("Kaboom!", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
 
                     Vector2 playerLocation = player.GetAdjustedPosition();
@@ -362,15 +362,15 @@ namespace Plateau.Items
                     }
                     player.GetHeldItem().Subtract(1);
                 });
-                MOSS_BOTTLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                MOSS_BOTTLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
             }
 
             if (TROPICAL_BOTTLE_DIALOGUE == null)
             {
-                TROPICAL_BOTTLE_DIALOGUE = new DialogueNode("Use the Tropical Bottle?", DialogueNode.PORTRAIT_BAD);
+                TROPICAL_BOTTLE_DIALOGUE = new DialogueNode("Use the Tropical Bottle?", DialogueNode.PORTRAIT_SYSTEM);
                 TROPICAL_BOTTLE_DIALOGUE.decisionLeftText = "Yes";
                 TROPICAL_BOTTLE_DIALOGUE.decisionRightText = "No";
-                TROPICAL_BOTTLE_DIALOGUE.decisionLeftNode = new DialogueNode("Kaboom!", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                TROPICAL_BOTTLE_DIALOGUE.decisionLeftNode = new DialogueNode("Kaboom!", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
 
                     Vector2 playerLocation = player.GetAdjustedPosition();
@@ -406,15 +406,15 @@ namespace Plateau.Items
                     }
                     player.GetHeldItem().Subtract(1);
                 });
-                TROPICAL_BOTTLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                TROPICAL_BOTTLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
             }
 
             if (SKY_BOTTLE_DIALOGUE == null)
             {
-                SKY_BOTTLE_DIALOGUE = new DialogueNode("Use the Sky Bottle?", DialogueNode.PORTRAIT_BAD);
+                SKY_BOTTLE_DIALOGUE = new DialogueNode("Use the Sky Bottle?", DialogueNode.PORTRAIT_SYSTEM);
                 SKY_BOTTLE_DIALOGUE.decisionLeftText = "Yes";
                 SKY_BOTTLE_DIALOGUE.decisionRightText = "No";
-                SKY_BOTTLE_DIALOGUE.decisionLeftNode = new DialogueNode("Kaboom!", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                SKY_BOTTLE_DIALOGUE.decisionLeftNode = new DialogueNode("Kaboom!", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
 
                     Vector2 playerLocation = player.GetAdjustedPosition();
@@ -450,102 +450,102 @@ namespace Plateau.Items
                     }
                     player.GetHeldItem().Subtract(1);
                 });
-                SKY_BOTTLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                SKY_BOTTLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
             }
 
             if (MILK_CREAM_DIALOGUE == null)
             {
-                MILK_CREAM_DIALOGUE = new DialogueNode("Drink it?", DialogueNode.PORTRAIT_BAD);
+                MILK_CREAM_DIALOGUE = new DialogueNode("Drink it?", DialogueNode.PORTRAIT_SYSTEM);
                 MILK_CREAM_DIALOGUE.decisionLeftText = "Yes";
                 MILK_CREAM_DIALOGUE.decisionRightText = "No";
-                MILK_CREAM_DIALOGUE.decisionLeftNode = new DialogueNode("You got milk. It's very refreshing!", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                MILK_CREAM_DIALOGUE.decisionLeftNode = new DialogueNode("You got milk. It's very refreshing!", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
                     player.ClearEffects();
                     player.GetHeldItem().Subtract(1);
                 });
-                MILK_CREAM_DIALOGUE.decisionRightNode = new DialogueNode("Don't got milk?", DialogueNode.PORTRAIT_BAD);
+                MILK_CREAM_DIALOGUE.decisionRightNode = new DialogueNode("Don't got milk?", DialogueNode.PORTRAIT_SYSTEM);
             }
 
             if (INVINCIROID_DIALOGUE == null)
             {
-                INVINCIROID_DIALOGUE = new DialogueNode("Drink the Invinciroid?", DialogueNode.PORTRAIT_BAD);
+                INVINCIROID_DIALOGUE = new DialogueNode("Drink the Invinciroid?", DialogueNode.PORTRAIT_SYSTEM);
                 INVINCIROID_DIALOGUE.decisionLeftText = "Yes";
                 INVINCIROID_DIALOGUE.decisionRightText = "No";
-                INVINCIROID_DIALOGUE.decisionLeftNode = new DialogueNode("The taste is empowering. You feel strong, indomitable. Time to get back to work!", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                INVINCIROID_DIALOGUE.decisionLeftNode = new DialogueNode("The taste is empowering. You feel strong, indomitable. Time to get back to work!", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
                     player.ExtendEffects(INVINCIROID_TIME);
                     player.GetHeldItem().Subtract(1);
                 });
-                INVINCIROID_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                INVINCIROID_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
             }
 
             if (BLACK_CANDLE_DIALOGUE == null)
             {
-                DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
+                DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) => {
                     player.TransitionTo("FARM", "SPfarmhouseOutside", Area.TransitionZone.Animation.TO_UP);
                     player.GetHeldItem().Subtract(1);
                 });
-                DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_BAD);
-                BLACK_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_BAD);
+                DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_SYSTEM);
+                BLACK_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_SYSTEM);
                 BLACK_CANDLE_DIALOGUE.decisionLeftText = "Yes";
                 BLACK_CANDLE_DIALOGUE.decisionRightText = "No";
-                BLACK_CANDLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                BLACK_CANDLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
                 BLACK_CANDLE_DIALOGUE.decisionLeftNode = new DialogueNode((player, area, world) => { return true; }, teleport, failure);
             }
 
             if (SOOTHE_CANDLE_DIALOGUE == null)
             {
-                DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
+                DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) => {
                     player.TransitionTo("S2", "SPs2Candle", Area.TransitionZone.Animation.TO_UP);
                     player.GetHeldItem().Subtract(1);
                 });
-                DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_BAD);
-                SOOTHE_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_BAD);
+                DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_SYSTEM);
+                SOOTHE_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_SYSTEM);
                 SOOTHE_CANDLE_DIALOGUE.decisionLeftText = "Yes";
                 SOOTHE_CANDLE_DIALOGUE.decisionRightText = "No";
-                SOOTHE_CANDLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                SOOTHE_CANDLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
                 SOOTHE_CANDLE_DIALOGUE.decisionLeftNode = new DialogueNode((player, area, world) => { return GameState.GetFlagValue(GameState.FLAG_MOUNTAIN_STRATUM_LEVEL) >= 2; }, teleport, failure);
             }
 
             if (SALTED_CANDLE_DIALOGUE == null)
             {
-                DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
+                DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) => {
                     player.TransitionTo("BEACH", "SPbeachCandle", Area.TransitionZone.Animation.TO_UP);
                     player.GetHeldItem().Subtract(1);
                 });
-                DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_BAD);
-                SALTED_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_BAD);
+                DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_SYSTEM);
+                SALTED_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_SYSTEM);
                 SALTED_CANDLE_DIALOGUE.decisionLeftText = "Yes";
                 SALTED_CANDLE_DIALOGUE.decisionRightText = "No";
-                SALTED_CANDLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                SALTED_CANDLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
                 SALTED_CANDLE_DIALOGUE.decisionLeftNode = new DialogueNode((player, area, world) => { return true; }, teleport, failure);
             }
 
             if (SPICED_CANDLE_DIALOGUE == null)
             {
-                DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
+                DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) => {
                     player.TransitionTo("S1", "SPs1Candle", Area.TransitionZone.Animation.TO_UP);
                     player.GetHeldItem().Subtract(1);
                 });
-                DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_BAD);
-                SPICED_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_BAD);
+                DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_SYSTEM);
+                SPICED_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_SYSTEM);
                 SPICED_CANDLE_DIALOGUE.decisionLeftText = "Yes";
                 SPICED_CANDLE_DIALOGUE.decisionRightText = "No";
-                SPICED_CANDLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                SPICED_CANDLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
                 SPICED_CANDLE_DIALOGUE.decisionLeftNode = new DialogueNode((player, area, world) => { return GameState.GetFlagValue(GameState.FLAG_MOUNTAIN_STRATUM_LEVEL) >= 1; }, teleport, failure);
             }
 
             if (SUGAR_CANDLE_DIALOGUE == null)
             {
-                DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_BAD, (player, area, world) => {
+                DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) => {
                     player.TransitionTo("S3", "SPs3Candle", Area.TransitionZone.Animation.TO_UP);
                     player.GetHeldItem().Subtract(1);
                 });
-                DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_BAD);
-                SUGAR_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_BAD);
+                DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_SYSTEM);
+                SUGAR_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_SYSTEM);
                 SUGAR_CANDLE_DIALOGUE.decisionLeftText = "Yes";
                 SUGAR_CANDLE_DIALOGUE.decisionRightText = "No";
-                SUGAR_CANDLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_BAD);
+                SUGAR_CANDLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
                 SUGAR_CANDLE_DIALOGUE.decisionLeftNode = new DialogueNode((player, area, world) => { return GameState.GetFlagValue(GameState.FLAG_MOUNTAIN_STRATUM_LEVEL) >= 3; }, teleport, failure);
             }
         }

@@ -2721,7 +2721,7 @@
 /processorParam:TextureFormat=Color
 /build:interface/numbers/zero2.png
 
-#begin interface/portrait_test.png
+#begin interface/portrait_system.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -2731,7 +2731,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:interface/portrait_test.png
+/build:interface/portrait_system.png
 
 #begin interface/resolutiondown_disabled.png
 /importer:TextureImporter

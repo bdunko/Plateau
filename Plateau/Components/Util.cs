@@ -170,6 +170,22 @@ namespace Plateau.Components
         public static RecolorMap WHITE = new RecolorMap("White");
         public static RecolorMap YELLOW = new RecolorMap("Yellow");
 
+        public static RecolorMap HOUSE_BLACK = new RecolorMap("House Black");
+        public static RecolorMap HOUSE_BLUE = new RecolorMap("House Blue");
+        public static RecolorMap HOUSE_DARK_BROWN = new RecolorMap("House Dark Brown");
+        public static RecolorMap HOUSE_LIGHT_BROWN = new RecolorMap("House Light Brown");
+        public static RecolorMap HOUSE_DARK_GREY = new RecolorMap("House Dark Grey");
+        public static RecolorMap HOUSE_LIGHT_GREY = new RecolorMap("House Light Grey");
+        public static RecolorMap HOUSE_NAVY = new RecolorMap("House Navy");
+        public static RecolorMap HOUSE_GREEN = new RecolorMap("House Green");
+        public static RecolorMap HOUSE_OLIVE = new RecolorMap("House Olive");
+        public static RecolorMap HOUSE_ORANGE = new RecolorMap("House Orange");
+        public static RecolorMap HOUSE_PINK = new RecolorMap("House Pink");
+        public static RecolorMap HOUSE_PURPLE = new RecolorMap("House Purple");
+        public static RecolorMap HOUSE_RED = new RecolorMap("House Red");
+        public static RecolorMap HOUSE_WHITE = new RecolorMap("House White");
+        public static RecolorMap HOUSE_YELLOW = new RecolorMap("House Yellow");
+
         public static RecolorMap HAIR_TREEBARK_BROWN = new RecolorMap("Hair Treebark Brown");
         public static RecolorMap HAIR_CHARCOAL_BLACK = new RecolorMap("Hair Charcoal Black");
         public static RecolorMap HAIR_SNOW_WHITE = new RecolorMap("Hair Snow White");
@@ -230,14 +246,14 @@ namespace Plateau.Components
             DARK_BROWN.AddMapping(GREYSCALE_75.color, new Color(50, 43, 40));
             DARK_BROWN.AddMapping(GREYSCALE_45.color, new Color(34, 28, 26));
 
-            LIGHT_BROWN.AddMapping(GREYSCALE_255.color, new Color(219, 164, 99));
-            LIGHT_BROWN.AddMapping(GREYSCALE_225.color, new Color(187, 117, 71));
-            LIGHT_BROWN.AddMapping(GREYSCALE_195.color, new Color(113, 65, 59));
+            LIGHT_BROWN.AddMapping(GREYSCALE_255.color, new Color(244, 210, 156));
+            LIGHT_BROWN.AddMapping(GREYSCALE_225.color, new Color(219, 164, 99));
+            LIGHT_BROWN.AddMapping(GREYSCALE_195.color, new Color(187, 117, 71));
             LIGHT_BROWN.AddMapping(GREYSCALE_165.color, new Color(113, 65, 59));
-            LIGHT_BROWN.AddMapping(GREYSCALE_135.color, new Color(91, 49, 56));
+            LIGHT_BROWN.AddMapping(GREYSCALE_135.color, new Color(113, 65, 59));
             LIGHT_BROWN.AddMapping(GREYSCALE_105.color, new Color(91, 49, 56));
-            LIGHT_BROWN.AddMapping(GREYSCALE_75.color, new Color(66, 36, 51));
-            LIGHT_BROWN.AddMapping(GREYSCALE_45.color, new Color(66, 36, 51));
+            LIGHT_BROWN.AddMapping(GREYSCALE_75.color, new Color(50, 43, 40));
+            LIGHT_BROWN.AddMapping(GREYSCALE_45.color, new Color(50, 43, 40));
 
             DARK_GREY.AddMapping(GREYSCALE_255.color, new Color(109, 117, 141));
             DARK_GREY.AddMapping(GREYSCALE_225.color, new Color(74, 84, 98));
@@ -337,6 +353,142 @@ namespace Plateau.Components
             WHITE.AddMapping(GREYSCALE_105.color, new Color(245, 160, 151));
             WHITE.AddMapping(GREYSCALE_75.color, new Color(245, 160, 151));
             WHITE.AddMapping(GREYSCALE_45.color, new Color(232, 106, 115));
+
+            //
+            HOUSE_BLACK.AddMapping(GREYSCALE_255.color, new Color(50, 43, 40));
+            HOUSE_BLACK.AddMapping(GREYSCALE_225.color, new Color(34, 28, 26));
+            HOUSE_BLACK.AddMapping(GREYSCALE_195.color, new Color(20, 16, 19));
+            HOUSE_BLACK.AddMapping(GREYSCALE_165.color, new Color(13, 11, 14));
+            HOUSE_BLACK.AddMapping(GREYSCALE_135.color, new Color(6, 6, 8));
+            HOUSE_BLACK.AddMapping(GREYSCALE_105.color, new Color(2, 3, 3));
+            HOUSE_BLACK.AddMapping(GREYSCALE_75.color, new Color(1, 2, 2));
+            HOUSE_BLACK.AddMapping(GREYSCALE_45.color, new Color(0, 0, 0));
+
+            HOUSE_BLUE.AddMapping(GREYSCALE_255.color, new Color(32, 214, 199));
+            HOUSE_BLUE.AddMapping(GREYSCALE_225.color, new Color(34, 187, 211));
+            HOUSE_BLUE.AddMapping(GREYSCALE_195.color, new Color(36, 159, 222));
+            HOUSE_BLUE.AddMapping(GREYSCALE_165.color, new Color(38, 126, 209));
+            HOUSE_BLUE.AddMapping(GREYSCALE_135.color, new Color(40, 92, 196));
+            HOUSE_BLUE.AddMapping(GREYSCALE_105.color, new Color(30, 72, 148));
+            HOUSE_BLUE.AddMapping(GREYSCALE_75.color, new Color(20, 52, 100));
+            HOUSE_BLUE.AddMapping(GREYSCALE_45.color, new Color(13, 33, 63));
+
+            HOUSE_DARK_BROWN.AddMapping(GREYSCALE_255.color, new Color(113, 65, 59));
+            HOUSE_DARK_BROWN.AddMapping(GREYSCALE_225.color, new Color(102, 57, 58));
+            HOUSE_DARK_BROWN.AddMapping(GREYSCALE_195.color, new Color(91, 49, 56));
+            HOUSE_DARK_BROWN.AddMapping(GREYSCALE_165.color, new Color(79, 43, 54));
+            HOUSE_DARK_BROWN.AddMapping(GREYSCALE_135.color, new Color(66, 36, 51));
+            HOUSE_DARK_BROWN.AddMapping(GREYSCALE_105.color, new Color(63, 30, 44));
+            HOUSE_DARK_BROWN.AddMapping(GREYSCALE_75.color, new Color(59, 23, 37));
+            HOUSE_DARK_BROWN.AddMapping(GREYSCALE_45.color, new Color(40, 16, 26));
+
+            HOUSE_LIGHT_BROWN.AddMapping(GREYSCALE_255.color, new Color(244, 210, 156));
+            HOUSE_LIGHT_BROWN.AddMapping(GREYSCALE_225.color, new Color(232, 187, 128));
+            HOUSE_LIGHT_BROWN.AddMapping(GREYSCALE_195.color, new Color(219, 164, 99));
+            HOUSE_LIGHT_BROWN.AddMapping(GREYSCALE_165.color, new Color(203, 141, 85));
+            HOUSE_LIGHT_BROWN.AddMapping(GREYSCALE_135.color, new Color(187, 117, 71));
+            HOUSE_LIGHT_BROWN.AddMapping(GREYSCALE_105.color, new Color(150, 91, 65));
+            HOUSE_LIGHT_BROWN.AddMapping(GREYSCALE_75.color, new Color(113, 65, 59));
+            HOUSE_LIGHT_BROWN.AddMapping(GREYSCALE_45.color, new Color(67, 38, 35));
+
+            HOUSE_DARK_GREY.AddMapping(GREYSCALE_255.color, new Color(139, 147, 175));
+            HOUSE_DARK_GREY.AddMapping(GREYSCALE_225.color, new Color(124, 132, 158));
+            HOUSE_DARK_GREY.AddMapping(GREYSCALE_195.color, new Color(109, 117, 141));
+            HOUSE_DARK_GREY.AddMapping(GREYSCALE_165.color, new Color(92, 101, 120));
+            HOUSE_DARK_GREY.AddMapping(GREYSCALE_135.color, new Color(74, 84, 98));
+            HOUSE_DARK_GREY.AddMapping(GREYSCALE_105.color, new Color(63, 71, 82));
+            HOUSE_DARK_GREY.AddMapping(GREYSCALE_75.color, new Color(51, 57, 65));
+            HOUSE_DARK_GREY.AddMapping(GREYSCALE_45.color, new Color(29, 33, 37));
+
+            HOUSE_LIGHT_GREY.AddMapping(GREYSCALE_255.color, new Color(218, 224, 234));
+            HOUSE_LIGHT_GREY.AddMapping(GREYSCALE_225.color, new Color(199, 205, 222));
+            HOUSE_LIGHT_GREY.AddMapping(GREYSCALE_195.color, new Color(179, 185, 209));
+            HOUSE_LIGHT_GREY.AddMapping(GREYSCALE_165.color, new Color(144, 151, 175));
+            HOUSE_LIGHT_GREY.AddMapping(GREYSCALE_135.color, new Color(109, 117, 141));
+            HOUSE_LIGHT_GREY.AddMapping(GREYSCALE_105.color, new Color(87, 101, 120));
+            HOUSE_LIGHT_GREY.AddMapping(GREYSCALE_75.color, new Color(74, 84, 98));
+            HOUSE_LIGHT_GREY.AddMapping(GREYSCALE_45.color, new Color(51, 57, 65));
+
+            HOUSE_NAVY.AddMapping(GREYSCALE_255.color, new Color(40, 92, 196));
+            HOUSE_NAVY.AddMapping(GREYSCALE_225.color, new Color(30, 72, 148));
+            HOUSE_NAVY.AddMapping(GREYSCALE_195.color, new Color(20, 52, 100));
+            HOUSE_NAVY.AddMapping(GREYSCALE_165.color, new Color(28, 43, 76));
+            HOUSE_NAVY.AddMapping(GREYSCALE_135.color, new Color(36, 34, 52));
+            HOUSE_NAVY.AddMapping(GREYSCALE_105.color, new Color(28, 25, 36));
+            HOUSE_NAVY.AddMapping(GREYSCALE_75.color, new Color(20, 16, 19));
+            HOUSE_NAVY.AddMapping(GREYSCALE_45.color, new Color(11, 9, 11));
+
+            HOUSE_GREEN.AddMapping(GREYSCALE_255.color, new Color(156, 219, 67));
+            HOUSE_GREEN.AddMapping(GREYSCALE_225.color, new Color(123, 206, 60));
+            HOUSE_GREEN.AddMapping(GREYSCALE_195.color, new Color(89, 193, 53));
+            HOUSE_GREEN.AddMapping(GREYSCALE_165.color, new Color(55, 177, 50));
+            HOUSE_GREEN.AddMapping(GREYSCALE_135.color, new Color(20, 160, 46));
+            HOUSE_GREEN.AddMapping(GREYSCALE_105.color, new Color(23, 141, 54));
+            HOUSE_GREEN.AddMapping(GREYSCALE_75.color, new Color(33, 35, 39));
+            HOUSE_GREEN.AddMapping(GREYSCALE_45.color, new Color(36, 82, 59));
+
+            HOUSE_OLIVE.AddMapping(GREYSCALE_255.color, new Color(26, 122, 62));
+            HOUSE_OLIVE.AddMapping(GREYSCALE_225.color, new Color(31, 102, 61));
+            HOUSE_OLIVE.AddMapping(GREYSCALE_195.color, new Color(36, 82, 59));
+            HOUSE_OLIVE.AddMapping(GREYSCALE_165.color, new Color(27, 57, 46));
+            HOUSE_OLIVE.AddMapping(GREYSCALE_135.color, new Color(18, 32, 32));
+            HOUSE_OLIVE.AddMapping(GREYSCALE_105.color, new Color(19, 24, 26));
+            HOUSE_OLIVE.AddMapping(GREYSCALE_75.color, new Color(20, 16, 19));
+            HOUSE_OLIVE.AddMapping(GREYSCALE_45.color, new Color(8, 7, 8));
+
+            HOUSE_ORANGE.AddMapping(GREYSCALE_255.color, new Color(249, 163, 27));
+            HOUSE_ORANGE.AddMapping(GREYSCALE_225.color, new Color(250, 135, 19));
+            HOUSE_ORANGE.AddMapping(GREYSCALE_195.color, new Color(250, 106, 10));
+            HOUSE_ORANGE.AddMapping(GREYSCALE_165.color, new Color(237, 84, 23));
+            HOUSE_ORANGE.AddMapping(GREYSCALE_135.color, new Color(223, 62, 35));
+            HOUSE_ORANGE.AddMapping(GREYSCALE_105.color, new Color(202, 47, 39));
+            HOUSE_ORANGE.AddMapping(GREYSCALE_75.color, new Color(180, 32, 42));
+            HOUSE_ORANGE.AddMapping(GREYSCALE_45.color, new Color(115, 23, 45));
+
+            HOUSE_PINK.AddMapping(GREYSCALE_255.color, new Color(250, 214, 184));
+            HOUSE_PINK.AddMapping(GREYSCALE_225.color, new Color(248, 187, 168));
+            HOUSE_PINK.AddMapping(GREYSCALE_195.color, new Color(245, 160, 151));
+            HOUSE_PINK.AddMapping(GREYSCALE_165.color, new Color(239, 133, 133));
+            HOUSE_PINK.AddMapping(GREYSCALE_135.color, new Color(232, 106, 115));
+            HOUSE_PINK.AddMapping(GREYSCALE_105.color, new Color(210, 90, 135));
+            HOUSE_PINK.AddMapping(GREYSCALE_75.color, new Color(188, 74, 155));
+            HOUSE_PINK.AddMapping(GREYSCALE_45.color, new Color(121, 58, 128));
+
+            HOUSE_PURPLE.AddMapping(GREYSCALE_255.color, new Color(188, 74, 155));
+            HOUSE_PURPLE.AddMapping(GREYSCALE_225.color, new Color(155, 66, 142));
+            HOUSE_PURPLE.AddMapping(GREYSCALE_195.color, new Color(121, 58, 128));
+            HOUSE_PURPLE.AddMapping(GREYSCALE_165.color, new Color(93, 55, 106));
+            HOUSE_PURPLE.AddMapping(GREYSCALE_135.color, new Color(64, 51, 83));
+            HOUSE_PURPLE.AddMapping(GREYSCALE_105.color, new Color(50, 43, 68));
+            HOUSE_PURPLE.AddMapping(GREYSCALE_75.color, new Color(33, 35, 39));
+            HOUSE_PURPLE.AddMapping(GREYSCALE_45.color, new Color(19, 18, 28));
+
+            HOUSE_RED.AddMapping(GREYSCALE_255.color, new Color(223, 62, 35));
+            HOUSE_RED.AddMapping(GREYSCALE_225.color, new Color(202, 47, 39));
+            HOUSE_RED.AddMapping(GREYSCALE_195.color, new Color(180, 32, 42));
+            HOUSE_RED.AddMapping(GREYSCALE_165.color, new Color(148, 28, 44));
+            HOUSE_RED.AddMapping(GREYSCALE_135.color, new Color(115, 23, 45));
+            HOUSE_RED.AddMapping(GREYSCALE_105.color, new Color(87, 23, 41));
+            HOUSE_RED.AddMapping(GREYSCALE_75.color, new Color(59, 23, 37));
+            HOUSE_RED.AddMapping(GREYSCALE_45.color, new Color(40, 16, 26));
+
+            HOUSE_YELLOW.AddMapping(GREYSCALE_255.color, new Color(255, 252, 64));
+            HOUSE_YELLOW.AddMapping(GREYSCALE_225.color, new Color(255, 233, 65));
+            HOUSE_YELLOW.AddMapping(GREYSCALE_195.color, new Color(255, 213, 65));
+            HOUSE_YELLOW.AddMapping(GREYSCALE_165.color, new Color(252, 188, 46));
+            HOUSE_YELLOW.AddMapping(GREYSCALE_135.color, new Color(249, 163, 27));
+            HOUSE_YELLOW.AddMapping(GREYSCALE_105.color, new Color(250, 135, 19));
+            HOUSE_YELLOW.AddMapping(GREYSCALE_75.color, new Color(250, 106, 10));
+            HOUSE_YELLOW.AddMapping(GREYSCALE_45.color, new Color(223, 62, 35));
+
+            HOUSE_WHITE.AddMapping(GREYSCALE_255.color, new Color(255, 255, 255));
+            HOUSE_WHITE.AddMapping(GREYSCALE_225.color, new Color(255, 249, 224));
+            HOUSE_WHITE.AddMapping(GREYSCALE_195.color, new Color(254, 243, 192));
+            HOUSE_WHITE.AddMapping(GREYSCALE_165.color, new Color(252, 229, 188));
+            HOUSE_WHITE.AddMapping(GREYSCALE_135.color, new Color(250, 214, 184));
+            HOUSE_WHITE.AddMapping(GREYSCALE_105.color, new Color(248, 187, 168));
+            HOUSE_WHITE.AddMapping(GREYSCALE_75.color, new Color(245, 160, 151));
+            HOUSE_WHITE.AddMapping(GREYSCALE_45.color, new Color(243, 139, 130));
 
             HAIR_TREEBARK_BROWN.AddMapping(GREYSCALE_255.color, new Color(146, 86, 63));
             HAIR_TREEBARK_BROWN.AddMapping(GREYSCALE_225.color, new Color(118, 65, 50));
@@ -531,7 +683,7 @@ namespace Plateau.Components
                     }
                     else if (adjustment == RecolorAdjustment.EXTRA_DARKEN)
                     {
-                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 0, DARKEN_AMOUNT * 1.2f);
+                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 0, DARKEN_AMOUNT * 1.3f);
                         baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 0, DARKEN_AMOUNT * 1.2f);
                         baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 0, DARKEN_AMOUNT * 1.2f);
                     }

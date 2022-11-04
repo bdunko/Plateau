@@ -20,10 +20,10 @@ namespace Plateau.Entities
         {
             this.drawAdjustment = drawAdjustment;
             this.texture = texture;
-            SLEEP_PROMPT_DIALOGUE = new DialogueNode("Should I go to bed?", DialogueNode.PORTRAIT_BAD);
+            SLEEP_PROMPT_DIALOGUE = new DialogueNode("Should I go to bed?", DialogueNode.PORTRAIT_SYSTEM);
             SLEEP_PROMPT_DIALOGUE.decisionDownText = "Nevermind";
             SLEEP_PROMPT_DIALOGUE.decisionUpText = "Yes";
-            SLEEP_PROMPT_DIALOGUE.decisionUpNode = new DialogueNode("", DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+            SLEEP_PROMPT_DIALOGUE.decisionUpNode = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
             {
                 world.PlayCutscene(CutsceneManager.CUTSCENE_SLEEP);
             });

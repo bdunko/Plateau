@@ -3,7 +3,7 @@
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sound/fx/clap.wav</SourceFile>
   <SourceTime>2020-01-09T18:29:58-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sound/fx/clap.xnb</DestFile>
-  <DestTime>2022-11-02T16:29:53.3194254-04:00</DestTime>
+  <DestTime>2022-11-04T17:39:44.9168244-04:00</DestTime>
   <Importer>WavImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>SoundEffectProcessor</Processor>

@@ -1485,10 +1485,10 @@ namespace Plateau.Entities
                     else if (leftMousePress && GetHeldItem().GetItem() is EdibleItem && grounded && !rolling && !useTool && !controller.IsKeyDown(KeyBinds.SHIFT))
                     {
                         externalVelocityX = 0;
-                        DialogueNode foodPrompt = new DialogueNode("Eat the " + GetHeldItem().GetItem().GetName() + "?", DialogueNode.PORTRAIT_BAD);
+                        DialogueNode foodPrompt = new DialogueNode("Eat the " + GetHeldItem().GetItem().GetName() + "?", DialogueNode.PORTRAIT_SYSTEM);
                         foodPrompt.decisionLeftText = "Chow Down";
                         foodPrompt.decisionRightText = "Cancel";
-                        foodPrompt.decisionLeftNode = new DialogueNode(((EdibleItem)GetHeldItem().GetItem()).GetOnEatDescription(), DialogueNode.PORTRAIT_BAD, (player, area, world) =>
+                        foodPrompt.decisionLeftNode = new DialogueNode(((EdibleItem)GetHeldItem().GetItem()).GetOnEatDescription(), DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                         {
                             foreach (AppliedEffects.Effect foodEffect in ((EdibleItem)player.GetHeldItem().GetItem()).GetEffect())
                             {
@@ -1496,7 +1496,7 @@ namespace Plateau.Entities
                             }
                             player.GetHeldItem().Subtract(1);
                         });
-                        foodPrompt.decisionRightNode = new DialogueNode("I'm not so hungry anyway.", DialogueNode.PORTRAIT_BAD);
+                        foodPrompt.decisionRightNode = new DialogueNode("I'm not so hungry anyway.", DialogueNode.PORTRAIT_SYSTEM);
                         SetCurrentDialogue(foodPrompt);
                     } else if (leftMousePress && GetHeldItem().GetItem() is UsableItem && grounded && !rolling && !useTool && !controller.IsKeyDown(KeyBinds.SHIFT))
                     {

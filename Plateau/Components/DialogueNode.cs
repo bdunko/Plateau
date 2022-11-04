@@ -20,13 +20,13 @@ namespace Plateau.Components
         public Action<EntityPlayer, Area, World> onActivation;
         public bool activated;
 
-        public static Texture2D PORTRAIT_BAD;
+        public static Texture2D PORTRAIT_SYSTEM;
 
         private static int LINES_PER_PAGE = 4;
 
         public static void LoadPortraits()
         {
-            PORTRAIT_BAD = PlateauMain.CONTENT.Load<Texture2D>("interface/portrait_test");
+            PORTRAIT_SYSTEM = PlateauMain.CONTENT.Load<Texture2D>(Paths.INTERFACE_DIALOGUE_PORTRAIT_SYSTEM);
         }
 
         private void Format()

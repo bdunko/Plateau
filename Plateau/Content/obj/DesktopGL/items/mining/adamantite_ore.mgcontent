@@ -3,7 +3,7 @@
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/mining/adamantite_ore.png</SourceFile>
   <SourceTime>2019-02-25T19:51:32-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/mining/adamantite_ore.xnb</DestFile>
-  <DestTime>2022-11-02T16:29:24.0613983-04:00</DestTime>
+  <DestTime>2022-11-04T17:39:12.7279001-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

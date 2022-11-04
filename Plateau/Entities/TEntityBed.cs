@@ -27,9 +27,9 @@ namespace Plateau.Entities
 
             if (RECOLOR_DIALOGUE == null)
             {
-                RECOLOR_DIALOGUE = new DialogueNode("Should I dye my bedsheets?", DialogueNode.PORTRAIT_BAD);
+                RECOLOR_DIALOGUE = new DialogueNode("Should I dye my bedsheets?", DialogueNode.PORTRAIT_SYSTEM);
                 RECOLOR_DIALOGUE.decisionUpText = "Yeah!";
-                RECOLOR_DIALOGUE.decisionUpNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_BAD, (player, currentArea, world) =>
+                RECOLOR_DIALOGUE.decisionUpNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_SYSTEM, (player, currentArea, world) =>
                 {
                     TEntityBed bed = (TEntityBed)player.GetTargettedTileEntity();
                     bed.Dye(player.GetHeldItem().GetItem());

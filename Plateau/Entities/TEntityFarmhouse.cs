@@ -41,9 +41,9 @@ namespace Plateau.Entities
             this.trimDye = ItemDict.NONE;
             baseSprite = GenerateAnimatedSprite(baseSS);
             FARMHOUSE = this;
-            recolorTentDialogue = new DialogueNode("Should I paint my tent?", DialogueNode.PORTRAIT_BAD);
+            recolorTentDialogue = new DialogueNode("Should I paint my tent?", DialogueNode.PORTRAIT_SYSTEM);
             recolorTentDialogue.decisionUpText = "Yeah!";
-            recolorTentDialogue.decisionUpNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_BAD, (player, currentArea, world) =>
+            recolorTentDialogue.decisionUpNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_SYSTEM, (player, currentArea, world) =>
             {
                 TEntityFarmhouse house = (TEntityFarmhouse)player.GetTargettedTileEntity();
                 house.DyeWalls(player.GetHeldItem().GetItem());
@@ -51,23 +51,23 @@ namespace Plateau.Entities
             });
             recolorTentDialogue.decisionDownText = "Nevermind";
 
-            recolorDialogue = new DialogueNode("What part of the house should I paint?", DialogueNode.PORTRAIT_BAD);
+            recolorDialogue = new DialogueNode("What part of the house should I paint?", DialogueNode.PORTRAIT_SYSTEM);
             recolorDialogue.decisionRightText = "Roof/Accent";
-            recolorDialogue.decisionRightNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_BAD, (player, currentArea, world) =>
+            recolorDialogue.decisionRightNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_SYSTEM, (player, currentArea, world) =>
             {
                 TEntityFarmhouse house = (TEntityFarmhouse)player.GetTargettedTileEntity();
                 house.DyeRoof(player.GetHeldItem().GetItem());
                 player.GetHeldItem().Subtract(1);
             });
             recolorDialogue.decisionUpText = "Walls";
-            recolorDialogue.decisionUpNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_BAD, (player, currentArea, world) =>
+            recolorDialogue.decisionUpNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_SYSTEM, (player, currentArea, world) =>
             {
                 TEntityFarmhouse house = (TEntityFarmhouse)player.GetTargettedTileEntity();
                 house.DyeWalls(player.GetHeldItem().GetItem());
                 player.GetHeldItem().Subtract(1);
             });
             recolorDialogue.decisionLeftText = "Trim";
-            recolorDialogue.decisionLeftNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_BAD, (player, currentArea, world) =>
+            recolorDialogue.decisionLeftNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_SYSTEM, (player, currentArea, world) =>
             {
                 TEntityFarmhouse house = (TEntityFarmhouse)player.GetTargettedTileEntity();
                 house.DyeTrim(player.GetHeldItem().GetItem());
@@ -146,7 +146,7 @@ namespace Plateau.Entities
                 roofSprite = null;
             } else
             {
-                Texture2D recoloredRoof = Util.GenerateRecolor(roofSS, ((DyeItem)roofDye).GetRecolorMap());
+                Texture2D recoloredRoof = Util.GenerateRecolor(roofSS, ((DyeItem)roofDye).GetHouseRecolorMap(), Util.RecolorAdjustment.SLIGHT_LIGHTEN);
                 roofSprite = GenerateAnimatedSprite(recoloredRoof);
             }
 
@@ -157,7 +157,7 @@ namespace Plateau.Entities
             }
             else
             {
-                Texture2D recoloredWalls = Util.GenerateRecolor(wallsSS, ((DyeItem)wallsDye).GetRecolorMap());
+                Texture2D recoloredWalls = Util.GenerateRecolor(wallsSS, ((DyeItem)wallsDye).GetHouseRecolorMap());
                 wallsSprite = GenerateAnimatedSprite(recoloredWalls);
             }
 
@@ -168,7 +168,7 @@ namespace Plateau.Entities
             }
             else
             {
-                Texture2D recoloredTrim = Util.GenerateRecolor(trimSS, ((DyeItem)trimDye).GetRecolorMap());
+                Texture2D recoloredTrim = Util.GenerateRecolor(trimSS, ((DyeItem)trimDye).GetHouseRecolorMap(), Util.RecolorAdjustment.EXTRA_DARKEN);
                 trimSprite = GenerateAnimatedSprite(recoloredTrim);
             }
         }

@@ -27,15 +27,15 @@ namespace Plateau.Entities
             this.doorType = doorType;
             if(ELEVATOR_LOCKED == null)
             {
-                ELEVATOR_LOCKED = new DialogueNode("The elevator doors refuse to open.\nIt seems that it is not functional at the moment.", DialogueNode.PORTRAIT_BAD);
+                ELEVATOR_LOCKED = new DialogueNode("The elevator doors refuse to open.\nIt seems that it is not functional at the moment.", DialogueNode.PORTRAIT_SYSTEM);
             } 
             if(CELLAR_LOCKED == null)
             {
-                CELLAR_LOCKED = new DialogueNode("The old cellar doors are rusted over.\nIt doesn't seem like you'll be opening them anytime soon.", DialogueNode.PORTRAIT_BAD);
+                CELLAR_LOCKED = new DialogueNode("The old cellar doors are rusted over.\nIt doesn't seem like you'll be opening them anytime soon.", DialogueNode.PORTRAIT_SYSTEM);
             }
             if(CABLECAR_LOCKED == null)
             {
-                CABLECAR_LOCKED = new DialogueNode("There's note pinned to the cablecar station's door:\n\"Out of Order\"", DialogueNode.PORTRAIT_BAD);
+                CABLECAR_LOCKED = new DialogueNode("There's note pinned to the cablecar station's door:\n\"Out of Order\"", DialogueNode.PORTRAIT_SYSTEM);
             }
         }
 

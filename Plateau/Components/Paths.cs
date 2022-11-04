@@ -88,7 +88,6 @@ namespace Plateau.Components
         public static string MAP_APEX = "maps/apex";
 
         //interface
-        public static string INTERFACE_ICON_TEST = "interface/icon_test";
         public static string INTERFACE_MAINMENU_SAVESLOT_ENLARGE = "interface/mainmenu_saveslot_enlarge";
         public static string INTERFACE_MAINMENU_SETTINGS_ENLARGE = "interface/mainmenu_settings_enlarge";
         public static string INTERFACE_MAINMENU_NEWGAME = "interface/mainmenu_newgame";
@@ -171,6 +170,7 @@ namespace Plateau.Components
         public static string INTERFACE_GARBAGE_CAN_CLOSED = "interface/garbage_can_closed";
         public static string INTERFACE_INVENTORY_SELECTED = "interface/inventory_selected";
         public static string INTERFACE_DIALOGUE_BOX = "interface/dialogue_box";
+        public static string INTERFACE_DIALOGUE_PORTRAIT_SYSTEM = "interface/portrait_system";
         public static string INTERFACE_MENU_CONTROLS_CRAFTING_DEPRESSED = "interface/menu_controls_crafting_depressed";
         public static string INTERFACE_MENU_CONTROLS_CRAFTING_ENLARGE = "interface/menu_controls_crafting_enlarge";
         public static string INTERFACE_MENU_CONTROLS_INVENTORY_DEPRESSED = "interface/menu_controls_inventory_depressed";
@@ -373,9 +373,6 @@ namespace Plateau.Components
         public static string INTERFACE_SCRAPBOOK_PAGE_ALCHEMY = "interface/scrapbook_pieces/page_alchemy";
         public static string INTERFACE_SCRAPBOOK_PAGE_ALCHEMIZER = "interface/scrapbook_pieces/page_alchemizer";
         public static string INTERFACE_SCRAPBOOK_PAGE_EDIT_MODE = "interface/scrapbook_pieces/page_edit_mode";
-
-        //public static string INTERFACE_SCRAPBOOK_PAGE_MAYONAISE_MAKER = "interface/scrapbook_pieces/page_mayonaise_maker";
-
 
         public static string INTERFACE_EXIT_PROMPT = "interface/exit_prompt";
         public static string INTERFACE_EXIT_BUTTON_ENLARGE = "interface/exit_button_enlarge";

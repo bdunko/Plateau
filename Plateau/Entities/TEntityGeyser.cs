@@ -13,7 +13,7 @@ namespace Plateau.Entities
     class TEntityGeyser : TileEntity, ITickDaily, IInteract
     {
         private AnimatedSprite sprite;
-        private static DialogueNode examineDialogue = new DialogueNode("The erupting geyser fills the room with moisture, almost as though it were raining. It seems as though you won't need to worry about watering anything planted nearby.", DialogueNode.PORTRAIT_BAD);
+        private static DialogueNode examineDialogue = new DialogueNode("The erupting geyser fills the room with moisture, almost as though it were raining. It seems as though you won't need to worry about watering anything planted nearby.", DialogueNode.PORTRAIT_SYSTEM);
 
         public TEntityGeyser(Vector2 tilePosition, AnimatedSprite sprite) : base(tilePosition, sprite.GetFrameWidth() / 8, sprite.GetFrameHeight() / 8, DrawLayer.NORMAL)
         {

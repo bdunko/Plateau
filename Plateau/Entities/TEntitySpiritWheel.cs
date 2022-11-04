@@ -39,15 +39,15 @@ namespace Plateau.Entities
             this.sprite = sprite;
             if (spinDialogueRoot == null)
             {
-                spinDialogueRoot = new DialogueNode("You pay your 10 trilobites, and spin the wheel with all your might...", DialogueNode.PORTRAIT_BAD);
-                smallItemPrize = new DialogueNode("Small win! You win a random item, haiku!", DialogueNode.PORTRAIT_BAD); //change to spirit
-                boostPrize = new DialogueNode("Small win! You win a temporary boost, haiku!", DialogueNode.PORTRAIT_BAD); //change to spirit
-                rareItemPrize = new DialogueNode("Big win! You win a rare item, haiku!", DialogueNode.PORTRAIT_BAD); //change to spirit
-                boostJackpot = new DialogueNode("Jackpot! You win a big boost to all your abilities today, haiku!", DialogueNode.PORTRAIT_BAD); //change to spirit
-                trilobiteJackpot = new DialogueNode("Jackpot! You win a ton of trilobites, haiku!", DialogueNode.PORTRAIT_BAD); //change to spirit
-                goldJackpot = new DialogueNode("Jackpot! You win a bunch of gold, haiku!", DialogueNode.PORTRAIT_BAD); //change to spirit
-                smallTrilobitePrize = new DialogueNode("Small win! You win some trilobites, haiku!", DialogueNode.PORTRAIT_BAD); //change to spirit
-                bigMiss = new DialogueNode("Big miss! You don't win anything this time, haiku!", DialogueNode.PORTRAIT_BAD); //change to spirit
+                spinDialogueRoot = new DialogueNode("You pay your 10 trilobites, and spin the wheel with all your might...", DialogueNode.PORTRAIT_SYSTEM);
+                smallItemPrize = new DialogueNode("Small win! You win a random item, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
+                boostPrize = new DialogueNode("Small win! You win a temporary boost, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
+                rareItemPrize = new DialogueNode("Big win! You win a rare item, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
+                boostJackpot = new DialogueNode("Jackpot! You win a big boost to all your abilities today, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
+                trilobiteJackpot = new DialogueNode("Jackpot! You win a ton of trilobites, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
+                goldJackpot = new DialogueNode("Jackpot! You win a bunch of gold, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
+                smallTrilobitePrize = new DialogueNode("Small win! You win some trilobites, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
+                bigMiss = new DialogueNode("Big miss! You don't win anything this time, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
             }
             spinTimer = 0;
             spunToday = false;

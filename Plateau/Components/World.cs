@@ -271,8 +271,8 @@ namespace Plateau.Components
             //new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.S1], areas[Area.AreaEnum.S1].GetWaypoint("SPs1entrance"), 7, 5, 7, 30, trueCondition, 0),
 
             List<EntityCharacter.DialogueOption> rockwellDialogue = Util.GenerateDialogueList(
-                new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell.", DialogueNode.PORTRAIT_BAD), Util.QuickArray(trueCondition)), 
-                new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell. (In Spring)", DialogueNode.PORTRAIT_BAD), Util.QuickArray(springCondition), 3));   
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)), 
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell. (In Spring)", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(springCondition), 3));   
             characters.Add(rockwell = new EntityCharacter("Rockwell", this, EntityCharacter.CharacterEnum.ROCKWELL, rockwellClothing, rockwellSchedule, rockwellDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.FARM].GetWaypoint("testSpawn"),
                 GameState.FLAG_LETTER_GIFT_ROCKWELL));
 
@@ -304,7 +304,7 @@ namespace Plateau.Components
                 new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.FARM], areas[Area.AreaEnum.FARM].GetWaypoint("SPleft"), 7, 0, 7, 4, trueCondition, 0));
 
             List<EntityCharacter.DialogueOption> camusDialogue = Util.GenerateDialogueList(
-                new EntityCharacter.DialogueOption(new DialogueNode("I'm Camus. abcdefghijklmnopqrstuvwxyz\nABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890\nanother sentence here!.?", DialogueNode.PORTRAIT_BAD), Util.QuickArray(trueCondition)));
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Camus. abcdefghijklmnopqrstuvwxyz\nABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890\nanother sentence here!.?", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
             //characters.Add(camus = new EntityCharacter(this, EntityCharacter.CharacterEnum.CAMUS, camusClothing, camusSchedule, camusDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL)));
             //areas[0].AddEntity(camus);
             //MoveCharacter(camus, currentArea, GetAreaByEnum(Area.AreaEnum.FARM));

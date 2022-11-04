@@ -303,8 +303,8 @@ namespace Plateau.Entities
                 {
                     requiredItems = shrineStatus2.GetRequiredItems();
                 }
-                DialogueNode root = new DialogueNode("This ancient structure has the words\n \"" + name + "\" engraved on the front.", DialogueNode.PORTRAIT_BAD);
-                DialogueNode two = new DialogueNode("It feels like I should leave an offering here...\nMaybe if I do that something good will happen?", DialogueNode.PORTRAIT_BAD);
+                DialogueNode root = new DialogueNode("This ancient structure has the words\n \"" + name + "\" engraved on the front.", DialogueNode.PORTRAIT_SYSTEM);
+                DialogueNode two = new DialogueNode("It feels like I should leave an offering here...\nMaybe if I do that something good will happen?", DialogueNode.PORTRAIT_SYSTEM);
                 string threeString = "I still need to offer:\n";
                 bool added = false;
                 foreach (GameState.ShrineStatus.RequiredItem ri in requiredItems)
@@ -321,13 +321,13 @@ namespace Plateau.Entities
                     threeString = threeString.Substring(0, threeString.Length - 2);
                 }
 
-                DialogueNode three = new DialogueNode(threeString, DialogueNode.PORTRAIT_BAD);
+                DialogueNode three = new DialogueNode(threeString, DialogueNode.PORTRAIT_SYSTEM);
                 root.SetNext(two);
                 two.SetNext(three);
                 player.SetCurrentDialogue(root);
             } else
             {
-                DialogueNode root = new DialogueNode("This shrine has been restored!\nIt emits an aura of natural solemnity.", DialogueNode.PORTRAIT_BAD);
+                DialogueNode root = new DialogueNode("This shrine has been restored!\nIt emits an aura of natural solemnity.", DialogueNode.PORTRAIT_SYSTEM);
                 player.SetCurrentDialogue(root);
             }
         }
