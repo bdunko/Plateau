@@ -6597,7 +6597,7 @@
 /processorParam:TextureFormat=Color
 /build:items/clothing/long_skirt_greyscale.png
 
-#begin items/clothing/long_sleeved_tee.png
+#begin items/clothing/long_sleeve_tee.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -6607,9 +6607,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:items/clothing/long_sleeved_tee.png
+/build:items/clothing/long_sleeve_tee.png
 
-#begin items/clothing/long_sleeved_tee_greyscale.png
+#begin items/clothing/long_sleeve_tee_greyscale.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -6619,7 +6619,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:items/clothing/long_sleeved_tee_greyscale.png
+/build:items/clothing/long_sleeve_tee_greyscale.png
 
 #begin items/clothing/long_socks.png
 /importer:TextureImporter
@@ -7197,7 +7197,7 @@
 /processorParam:TextureFormat=Color
 /build:items/clothing/short_skirt_greyscale.png
 
-#begin items/clothing/short_sleeved_tee.png
+#begin items/clothing/short_sleeve_tee.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -7207,9 +7207,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:items/clothing/short_sleeved_tee.png
+/build:items/clothing/short_sleeve_tee.png
 
-#begin items/clothing/short_sleeved_tee_greyscale.png
+#begin items/clothing/short_sleeve_tee_greyscale.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -7219,7 +7219,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:items/clothing/short_sleeved_tee_greyscale.png
+/build:items/clothing/short_sleeve_tee_greyscale.png
 
 #begin items/clothing/short_socks.png
 /importer:TextureImporter
@@ -17409,18 +17409,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/alcorange.png
 
-#begin items/products/cooking/alcorange.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/alcorange.png
-
 #begin items/products/cooking/apple_cider.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -17432,30 +17420,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/apple_cider.png
-
-#begin items/products/cooking/apple_cider.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/apple_cider.png
-
-#begin items/products/cooking/apple_muffin.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/apple_muffin.png
 
 #begin items/products/cooking/apple_muffin.png
 /importer:TextureImporter
@@ -17481,18 +17445,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/apple_preserves.png
 
-#begin items/products/cooking/apple_preserves.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/apple_preserves.png
-
 #begin items/products/cooking/autumn_mash.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -17504,30 +17456,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/autumn_mash.png
-
-#begin items/products/cooking/autumn_mash.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/autumn_mash.png
-
-#begin items/products/cooking/autumn_salsa.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/autumn_salsa.png
 
 #begin items/products/cooking/autumn_salsa.png
 /importer:TextureImporter
@@ -17553,18 +17481,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/autumnal_wine.png
 
-#begin items/products/cooking/autumnal_wine.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/autumnal_wine.png
-
 #begin items/products/cooking/baked_potato.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -17576,30 +17492,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/baked_potato.png
-
-#begin items/products/cooking/baked_potato.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/baked_potato.png
-
-#begin items/products/cooking/baked_snapper.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/baked_snapper.png
 
 #begin items/products/cooking/baked_snapper.png
 /importer:TextureImporter
@@ -17625,18 +17517,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/banana_chips.png
 
-#begin items/products/cooking/banana_chips.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/banana_chips.png
-
 #begin items/products/cooking/banana_jam.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -17648,30 +17528,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/banana_jam.png
-
-#begin items/products/cooking/banana_jam.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/banana_jam.png
-
-#begin items/products/cooking/banana_sundae.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/banana_sundae.png
 
 #begin items/products/cooking/banana_sundae.png
 /importer:TextureImporter
@@ -17697,18 +17553,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/beernana.png
 
-#begin items/products/cooking/beernana.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/beernana.png
-
 #begin items/products/cooking/berry_milkshake.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -17720,30 +17564,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/berry_milkshake.png
-
-#begin items/products/cooking/berry_milkshake.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/berry_milkshake.png
-
-#begin items/products/cooking/blackberry_digestif.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/blackberry_digestif.png
 
 #begin items/products/cooking/blackberry_digestif.png
 /importer:TextureImporter
@@ -17769,18 +17589,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/blackberry_preserves.png
 
-#begin items/products/cooking/blackberry_preserves.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/blackberry_preserves.png
-
 #begin items/products/cooking/blind_dinner.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -17792,30 +17600,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/blind_dinner.png
-
-#begin items/products/cooking/blind_dinner.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/blind_dinner.png
-
-#begin items/products/cooking/bloody_marie.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/bloody_marie.png
 
 #begin items/products/cooking/bloody_marie.png
 /importer:TextureImporter
@@ -17841,18 +17625,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/blueberry_cordial.png
 
-#begin items/products/cooking/blueberry_cordial.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/blueberry_cordial.png
-
 #begin items/products/cooking/blueberry_jelly.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -17864,30 +17636,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/blueberry_jelly.png
-
-#begin items/products/cooking/blueberry_jelly.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/blueberry_jelly.png
-
-#begin items/products/cooking/blueberry_pancakes.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/blueberry_pancakes.png
 
 #begin items/products/cooking/blueberry_pancakes.png
 /importer:TextureImporter
@@ -17913,18 +17661,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/boar_jerky.png
 
-#begin items/products/cooking/boar_jerky.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/boar_jerky.png
-
 #begin items/products/cooking/boar_stew.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -17936,30 +17672,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/boar_stew.png
-
-#begin items/products/cooking/boar_stew.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/boar_stew.png
-
-#begin items/products/cooking/breakfast_potatoes.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/breakfast_potatoes.png
 
 #begin items/products/cooking/breakfast_potatoes.png
 /importer:TextureImporter
@@ -17985,18 +17697,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/briny_beet.png
 
-#begin items/products/cooking/briny_beet.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/briny_beet.png
-
 #begin items/products/cooking/buttered_rolls.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18008,30 +17708,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/buttered_rolls.png
-
-#begin items/products/cooking/buttered_rolls.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/buttered_rolls.png
-
-#begin items/products/cooking/campfire_coffee.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/campfire_coffee.png
 
 #begin items/products/cooking/campfire_coffee.png
 /importer:TextureImporter
@@ -18057,18 +17733,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/cherry_cheesecake.png
 
-#begin items/products/cooking/cherry_cheesecake.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/cherry_cheesecake.png
-
 #begin items/products/cooking/cherry_jelly.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18080,30 +17744,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/cherry_jelly.png
-
-#begin items/products/cooking/cherry_jelly.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/cherry_jelly.png
-
-#begin items/products/cooking/cherry_raisins.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/cherry_raisins.png
 
 #begin items/products/cooking/cherry_raisins.png
 /importer:TextureImporter
@@ -18129,18 +17769,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/cherwine.png
 
-#begin items/products/cooking/cherwine.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/cherwine.png
-
 #begin items/products/cooking/chickweed_blend.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18152,30 +17780,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/chickweed_blend.png
-
-#begin items/products/cooking/chickweed_blend.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/chickweed_blend.png
-
-#begin items/products/cooking/clam_linguini.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/clam_linguini.png
 
 #begin items/products/cooking/clam_linguini.png
 /importer:TextureImporter
@@ -18201,18 +17805,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/coconut_boar.png
 
-#begin items/products/cooking/coconut_boar.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/coconut_boar.png
-
 #begin items/products/cooking/coconut_chips.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18224,30 +17816,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/coconut_chips.png
-
-#begin items/products/cooking/coconut_chips.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/coconut_chips.png
-
-#begin items/products/cooking/coconut_milk.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/coconut_milk.png
 
 #begin items/products/cooking/coconut_milk.png
 /importer:TextureImporter
@@ -18273,18 +17841,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/coconut_rum.png
 
-#begin items/products/cooking/coconut_rum.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/coconut_rum.png
-
 #begin items/products/cooking/coleslaw.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18296,30 +17852,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/coleslaw.png
-
-#begin items/products/cooking/coleslaw.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/coleslaw.png
-
-#begin items/products/cooking/cream_of_mushroom.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/cream_of_mushroom.png
 
 #begin items/products/cooking/cream_of_mushroom.png
 /importer:TextureImporter
@@ -18345,18 +17877,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/creamy_spinach.png
 
-#begin items/products/cooking/creamy_spinach.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/creamy_spinach.png
-
 #begin items/products/cooking/creamy_squid.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18368,30 +17888,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/creamy_squid.png
-
-#begin items/products/cooking/creamy_squid.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/creamy_squid.png
-
-#begin items/products/cooking/crispy_grasshopper.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/crispy_grasshopper.png
 
 #begin items/products/cooking/crispy_grasshopper.png
 /importer:TextureImporter
@@ -18417,18 +17913,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/dark_tea.png
 
-#begin items/products/cooking/dark_tea.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/dark_tea.png
-
 #begin items/products/cooking/deluxe_sushi.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18440,30 +17924,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/deluxe_sushi.png
-
-#begin items/products/cooking/deluxe_sushi.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/deluxe_sushi.png
-
-#begin items/products/cooking/dried_apple.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/dried_apple.png
 
 #begin items/products/cooking/dried_apple.png
 /importer:TextureImporter
@@ -18489,18 +17949,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/dried_citrus.png
 
-#begin items/products/cooking/dried_citrus.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/dried_citrus.png
-
 #begin items/products/cooking/dried_olives.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18512,30 +17960,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/dried_olives.png
-
-#begin items/products/cooking/dried_olives.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/dried_olives.png
-
-#begin items/products/cooking/dried_strawberry.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/dried_strawberry.png
 
 #begin items/products/cooking/dried_strawberry.png
 /importer:TextureImporter
@@ -18561,18 +17985,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/dwarven_stew.png
 
-#begin items/products/cooking/dwarven_stew.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/dwarven_stew.png
-
 #begin items/products/cooking/eel_roll.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18584,30 +17996,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/eel_roll.png
-
-#begin items/products/cooking/eel_roll.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/eel_roll.png
-
-#begin items/products/cooking/egg_scramble.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/egg_scramble.png
 
 #begin items/products/cooking/egg_scramble.png
 /importer:TextureImporter
@@ -18633,18 +18021,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/eggplant_parmesan.png
 
-#begin items/products/cooking/eggplant_parmesan.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/eggplant_parmesan.png
-
 #begin items/products/cooking/elderberry_aperitif.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18656,30 +18032,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/elderberry_aperitif.png
-
-#begin items/products/cooking/elderberry_aperitif.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/elderberry_aperitif.png
-
-#begin items/products/cooking/elderberry_jam.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/elderberry_jam.png
 
 #begin items/products/cooking/elderberry_jam.png
 /importer:TextureImporter
@@ -18705,18 +18057,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/elderberry_tart.png
 
-#begin items/products/cooking/elderberry_tart.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/elderberry_tart.png
-
 #begin items/products/cooking/escargot.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18728,30 +18068,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/escargot.png
-
-#begin items/products/cooking/escargot.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/escargot.png
-
-#begin items/products/cooking/farmers_stew.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/farmers_stew.png
 
 #begin items/products/cooking/farmers_stew.png
 /importer:TextureImporter
@@ -18777,18 +18093,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/french_onion_soup.png
 
-#begin items/products/cooking/french_onion_soup.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/french_onion_soup.png
-
 #begin items/products/cooking/fresh_salad.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18800,30 +18104,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/fresh_salad.png
-
-#begin items/products/cooking/fresh_salad.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/fresh_salad.png
-
-#begin items/products/cooking/fried_catfish.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/fried_catfish.png
 
 #begin items/products/cooking/fried_catfish.png
 /importer:TextureImporter
@@ -18849,18 +18129,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/fried_egg.png
 
-#begin items/products/cooking/fried_egg.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/fried_egg.png
-
 #begin items/products/cooking/fried_fish.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18872,30 +18140,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/fried_fish.png
-
-#begin items/products/cooking/fried_fish.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/fried_fish.png
-
-#begin items/products/cooking/fried_oysters.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/fried_oysters.png
 
 #begin items/products/cooking/fried_oysters.png
 /importer:TextureImporter
@@ -18921,18 +18165,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/good_ol_pickles.png
 
-#begin items/products/cooking/good_ol_pickles.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/good_ol_pickles.png
-
 #begin items/products/cooking/grilled_salmon.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -18944,30 +18176,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/grilled_salmon.png
-
-#begin items/products/cooking/grilled_salmon.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/grilled_salmon.png
-
-#begin items/products/cooking/homestyle_jelly.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/homestyle_jelly.png
 
 #begin items/products/cooking/homestyle_jelly.png
 /importer:TextureImporter
@@ -18993,18 +18201,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/honey_stir_fry.png
 
-#begin items/products/cooking/honey_stir_fry.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/honey_stir_fry.png
-
 #begin items/products/cooking/klippfisk.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19016,30 +18212,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/klippfisk.png
-
-#begin items/products/cooking/klippfisk.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/klippfisk.png
-
-#begin items/products/cooking/lemon_shortcake.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/lemon_shortcake.png
 
 #begin items/products/cooking/lemon_shortcake.png
 /importer:TextureImporter
@@ -19065,18 +18237,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/lemonade.png
 
-#begin items/products/cooking/lemonade.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/lemonade.png
-
 #begin items/products/cooking/lethal_sashimi.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19088,30 +18248,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/lethal_sashimi.png
-
-#begin items/products/cooking/lethal_sashimi.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/lethal_sashimi.png
-
-#begin items/products/cooking/lichen_juice.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/lichen_juice.png
 
 #begin items/products/cooking/lichen_juice.png
 /importer:TextureImporter
@@ -19137,18 +18273,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/luminous_stew.png
 
-#begin items/products/cooking/luminous_stew.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/luminous_stew.png
-
 #begin items/products/cooking/marinated_olive.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19160,30 +18284,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/marinated_olive.png
-
-#begin items/products/cooking/marinated_olive.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/marinated_olive.png
-
-#begin items/products/cooking/marmalade.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/marmalade.png
 
 #begin items/products/cooking/marmalade.png
 /importer:TextureImporter
@@ -19209,18 +18309,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/meaty_pizza.png
 
-#begin items/products/cooking/meaty_pizza.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/meaty_pizza.png
-
 #begin items/products/cooking/mint_choco_bar.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19232,30 +18320,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/mint_choco_bar.png
-
-#begin items/products/cooking/mint_choco_bar.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/mint_choco_bar.png
-
-#begin items/products/cooking/minty_melt.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/minty_melt.png
 
 #begin items/products/cooking/minty_melt.png
 /importer:TextureImporter
@@ -19281,18 +18345,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/mountain_bread.png
 
-#begin items/products/cooking/mountain_bread.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/mountain_bread.png
-
 #begin items/products/cooking/mountain_teriyaki.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19304,30 +18356,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/mountain_teriyaki.png
-
-#begin items/products/cooking/mountain_teriyaki.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/mountain_teriyaki.png
-
-#begin items/products/cooking/mushroom_stir_fry.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/mushroom_stir_fry.png
 
 #begin items/products/cooking/mushroom_stir_fry.png
 /importer:TextureImporter
@@ -19353,18 +18381,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/persimmon_jam.png
 
-#begin items/products/cooking/persimmon_jam.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/persimmon_jam.png
-
 #begin items/products/cooking/pickled_beet_egg.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19376,30 +18392,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/pickled_beet_egg.png
-
-#begin items/products/cooking/pickled_beet_egg.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/pickled_beet_egg.png
-
-#begin items/products/cooking/pickled_carrot.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/pickled_carrot.png
 
 #begin items/products/cooking/pickled_carrot.png
 /importer:TextureImporter
@@ -19425,18 +18417,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/pickled_onion.png
 
-#begin items/products/cooking/pickled_onion.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/pickled_onion.png
-
 #begin items/products/cooking/pineapple_salsa.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19448,30 +18428,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/pineapple_salsa.png
-
-#begin items/products/cooking/pineapple_salsa.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/pineapple_salsa.png
-
-#begin items/products/cooking/potato_and_beet_fries.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/potato_and_beet_fries.png
 
 #begin items/products/cooking/potato_and_beet_fries.png
 /importer:TextureImporter
@@ -19497,18 +18453,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/potato_crisps.png
 
-#begin items/products/cooking/potato_crisps.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/potato_crisps.png
-
 #begin items/products/cooking/pumpkin_cider.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19520,30 +18464,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/pumpkin_cider.png
-
-#begin items/products/cooking/pumpkin_cider.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/pumpkin_cider.png
-
-#begin items/products/cooking/raspberry_jelly.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/raspberry_jelly.png
 
 #begin items/products/cooking/raspberry_jelly.png
 /importer:TextureImporter
@@ -19569,18 +18489,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/raspberry_liqueur.png
 
-#begin items/products/cooking/raspberry_liqueur.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/raspberry_liqueur.png
-
 #begin items/products/cooking/ratatouille.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19592,30 +18500,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/ratatouille.png
-
-#begin items/products/cooking/ratatouille.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/ratatouille.png
-
-#begin items/products/cooking/raw_calamari.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/raw_calamari.png
 
 #begin items/products/cooking/raw_calamari.png
 /importer:TextureImporter
@@ -19641,18 +18525,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/rejuvenation_tea.png
 
-#begin items/products/cooking/rejuvenation_tea.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/rejuvenation_tea.png
-
 #begin items/products/cooking/roasted_pumpkin.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19664,30 +18536,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/roasted_pumpkin.png
-
-#begin items/products/cooking/roasted_pumpkin.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/roasted_pumpkin.png
-
-#begin items/products/cooking/sardine_snack.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/sardine_snack.png
 
 #begin items/products/cooking/sardine_snack.png
 /importer:TextureImporter
@@ -19713,18 +18561,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/savory_roast.png
 
-#begin items/products/cooking/savory_roast.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/savory_roast.png
-
 #begin items/products/cooking/seafood_basket.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19736,30 +18572,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/seafood_basket.png
-
-#begin items/products/cooking/seafood_basket.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/seafood_basket.png
-
-#begin items/products/cooking/seafood_paella.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/seafood_paella.png
 
 #begin items/products/cooking/seafood_paella.png
 /importer:TextureImporter
@@ -19785,18 +18597,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/seared_tuna.png
 
-#begin items/products/cooking/seared_tuna.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/seared_tuna.png
-
 #begin items/products/cooking/seasonal_piperade.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19808,30 +18608,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/seasonal_piperade.png
-
-#begin items/products/cooking/seasonal_piperade.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/seasonal_piperade.png
-
-#begin items/products/cooking/seaweed_snack.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/seaweed_snack.png
 
 #begin items/products/cooking/seaweed_snack.png
 /importer:TextureImporter
@@ -19857,18 +18633,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/shrimp_gumbo.png
 
-#begin items/products/cooking/shrimp_gumbo.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/shrimp_gumbo.png
-
 #begin items/products/cooking/sour_wine.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19880,30 +18644,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/sour_wine.png
-
-#begin items/products/cooking/sour_wine.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/sour_wine.png
-
-#begin items/products/cooking/souse_egg.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/souse_egg.png
 
 #begin items/products/cooking/souse_egg.png
 /importer:TextureImporter
@@ -19929,18 +18669,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/spicy_bacon.png
 
-#begin items/products/cooking/spicy_bacon.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/spicy_bacon.png
-
 #begin items/products/cooking/spring_pizza.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19952,30 +18680,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/spring_pizza.png
-
-#begin items/products/cooking/spring_pizza.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/spring_pizza.png
-
-#begin items/products/cooking/stewed_veggies.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/stewed_veggies.png
 
 #begin items/products/cooking/stewed_veggies.png
 /importer:TextureImporter
@@ -20001,18 +18705,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/stormfish.png
 
-#begin items/products/cooking/stormfish.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/stormfish.png
-
 #begin items/products/cooking/strawberry_blast_jam.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -20024,30 +18716,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/strawberry_blast_jam.png
-
-#begin items/products/cooking/strawberry_blast_jam.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/strawberry_blast_jam.png
-
-#begin items/products/cooking/strawberry_salad.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/strawberry_salad.png
 
 #begin items/products/cooking/strawberry_salad.png
 /importer:TextureImporter
@@ -20073,18 +18741,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/strawberry_salad-export.png
 
-#begin items/products/cooking/strawberry_salad-export.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/strawberry_salad-export.png
-
 #begin items/products/cooking/strawberry_spirit.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -20096,30 +18752,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/strawberry_spirit.png
-
-#begin items/products/cooking/strawberry_spirit.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/strawberry_spirit.png
-
-#begin items/products/cooking/stuffed_flounder.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/stuffed_flounder.png
 
 #begin items/products/cooking/stuffed_flounder.png
 /importer:TextureImporter
@@ -20145,18 +18777,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/super_juice.png
 
-#begin items/products/cooking/super_juice.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/super_juice.png
-
 #begin items/products/cooking/survivors_surprise.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -20168,30 +18788,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/survivors_surprise.png
-
-#begin items/products/cooking/survivors_surprise.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/survivors_surprise.png
-
-#begin items/products/cooking/sushi_roll.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/sushi_roll.png
 
 #begin items/products/cooking/sushi_roll.png
 /importer:TextureImporter
@@ -20217,18 +18813,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/sweet_coco_treat.png
 
-#begin items/products/cooking/sweet_coco_treat.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/sweet_coco_treat.png
-
 #begin items/products/cooking/swordfish_pot.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -20240,30 +18824,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/swordfish_pot.png
-
-#begin items/products/cooking/swordfish_pot.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/swordfish_pot.png
-
-#begin items/products/cooking/tomato_salsa.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/tomato_salsa.png
 
 #begin items/products/cooking/tomato_salsa.png
 /importer:TextureImporter
@@ -20289,18 +18849,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/tomato_soup.png
 
-#begin items/products/cooking/tomato_soup.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/tomato_soup.png
-
 #begin items/products/cooking/tropical_rum.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -20312,30 +18860,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/tropical_rum.png
-
-#begin items/products/cooking/tropical_rum.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/tropical_rum.png
-
-#begin items/products/cooking/vanilla_ice_cream.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/vanilla_ice_cream.png
 
 #begin items/products/cooking/vanilla_ice_cream.png
 /importer:TextureImporter
@@ -20361,18 +18885,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/veggie_chips.png
 
-#begin items/products/cooking/veggie_chips.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/veggie_chips.png
-
 #begin items/products/cooking/veggie_side_roast.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -20384,30 +18896,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/veggie_side_roast.png
-
-#begin items/products/cooking/veggie_side_roast.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/veggie_side_roast.png
-
-#begin items/products/cooking/waterless_melon.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/waterless_melon.png
 
 #begin items/products/cooking/waterless_melon.png
 /importer:TextureImporter
@@ -20433,30 +18921,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/watermelon_ice.png
 
-#begin items/products/cooking/watermelon_ice.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/watermelon_ice.png
-
-#begin items/products/cooking/watermelon_jelly.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/watermelon_jelly.png
-
 #begin items/products/cooking/watermelon_jelly.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -20481,18 +18945,6 @@
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/watermelon_wine.png
 
-#begin items/products/cooking/watermelon_wine.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/watermelon_wine.png
-
 #begin items/products/cooking/wild_popcorn.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -20504,30 +18956,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/cooking/wild_popcorn.png
-
-#begin items/products/cooking/wild_popcorn.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/wild_popcorn.png
-
-#begin items/products/cooking/wrapped_cabbage.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:items/products/cooking/wrapped_cabbage.png
 
 #begin items/products/cooking/wrapped_cabbage.png
 /importer:TextureImporter
@@ -25427,7 +23855,7 @@
 /processorParam:TextureFormat=Color
 /build:sprites/clothes/shirt_linen_button_default.png
 
-#begin sprites/clothes/shirt_long_sleeved_tee.png
+#begin sprites/clothes/shirt_long_sleeve_tee.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -25437,9 +23865,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:sprites/clothes/shirt_long_sleeved_tee.png
+/build:sprites/clothes/shirt_long_sleeve_tee.png
 
-#begin sprites/clothes/shirt_long_sleeved_tee_default.png
+#begin sprites/clothes/shirt_long_sleeve_tee_default.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -25449,7 +23877,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:sprites/clothes/shirt_long_sleeved_tee_default.png
+/build:sprites/clothes/shirt_long_sleeve_tee_default.png
 
 #begin sprites/clothes/shirt_plaid_button.png
 /importer:TextureImporter
@@ -25475,7 +23903,7 @@
 /processorParam:TextureFormat=Color
 /build:sprites/clothes/shirt_plaid_button_default.png
 
-#begin sprites/clothes/shirt_short_sleeved_tee.png
+#begin sprites/clothes/shirt_short_sleeve_tee.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -25485,9 +23913,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:sprites/clothes/shirt_short_sleeved_tee.png
+/build:sprites/clothes/shirt_short_sleeve_tee.png
 
-#begin sprites/clothes/shirt_short_sleeved_tee_default.png
+#begin sprites/clothes/shirt_short_sleeve_tee_default.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -25497,7 +23925,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:sprites/clothes/shirt_short_sleeved_tee_default.png
+/build:sprites/clothes/shirt_short_sleeve_tee_default.png
 
 #begin sprites/clothes/shirt_striped_shirt.png
 /importer:TextureImporter

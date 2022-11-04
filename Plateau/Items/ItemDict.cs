@@ -143,7 +143,7 @@ namespace Plateau.Items
         public static ClothingItem ALL_SEASON_JACKET, APRON, BATHROBE, NOMAD_VEST, HOODED_SWEATSHIRT, ONESIE, OVERALLS, OVERCOAT, PUNK_JACKET, RAINCOAT, SPORTBALL_UNIFORM, SUIT_JACKET, WEDDING_DRESS;
         public static ClothingItem JEANS, CHINO_SHORTS, JEAN_SHORTS, CHINOS, LONG_SKIRT, PUFF_SKIRT, SHORT_SKIRT, SUPER_SHORTS, TIGHTIES, TORN_JEANS;
         public static ClothingItem SAILCLOTH;
-        public static ClothingItem BUTTON_DOWN, ISLANDER_TATTOO, LINEN_BUTTON, LONG_SLEEVED_TEE, PLAID_BUTTON, SHORT_SLEEVE_TEE, STRIPED_SHIRT, SWEATER, TANKER, TURTLENECK;
+        public static ClothingItem BUTTON_DOWN, ISLANDER_TATTOO, LINEN_BUTTON, LONG_SLEEVE_TEE, PLAID_BUTTON, SHORT_SLEEVE_TEE, STRIPED_SHIRT, SWEATER, TANKER, TURTLENECK;
         public static ClothingItem SNEAKERS, FLASH_HEELS, WING_SANDLES, HIGH_TOPS, TALL_BOOTS;
         public static ClothingItem HAIR_AFRO_ALFONSO, HAIR_BAREBONES_BRIAN, HAIR_BENNY_BOWLCUT, HAIR_CARLOS_COOL, HAIR_CLEAN_CONOR, HAIR_COMBED_CHRISTOPH, HAIR_COWLICK_COLTON,
             HAIR_DIRTY_JACK, HAIR_FREDDIE_FRINGE, HAIR_GABRIEL_PART, HAIR_LAZY_XAVIER, HAIR_MAXWELL_MOHAWK, HAIR_MR_BALD, HAIR_OVERHANG_OWEN, HAIR_PONYTAIL_TONYTALE, HAIR_SKULLCAP_STEVENS, HAIR_LUCKY_LUKE;
@@ -1480,7 +1480,7 @@ namespace Plateau.Items
             AddToDictionary(BUTTON_DOWN = new ClothingItem("Button-Down", Paths.ITEM_BUTTON_DOWN, 1,"The term \"button-down\" refers to the collar. This type of shirt is actually called a button-up.", 2800, Paths.CLOTHING_BUTTON_DOWN_SPRITESHEET_DEFAULT, null, Item.Tag.SHIRT, Item.Tag.DYEABLE, Item.Tag.CLOTHING));
             AddToDictionary(ISLANDER_TATTOO = new ClothingItem("Islander Tattoo", Paths.ITEM_ISLANDER_TATTOO, 1,"The glyph seems to hold some strange power...", 1200, Paths.CLOTHING_ISLANDER_TATTOO_SPRITESHEET_DEFAULT, null, Item.Tag.SHIRT, Item.Tag.DYEABLE, Item.Tag.CLOTHING));
             AddToDictionary(LINEN_BUTTON = new ClothingItem("Linen Button", Paths.ITEM_LINEN_BUTTON, 1,"Perfect for a day on the beach.", 2750, Paths.CLOTHING_LINEN_BUTTON_SPRITESHEET_DEFAULT, null, Item.Tag.SHIRT, Item.Tag.DYEABLE, Item.Tag.CLOTHING));
-            AddToDictionary(LONG_SLEEVED_TEE = new ClothingItem("Long-sleeved Tee", Paths.ITEM_LONG_SLEEVED_TEE, 1,"A bit more heavyweight than a typical tee, too.", 600, Paths.CLOTHING_LONG_SLEEVED_TEE_SPRITESHEET_DEFAULT, null, Item.Tag.SHIRT, Item.Tag.DYEABLE, Item.Tag.CLOTHING));
+            AddToDictionary(LONG_SLEEVE_TEE = new ClothingItem("Long-sleeve Tee", Paths.ITEM_LONG_SLEEVE_TEE, 1,"A bit more heavyweight than a typical tee, too.", 600, Paths.CLOTHING_LONG_SLEEVE_TEE_SPRITESHEET_DEFAULT, null, Item.Tag.SHIRT, Item.Tag.DYEABLE, Item.Tag.CLOTHING));
             AddToDictionary(PLAID_BUTTON = new ClothingItem("Plaid Button", Paths.ITEM_PLAID_BUTTON, 1,"Lumberjack made urban.", 3000, Paths.CLOTHING_PLAID_BUTTON_SPRITESHEET_DEFAULT, null, Item.Tag.SHIRT, Item.Tag.DYEABLE, Item.Tag.CLOTHING));
             AddToDictionary(STRIPED_SHIRT = new ClothingItem("Striped Shirt", Paths.ITEM_STRIPED_SHIRT, 1,"Navel in nature.", 940, Paths.CLOTHING_STRIPED_SHIRT_SPRITESHEET_DEFAULT, null, Item.Tag.SHIRT, Item.Tag.DYEABLE, Item.Tag.CLOTHING));
             AddToDictionary(SWEATER = new ClothingItem("Sweater", Paths.ITEM_SWEATER, 1,"Woven with warmth.", 1100, Paths.CLOTHING_SWEATER_SPRITESHEET_DEFAULT, null, Item.Tag.SHIRT, Item.Tag.DYEABLE, Item.Tag.CLOTHING));
@@ -1943,7 +1943,7 @@ namespace Plateau.Items
                     AddToDictionary(MakeColoredVersion(BUTTON_DOWN, color, Paths.ITEM_BUTTON_DOWN_GREYSCALE, Paths.CLOTHING_BUTTON_DOWN_SPRITESHEET_GREYSCALE));
                     AddToDictionary(MakeColoredVersion(ISLANDER_TATTOO, color, Paths.ITEM_ISLANDER_TATTOO_GREYSCALE, Paths.CLOTHING_ISLANDER_TATTOO_SPRITESHEET_GREYSCALE));
                     AddToDictionary(MakeColoredVersion(LINEN_BUTTON, color, Paths.ITEM_LINEN_BUTTON_GREYSCALE, Paths.CLOTHING_LINEN_BUTTON_SPRITESHEET_GREYSCALE));
-                    AddToDictionary(MakeColoredVersion(LONG_SLEEVED_TEE, color, Paths.ITEM_LONG_SLEEVED_TEE_GREYSCALE, Paths.CLOTHING_LONG_SLEEVED_TEE_SPRITESHEET_GREYSCALE));
+                    AddToDictionary(MakeColoredVersion(LONG_SLEEVE_TEE, color, Paths.ITEM_LONG_SLEEVED_TEE_GREYSCALE, Paths.CLOTHING_LONG_SLEEVED_TEE_SPRITESHEET_GREYSCALE));
                     AddToDictionary(MakeColoredVersion(PLAID_BUTTON, color, Paths.ITEM_PLAID_BUTTON_GREYSCALE, Paths.CLOTHING_PLAID_BUTTON_SPRITESHEET_GREYSCALE));
                     AddToDictionary(MakeColoredVersion(TURTLENECK, color, Paths.ITEM_TURTLENECK_GREYSCALE, Paths.CLOTHING_TURTLENECK_SPRITESHEET_GREYSCALE));
                     AddToDictionary(MakeColoredVersion(STRIPED_SHIRT, color, Paths.ITEM_STRIPED_SHIRT_GREYSCALE, Paths.CLOTHING_STRIPED_SHIRT_SPRITESHEET_GREYSCALE));

@@ -37,17 +37,17 @@ namespace Plateau.Items
 
         private Util.RecolorAdjustment GetRecolorAdjustment()
         {
-            if(this.HasTag(Tag.BACK))
-            {
-                return Util.RecolorAdjustment.EXTRA_DARKEN;
-            }
-            else if(this.HasTag(Tag.SHIRT) || this.HasTag(Tag.SOCKS))
+            if(this.HasTag(Tag.SHIRT) || this.HasTag(Tag.SOCKS))
             {
                 return Util.RecolorAdjustment.DARKEN;
             } else if (this.HasTag(Tag.SCARF) || this.HasTag(Tag.SAILCLOTH) || this.HasTag(Tag.GLOVES))
             {
                 return Util.RecolorAdjustment.LIGHTEN;
-            } else
+            } else if (this.HasTag(Tag.OUTERWEAR))
+            {
+                return Util.RecolorAdjustment.SLIGHT_LIGHTEN;
+            } 
+            else
             {
                 return Util.RecolorAdjustment.NORMAL;
             }

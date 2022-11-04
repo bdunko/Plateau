@@ -418,7 +418,7 @@ namespace Plateau.Components
             ItemDict.CHINO_SHORTS, ItemDict.SHORT_SKIRT, ItemDict.PUFF_SKIRT, ItemDict.SAILCLOTH, ItemDict.SHORT_SLEEVE_TEE, ItemDict.STRIPED_SHIRT, ItemDict.TANKER, ItemDict.SNEAKERS, ItemDict.SHORT_SOCKS}; //18
 
             BASIC_PATTERNS_FW_UNLOCKS = new Item[] { ItemDict.WOOL_MITTENS, ItemDict.BOWLER, ItemDict.CAMEL_HAT, ItemDict.SQUARE_HAT, ItemDict.FLAT_CAP, ItemDict.NECKWARMER, ItemDict.SCRAP_BRACER, ItemDict.HOODED_SWEATSHIRT, ItemDict.OVERCOAT,
-            ItemDict.CHINOS, ItemDict.LONG_SKIRT, ItemDict.LONG_SLEEVED_TEE, ItemDict.BUTTON_DOWN, ItemDict.PLAID_BUTTON, ItemDict.TURTLENECK, ItemDict.SWEATER, ItemDict.HIGH_TOPS, ItemDict.LONG_SOCKS, ItemDict.STRIPED_SOCKS,
+            ItemDict.CHINOS, ItemDict.LONG_SKIRT, ItemDict.LONG_SLEEVE_TEE, ItemDict.BUTTON_DOWN, ItemDict.PLAID_BUTTON, ItemDict.TURTLENECK, ItemDict.SWEATER, ItemDict.HIGH_TOPS, ItemDict.LONG_SOCKS, ItemDict.STRIPED_SOCKS,
             ItemDict.FESTIVE_SOCKS}; //20
 
             COSTUME_PATTERNS_UNLOCKS = new Item[] { ItemDict.CAPE, ItemDict.WOLF_TAIL, ItemDict.CLOCKWORK, ItemDict.ROBO_ARMS, ItemDict.DANGLE_EARRING, ItemDict.BLINDFOLD, ItemDict.BOXING_MITTS, ItemDict.DINO_MASK, ItemDict.DOG_MASK,
@@ -1192,7 +1192,7 @@ namespace Plateau.Components
                 player.AddNotification(new EntityPlayer.Notification("I obtained the book: \"Tropical Patterns\"!", Color.Green, EntityPlayer.Notification.Length.LONG));
                 player.AddNotification(new EntityPlayer.Notification("I learned how to make new tropical clothing!", Color.Green, EntityPlayer.Notification.Length.LONG));
             },
-                new ShrineStatus.RequiredItem(ItemDict.LONG_SLEEVED_TEE, 1), new ShrineStatus.RequiredItem(ItemDict.BUTTON_DOWN, 1), new ShrineStatus.RequiredItem(ItemDict.STRIPED_SHIRT, 1)));
+                new ShrineStatus.RequiredItem(ItemDict.LONG_SLEEVE_TEE, 1), new ShrineStatus.RequiredItem(ItemDict.BUTTON_DOWN, 1), new ShrineStatus.RequiredItem(ItemDict.STRIPED_SHIRT, 1)));
             shrineList.Add(SHRINE_WEAVER_2 = new ShrineStatus("SHRINE_WEAVER_2", (player, area) => {
                 FLAGS[FLAG_BOOK_COSTUME_PATTERNS] = 1;
                 UnlockRecipe(COSTUME_PATTERNS_UNLOCKS);
@@ -1572,7 +1572,7 @@ namespace Plateau.Components
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SHORT_SLEEVE_TEE, 1), new ItemStack(ItemDict.COTTON_CLOTH, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.STRIPED_SHIRT, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2), new ItemStack(ItemDict.BLACK_DYE, 2)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TANKER, 1), new ItemStack(ItemDict.LINEN_CLOTH, 1), new ItemStack(ItemDict.BLUE_DYE, 1)));
-            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.LONG_SLEEVED_TEE, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2)));
+            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.LONG_SLEEVE_TEE, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BUTTON_DOWN, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2), new ItemStack(ItemDict.BLUE_DYE, 1), new ItemStack(ItemDict.PEARL, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.PLAID_BUTTON, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 2), new ItemStack(ItemDict.BLACK_DYE, 1), new ItemStack(ItemDict.RED_DYE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TURTLENECK, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 3), new ItemStack(ItemDict.OLIVE_DYE, 1)));

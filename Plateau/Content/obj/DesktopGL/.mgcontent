@@ -553,8 +553,8 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/linen_button_greyscale.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/long_skirt.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/long_skirt_greyscale.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/long_sleeved_tee.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/long_sleeved_tee_greyscale.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/long_sleeve_tee.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/long_sleeve_tee_greyscale.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/long_socks.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/long_socks_greyscale.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/medal.png</File>
@@ -603,8 +603,8 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/scarf_greyscale.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/short_skirt.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/short_skirt_greyscale.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/short_sleeved_tee.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/short_sleeved_tee_greyscale.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/short_sleeve_tee.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/short_sleeve_tee_greyscale.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/short_socks.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/short_socks_greyscale.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/snapback.png</File>
@@ -1998,12 +1998,12 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_islander_tattoo_default.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_linen_button.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_linen_button_default.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_long_sleeved_tee.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_long_sleeved_tee_default.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_long_sleeve_tee.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_long_sleeve_tee_default.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_plaid_button.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_plaid_button_default.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_short_sleeved_tee.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_short_sleeved_tee_default.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_short_sleeve_tee.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_short_sleeve_tee_default.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_striped_shirt.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_striped_shirt_default.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_sweater.png</File>
