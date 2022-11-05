@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/seafood_paella.png</SourceFile>
-  <SourceTime>2022-01-08T16:21:23.818119-05:00</SourceTime>
+  <SourceTime>2022-11-04T23:30:52.4522735-04:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/items/products/cooking/seafood_paella.xnb</DestFile>
-  <DestTime>2022-11-02T16:29:20.8733562-04:00</DestTime>
+  <DestTime>2022-11-04T23:31:02.2201855-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

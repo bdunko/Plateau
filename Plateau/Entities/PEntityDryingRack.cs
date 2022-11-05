@@ -73,8 +73,7 @@ namespace Plateau.Entities
             {ItemDict.STRIPED_BASS, ItemDict.KLIPPFISK },
             {ItemDict.SUNFISH, ItemDict.KLIPPFISK },
             {ItemDict.SWORDFISH, ItemDict.KLIPPFISK },
-            {ItemDict.TUNA, ItemDict.KLIPPFISK },
-            {ItemDict.WHITE_BLOWFISH, ItemDict.KLIPPFISK }
+            {ItemDict.TUNA, ItemDict.KLIPPFISK }
         };
 
         public PEntityDryingRack(PartialRecolorSprite sprite, Vector2 tilePosition, PlaceableItem sourceItem, DrawLayer drawLayer) : base(tilePosition, sourceItem, drawLayer, sprite.GetFrameWidth() / 8, sprite.GetFrameHeight() / 8)

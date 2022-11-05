@@ -1685,16 +1685,12 @@ namespace Plateau.Components
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.TOMATO_SOUP, ItemDict.TOMATO, ItemDict.TOMATO, ItemDict.CREAM, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.SHRIMP_GUMBO, ItemDict.SHRIMP, ItemDict.ONION, ItemDict.BELLPEPPER, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.STUFFED_FLOUNDER, ItemDict.CLOUD_FLOUNDER, ItemDict.BOXER_LOBSTER, ItemDict.CRAB, CookingRecipe.LengthEnum.LONG));
-            OVEN_RECIPES.Add(new CookingRecipe(ItemDict.FRIED_CATFISH, ItemDict.CATFISH, ItemDict.BUTTER, ItemDict.OIL, CookingRecipe.LengthEnum.SHORT));
-            OVEN_RECIPES.Add(new CookingRecipe(ItemDict.FRIED_FISH, ItemDict.BLUEGILL, ItemDict.CARP, ItemDict.OIL, CookingRecipe.LengthEnum.SHORT));
-            OVEN_RECIPES.Add(new CookingRecipe(ItemDict.FRIED_OYSTERS, ItemDict.OYSTER, ItemDict.OIL, ItemDict.BUTTER, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.BLIND_DINNER, ItemDict.CAVEFISH, ItemDict.CAVEFISH, ItemDict.CAVERN_TETRA, CookingRecipe.LengthEnum.SHORT));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.STORMFISH, ItemDict.STORMBRINGER_KOI, ItemDict.SPICY_LEAF, ItemDict.SALT_SHARDS, CookingRecipe.LengthEnum.LONG));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.GRILLED_SALMON, ItemDict.SALMON, ItemDict.LEMON, ItemDict.BUTTER, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.CREAMY_SQUID, ItemDict.MOLTEN_SQUID, ItemDict.CREAM, ItemDict.MILK, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.BAKED_SNAPPER, ItemDict.RED_SNAPPER, ItemDict.BUTTER, ItemDict.SPINACH, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.SWORDFISH_POT, ItemDict.SWORDFISH, ItemDict.EGG, ItemDict.CREAM, CookingRecipe.LengthEnum.LONG));
-            OVEN_RECIPES.Add(new CookingRecipe(ItemDict.POTATO_AND_BEET_FRIES, ItemDict.POTATO, ItemDict.BEET, ItemDict.OIL, CookingRecipe.LengthEnum.SHORT));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.SPRING_PIZZA, ItemDict.SPINACH, ItemDict.CHEESE, ItemDict.MOUNTAIN_WHEAT, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.VEGGIE_CHIPS, ItemDict.CARROT, ItemDict.POTATO, ItemDict.SALT_SHARDS, CookingRecipe.LengthEnum.SHORT));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.FARMERS_STEW, ItemDict.ONION, ItemDict.CABBAGE, ItemDict.TOMATO, CookingRecipe.LengthEnum.LONG));
@@ -1705,11 +1701,8 @@ namespace Plateau.Components
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.CREAM_OF_MUSHROOM, ItemDict.SHIITAKE, ItemDict.MOREL, ItemDict.CREAM, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.STEWED_VEGGIES, ItemDict.CUCUMBER, ItemDict.TOMATO, ItemDict.ONION, CookingRecipe.LengthEnum.SHORT));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.BOAR_STEW, ItemDict.WILD_MEAT, ItemDict.POTATO, ItemDict.CARROT, CookingRecipe.LengthEnum.LONG));
-            OVEN_RECIPES.Add(new CookingRecipe(ItemDict.HONEY_STIR_FRY, ItemDict.BELLPEPPER, ItemDict.WILD_MEAT, ItemDict.WILD_HONEY, CookingRecipe.LengthEnum.LONG));
-            OVEN_RECIPES.Add(new CookingRecipe(ItemDict.FRIED_EGG, ItemDict.EGG, ItemDict.EGG, ItemDict.OIL, CookingRecipe.LengthEnum.SHORT));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.CREAMY_SPINACH, ItemDict.SPINACH, ItemDict.CREAM, ItemDict.MILK, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.DWARVEN_STEW, ItemDict.ONION, ItemDict.SHIITAKE, ItemDict.CHANTERELLE, CookingRecipe.LengthEnum.LONG));
-            OVEN_RECIPES.Add(new CookingRecipe(ItemDict.EGG_SCRAMBLE, ItemDict.EGG, ItemDict.MILK, ItemDict.BUTTER, CookingRecipe.LengthEnum.SHORT));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.BAKED_POTATO, ItemDict.POTATO, ItemDict.BUTTER, ItemDict.BUTTER, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.MEATY_PIZZA, ItemDict.MOUNTAIN_WHEAT, ItemDict.WILD_MEAT, ItemDict.TOMATO, CookingRecipe.LengthEnum.LONG));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.BUTTERED_ROLLS, ItemDict.MOUNTAIN_WHEAT, ItemDict.BUTTER, ItemDict.EGG, CookingRecipe.LengthEnum.MEDIUM));
@@ -1725,13 +1718,21 @@ namespace Plateau.Components
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.SEARED_TUNA, ItemDict.TUNA, ItemDict.SPICY_LEAF, ItemDict.PINEAPPLE, CookingRecipe.LengthEnum.SHORT));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.RATATOUILLE, ItemDict.EGGPLANT, ItemDict.BELLPEPPER, ItemDict.ONION, CookingRecipe.LengthEnum.MEDIUM));
             OVEN_RECIPES.Add(new CookingRecipe(ItemDict.EGGPLANT_PARMESAN, ItemDict.EGGPLANT, ItemDict.TOMATO, ItemDict.CHEESE, CookingRecipe.LengthEnum.LONG));
+            OVEN_RECIPES.Add(new CookingRecipe(ItemDict.ESCARGOT, ItemDict.SNAIL, ItemDict.SNAIL, ItemDict.BUTTER, CookingRecipe.LengthEnum.SHORT));
+            OVEN_RECIPES.Add(new CookingRecipe(ItemDict.LEMON_SHORTCAKE, ItemDict.MOUNTAIN_WHEAT, ItemDict.BUTTER, ItemDict.LEMON, CookingRecipe.LengthEnum.LONG));
 
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.EGG_SCRAMBLE, ItemDict.EGG, ItemDict.MILK, ItemDict.BUTTER, CookingRecipe.LengthEnum.NONE));
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.FRIED_CATFISH, ItemDict.CATFISH, ItemDict.BUTTER, ItemDict.OIL, CookingRecipe.LengthEnum.NONE));
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.FRIED_FISH, ItemDict.BLUEGILL, ItemDict.CARP, ItemDict.OIL, CookingRecipe.LengthEnum.NONE));
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.FRIED_OYSTERS, ItemDict.OYSTER, ItemDict.OYSTER, ItemDict.OIL, CookingRecipe.LengthEnum.NONE));
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.POTATO_AND_BEET_FRIES, ItemDict.POTATO, ItemDict.BEET, ItemDict.OIL, CookingRecipe.LengthEnum.NONE));
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.FRIED_EGG, ItemDict.EGG, ItemDict.EGG, ItemDict.OIL, CookingRecipe.LengthEnum.NONE));
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.HONEY_STIR_FRY, ItemDict.BELLPEPPER, ItemDict.WILD_MEAT, ItemDict.WILD_HONEY, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.SEARED_TUNA, ItemDict.TUNA, ItemDict.SPICY_LEAF, ItemDict.PINEAPPLE, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.SARDINE_SNACK, ItemDict.SARDINE, ItemDict.HERRING, ItemDict.STRIPED_BASS, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.MUSHROOM_STIR_FRY, ItemDict.MOREL, ItemDict.OYSTER_MUSHROOM, ItemDict.WILD_RICE, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.SEAFOOD_BASKET, ItemDict.CLAM, ItemDict.OYSTER, ItemDict.SHRIMP, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.CRISPY_GRASSHOPPER, ItemDict.RICE_GRASSHOPPER, ItemDict.SPICY_LEAF, ItemDict.OIL, CookingRecipe.LengthEnum.NONE));
-            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.ESCARGOT, ItemDict.SNAIL, ItemDict.SNAIL, ItemDict.BUTTER, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.BREAKFAST_POTATOES, ItemDict.POTATO, ItemDict.SALT_SHARDS, ItemDict.OIL, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.SPICY_BACON, ItemDict.WILD_MEAT, ItemDict.SPICY_LEAF, ItemDict.OIL, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.CAMPFIRE_COFFEE, ItemDict.CHICORY_ROOT, ItemDict.CHICORY_ROOT, ItemDict.SNOW_CRYSTAL, CookingRecipe.LengthEnum.NONE));
@@ -1756,7 +1757,7 @@ namespace Plateau.Components
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.SUSHI_ROLL, ItemDict.CLOUD_FLOUNDER, ItemDict.WILD_RICE, ItemDict.SEAWEED, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.EEL_ROLL, ItemDict.ONYX_EEL, ItemDict.WILD_RICE, ItemDict.SEAWEED, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.SEAWEED_SNACK, ItemDict.SEAWEED, ItemDict.SEAWEED, ItemDict.SALT_SHARDS, CookingRecipe.LengthEnum.NONE));
-            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.DELUXE_SUSHI, ItemDict.TUNA, ItemDict.WILD_RICE, ItemDict.SEAWEED, CookingRecipe.LengthEnum.NONE)); //TODO
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.DELUXE_SUSHI, ItemDict.TUNA, ItemDict.WILD_RICE, ItemDict.SEAWEED, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.DELUXE_SUSHI, ItemDict.SALMON, ItemDict.WILD_RICE, ItemDict.SEAWEED, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.DELUXE_SUSHI, ItemDict.PIKE, ItemDict.WILD_RICE, ItemDict.SEAWEED, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.DELUXE_SUSHI, ItemDict.SUNFISH, ItemDict.WILD_RICE, ItemDict.SEAWEED, CookingRecipe.LengthEnum.NONE));
@@ -1781,7 +1782,6 @@ namespace Plateau.Components
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.PICKLED_BEET_EGG, ItemDict.EGG, ItemDict.BEET, ItemDict.SPICY_LEAF, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.CHERRY_CHEESECAKE, ItemDict.MOUNTAIN_WHEAT, ItemDict.CHEESE, ItemDict.CHERRY, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.SURVIVORS_SURPRISE, ItemDict.EARTHWORM, ItemDict.CAVEWORM, ItemDict.SOLDIER_ANT, CookingRecipe.LengthEnum.NONE));
-            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.LEMON_SHORTCAKE, ItemDict.MOUNTAIN_WHEAT, ItemDict.BUTTER, ItemDict.LEMON, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.LUMINOUS_STEW, ItemDict.FIREFLY, ItemDict.LANTERN_MOTH, ItemDict.MILK, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.LICHEN_JUICE, ItemDict.EMERALD_MOSS, ItemDict.EMERALD_MOSS, ItemDict.CAVE_FUNGI, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.REJUVENATION_TEA, ItemDict.NETTLES, ItemDict.NETTLES, ItemDict.SPICY_LEAF, CookingRecipe.LengthEnum.NONE));
@@ -1789,8 +1789,7 @@ namespace Plateau.Components
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.BERRY_MILKSHAKE, ItemDict.BLACKBERRY, ItemDict.MILK, ItemDict.SNOW_CRYSTAL, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.MINT_CHOCO_BAR, ItemDict.MINT_EXTRACT, ItemDict.CACAO_BEAN, ItemDict.SNOW_CRYSTAL, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.AUTUMN_MASH, ItemDict.ORANGE, ItemDict.PERSIMMON, ItemDict.PERSIMMON, CookingRecipe.LengthEnum.NONE));
-            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.LETHAL_SASHIMI, ItemDict.PUFFERFISH, ItemDict.SHIITAKE, ItemDict.SEAWEED, CookingRecipe.LengthEnum.NONE));
-            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.LETHAL_SASHIMI, ItemDict.WHITE_BLOWFISH, ItemDict.SHIITAKE, ItemDict.SEAWEED, CookingRecipe.LengthEnum.NONE));
+            TABLE_RECIPES.Add(new CookingRecipe(ItemDict.LETHAL_SASHIMI, ItemDict.PUFFERFISH, ItemDict.WHITE_BLOWFISH, ItemDict.SHIITAKE, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.HOMESTYLE_JELLY, ItemDict.STRAWBERRY, ItemDict.RASPBERRY, ItemDict.RASPBERRY, CookingRecipe.LengthEnum.NONE));
             TABLE_RECIPES.Add(new CookingRecipe(ItemDict.BANANA_SUNDAE, ItemDict.BANANA, ItemDict.SNOW_CRYSTAL, ItemDict.CACAO_BEAN, CookingRecipe.LengthEnum.NONE));
 

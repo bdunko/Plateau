@@ -5814,3 +5814,4 @@ D:\Code\Plateau\Plateau\Plateau\obj\Debug\netcoreapp3.1\Plateau.csproj.CopyCompl
 D:\Code\Plateau\Plateau\Plateau\obj\Debug\netcoreapp3.1\Plateau.dll
 D:\Code\Plateau\Plateau\Plateau\obj\Debug\netcoreapp3.1\Plateau.pdb
 D:\Code\Plateau\Plateau\Plateau\obj\Debug\netcoreapp3.1\Plateau.genruntimeconfig.cache
+D:\Code\Plateau\Plateau\Plateau\obj\Debug\netcoreapp3.1\Plateau.csprojAssemblyReference.cache
