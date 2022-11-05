@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/interface/scrapbook_pieces/page_keg.png</SourceFile>
-  <SourceTime>2021-09-05T20:06:46.8311443-04:00</SourceTime>
+  <SourceTime>2022-11-04T23:38:09.4734099-04:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/interface/scrapbook_pieces/page_keg.xnb</DestFile>
-  <DestTime>2022-11-04T17:39:10.7008969-04:00</DestTime>
+  <DestTime>2022-11-04T23:38:15.8454092-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

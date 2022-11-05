@@ -179,6 +179,12 @@ namespace Plateau.Entities
             }
         }
 
+        private void startSmelting()
+        {
+            timeRemaining = PROCESSING_TIME;
+            state = FurnaceState.WORKING;
+        }
+
         public void InteractLeft(EntityPlayer player, Area area, World world)
         {
             if (state == FurnaceState.IDLE)
@@ -188,8 +194,7 @@ namespace Plateau.Entities
                 {
                     player.GetHeldItem().Subtract(1);
                     sprite.SetLoop("placement");
-                    timeRemaining = PROCESSING_TIME;
-                    state = FurnaceState.WORKING;
+                    startSmelting();
                 } else if (addedItem == ItemDict.COAL && heldItem.GetQuantity() != 3)
                 {
                     player.AddNotification(new EntityPlayer.Notification("I should add my ores before the coal.", Color.Red));
@@ -199,6 +204,9 @@ namespace Plateau.Entities
                     player.RemoveItemStackFromInventory(new ItemStack(addedItem, 3));
                     heldItem = new ItemStack(addedItem, 3);
                     sprite.SetLoop("placement");
+
+                    if (heldItem.GetItem() == ItemDict.WOOD || heldItem.GetItem() == ItemDict.HARDWOOD)
+                        startSmelting();
                 }
                 else
                 {
