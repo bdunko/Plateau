@@ -411,7 +411,7 @@ namespace Plateau.Components
         private static float DIALOGUE_BOX_ANIMATION_LENGTH = 0.033f; //0.33 per 4 frames
         private bool inDialogue;
         private float currentDialogueNumChars;
-        private static float DIALOGUE_CHARS_PER_FRAME = 0.5f; //speed of dialogue
+        private static float DIALOGUE_SPEED_CHARS_PER_FRAME = 0.6f; //speed of dialogue
         private static Vector2 DIALOGUE_BOX_LOCATION = new Vector2(65.5f, 8);
         private static Vector2 DIALOGUE_PORTRAIT_LOCATION = DIALOGUE_BOX_LOCATION + new Vector2(7, 8);
         private static Vector2 DIALOGUE_TEXT_LOCATION = DIALOGUE_BOX_LOCATION + new Vector2(50, 8);
@@ -3129,7 +3129,7 @@ namespace Plateau.Components
                 }
                 else
                 {
-                    currentDialogueNumChars+=DIALOGUE_CHARS_PER_FRAME;
+                    currentDialogueNumChars+= DIALOGUE_SPEED_CHARS_PER_FRAME;
                     if (controller.GetMouseLeftPress())
                     {
                         if (currentDialogueNumChars < currentDialogue.dialogueTexts[dialogueNodePage].Length)
