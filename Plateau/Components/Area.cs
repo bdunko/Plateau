@@ -2555,18 +2555,6 @@ namespace Plateau
             return null;
         }
 
-        public EntityCharacter GetCharacter(EntityCharacter.CharacterEnum cEnum)
-        {
-            foreach (Entity en in entityListManager.GetEntityList())
-            {
-                if (en is EntityCharacter && ((EntityCharacter)en).GetCharacterEnum() == cEnum)
-                {
-                    return (EntityCharacter)en;
-                }
-            }
-            return null;
-        }
-
         public bool IsTileEntityPlacementValid(int tileX, int tileY, int tileWidth, int tileHeight, bool bridgesAllowed = false)
         {
             //check if the object itself intersects anything solid

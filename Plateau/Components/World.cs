@@ -319,14 +319,10 @@ namespace Plateau.Components
 
         public EntityCharacter GetCharacter(EntityCharacter.CharacterEnum cEnum)
         {
-            foreach(Area.AreaEnum aEnum in areas.Keys)
+            foreach(EntityCharacter character in characters)
             {
-                Area area = areas[aEnum];
-                EntityCharacter character = area.GetCharacter(cEnum);
-                if(character != null)
-                {
+                if (character.GetCharacterEnum() == cEnum)
                     return character;
-                }
             }
             return null;
         }

@@ -293,12 +293,9 @@ namespace Plateau.Entities
 
         public override void Update(float deltaTime, Area area)
         {
-            //check if has mail
+            //if we have mail, set haveMail to true - this will cause exclaimation mark to be drawn
             if (!checkedMailToday)
             {
-                GameState.SetFlag(GameState.FLAG_LETTER_GIFT_ROCKWELL, 1);
-                GameState.SetFlag(GameState.FLAG_LETTER_GIFT_HIMEKO, 1);
-
                 foreach (Letter letter in LETTERS)
                 {
                     if(GameState.GetFlagValue(letter.flag) != 0)
