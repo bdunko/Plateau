@@ -2375,6 +2375,7 @@ namespace Plateau.Entities
                     sprite.SetLoopIfNot(direction == DirectionEnum.LEFT ? ClothedSprite.FISH_L : ClothedSprite.FISH_R);
                 } else
                 {
+                    //can also happen from doing clearinv while in middle of animation
                     throw new Exception("No tool animation?");
                 }
                 if (sprite.IsCurrentLoopFinished() && !GetHeldItem().GetItem().HasTag(Item.Tag.FISHING_ROD))

@@ -686,6 +686,11 @@ namespace Plateau.Components
                         baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 0, DARKEN_AMOUNT * 1.3f);
                         baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 0, DARKEN_AMOUNT * 1.2f);
                         baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 0, DARKEN_AMOUNT * 1.2f);
+                    } else if (adjustment == RecolorAdjustment.NORMAL)
+                    {
+                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 255, LIGHTEN_AMOUNT * 0.3f);
+                        baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 255, LIGHTEN_AMOUNT * 0.3f);
+                        baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 255, LIGHTEN_AMOUNT * 0.3f);
                     }
                 }
 

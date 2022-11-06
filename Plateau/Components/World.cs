@@ -239,7 +239,6 @@ namespace Plateau.Components
             Func<World, EntityCharacter, bool> fallCondition = (world, chara) => { return world.GetSeason() == Season.AUTUMN; };
             Func<World, EntityCharacter, bool> winterCondition = (world, chara) => { return world.GetSeason() == Season.WINTER; };
 
-            EntityCharacter rockwell, camus;
             //ROCKWELL
             List<EntityCharacter.ClothingSet> rockwellClothing = Util.GenerateClothingSetList(
                 new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
@@ -273,7 +272,7 @@ namespace Plateau.Components
             List<EntityCharacter.DialogueOption> rockwellDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)), 
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell. (In Spring)", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(springCondition), 3));   
-            characters.Add(rockwell = new EntityCharacter("Rockwell", this, EntityCharacter.CharacterEnum.ROCKWELL, rockwellClothing, rockwellSchedule, rockwellDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.FARM].GetWaypoint("testSpawn"),
+            characters.Add(new EntityCharacter("Rockwell", this, EntityCharacter.CharacterEnum.ROCKWELL, rockwellClothing, rockwellSchedule, rockwellDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.FARM].GetWaypoint("testSpawn"),
                 GameState.FLAG_LETTER_GIFT_ROCKWELL));
 
 

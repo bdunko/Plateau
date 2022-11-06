@@ -1587,7 +1587,7 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/farm.tmx","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/maps/farm.xnb","TiledMapProcessor","TiledMapContentItem",239046,32323,0.1552839
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/farm_base.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/maps/farm_base.xnb","TextureProcessor","Texture2DContent",14307,3520213,0.0841606
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/farm_walls.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/maps/farm_walls.xnb","TextureProcessor","Texture2DContent",6643,3520213,0.0758944
-"D:/Code/Plateau/Plateau/Plateau/Content/maps/interior.tmx","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/maps/interior.xnb","TiledMapProcessor","TiledMapContentItem",706229,526741,0.028742
+"D:/Code/Plateau/Plateau/Plateau/Content/maps/interior.tmx","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/maps/interior.xnb","TiledMapProcessor","TiledMapContentItem",706227,526733,0.1731204
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0.tmx","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/maps/stratum0.xnb","TiledMapProcessor","TiledMapContentItem",1033062,418326,0.1756247
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0_base.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/maps/stratum0_base.xnb","TextureProcessor","Texture2DContent",155097,11679445,0.2262333
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0_decoration.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/maps/stratum0_decoration.xnb","TextureProcessor","Texture2DContent",22632,11679445,0.213824

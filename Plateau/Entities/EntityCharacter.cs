@@ -175,7 +175,7 @@ namespace Plateau.Entities
                     }
                 }
 
-                private List<Node> allNodesInMap; //could be static
+                private static List<Node> allNodesInMap;
                 public SubzoneMap(World world)
                 {
                     Node apex, beach, farm, s0walk, s0warp, store, cafe, bookstoreLower, bookstoreUpper, s1walk, s1warp,
@@ -356,11 +356,11 @@ namespace Plateau.Entities
                     Node.ConnectedNode currentNode = currentPath[currentPath.Count - 1];
                     if(currentNode.nodeTo.subzone == dest)
                     {
-                        System.Diagnostics.Debug.WriteLine("SUCCESSPATH");
-                        foreach (Node.ConnectedNode cn in currentPath)
-                        {
-                            System.Diagnostics.Debug.WriteLine(cn.nodeTo.subzone + "  ");
-                        }
+                        //System.Diagnostics.Debug.WriteLine("SUCCESSPATH");
+                        //foreach (Node.ConnectedNode cn in currentPath)
+                        //{
+                        //    System.Diagnostics.Debug.WriteLine(cn.nodeTo.subzone + "  ");
+                        //}
                         //SUCCESS - found path
                         Queue<MovementTypeWaypoint> returnQueue = new Queue<MovementTypeWaypoint>();
                         foreach (Node.ConnectedNode node in currentPath)
@@ -804,6 +804,11 @@ namespace Plateau.Entities
             return level;
         }
 
+        public string GetGiftFlag()
+        {
+            return this.giftFlag;
+        }
+
         public void Walk(DirectionEnum direction, float deltaTime)
         {
             switch(direction)
@@ -939,20 +944,13 @@ namespace Plateau.Entities
             UpdateAnimation(deltaTime);
         }
 
-        private static int[] GIFT_CHANCE_BY_HEARTS = { 0, 0, 0, 5, 7, 9, 10, 12, 14, 15, 18 };
-        private static int WISH_FOR_LOVE_GIFT_BOOST = 5;
+
 
         public void TickDaily(World world, Area area, EntityPlayer player)
         {
             clothingManager.TickDaily(world, this); //update clothes
             MoveToSpawn(world); //reset location
             schedule.Tick(world, this, currentArea); //update schedule
-           
-            //consider sending gifts - Wish for Love increases odds
-            if(Util.RandInt(1, 100) <= (GIFT_CHANCE_BY_HEARTS[GetHeartLevel()] + (player.HasEffect(AppliedEffects.WISHBOAT_LOVE) ? WISH_FOR_LOVE_GIFT_BOOST : 0)))
-            {
-                GameState.SetFlag(giftFlag, 1);
-            }
         }
 
         public override void SetPosition(Vector2 position)
