@@ -5815,3 +5815,9 @@ D:\Code\Plateau\Plateau\Plateau\obj\Debug\netcoreapp3.1\Plateau.dll
 D:\Code\Plateau\Plateau\Plateau\obj\Debug\netcoreapp3.1\Plateau.pdb
 D:\Code\Plateau\Plateau\Plateau\obj\Debug\netcoreapp3.1\Plateau.genruntimeconfig.cache
 D:\Code\Plateau\Plateau\Plateau\obj\Debug\netcoreapp3.1\Plateau.csprojAssemblyReference.cache
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_base.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_decoration.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_decoration_fg.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_walls.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_water.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_water_bg.xnb

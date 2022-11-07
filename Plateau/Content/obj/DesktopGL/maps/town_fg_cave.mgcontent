@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/maps/town_fg_cave.png</SourceFile>
-  <SourceTime>2020-12-22T23:46:26.9346855-05:00</SourceTime>
+  <SourceTime>2022-11-06T23:07:50.1934854-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/town_fg_cave.xnb</DestFile>
-  <DestTime>2022-11-04T17:39:44.0738232-04:00</DestTime>
+  <DestTime>2022-11-06T23:08:03.8314833-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

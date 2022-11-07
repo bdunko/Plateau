@@ -192,7 +192,7 @@ namespace Plateau.Components
             areas[Area.AreaEnum.INTERIOR] = new Area(Area.AreaEnum.INTERIOR, Content.Load<TiledMap>(Paths.MAP_INTERIOR), false, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, false, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, false, true),
-                null, null, null, null, null, null, null);
+                Paths.MAP_INTERIOR_WATER, Paths.MAP_INTERIOR_DECORATION_FG, Paths.MAP_INTERIOR_BASE, Paths.MAP_INTERIOR_DECORATION, Paths.MAP_INTERIOR_WALLS, null, null);
             
             areas[Area.AreaEnum.BEACH] = new Area(Area.AreaEnum.BEACH, Content.Load<TiledMap>(Paths.MAP_BEACH), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, false, false),
