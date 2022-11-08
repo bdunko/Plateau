@@ -57,6 +57,8 @@ namespace Plateau.Entities
             {ItemDict.WOOL, new Result(ItemDict.GOLDEN_WOOL, PROCESSING_TIME_LONG)},
             {ItemDict.HONEY_BEE, new Result(ItemDict.QUEENS_STINGER, PROCESSING_TIME_LONG)},
             {ItemDict.BAT_WING, new Result(ItemDict.ALBINO_WING, PROCESSING_TIME_LONG)},
+            {ItemDict.COAL, new Result(ItemDict.DIAMOND, PROCESSING_TIME_LONG)},
+            {ItemDict.STONE, new Result(ItemDict.COAL, PROCESSING_TIME_SHORT)},
         };
         private PartialRecolorSprite sprite;
         private Item heldItem;

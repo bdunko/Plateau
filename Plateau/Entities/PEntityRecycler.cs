@@ -150,6 +150,10 @@ namespace Plateau.Entities
                         {
                             recipe = GameState.GetAlchemyRecipeForResult(heldItem);
                         }
+                        if(recipe == null)
+                        {
+                            throw new Exception("No recipe found for Recycler!");
+                        }
                     }
                     area.AddEntity(new EntityItem(recipe.ingredient1, new Vector2(position.X, position.Y - 10)));
                     area.AddEntity(new EntityItem(recipe.ingredient2, new Vector2(position.X, position.Y - 10)));

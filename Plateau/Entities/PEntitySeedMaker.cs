@@ -38,8 +38,6 @@ namespace Plateau.Entities
             this.resultHoverBox = new ResultHoverBox();
         }
 
-
-
         public override void Draw(SpriteBatch sb, float layerDepth)
         {
             sprite.Draw(sb, new Vector2(position.X, position.Y + 1), Color.Wheat, layerDepth);

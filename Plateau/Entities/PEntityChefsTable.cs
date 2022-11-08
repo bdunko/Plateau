@@ -114,8 +114,8 @@ namespace Plateau.Entities
                 if(ingredients[i] != ItemDict.NONE)
                 {
                     sprite.SetLoop("placement");
+                    area.AddEntity(new EntityItem(ingredients[i], new Vector2(position.X, position.Y - 10)));
                 }
-                area.AddEntity(new EntityItem(ingredients[i], new Vector2(position.X, position.Y - 10)));
                 ingredients[i] = ItemDict.NONE;
             }
         }

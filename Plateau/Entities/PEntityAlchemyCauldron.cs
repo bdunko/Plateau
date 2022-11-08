@@ -198,14 +198,17 @@ namespace Plateau.Entities
             {
                 for (int i = 0; i < ingredients.Length; i++)
                 {
-                    if(i == 0)
+                    if (ingredients[i] != ItemDict.NONE)
                     {
+                        if (i == 0)
+                        {
+                            area.AddEntity(new EntityItem(ingredients[i], new Vector2(position.X, position.Y - 10)));
+                            area.AddEntity(new EntityItem(ingredients[i], new Vector2(position.X, position.Y - 10)));
+                        }
                         area.AddEntity(new EntityItem(ingredients[i], new Vector2(position.X, position.Y - 10)));
-                        area.AddEntity(new EntityItem(ingredients[i], new Vector2(position.X, position.Y - 10)));
+                        ingredients[i] = ItemDict.NONE;
+                        sprite.SetLoop("placement");
                     }
-                    area.AddEntity(new EntityItem(ingredients[i], new Vector2(position.X, position.Y - 10)));
-                    ingredients[i] = ItemDict.NONE;
-                    sprite.SetLoop("placement");
                 }
             }
         }

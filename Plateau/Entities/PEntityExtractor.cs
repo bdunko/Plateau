@@ -30,7 +30,7 @@ namespace Plateau.Entities
             {Area.AreaEnum.TOWN, new List<Item>() { ItemDict.STONE, ItemDict.CLAY, ItemDict.OPAL }},
             {Area.AreaEnum.S0, new List<Item>() { ItemDict.COAL, ItemDict.SCRAP_IRON, ItemDict.CLAY, ItemDict.STONE, ItemDict.QUARTZ }},
             {Area.AreaEnum.S1, new List<Item>() { ItemDict.IRON_ORE, ItemDict.STONE, ItemDict.CLAY }},
-            {Area.AreaEnum.S2, new List<Item>() { ItemDict.MYTHRIL_ORE, ItemDict.STONE, ItemDict.IRON_ORE, ItemDict.AMETHYST, ItemDict.QUARTZ, ItemDict.TOPAZ, ItemDict.SALT_SHARDS }},
+            {Area.AreaEnum.S2, new List<Item>() { ItemDict.MYTHRIL_ORE, ItemDict.STONE, ItemDict.IRON_ORE, ItemDict.AMETHYST, ItemDict.QUARTZ, ItemDict.TOPAZ, ItemDict.IRON_CHIP }},
             {Area.AreaEnum.S3, new List<Item>() { ItemDict.GOLD_ORE, ItemDict.STONE, ItemDict.FOSSIL_SHARDS, ItemDict.TRILOBITE, ItemDict.COAL, ItemDict.OLD_BONE }},
             {Area.AreaEnum.S4, new List<Item>() { ItemDict.ADAMANTITE_ORE, ItemDict.MYTHRIL_ORE, ItemDict.STONE, ItemDict.MYTHRIL_CHIP, ItemDict.GOLD_CHIP, ItemDict.IRON_CHIP }},
             {Area.AreaEnum.APEX, new List<Item>() { ItemDict.IRON_CHIP, ItemDict.MYTHRIL_CHIP, ItemDict.GOLD_CHIP }}
