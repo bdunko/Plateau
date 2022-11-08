@@ -4530,7 +4530,7 @@ namespace Plateau.Components
                 currentHoveringInterface = ((IHaveHoveringInterface)targetEntity).GetHoveringInterface();
                 Vector2 hoveringSize = currentHoveringInterface.GetSize();
                 hoveringInterfacePosition = targetEntity.GetPosition();
-                hoveringInterfacePosition.Y -= 12;
+                hoveringInterfacePosition.Y -= 10;
                 RectangleF targetSize = targetEntity.GetCollisionRectangle();
                 hoveringInterfacePosition.X += targetSize.Width / 2;
                 hoveringInterfacePosition.X -= hoveringSize.X / 2;

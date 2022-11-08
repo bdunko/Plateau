@@ -2483,7 +2483,7 @@
    </properties>
    <point/>
   </object>
-  <object id="361" x="494.727" y="744">
+  <object id="361" x="496" y="744">
    <properties>
     <property name="entity" value="bamboo_pot"/>
    </properties>

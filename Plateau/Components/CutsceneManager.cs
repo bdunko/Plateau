@@ -545,7 +545,15 @@ namespace Plateau.Components
                 }),
                 new Cutscene.WaitCSAction(1.0f),
                 new Cutscene.DialogueCSAction(player, (player, world, area) => { //dialogue for shipped value
-                    return TEntityShippingBin.TOTAL_VALUE > 0 ? new DialogueNode("You shipped " + TEntityShippingBin.TOTAL_VALUE + " gold worth of items today! Good work!", DialogueNode.PORTRAIT_SYSTEM) : null;
+                    if (TEntityShippingBin.TOTAL_VALUE >= 1000000)
+                        return new DialogueNode("You shipped " + TEntityShippingBin.TOTAL_VALUE + " gold worth of items today!!!\n\nIncredible!!!", DialogueNode.PORTRAIT_SYSTEM);
+                    else if (TEntityShippingBin.TOTAL_VALUE >= 100000)
+                        return new DialogueNode("You shipped " + TEntityShippingBin.TOTAL_VALUE + " gold worth of items today!!\n\nWow!!", DialogueNode.PORTRAIT_SYSTEM);
+                    else if (TEntityShippingBin.TOTAL_VALUE >= 10000)
+                        return new DialogueNode("You shipped " + TEntityShippingBin.TOTAL_VALUE + " gold worth of items today!\n\nGreat job!", DialogueNode.PORTRAIT_SYSTEM);
+                    else if (TEntityShippingBin.TOTAL_VALUE > 0)
+                        return new DialogueNode("You shipped " + TEntityShippingBin.TOTAL_VALUE + " gold worth of items today.\n\nGood work!", DialogueNode.PORTRAIT_SYSTEM);
+                    return null;
                 }),
                 new Cutscene.DialogueCSAction(player, new DialogueNode("...Your progress will be saved overnight.\n\nSweet dreams.", DialogueNode.PORTRAIT_SYSTEM)),
                 new Cutscene.WaitCSAction(2.0f)
