@@ -193,7 +193,6 @@ namespace Plateau.Entities
         private static int TARGET_OFFSET_LEFT = -5;
         private static int TARGET_OFFSET_RIGHT = 12;
         private static int COLLISION_STEPS = 6; //number of collision steps; higher = more performance intensive, but more accurate
-        private static int WATER_COLLISION_OFFSET_Y = -1;
 
         private float elapsedSinceNotGrounded = 0;
         private float elapsedSinceWall = 0;
@@ -441,16 +440,17 @@ namespace Plateau.Entities
         {
             RectangleF pHitbox = GetCollisionRectangle();
             int waterCheckTileX = (int)(pHitbox.Center.X / 8);
-            int waterCheckTileY = (int)((pHitbox.Center.Y + WATER_COLLISION_OFFSET_Y) / 8);
+            int waterCheckTileY = (int)((pHitbox.Bottom-1) / 8);
             return area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.WATER || 
-                area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.TOP_WATER;
+                area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.TOP_WATER ||
+                area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.DEEP_WATER;
         }
 
         public bool CheckTopWaterCollision(Area area)
         {
             RectangleF pHitbox = GetCollisionRectangle();
             int waterCheckTileX = (int)(pHitbox.Center.X / 8);
-            int waterCheckTileY = (int)((pHitbox.Center.Y + WATER_COLLISION_OFFSET_Y) / 8);
+            int waterCheckTileY = (int)((pHitbox.Bottom-1) / 8);
             return area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.TOP_WATER ||
                 area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY-1) == Area.CollisionTypeEnum.TOP_WATER;
         }
@@ -459,7 +459,7 @@ namespace Plateau.Entities
         {
             RectangleF pHitbox = GetCollisionRectangle();
             int waterCheckTileX = (int)(pHitbox.Center.X / 8);
-            int waterCheckTileY = (int)((pHitbox.Center.Y + WATER_COLLISION_OFFSET_Y) / 8);
+            int waterCheckTileY = (int)((pHitbox.Center.Y-1) / 8);
             return area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.DEEP_WATER;
         }
 
