@@ -5821,3 +5821,4 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_de
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_walls.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_water.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_water_bg.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_fg_cave.xnb

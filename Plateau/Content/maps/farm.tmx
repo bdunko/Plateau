@@ -458,7 +458,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="41" name="zones" visible="0"/>
+ <objectgroup id="41" name="zones"/>
  <objectgroup id="25" name="pathing" visible="0" locked="1"/>
  <objectgroup id="56" name="lighting" visible="0" locked="1"/>
  <objectgroup id="13" name="entity">

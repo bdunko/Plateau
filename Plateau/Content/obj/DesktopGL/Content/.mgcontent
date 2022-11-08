@@ -1725,6 +1725,7 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_base.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_decoration.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_decoration_fg.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_fg_cave.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_walls.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_water.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_water_bg.png</File>
@@ -2813,6 +2814,7 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -43,6 +43,7 @@ namespace Plateau.Components
         public static string MAP_INTERIOR_DECORATION = "maps/interior_decoration";
         public static string MAP_INTERIOR_DECORATION_FG = "maps/interior_decoration_fg";
         public static string MAP_INTERIOR_WATER = "maps/interior_water";
+        public static string MAP_INTERIOR_FG_CAVE = "maps/interior_fg_cave";
 
         public static string MAP_BEACH = "maps/beach";
         public static string MAP_BEACH_BASE = "maps/beach_base";
