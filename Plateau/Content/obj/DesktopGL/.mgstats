@@ -1713,10 +1713,10 @@ Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Siz
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/beach_water.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/beach_water.xnb","TextureProcessor","Texture2DContent",14130,12816085,0.258835
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/beach_water_bg.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/beach_water_bg.xnb","TextureProcessor","Texture2DContent",13934,12816085,0.2540183
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/decor_tileset.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/decor_tileset_0.xnb","TextureProcessor","Texture2DContent",116419,4800085,0.1098778
-"D:/Code/Plateau/Plateau/Plateau/Content/maps/farm.tmx","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/farm.xnb","TiledMapProcessor","TiledMapContentItem",239034,32323,0.1546046
-"D:/Code/Plateau/Plateau/Plateau/Content/maps/farm_base.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/farm_base.xnb","TextureProcessor","Texture2DContent",14307,3520213,0.0781714
-"D:/Code/Plateau/Plateau/Plateau/Content/maps/farm_walls.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/farm_walls.xnb","TextureProcessor","Texture2DContent",6643,3520213,0.0608837
-"D:/Code/Plateau/Plateau/Plateau/Content/maps/interior.tmx","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/interior.xnb","TiledMapProcessor","TiledMapContentItem",1344426,1468608,0.0753122
+"D:/Code/Plateau/Plateau/Plateau/Content/maps/farm.tmx","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/farm.xnb","TiledMapProcessor","TiledMapContentItem",234637,30341,0.1587702
+"D:/Code/Plateau/Plateau/Plateau/Content/maps/farm_base.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/farm_base.xnb","TextureProcessor","Texture2DContent",13258,3451861,0.2357646
+"D:/Code/Plateau/Plateau/Plateau/Content/maps/farm_walls.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/farm_walls.xnb","TextureProcessor","Texture2DContent",8580,3451861,0.0761138
+"D:/Code/Plateau/Plateau/Plateau/Content/maps/interior.tmx","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/interior.xnb","TiledMapProcessor","TiledMapContentItem",1344422,1468608,0.0734372
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_base.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/interior_base.xnb","TextureProcessor","Texture2DContent",27755,15360085,0.3433223
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_decoration.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/interior_decoration.xnb","TextureProcessor","Texture2DContent",65075,15360085,0.296338
 "D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_decoration_fg.png","D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/interior_decoration_fg.xnb","TextureProcessor","Texture2DContent",16050,15360085,0.2799523
