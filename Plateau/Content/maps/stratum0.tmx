@@ -1261,7 +1261,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="37" name="cutscenes" visible="0">
+ <objectgroup id="37" name="cutscenes">
   <object id="27" x="864" y="304" width="194.667" height="88">
    <properties>
     <property name="id" value="CUTSCENE_TEST"/>
