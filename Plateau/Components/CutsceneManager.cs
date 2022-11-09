@@ -476,6 +476,7 @@ namespace Plateau.Components
             CUTSCENES.Add(CUTSCENE_TEST = new Cutscene("CUTSCENE_TEST",
                 (entityPlayer, world) => { return true; },
                 (entityPlayer, world, cam) => {
+                    entityPlayer.SetToDefaultPose();
                     entityPlayer.SetGroundedPosition(new Vector2(864, 376));
                     cam.Update(0.0f, player.GetAdjustedPosition() + new Vector2(0, -30), world.GetCurrentArea().MapPixelWidth(), world.GetCurrentArea().MapPixelHeight());
                 },
@@ -483,7 +484,7 @@ namespace Plateau.Components
                     player.AddNotification(new EntityPlayer.Notification("this is a onCutsceneEnd test", Color.Red)); 
                 },
                 CutsceneBackground.WORLD,
-                CutsceneTransition.FADE,
+                CutsceneTransition.NONE,
                 CutsceneTransition.NONE,
                 new Cutscene.GroupedCSAction(new Cutscene.MovePlayerByCSAction(100, player), new Cutscene.PanCameraByCSAction(new Vector2(100, 0))),
                 new Cutscene.WaitCSAction(1.0f),

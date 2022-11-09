@@ -80,7 +80,6 @@ namespace Plateau
         private Effect lightsShader;
         private CutsceneManager.Cutscene currentCutscene;
         private bool cutsceneTransitionDone;
-        private bool cutsceneReady;
 
         private AnimatedSprite lightMaskSmall, lightMaskMedium, lightMaskLarge;
 
@@ -93,7 +92,6 @@ namespace Plateau
 
             currentState = PlateauGameState.MAINMENU;
             currentCutscene = null;
-            cutsceneReady = false;
             cutsceneTransitionDone = false;
 
             IsFixedTimeStep = true; //nonvariable time steps...
@@ -341,23 +339,6 @@ namespace Plateau
 
                 if (currentState == PlateauGameState.CUTSCENE)
                 {
-                    //start of cutscene, need to hide ui and initiate transition
-                    if(!cutsceneReady)
-                    {
-                        if (currentCutscene.transitionIn == CutsceneManager.CutsceneTransition.FADE)
-                        {
-                            cutsceneTransitionDone = false;
-                            ui.TransitionFadeToBlack();
-                        }
-                        else
-                        {
-                            cutsceneTransitionDone = true;
-                            currentCutscene.OnActivation(player, world, camera);
-                            ui.Hide();
-                        }
-                        cutsceneReady = true;
-                    }
-
                     if (!cutsceneTransitionDone)
                     {
                         player.StopAllMovement();
@@ -516,7 +497,17 @@ namespace Plateau
                     if (currentCutscene != null)
                     {
                         currentState = PlateauGameState.CUTSCENE;
-                        cutsceneReady = false;
+                        if (currentCutscene.transitionIn == CutsceneManager.CutsceneTransition.FADE)
+                        {
+                            cutsceneTransitionDone = false;
+                            ui.TransitionFadeToBlack();
+                        }
+                        else
+                        {
+                            cutsceneTransitionDone = true;
+                            currentCutscene.OnActivation(player, world, camera);
+                            ui.Hide();
+                        }
                     }
                 }
                 SoundSystem.Update(deltaTime, player, world);
@@ -659,6 +650,8 @@ namespace Plateau
                     spriteBatch.End();
                 } else if (currentCutscene.background == CutsceneManager.CutsceneBackground.SKY)
                 {
+                    System.Diagnostics.Debug.WriteLine("iscomplete: " + currentCutscene.isComplete + "    transitiondone: " + cutsceneTransitionDone);
+                        
                     GRAPHICS.GraphicsDevice.SetRenderTarget(mainTarget);
                     GRAPHICS.GraphicsDevice.Clear(Color.CadetBlue);
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);

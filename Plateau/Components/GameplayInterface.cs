@@ -460,7 +460,7 @@ namespace Plateau.Components
         private int[] numMaterialsOfRecipe;
         private List<HealthBar> healthBars;
 
-        private static Vector2 NOTIFICATION_POSITION = new Vector2(160, 24);
+        private static Vector2 NOTIFICATION_POSITION = new Vector2(160, 12);
         private EntityPlayer.Notification currentNotification;
 
         private static Vector2 APPLIED_EFFECT_ANCHOR = new Vector2(3, 3); //used to be 2, 16 with AREA_NAME
