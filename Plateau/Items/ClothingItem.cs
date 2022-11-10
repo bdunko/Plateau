@@ -46,7 +46,7 @@ namespace Plateau.Items
             } else if (this.HasTag(Tag.OUTERWEAR))
             {
                 return Util.RecolorAdjustment.SLIGHT_LIGHTEN;
-            } 
+            }
             else
             {
                 return Util.RecolorAdjustment.NORMAL;

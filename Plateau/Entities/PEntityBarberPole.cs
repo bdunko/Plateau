@@ -117,8 +117,6 @@ namespace Plateau.Entities
         {
             //get new hairstyle
             int newHairstyleIndex = (getIndexOfHair(player) + 1) % HAIRSTYLE_LIST.Length;
-            //if (newHairstyleIndex >= HAIRSTYLE_LIST.Length) //loop around
-            //    newHairstyleIndex = 0;
 
             //get current hair color
             string currentHairColor = player.GetHair().GetItem().GetName().Split('(')[1];
@@ -153,8 +151,7 @@ namespace Plateau.Entities
 
         public void InteractLeftShift(EntityPlayer player, Area area, World world)
         {
-            //CHANGE HAIR COLOR
-
+            //hair color
             string currentHairstyle = player.GetHair().GetItem().GetName().Split('(')[0].Trim();
             string currentFacialHair = player.GetFacialHair().GetItem().GetName().Split('(')[0].Trim();
 
