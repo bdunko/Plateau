@@ -485,6 +485,8 @@ namespace Plateau.Components
 
         private int dialogueNodePage = 0;
 
+        private EntityPlayer player;
+
         public GameplayInterface(Controller controller)
         {
             this.healthBars = new List<HealthBar>();
@@ -2908,6 +2910,7 @@ namespace Plateau.Components
 
         public void Update(float deltaTime, EntityPlayer player, RectangleF cameraBoundingBox, Area currentArea, World.TimeData timeData, World world)
         {
+            this.player = player;
             heldItem = player.GetHeldItem();
             workbenchCraftablePosition.Clear();
             tooltipName = "";
@@ -4527,7 +4530,7 @@ namespace Plateau.Components
 
             if(targetEntity != null && targetEntity is IHaveHoveringInterface)
             {
-                currentHoveringInterface = ((IHaveHoveringInterface)targetEntity).GetHoveringInterface();
+                currentHoveringInterface = ((IHaveHoveringInterface)targetEntity).GetHoveringInterface(player);
                 Vector2 hoveringSize = currentHoveringInterface.GetSize();
                 hoveringInterfacePosition = targetEntity.GetPosition();
                 hoveringInterfacePosition.Y -= 10;

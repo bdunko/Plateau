@@ -337,7 +337,7 @@ namespace Plateau.Entities
             //nothing
         }
 
-        public HoveringInterface GetHoveringInterface()
+        public HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
             HoveringInterface baseHI = new HoveringInterface();
             HoveringInterface.Row row = new HoveringInterface.Row();

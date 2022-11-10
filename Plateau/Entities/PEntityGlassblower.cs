@@ -75,6 +75,11 @@ namespace Plateau.Entities
             {
                 state = GlassblowerState.FINISHED;
             }
+
+            if(heldItem.GetItem() != ItemDict.NONE)
+            {
+                checkedGround = true;
+            }
         }
 
         public override void Update(float deltaTime, Area area)
@@ -188,6 +193,8 @@ namespace Plateau.Entities
                 timeRemaining -= minutesTicked;
                 if (timeRemaining <= 0)
                 {
+                    //in S1, 1/10 chance to generate Wind and Water Crystals
+                    //in S3, 1/10 chance to generate Earth and Fire Crystals
                     if (area.GetAreaEnum() == Area.AreaEnum.S3 || area.GetAreaEnum() == Area.AreaEnum.S1)
                     {
                         switch (Util.RandInt(1, 10))

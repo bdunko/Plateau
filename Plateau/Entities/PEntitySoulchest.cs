@@ -139,7 +139,7 @@ namespace Plateau.Entities
             return soulchestContents[itemForm][i].GetQuantity();
         }
 
-        public override HoveringInterface GetHoveringInterface()
+        public override HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
             if (soulchestContents[itemForm][0].GetItem() != ItemDict.NONE)
             {

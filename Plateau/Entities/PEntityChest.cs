@@ -160,7 +160,7 @@ namespace Plateau.Entities
             return contents[i].GetQuantity();
         }
 
-        public virtual HoveringInterface GetHoveringInterface()
+        public virtual HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
             if (contents[0].GetItem() != ItemDict.NONE)
             {

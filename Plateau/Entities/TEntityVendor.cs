@@ -135,7 +135,7 @@ namespace Plateau.Entities
             }
         }
 
-        public virtual HoveringInterface GetHoveringInterface()
+        public virtual HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
             if(currentSaleItem != SaleItem.NONE)
             {

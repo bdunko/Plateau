@@ -37,9 +37,9 @@ namespace Plateau.Entities
             return false;
         }
 
-        public HoveringInterface GetHoveringInterface()
+        public HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
-            return currentShrine.GetHoveringInterface();
+            return currentShrine.GetHoveringInterface(player);
         }
 
         public string GetLeftClickAction(EntityPlayer player)

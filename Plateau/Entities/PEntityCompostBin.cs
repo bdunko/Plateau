@@ -273,7 +273,7 @@ namespace Plateau.Entities
             }
         }
 
-        public HoveringInterface GetHoveringInterface()
+        public HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
             if (state == CompostBinState.IDLE)
             {

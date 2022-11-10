@@ -277,7 +277,7 @@ namespace Plateau.Entities
             }
         }
 
-        public HoveringInterface GetHoveringInterface()
+        public HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
             if (producedItem.GetItem() == ItemDict.NONE)
             {

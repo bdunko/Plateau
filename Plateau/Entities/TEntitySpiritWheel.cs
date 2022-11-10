@@ -21,7 +21,7 @@ namespace Plateau.Entities
         private static float[] NORMAL_FRAME_LENGTHS = Util.CreateAndFillArray(8, 0.1f);
         private static float[] FAST_FRAME_LENGTHS = Util.CreateAndFillArray(8, 0.025f);
         private float spinTimer;
-        private static DialogueNode spinDialogueRoot, smallItemPrize, rareItemPrize, boostPrize, boostJackpot, trilobiteJackpot, goldJackpot, smallTrilobitePrize, bigMiss;
+        private static DialogueNode spinDialogueRoot, smallItemPrize, rareItemPrize, boostPrize, boostJackpot, trilobiteJackpot, goldJackpot, smallTrilobitePrize, bigMiss, spunAlready, notEnoughTrilo;
         private bool spunToday, doneSpinning;
         private EntityPlayer spinner;
         private static List<Item> SMALL_PRIZES = new List<Item> { ItemDict.EGGPLANT, ItemDict.EGG, ItemDict.CACTUS, ItemDict.CACAO_BEAN, ItemDict.VANILLA_EXTRACT, ItemDict.MINT_EXTRACT, ItemDict.MINT_CHOCO_BAR, ItemDict.VANILLA_ICE_CREAM,
@@ -48,6 +48,9 @@ namespace Plateau.Entities
                 goldJackpot = new DialogueNode("Jackpot! You win a bunch of gold, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
                 smallTrilobitePrize = new DialogueNode("Small win! You win some trilobites, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
                 bigMiss = new DialogueNode("Big miss! You don't win anything this time, haiku!", DialogueNode.PORTRAIT_SYSTEM); //change to spirit
+                spunAlready = new DialogueNode("You've already spun the Wheel of Spirit today, haiku. Come back again tommorrow if you want to spin again!", DialogueNode.PORTRAIT_SYSTEM);
+                notEnoughTrilo = new DialogueNode("You don't have enough trilobites, haiku! Bring 10, then I'll let you spin!", DialogueNode.PORTRAIT_SYSTEM);
+
             }
             spinTimer = 0;
             spunToday = false;
@@ -125,7 +128,7 @@ namespace Plateau.Entities
                 spunToday = true;
             } else
             {
-                player.AddNotification(new EntityPlayer.Notification("Not enough trilobites!", Color.Red, EntityPlayer.Notification.Length.SHORT));
+                spinner.SetCurrentDialogue(spunToday ? spunAlready : notEnoughTrilo);
             }
         }
 
@@ -160,7 +163,7 @@ namespace Plateau.Entities
                         for (int i = 0; i < Util.RandInt(3, 5); i++)
                         {
                             area.AddEntity(new EntityItem(prize, new Vector2(position.X, position.Y - 10)));
-                            if(prize is ClothingItem)
+                            if(prize is ClothingItem || prize.HasTag(Item.Tag.ACCESSORY))
                             {
                                 break;
                             }

@@ -334,7 +334,7 @@ namespace Plateau.Entities
             }
         }
 
-        public override HoveringInterface GetHoveringInterface()
+        public override HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
             if (costsTrilobites)
             {
@@ -355,7 +355,7 @@ namespace Plateau.Entities
                         new HoveringInterface.TextElement("Sold Out!")));
             } else
             {
-                return base.GetHoveringInterface();
+                return base.GetHoveringInterface(player);
             }
         }
 

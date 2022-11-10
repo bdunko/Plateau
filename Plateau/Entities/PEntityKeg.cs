@@ -332,7 +332,7 @@ namespace Plateau.Entities
             }
         }
 
-        public HoveringInterface GetHoveringInterface()
+        public HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
             if (state != KegState.FINISHED && state != KegState.WORKING_ALCOHOL)
             {

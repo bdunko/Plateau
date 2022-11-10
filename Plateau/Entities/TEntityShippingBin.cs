@@ -194,7 +194,7 @@ namespace Plateau.Entities
             binValue = 0;
         }
 
-        public HoveringInterface GetHoveringInterface()
+        public HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
             ItemStack recent = new ItemStack(ItemDict.NONE, 0);
             if(shippedItems.Count > 0)

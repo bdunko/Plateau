@@ -11,7 +11,7 @@ using Plateau.Items;
 
 namespace Plateau.Entities
 {
-    public class PEntityBarberPole : PlacedEntity, IInteract
+    public class PEntityBarberPole : PlacedEntity, IInteract, IHaveHoveringInterface
     {
         private PartialRecolorSprite sprite;
         private static ClothingItem[] HAIRSTYLE_LIST = { ItemDict.HAIR_AFRO_ALFONSO, ItemDict.HAIR_ALIENATED_ALICE, ItemDict.HAIR_BAREBONES_BRIAN, ItemDict.HAIR_BERTHA_BUN,
@@ -70,28 +70,63 @@ namespace Plateau.Entities
             return "Haircut";
         }
 
-        public void InteractRight(EntityPlayer player, Area area, World world)
+        private static int getIndexOfHair(EntityPlayer player)
         {
-            //HAIRCUT
-            //MAINTAIN CURRENT HAIR COLORING!
-            string currentHairColor = player.GetHair().GetItem().GetName().Split('(')[1];
-            currentHairColor = "(" + currentHairColor;
             ClothingItem currentHairstyle = (ClothingItem)ItemDict.GetItemByName(player.GetHair().GetItem().GetName().Split('(')[0].Trim());
 
             for(int i = 0; i < HAIRSTYLE_LIST.Length; i++)
             {
-                if(currentHairstyle == HAIRSTYLE_LIST[i])
+                if (currentHairstyle == HAIRSTYLE_LIST[i])
+                    return i;
+            }
+
+            throw new Exception("No matching hair found!");
+        }
+
+        private static int getIndexOfFacialHair(EntityPlayer player)
+        {
+            ClothingItem currentFacialHair = (ClothingItem)ItemDict.GetItemByName(player.GetFacialHair().GetItem().GetName().Split('(')[0].Trim());
+
+            for (int i = 0; i < FACIALHAIR_LIST.Length; i++)
+            {
+                if (currentFacialHair == FACIALHAIR_LIST[i])
+                    return i;
+            }
+
+            throw new Exception("No matching facial hair found!");
+        }
+
+        private static int getIndexOfHairColor(EntityPlayer player)
+        {
+            string currentHairColor = player.GetHair().GetItem().GetName().Split('(')[1];
+            currentHairColor = currentHairColor.Substring(0, currentHairColor.Length - 1);
+
+            for (int i = 0; i < Util.HAIR_COLORS.Length; i++)
+            {
+                if (currentHairColor == Util.HAIR_COLORS[i].name)
                 {
-                    i = i + 1;
-                    if(i >= HAIRSTYLE_LIST.Length)
-                    {
-                        i = 0; //loop around
-                    }
-                    Item toGive = ItemDict.GetItemByName(HAIRSTYLE_LIST[i].GetName() + " " + currentHairColor);
-                    player.SetHair(new ItemStack(toGive, 1));
-                    break;
+                    return i;
                 }
             }
+
+            throw new Exception("No matching hair color found!");
+        }
+
+        //Haircut
+        public void InteractRight(EntityPlayer player, Area area, World world)
+        {
+            //get new hairstyle
+            int newHairstyleIndex = (getIndexOfHair(player) + 1) % HAIRSTYLE_LIST.Length;
+            //if (newHairstyleIndex >= HAIRSTYLE_LIST.Length) //loop around
+            //    newHairstyleIndex = 0;
+
+            //get current hair color
+            string currentHairColor = player.GetHair().GetItem().GetName().Split('(')[1];
+            currentHairColor = "(" + currentHairColor;
+
+            //set player's hair to new style, with same color
+            Item toGive = ItemDict.GetItemByName(HAIRSTYLE_LIST[newHairstyleIndex].GetName() + " " + currentHairColor);
+            player.SetHair(new ItemStack(toGive, 1));
         }
 
         public void InteractLeft(EntityPlayer player, Area area, World world)
@@ -101,60 +136,48 @@ namespace Plateau.Entities
 
         public void InteractRightShift(EntityPlayer player, Area area, World world)
         {
-            //FACIAL HAIR
-            //MAINTAIN CURRENT HAIR COLORING!
             string currentHairColor = player.GetHair().GetItem().GetName().Split('(')[1];
             currentHairColor = "(" + currentHairColor;
-            ClothingItem currentFacialHair = (ClothingItem)ItemDict.GetItemByName(player.GetFacialHair().GetItem().GetName().Split('(')[0].Trim());
 
-            for (int i = 0; i < FACIALHAIR_LIST.Length; i++)
+            int newFacialHairIndex = (getIndexOfFacialHair(player) + 1) % FACIALHAIR_LIST.Length;
+            if (FACIALHAIR_LIST[newFacialHairIndex] == ItemDict.CLOTHING_NONE)
             {
-                if (currentFacialHair == FACIALHAIR_LIST[i])
-                {
-                    i = i + 1;
-                    if (i >= FACIALHAIR_LIST.Length)
-                    {
-                        i = 0; //loop around
-                    }
-                    if(FACIALHAIR_LIST[i] == ItemDict.CLOTHING_NONE)
-                    {
-                        player.SetFacialHair(new ItemStack(ItemDict.CLOTHING_NONE, 1));
-                        break;
-                    }
-                    Item toGive = ItemDict.GetItemByName(FACIALHAIR_LIST[i].GetName() + " " + currentHairColor);
-                    player.SetFacialHair(new ItemStack(toGive, 1));
-                    break;
-                }
+                player.SetFacialHair(new ItemStack(ItemDict.CLOTHING_NONE, 1));
+            }
+            else
+            {
+                Item toGive = ItemDict.GetItemByName(FACIALHAIR_LIST[newFacialHairIndex].GetName() + " " + currentHairColor);
+                player.SetFacialHair(new ItemStack(toGive, 1));
             }
         }
 
         public void InteractLeftShift(EntityPlayer player, Area area, World world)
         {
             //CHANGE HAIR COLOR
-            string currentHairColor = player.GetHair().GetItem().GetName().Split('(')[1];
-            currentHairColor = currentHairColor.Substring(0, currentHairColor.Length - 1);
+
             string currentHairstyle = player.GetHair().GetItem().GetName().Split('(')[0].Trim();
             string currentFacialHair = player.GetFacialHair().GetItem().GetName().Split('(')[0].Trim();
 
-            for (int i = 0; i < Util.HAIR_COLORS.Length; i++)
+            string newHairColor = Util.HAIR_COLORS[(getIndexOfHairColor(player) + 1) % Util.HAIR_COLORS.Length].name;
+
+            Item toGive = ItemDict.GetItemByName(currentHairstyle + " (" + newHairColor + ")");
+            player.SetHair(new ItemStack(toGive, 1));
+            if (player.GetFacialHair().GetItem() != ItemDict.CLOTHING_NONE)
             {
-                if (currentHairColor == Util.HAIR_COLORS[i].name)
-                {
-                    i = i + 1;
-                    if (i >= Util.HAIR_COLORS.Length)
-                    {
-                        i = 0; //loop around
-                    }
-                    Item toGive = ItemDict.GetItemByName(currentHairstyle + " (" + Util.HAIR_COLORS[i].name + ")");
-                    player.SetHair(new ItemStack(toGive, 1));
-                    if (player.GetFacialHair().GetItem() != ItemDict.CLOTHING_NONE)
-                    {
-                        toGive = ItemDict.GetItemByName(currentFacialHair + " (" + Util.HAIR_COLORS[i].name + ")");
-                        player.SetFacialHair(new ItemStack(toGive, 1));
-                    }
-                    break;
-                }
+                toGive = ItemDict.GetItemByName(currentFacialHair + " (" + newHairColor + ")");
+                player.SetFacialHair(new ItemStack(toGive, 1));
             }
+        }
+        public virtual HoveringInterface GetHoveringInterface(EntityPlayer player)
+        {
+            return new HoveringInterface(
+                new HoveringInterface.Row(
+                    new HoveringInterface.TextElement("Hairstyle: " + (getIndexOfHair(player)+1) + "/" + (HAIRSTYLE_LIST.Length))),
+                new HoveringInterface.Row(
+                    new HoveringInterface.TextElement("Facial Hair: " + (getIndexOfFacialHair(player)+1) + "/" + (FACIALHAIR_LIST.Length))),
+                new HoveringInterface.Row(
+                    new HoveringInterface.TextElement("Color: " + (getIndexOfHairColor(player)+1) + "/" + (Util.HAIR_COLORS.Length)))
+                );
         }
     }
 }

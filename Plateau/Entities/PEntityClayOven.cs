@@ -352,7 +352,7 @@ namespace Plateau.Entities
             }
         }
 
-        public HoveringInterface GetHoveringInterface()
+        public HoveringInterface GetHoveringInterface(EntityPlayer player)
         {
             if (state == OvenState.IDLE || state == OvenState.WORKING)
             {

@@ -6628,7 +6628,7 @@
   </object>
   <object id="613" x="1600" y="1216">
    <properties>
-    <property name="dialogue" value="Spin the Wheel of Fate, haiku! Only 10 trilobites, paid directly to the wheel! May fortune be in your favor, human!"/>
+    <property name="dialogue" value="Spin the Wheel of Spirits, haiku! Only 10 trilobites, paid directly to the wheel! May fortune be in your favor, human!"/>
     <property name="entity" value="spirit"/>
     <property name="moves" value="false"/>
     <property name="sprite" value="wood_lg"/>

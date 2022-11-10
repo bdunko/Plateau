@@ -8,6 +8,6 @@ namespace Plateau.Entities
 {
     public interface IHaveHoveringInterface
     {
-        HoveringInterface GetHoveringInterface();
+        HoveringInterface GetHoveringInterface(EntityPlayer player);
     }
 }
