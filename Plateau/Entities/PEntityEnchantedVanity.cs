@@ -11,7 +11,7 @@ using Plateau.Items;
 
 namespace Plateau.Entities
 {
-    public class PEntityEnchantedVanity : PlacedEntity, IInteract
+    public class PEntityEnchantedVanity : PlacedEntity, IInteract, IHaveHoveringInterface
     {
         private PartialRecolorSprite sprite;
         private float timeSinceAnimation;
@@ -80,50 +80,62 @@ namespace Plateau.Entities
             return "Skin Recolor";
         }
 
-        public void InteractRight(EntityPlayer player, Area area, World world)
+        public static int getIndexOfSkin(EntityPlayer player)
         {
             ClothingItem currentSkinColor = (ClothingItem)player.GetSkin().GetItem();
-            for(int i = 0; i < SKIN_COLORS.Length; i++)
+            for (int i = 0; i < SKIN_COLORS.Length; i++)
             {
-                if(currentSkinColor == SKIN_COLORS[i])
+                if (currentSkinColor == SKIN_COLORS[i])
                 {
-                    i = i + 1;
-                    if (i >= SKIN_COLORS.Length)
-                    {
-                        i = 0;
-                    }
-                    player.SetSkin(new ItemStack(SKIN_COLORS[i], 1));
-                    break;
+                    return i;
                 }
             }
+
+            throw new Exception("Skin not found!");
         }
 
-        public void InteractLeft(EntityPlayer player, Area area, World world)
-        {
-
-        }
-
-        public void InteractRightShift(EntityPlayer player, Area area, World world)
+        public static int getIndexOfEyes(EntityPlayer player)
         {
             ClothingItem currentEyes = (ClothingItem)player.GetEyes().GetItem();
             for (int i = 0; i < EYE_COLORS.Length; i++)
             {
                 if (currentEyes == EYE_COLORS[i])
                 {
-                    i = i + 1;
-                    if (i >= EYE_COLORS.Length)
-                    {
-                        i = 0;
-                    }
-                    player.SetEyes(new ItemStack(EYE_COLORS[i], 1));
-                    break;
+                    return i;
                 }
             }
+
+            throw new Exception("Eyes not found!");
+        }
+
+        public void InteractRight(EntityPlayer player, Area area, World world)
+        {
+            player.SetSkin(new ItemStack(SKIN_COLORS[(getIndexOfSkin(player) + 1) % SKIN_COLORS.Length], 1));
+        }
+
+        public void InteractLeft(EntityPlayer player, Area area, World world)
+        {
+            
+        }
+
+        public void InteractRightShift(EntityPlayer player, Area area, World world)
+        {
+            player.SetEyes(new ItemStack(EYE_COLORS[(getIndexOfEyes(player) + 1) % EYE_COLORS.Length], 1));
         }
 
         public void InteractLeftShift(EntityPlayer player, Area area, World world)
         {
 
+        }
+
+        public virtual HoveringInterface GetHoveringInterface(EntityPlayer player)
+        {
+            return new HoveringInterface(
+                new HoveringInterface.Row(
+                    new HoveringInterface.TextElement("Skin Color: " + (getIndexOfSkin(player) + 1) + "/" + (SKIN_COLORS.Length))),
+                new HoveringInterface.Row(
+                    new HoveringInterface.TextElement("Eye Color: " + (getIndexOfEyes(player) + 1) + "/" + (EYE_COLORS.Length)))
+                );
         }
     }
 }
