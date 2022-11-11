@@ -489,13 +489,12 @@ namespace Plateau.Entities
             {
                 public enum WanderRange
                 {
-                    VERY_SMALL, SMALL, MEDIUM, LARGE, INFINITE
+                    SMALL, MEDIUM, LARGE, INFINITE
                 }
 
-                private static int VERY_SMALL_RANGE = 4;
-                private static int SMALL_RANGE = 16;
-                private static int MEDIUM_RANGE = 80;
-                private static int LARGE_RANGE = 200;
+                private static int SMALL_RANGE = 24;
+                private static int MEDIUM_RANGE = 120;
+                private static int LARGE_RANGE = 320;
                 private static int INFINITE_RANGE = 99999;
 
                 private static int chanceToStartWandering = 100; //odds to start wandering each frame
@@ -510,8 +509,6 @@ namespace Plateau.Entities
                 {
                     switch(range)
                     {
-                        case WanderRange.VERY_SMALL:
-                            return VERY_SMALL_RANGE;
                         case WanderRange.SMALL:
                             return SMALL_RANGE;
                         case WanderRange.MEDIUM:

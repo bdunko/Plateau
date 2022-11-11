@@ -270,10 +270,10 @@ namespace Plateau.Components
             //    new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("mansionWaypoint"), 7, 40, 7, 59, trueCondition, 0));
 
             List<EntityCharacter.Schedule.Event> rockwellSchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellHome"), 7, 0, 7, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.SMALL),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellHome"), 7, 0, 7, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.LARGE),
                 new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("rockwellDogwalk"), 7, 30, 8, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.MEDIUM),
                 new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellSpawn"), 8, 30, 19, 0, trueCondition, 0),
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("rockwellDogwalk"), 19, 0, 20, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("rockwellDogwalk"), 19, 0, 20, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.SMALL));
 
             List<EntityCharacter.DialogueOption> rockwellDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)), 
