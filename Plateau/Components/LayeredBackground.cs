@@ -697,6 +697,7 @@ namespace Plateau.Components
                             TrySetTransparency(BACKGROUND_LAYER_SUN, 0.0f);
                             TrySetTransparency(BACKGROUND_LAYER_MOON, ((timeData.hour * 60 + timeData.minute) - World.EVENING_END_HOUR * 60) / 60.0f);
                             TryEnableLayer(BACKGROUND_LAYER_STARS);
+                            TrySetTransparency(BACKGROUND_LAYER_STARS, ((timeData.hour * 60 + timeData.minute) - World.EVENING_END_HOUR * 60) / 60.0f);
                             break;
                     }
                     if(parameters.type == BackgroundParams.Type.BACKGROUND_SPACE)
