@@ -18,8 +18,8 @@ namespace Plateau.Entities
         private static int OFFSET_X = 29; //offset x from where the image is to where the hitbox begins
         private static int OFFSET_Y = 8; //offset y from where the image border is to where the hitbox begins
 
-        //private static float SPEED = 38;
-        private static float SPEED = 67;
+        private static float SPEED = 38;
+        //private static float SPEED = 67;
         private static float SPEED_WHILE_JUMPING = 30;
         private static float GRAVITY = 8;
         private static float JUMP_SPEED = -2.55F;
@@ -473,7 +473,7 @@ namespace Plateau.Entities
 
             public class StandAtEvent : Event
             {
-                public StandAtEvent(Area area, Area.Waypoint spawn, int startHour, int startMinute, int endHour, int endMinute, Func<World, EntityCharacter, bool> conditionFunction, int priority) : base(area, spawn, startHour, startMinute, endHour, endMinute, conditionFunction, priority)
+                public StandAtEvent(Area area, Area.Waypoint waypoint, int startHour, int startMinute, int endHour, int endMinute, Func<World, EntityCharacter, bool> conditionFunction, int priority) : base(area, waypoint, startHour, startMinute, endHour, endMinute, conditionFunction, priority)
                 {
                     //does nothing
                 }
@@ -482,6 +482,104 @@ namespace Plateau.Entities
                 {
                     //just standing...
                     //do nothing
+                }
+            }
+
+            public class WanderNearEvent : Event
+            {
+                public enum WanderRange
+                {
+                    VERY_SMALL, SMALL, MEDIUM, LARGE, INFINITE
+                }
+
+                private static int VERY_SMALL_RANGE = 4;
+                private static int SMALL_RANGE = 16;
+                private static int MEDIUM_RANGE = 80;
+                private static int LARGE_RANGE = 200;
+                private static int INFINITE_RANGE = 99999;
+
+                private static int chanceToStartWandering = 100; //odds to start wandering each frame
+                private static int chanceToStopWandering = 100; //odds to stop wandering each frame
+                private static float MIN_TIME_BETWEEN_CHANGE = 1.0f;
+
+                private float timeSinceChange;
+                private bool wandering;
+                private RectangleF wanderBox;
+
+                private int rangeForEnum(WanderRange range)
+                {
+                    switch(range)
+                    {
+                        case WanderRange.VERY_SMALL:
+                            return VERY_SMALL_RANGE;
+                        case WanderRange.SMALL:
+                            return SMALL_RANGE;
+                        case WanderRange.MEDIUM:
+                            return MEDIUM_RANGE;
+                        case WanderRange.LARGE:
+                            return LARGE_RANGE;
+                        default:
+                            return INFINITE_RANGE;
+                    }
+                }
+
+                public WanderNearEvent(Area area, Area.Waypoint waypoint, int startHour, int startMinute, int endHour, int endMinute, Func<World, EntityCharacter, bool> conditionFunction, int priority, WanderRange range) : base(area, waypoint, startHour, startMinute, endHour, endMinute, conditionFunction, priority)
+                {
+                    this.wandering = false;
+                    int rangeSize = rangeForEnum(range);
+                    wanderBox = new RectangleF(GetWaypoint().position.X - (rangeSize / 2), GetWaypoint().position.Y - 5000, rangeSize, 10000);
+                    this.timeSinceChange = MIN_TIME_BETWEEN_CHANGE + 1;
+                }
+
+                public override void Update(float deltaTime, EntityCharacter character, Area area, Queue<MovementTypeWaypoint> waypoints)
+                {
+                    //Util.DrawDebugRect(wanderBox, Color.Green * 0.2f);
+                    timeSinceChange += deltaTime;
+
+                    //chance to wander left or right
+                    if (!wandering && Util.RandInt(0, chanceToStartWandering) == 0 && timeSinceChange > MIN_TIME_BETWEEN_CHANGE)
+                    {
+                        wandering = true;
+                        timeSinceChange = 0;
+
+                        //if within valid wandering parameters, randomly choose a direction
+                        if(character.GetCollisionRectangle().Intersects(wanderBox))
+                        {
+                            if (Util.RandInt(0, 1) == 0)
+                                character.direction = DirectionEnum.LEFT;
+                            else
+                                character.direction = DirectionEnum.RIGHT;
+                        } 
+                        else //otherwise, must go back towards
+                        {
+                            if (wanderBox.Center.X > character.GetCollisionRectangle().Center.X)
+                                character.direction = DirectionEnum.RIGHT;
+                            else
+                                character.direction = DirectionEnum.LEFT;
+                        }
+                    }
+                    else if (wandering && Util.RandInt(0, chanceToStopWandering) == 0 && character.grounded && timeSinceChange > MIN_TIME_BETWEEN_CHANGE)  //chance stop wandering
+                    {
+                        wandering = false;
+                        timeSinceChange = 0;
+                    }
+
+                    //if wandering away and outside of range, stop movement
+                    if(wandering && !wanderBox.Contains(character.GetCollisionRectangle().Center))
+                    {
+                        if (character.direction == DirectionEnum.LEFT && wanderBox.Center.X > character.GetCollisionRectangle().Center.X ||
+                            character.direction == DirectionEnum.RIGHT && wanderBox.Center.X < character.GetCollisionRectangle().Center.X)
+                        {
+                            wandering = false;
+                            timeSinceChange = 0;
+                        }
+                    }
+
+                    //if still wandering at this point, start walking in direction
+                    if (wandering)
+                        character.Walk(character.direction, deltaTime);
+                    else
+                        character.velocityX = 0;
                 }
             }
 
@@ -503,7 +601,19 @@ namespace Plateau.Entities
 
             public void Update(float deltaTime, Area area, EntityCharacter character, World world)
             {
-                if(character.fadeState == FadeState.FADE_OUT)
+                //if talking, don't move or do anything else
+                if (character.isTalking)
+                    return;
+                else
+                    character.timeSinceTalking += deltaTime;
+
+                if (character.timeSinceTalking < TIME_AFTER_TALK_BEFORE_MOVEMENT)
+                {
+                    character.FaceTowardsPlayer(character.talkingPlayer);
+                    return;
+                }
+
+                if(character.fadeState == FadeState.FADE_OUT) //handle fade out before transitioning to new area
                 {
                     character.velocityX = 0;
                     character.velocityY = 0;
@@ -519,10 +629,14 @@ namespace Plateau.Entities
                                 world.MoveCharacter(character, area, transitionTo);
                                 character.SetPosition(transitionTo.GetWaypoint(transitionZone.spawn).position - new Vector2(0, 32f));
                             }
+                            else
+                            {
+                                throw new Exception("Failed to transition!");
+                            }
                         }
                         character.fadeState = FadeState.FADE_IN;
                     }
-                } else if (character.fadeState == FadeState.FADE_IN)
+                } else if (character.fadeState == FadeState.FADE_IN) //handle fade in when arriving at new area
                 {
                     character.velocityX = 0;
                     character.velocityY = 0;
@@ -533,15 +647,13 @@ namespace Plateau.Entities
                         character.fadeState = FadeState.NONE;
                     }
                 }
-                else if(waypoints.Count == 0)
+                else if(waypoints.Count == 0) //if at destination, let event handle character
                 {
-                    character.velocityX = 0;
-                    character.velocityY = 0;
                     if (currentEvent != null)
                     {
                         currentEvent.Update(deltaTime, character, area, waypoints);
                     }
-                } else         
+                } else //otherwise, move towards destination
                 {
                     if (waypoints.Peek().movementType == MovementTypeWaypoint.MovementEnum.WALK) //WALK
                     {
@@ -581,12 +693,16 @@ namespace Plateau.Entities
                         {
                             character.fadeState = FadeState.FADE_OUT;
                         }
+                        if(waypoints.Count == 0) //arrived, stop moving
+                        {
+                            character.velocityX = 0;
+                            character.velocityY = 0;
+                        }
                     }
-
                 }
             }
 
-            public void Tick(World world, EntityCharacter character, Area currentArea)
+            public void Update(World world, EntityCharacter character, Area currentArea)
             {
                 if(currentEvent != null && !currentEvent.CheckActivation(world, character))
                 {
@@ -598,7 +714,7 @@ namespace Plateau.Entities
                     {
                         waypoints.Clear();
                         currentEvent = scEvent;
-                        System.Diagnostics.Debug.Write("EntityCharacter.cs: " + character.name + " is going to " + scEvent.GetArea().GetName());
+                        //System.Diagnostics.Debug.Write("EntityCharacter.cs: " + character.name + " is going to " + scEvent.GetArea().GetName());
 
                         waypoints = subzoneMap.FindPath(currentArea.GetSubareaAt(character.GetCollisionRectangle()), 
                             new Area.Waypoint(character.GetCollisionRectangle().Center, "CHAR", currentArea), 
@@ -687,6 +803,11 @@ namespace Plateau.Entities
         private Area currentArea;
         private World world;
         private Area.Waypoint spawn;
+        private EntityPlayer talkingPlayer;
+
+        private bool isTalking;
+        private float timeSinceTalking;
+        private static float TIME_AFTER_TALK_BEFORE_MOVEMENT = 3.0f;
 
         private static string EMOTION_NONE = "emo_none";
         private static string EMOTION_LOVE = "emo_love";
@@ -720,7 +841,7 @@ namespace Plateau.Entities
             string giftFlag) : base(new Vector2(0, 0), DrawLayer.PRIORITY)
         {
             this.name = name;
-            sprite = new ClothedSprite();
+            sprite = new ClothedSprite(true);
             this.world = world;
             this.clothingManager = new ClothingManager(clothingSets);
             this.schedule = new Schedule(scheduleEvents, world);
@@ -734,6 +855,8 @@ namespace Plateau.Entities
             this.fadeState = FadeState.NONE;
             this.opacity = 1.0f;
             this.giftFlag = giftFlag;
+            this.isTalking = false;
+            this.timeSinceTalking = TIME_AFTER_TALK_BEFORE_MOVEMENT + 1;
 
             this.emotionPanel = new AnimatedSprite(emotionPanelTex, 23, 1, 23, Util.CreateAndFillArray(23, 0.1f));
             emotionPanel.AddLoop(EMOTION_NONE, 0, 0, true, false);
@@ -861,6 +984,13 @@ namespace Plateau.Entities
 
         public override void Update(float deltaTime, Area area)
         {
+            if (isTalking && talkingPlayer.GetCurrentDialogue() == null)
+            {
+                isTalking = false;
+                timeSinceTalking = 0;
+            }
+
+            schedule.Update(world, this, area);
             clothingManager.Update(deltaTime, sprite);
             schedule.Update(deltaTime, area, this, world);
 
@@ -891,15 +1021,24 @@ namespace Plateau.Entities
                     bool xCollision = CollisionHelper.CheckCollision(stepXCollisionBox, area, false);
                     RectangleF stepXCollisionBoxForesight = new RectangleF(collisionBox.X + (stepX * 15), collisionBox.Y, collisionBox.Width, collisionBox.Height);
                     bool xCollisionSoon = CollisionHelper.CheckCollision(stepXCollisionBoxForesight, area, false);
+                    RectangleF foresightPlusHeight = new RectangleF(stepXCollisionBoxForesight.X, stepXCollisionBoxForesight.Y - 6, 1, 1);
+                    if (direction == DirectionEnum.RIGHT)
+                        foresightPlusHeight.X += stepXCollisionBoxForesight.Width - 1;
+                    bool jumpWouldHelp = !CollisionHelper.CheckCollision(foresightPlusHeight, area, false);
 
-                    if (xCollisionSoon)
+                    //Util.DrawDebugRect(stepXCollisionBox, Color.Red * 0.2f);
+                    //Util.DrawDebugRect(stepXCollisionBoxForesight, Color.Green * 0.2f);
+                    //Util.DrawDebugRect(foresightPlusHeight, Color.Blue * 0.5f);
+
+                    if (xCollisionSoon && jumpWouldHelp)
                     {
                         TryJump();
                     }
 
                     if (xCollision) //if next movement = collision
                     {
-                        TryJump();
+                        if(jumpWouldHelp)
+                            TryJump();
                         stepX = 0; //stop moving if collision
                         if (grounded)
                         {
@@ -950,7 +1089,6 @@ namespace Plateau.Entities
         {
             clothingManager.TickDaily(world, this); //update clothes
             MoveToSpawn(world); //reset location
-            schedule.Tick(world, this, currentArea); //update schedule
         }
 
         public override void SetPosition(Vector2 position)
@@ -960,7 +1098,7 @@ namespace Plateau.Entities
 
         public void Tick(int minutesTicked, EntityPlayer player, Area area, World world)
         {
-            schedule.Tick(world, this, area);
+            
         }
 
         public string GetLeftShiftClickAction(EntityPlayer player)
@@ -984,13 +1122,30 @@ namespace Plateau.Entities
 
         public string GetRightClickAction(EntityPlayer player)
         {
-            return "Talk";
+            if(!IsJumping())
+                return "Talk";
+            return "";
         }
 
         public void InteractRight(EntityPlayer player, Area area, World world)
         {
-            //dialogue interaction
-            player.SetCurrentDialogue(dialogueManager.GetDialogue(world, this));
+            if (!IsJumping())
+            {
+                velocityX = 0;
+                velocityY = 0;
+                player.SetCurrentDialogue(dialogueManager.GetDialogue(world, this));
+                this.talkingPlayer = player;
+                isTalking = true;
+                FaceTowardsPlayer(talkingPlayer);
+            }
+        }
+
+        public void FaceTowardsPlayer(EntityPlayer player)
+        {
+            if (player.GetPosition().X > position.X)
+                direction = DirectionEnum.RIGHT;
+            else
+                direction = DirectionEnum.LEFT;
         }
 
         public void InteractLeft(EntityPlayer player, Area area, World world)
@@ -1052,7 +1207,6 @@ namespace Plateau.Entities
                     sprite.SetLoopIfNot(direction == DirectionEnum.LEFT ? ClothedSprite.JUMP_ANIM_L : ClothedSprite.JUMP_ANIM_R);
                 }
             }*/
-           
             if (IsJumping())
             {
                 sprite.SetLoopIfNot(direction == DirectionEnum.LEFT ? ClothedSprite.JUMP_ANIM_L : ClothedSprite.JUMP_ANIM_R);
@@ -1081,7 +1235,7 @@ namespace Plateau.Entities
                 }
                 else
                 {
-                    sprite.SetLoopIfNot(direction == DirectionEnum.LEFT ? ClothedSprite.STAND_CYCLE_L : ClothedSprite.STAND_CYCLE_R);
+                    sprite.SetLoopIfNot(direction == DirectionEnum.LEFT ? ClothedSprite.IDLE_CYCLE_L : ClothedSprite.IDLE_CYCLE_R);
                 }
             }
         }

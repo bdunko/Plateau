@@ -3628,7 +3628,7 @@ namespace Plateau
                     return sp;
                 }
             }
-            throw new Exception("Waypoint not found!");
+            throw new Exception("Waypoint " + name + " not found!");
         }
 
         public TransitionZone CheckTransition(Vector2 position, bool interacting)

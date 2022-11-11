@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="445" height="112" tilewidth="8" tileheight="8" infinite="0" nextlayerid="85" nextobjectid="218">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="445" height="112" tilewidth="8" tileheight="8" infinite="0" nextlayerid="85" nextobjectid="219">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="Cirrus Beach"/>
@@ -1392,12 +1392,6 @@
    </properties>
    <point/>
   </object>
-  <object id="215" x="3336" y="336">
-   <properties>
-    <property name="name" value="rockwellSpawn"/>
-   </properties>
-   <point/>
-  </object>
   <object id="216" x="2504" y="352">
    <properties>
     <property name="name" value="SPbeachCandle"/>
@@ -1407,6 +1401,12 @@
   <object id="217" x="2072" y="0">
    <properties>
     <property name="name" value="SPsky"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="218" x="3152" y="496">
+   <properties>
+    <property name="name" value="rockwellDogwalk"/>
    </properties>
    <point/>
   </object>

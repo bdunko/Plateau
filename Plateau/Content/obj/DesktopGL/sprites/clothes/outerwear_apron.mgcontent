@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/outerwear_apron.png</SourceFile>
-  <SourceTime>2019-08-21T18:48:42-04:00</SourceTime>
+  <SourceTime>2022-11-08T22:36:04.9601469-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/clothes/outerwear_apron.xnb</DestFile>
-  <DestTime>2022-11-07T22:32:24.7972619-05:00</DestTime>
+  <DestTime>2022-11-10T21:07:10.7439412-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

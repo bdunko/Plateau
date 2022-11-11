@@ -52,7 +52,7 @@ namespace Plateau.Components
 
         private AnimatedSprite[] sprites;
 
-        public ClothedSprite()
+        public ClothedSprite(bool npc = false)
         {
             drawPantsOverShoes = false;
             hideHair = false;
@@ -63,6 +63,14 @@ namespace Plateau.Components
             frameLengths[1] = 0.2f; //idle
             frameLengths[2] = 1.0f; //idle
             frameLengths[3] = 0.2f; //idle
+
+            if(npc) //longer length between bends for NPC
+            {
+                frameLengths[0] = 3.0f; //idle
+                frameLengths[1] = 0.2f; //idle
+                frameLengths[2] = 3.0f; //idle
+                frameLengths[3] = 0.2f; //idle
+            }
 
             for (int i = 21; i <= 25; i++)
             {

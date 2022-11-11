@@ -262,17 +262,23 @@ namespace Plateau.Components
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(winterCondition), 1));
 
+
+            //List<EntityCharacter.Schedule.Event> rockwellSchedule = Util.GenerateSchedule(
+            //    new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("rockwellSpawn"), 7, 0, 7, 4, trueCondition, 0),
+            //    new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("houseWaypoint"), 7, 5, 7, 19, trueCondition, 0),
+            //    new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("cabinWaypoint"), 7, 20, 7, 39, trueCondition, 0),
+            //    new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("mansionWaypoint"), 7, 40, 7, 59, trueCondition, 0));
+
             List<EntityCharacter.Schedule.Event> rockwellSchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("rockwellSpawn"), 7, 0, 7, 4, trueCondition, 0),
-                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("houseWaypoint"), 7, 5, 7, 19, trueCondition, 0),
-                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("cabinWaypoint"), 7, 20, 7, 39, trueCondition, 0),
-                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("mansionWaypoint"), 7, 40, 7, 59, trueCondition, 0));
-            //new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.S1], areas[Area.AreaEnum.S1].GetWaypoint("SPs1entrance"), 7, 5, 7, 30, trueCondition, 0),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellHome"), 7, 0, 7, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.SMALL),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("rockwellDogwalk"), 7, 30, 8, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.MEDIUM),
+                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellSpawn"), 8, 30, 19, 0, trueCondition, 0),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("rockwellDogwalk"), 19, 0, 20, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
 
             List<EntityCharacter.DialogueOption> rockwellDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)), 
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell. (In Spring)", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(springCondition), 3));   
-            characters.Add(new EntityCharacter("Rockwell", this, EntityCharacter.CharacterEnum.ROCKWELL, rockwellClothing, rockwellSchedule, rockwellDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.FARM].GetWaypoint("testSpawn"),
+            characters.Add(new EntityCharacter("Rockwell", this, EntityCharacter.CharacterEnum.ROCKWELL, rockwellClothing, rockwellSchedule, rockwellDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellSpawn"),
                 GameState.FLAG_LETTER_GIFT_ROCKWELL));
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="60" nextobjectid="372">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="60" nextobjectid="374">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="Interior"/>
@@ -1886,8 +1886,20 @@
    </properties>
    <point/>
   </object>
+  <object id="372" x="2952" y="520">
+   <properties>
+    <property name="name" value="rockwellSpawn"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="373" x="2912" y="520">
+   <properties>
+    <property name="name" value="rockwellHome"/>
+   </properties>
+   <point/>
+  </object>
  </objectgroup>
- <objectgroup id="20" name="entity">
+ <objectgroup id="20" name="entity" visible="0">
   <object id="18" x="1776" y="520">
    <properties>
     <property name="entity" value="door"/>
