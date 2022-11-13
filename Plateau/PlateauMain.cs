@@ -694,6 +694,7 @@ namespace Plateau
                 {
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
                     GameplayInterface.QUEUED_STRINGS.Add(new QueuedString("Command: " + controller.GetStringInput(), Util.ConvertFromAbsoluteToCameraVector(camera.GetBoundingBox(), new Vector2(4, 30)), debugConsole.DidLastSucceed() ? Color.LightGreen : Color.DarkRed));
+                    spriteBatch.DrawString(PlateauMain.FONT, "X: " + player.GetCenteredPosition().X + "  Y: " + player.GetCenteredPosition().Y, Util.ConvertFromAbsoluteToCameraVector(camera.GetBoundingBox(), new Vector2(4, 38)), Color.Black, 0.0f, Vector2.Zero, PlateauMain.FONT_SCALE, SpriteEffects.None, 0.0f);
                     int column = 0;
                     int counter = 0;
                     int yPos = 45;

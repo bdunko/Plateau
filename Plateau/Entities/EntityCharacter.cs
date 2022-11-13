@@ -473,15 +473,51 @@ namespace Plateau.Entities
 
             public class StandAtEvent : Event
             {
-                public StandAtEvent(Area area, Area.Waypoint waypoint, int startHour, int startMinute, int endHour, int endMinute, Func<World, EntityCharacter, bool> conditionFunction, int priority) : base(area, waypoint, startHour, startMinute, endHour, endMinute, conditionFunction, priority)
+                public enum DirectionBehavior
                 {
-                    //does nothing
+                    LEFT, RIGHT, RANDOM
+                }
+
+                private DirectionBehavior directionBehavior;
+                private static int CHANCE_TO_RANDOMIZE_DIRECTION = 100;
+                private static float MIN_TIME_BETWEEN_CHANGE = 1.0f;
+                private float timeSinceLastChange;
+
+                public StandAtEvent(Area area, Area.Waypoint waypoint, int startHour, int startMinute, int endHour, int endMinute, Func<World, EntityCharacter, bool> conditionFunction, int priority, DirectionBehavior directionBehavior) : base(area, waypoint, startHour, startMinute, endHour, endMinute, conditionFunction, priority)
+                {
+                    this.directionBehavior = directionBehavior;
+                    this.timeSinceLastChange = 0;
                 }
 
                 public override void Update(float deltaTime, EntityCharacter character, Area area, Queue<MovementTypeWaypoint> waypoints)
                 {
-                    //just standing...
-                    //do nothing
+                    if (directionBehavior == DirectionBehavior.LEFT)
+                    {
+                        character.direction = DirectionEnum.LEFT;
+                    }
+                    else if (directionBehavior == DirectionBehavior.RIGHT)
+                    {
+                        character.direction = DirectionEnum.RIGHT;
+                    }
+                    else
+                    {
+                        timeSinceLastChange += deltaTime;
+
+                        if(timeSinceLastChange > MIN_TIME_BETWEEN_CHANGE && Util.RandInt(0, CHANCE_TO_RANDOMIZE_DIRECTION) == 0)
+                        {
+                            timeSinceLastChange = 0;
+                            switch(Util.RandInt(0, 1))
+                            {
+                                case 0:
+                                    character.direction = DirectionEnum.RIGHT;
+                                    break;
+                                case 1:
+                                default:
+                                    character.direction = DirectionEnum.LEFT;
+                                    break;
+                            }
+                        }
+                    }
                 }
             }
 
@@ -497,8 +533,8 @@ namespace Plateau.Entities
                 private static int LARGE_RANGE = 320;
                 private static int INFINITE_RANGE = 99999;
 
-                private static int chanceToStartWandering = 100; //odds to start wandering each frame
-                private static int chanceToStopWandering = 100; //odds to stop wandering each frame
+                private static int CHANCE_TO_START_WANDERING = 100; //odds to start wandering each frame
+                private static int CHANCE_TO_STOP_WANDERING = 100; //odds to stop wandering each frame
                 private static float MIN_TIME_BETWEEN_CHANGE = 1.0f;
 
                 private float timeSinceChange;
@@ -534,7 +570,7 @@ namespace Plateau.Entities
                     timeSinceChange += deltaTime;
 
                     //chance to wander left or right
-                    if (!wandering && Util.RandInt(0, chanceToStartWandering) == 0 && timeSinceChange > MIN_TIME_BETWEEN_CHANGE)
+                    if (!wandering && Util.RandInt(0, CHANCE_TO_START_WANDERING) == 0 && timeSinceChange > MIN_TIME_BETWEEN_CHANGE)
                     {
                         wandering = true;
                         timeSinceChange = 0;
@@ -555,7 +591,7 @@ namespace Plateau.Entities
                                 character.direction = DirectionEnum.LEFT;
                         }
                     }
-                    else if (wandering && Util.RandInt(0, chanceToStopWandering) == 0 && character.grounded && timeSinceChange > MIN_TIME_BETWEEN_CHANGE)  //chance stop wandering
+                    else if (wandering && Util.RandInt(0, CHANCE_TO_STOP_WANDERING) == 0 && character.grounded && timeSinceChange > MIN_TIME_BETWEEN_CHANGE)  //chance stop wandering
                     {
                         wandering = false;
                         timeSinceChange = 0;
@@ -709,9 +745,11 @@ namespace Plateau.Entities
                 {
                     if (scEvent.CheckActivation(world, character) && (currentEvent == null || scEvent.GetPriority() > currentEvent.GetPriority()))
                     {
+                        //System.Diagnostics.Debug.WriteLine(character.name + " is doing event for waypoint " + scEvent.GetWaypoint().name);
+                        //System.Diagnostics.Debug.Write("EntityCharacter.cs: " + character.name + " is going to " + scEvent.GetArea().GetName());
+
                         waypoints.Clear();
                         currentEvent = scEvent;
-                        //System.Diagnostics.Debug.Write("EntityCharacter.cs: " + character.name + " is going to " + scEvent.GetArea().GetName());
 
                         waypoints = subzoneMap.FindPath(currentArea.GetSubareaAt(character.GetCollisionRectangle()), 
                             new Area.Waypoint(character.GetCollisionRectangle().Center, "CHAR", currentArea), 
@@ -931,15 +969,15 @@ namespace Plateau.Entities
 
         public void Walk(DirectionEnum direction, float deltaTime)
         {
-            switch(direction)
+            switch (direction)
             {
                 case DirectionEnum.LEFT:
                     this.direction = DirectionEnum.LEFT;
-                    velocityX = -SPEED * deltaTime;
+                    velocityX = (grounded ? -SPEED : -SPEED_WHILE_JUMPING) * deltaTime;
                     break;
                 case DirectionEnum.RIGHT:
                     this.direction = DirectionEnum.RIGHT;
-                    velocityX = SPEED * deltaTime;
+                    velocityX = (grounded ? SPEED : SPEED_WHILE_JUMPING) * deltaTime;
                     break;
             }
         }
@@ -990,19 +1028,6 @@ namespace Plateau.Entities
             schedule.Update(world, this, area);
             clothingManager.Update(deltaTime, sprite);
             schedule.Update(deltaTime, area, this, world);
-
-            if(!grounded)
-            {
-                switch(direction)
-                {
-                    case DirectionEnum.LEFT:
-                        velocityX = -SPEED_WHILE_JUMPING * deltaTime;
-                        break;
-                    case DirectionEnum.RIGHT:
-                        velocityX = SPEED_WHILE_JUMPING * deltaTime;
-                        break;
-                }
-            }
 
             velocityY += GRAVITY * deltaTime;
 
@@ -1119,14 +1144,14 @@ namespace Plateau.Entities
 
         public string GetRightClickAction(EntityPlayer player)
         {
-            if(!IsJumping())
+            if(!IsJumping() && fadeState == FadeState.NONE)
                 return "Talk";
             return "";
         }
 
         public void InteractRight(EntityPlayer player, Area area, World world)
         {
-            if (!IsJumping())
+            if (!IsJumping() && fadeState == FadeState.NONE)
             {
                 velocityX = 0;
                 velocityY = 0;
