@@ -1917,7 +1917,7 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup id="20" name="entity" visible="0">
+ <objectgroup id="20" name="entity">
   <object id="18" x="1776" y="520">
    <properties>
     <property name="entity" value="door"/>

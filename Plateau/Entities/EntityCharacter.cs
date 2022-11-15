@@ -1054,6 +1054,51 @@ namespace Plateau.Entities
                         foresightPlusHeight.X += stepXCollisionBoxForesight.Width - 1;
                     bool jumpWouldHelp = !CollisionHelper.CheckCollision(foresightPlusHeight, area, false);
 
+                    bool solidFound = false;
+                    Vector2 tenativePos = new Vector2(collisionBox.X + stepX, collisionBox.Y);
+                    if (direction == DirectionEnum.LEFT)
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            Area.CollisionTypeEnum collType = area.GetCollisionTypeAt((int)(tenativePos.X) / 8, ((int)(tenativePos.Y + collisionBox.Height) / 8) + i);
+                            if (collType == Area.CollisionTypeEnum.SOLID ||
+                                collType == Area.CollisionTypeEnum.BRIDGE ||
+                                collType == Area.CollisionTypeEnum.SCAFFOLDING_BLOCK ||
+                                collType == Area.CollisionTypeEnum.SCAFFOLDING_BRIDGE)
+                            {
+                                //make sure ground above target isn't water or deep water (topwater is allowed)
+                                Area.CollisionTypeEnum collTypeAbove = area.GetCollisionTypeAt((int)(tenativePos.X) / 8, ((int)(tenativePos.Y + collisionBox.Height) / 8) + (i - 1));
+                                if (collTypeAbove != Area.CollisionTypeEnum.WATER &&
+                                    collTypeAbove != Area.CollisionTypeEnum.DEEP_WATER)
+                                {
+                                    solidFound = true;
+                                }
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < 10; i++)
+                        {
+                            Area.CollisionTypeEnum collType = area.GetCollisionTypeAt((int)(tenativePos.X + collisionBox.Width) / 8, ((int)(tenativePos.Y + collisionBox.Height) / 8) + i);
+                            if (collType == Area.CollisionTypeEnum.SOLID ||
+                                collType == Area.CollisionTypeEnum.BRIDGE ||
+                                collType == Area.CollisionTypeEnum.SCAFFOLDING_BLOCK ||
+                                collType == Area.CollisionTypeEnum.SCAFFOLDING_BRIDGE)
+                            {
+                                //make sure ground above target isn't water or deep water (topwater is allowed)
+                                Area.CollisionTypeEnum collTypeAbove = area.GetCollisionTypeAt((int)(tenativePos.X + collisionBox.Width) / 8, ((int)(tenativePos.Y + collisionBox.Height) / 8) + (i - 1));
+                                if (collTypeAbove != Area.CollisionTypeEnum.WATER &&
+                                    collTypeAbove != Area.CollisionTypeEnum.DEEP_WATER)
+                                {
+                                    solidFound = true;
+                                }
+                                break;
+                            }
+                        }
+                    }
+
                     //Util.DrawDebugRect(stepXCollisionBox, Color.Red * 0.2f);
                     //Util.DrawDebugRect(stepXCollisionBoxForesight, Color.Green * 0.2f);
                     //Util.DrawDebugRect(foresightPlusHeight, Color.Blue * 0.5f);
@@ -1063,9 +1108,9 @@ namespace Plateau.Entities
                         TryJump();
                     }
 
-                    if (xCollision) //if next movement = collision
+                    if (xCollision || !solidFound) //if next movement = collision
                     {
-                        if(jumpWouldHelp)
+                        if(jumpWouldHelp && xCollision)
                             TryJump();
                         stepX = 0; //stop moving if collision
                         if (grounded)
@@ -1158,6 +1203,7 @@ namespace Plateau.Entities
 
         public void InteractRight(EntityPlayer player, Area area, World world)
         {
+            
             if (!IsJumping() && fadeState == FadeState.NONE)
             {
                 velocityX = 0;

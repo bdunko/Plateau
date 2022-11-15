@@ -1575,7 +1575,7 @@ namespace Plateau.Entities
                             List<Item> drops = currentFishingPool.lootTable.RollLoot(this, area, world.GetTimeData());
                             foreach (Item drop in drops)
                             {
-                                area.AddEntity(new EntityItem(drop, originSpot, new Vector2((direction == DirectionEnum.LEFT ? 1 : -1) * Util.RandInt(108, 125) / 100.0f, -3.5f)));
+                                area.AddEntity(new EntityItem(drop, originSpot, new Vector2((direction == DirectionEnum.LEFT ? 1 : -1) * Util.RandInt(112, 128) / 100.0f, -3.6f)));
                             }
                             fishlineParts.Clear();
                             for (int i = 0; i < 12; i++)
