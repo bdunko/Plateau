@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="60" nextobjectid="375">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="60" nextobjectid="377">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="Interior"/>
@@ -1632,7 +1632,7 @@
   </object>
   <object id="119" x="2056" y="312">
    <properties>
-    <property name="cameraX" value="600"/>
+    <property name="cameraX" value="2120"/>
     <property name="cameraY" value="332"/>
     <property name="name" value="SPtownhallUpstairs"/>
    </properties>
@@ -1640,7 +1640,7 @@
   </object>
   <object id="120" x="2056" y="384">
    <properties>
-    <property name="cameraX" value="600"/>
+    <property name="cameraX" value="2120"/>
     <property name="cameraY" value="332"/>
     <property name="name" value="SPtownhallDownstairs"/>
    </properties>
@@ -1901,6 +1901,18 @@
   <object id="374" x="3880" y="408">
    <properties>
     <property name="name" value="camusSpawn"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="375" x="3624" y="456">
+   <properties>
+    <property name="name" value="aidenSpawn"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="376" x="3600" y="456">
+   <properties>
+    <property name="name" value="aidenHome"/>
    </properties>
    <point/>
   </object>

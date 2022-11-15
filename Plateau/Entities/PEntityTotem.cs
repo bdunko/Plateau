@@ -136,6 +136,8 @@ namespace Plateau.Entities
                     {
                         if(area.GetCollisionTypeAt(toCheck.tileX+width, toCheck.tileY + height) == Area.CollisionTypeEnum.SOLID ||
                             area.GetCollisionTypeAt(toCheck.tileX + width, toCheck.tileY + height) == Area.CollisionTypeEnum.WATER ||
+                            area.GetCollisionTypeAt(toCheck.tileX + width, toCheck.tileY + height) == Area.CollisionTypeEnum.DEEP_WATER ||
+                            area.GetCollisionTypeAt(toCheck.tileX + width, toCheck.tileY + height) == Area.CollisionTypeEnum.TOP_WATER ||
                             area.GetCollisionTypeAt(toCheck.tileX + width, toCheck.tileY + height) == Area.CollisionTypeEnum.BOUNDARY ||
                             area.GetCollisionTypeAt(toCheck.tileX + width, toCheck.tileY + height) == Area.CollisionTypeEnum.SCAFFOLDING_BLOCK ||
                             area.GetCollisionTypeAt(toCheck.tileX + width, toCheck.tileY + height) == Area.CollisionTypeEnum.BRIDGE)

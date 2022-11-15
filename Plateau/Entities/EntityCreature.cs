@@ -116,6 +116,8 @@ namespace Plateau.Entities
                     bool xCollisionSoon = CollisionHelper.CheckCollision(stepXCollisionBoxForesight, area, true);
                     RectangleF stepXCollisionBoxBoundary = new RectangleF(collisionBox.X + (stepX*55), collisionBox.Y, collisionBox.Width, collisionBox.Height);
                     bool xCollisionBoundary = CollisionHelper.CheckForCollisionType(stepXCollisionBoxBoundary, area, Area.CollisionTypeEnum.BOUNDARY);
+
+
                     bool solidFound = false;
                     Vector2 tenativePos = this.position + new Vector2(stepX, 0);
                     if (direction == DirectionEnum.LEFT)
@@ -128,7 +130,14 @@ namespace Plateau.Entities
                                 collType == Area.CollisionTypeEnum.SCAFFOLDING_BLOCK ||
                                 collType == Area.CollisionTypeEnum.SCAFFOLDING_BRIDGE)
                             {
-                                solidFound = true;
+                                //make sure ground above target isn't water or deep water (topwater is allowed)
+                                Area.CollisionTypeEnum collTypeAbove = area.GetCollisionTypeAt((int)(tenativePos.X) / 8, ((int)(tenativePos.Y + sprite.GetFrameHeight()) / 8) + (i-1));
+                                if (collTypeAbove != Area.CollisionTypeEnum.WATER &&
+                                    collTypeAbove != Area.CollisionTypeEnum.DEEP_WATER)
+                                {
+                                    solidFound = true;
+                                } 
+                                break;
                             }
                         }
                     }
@@ -142,7 +151,14 @@ namespace Plateau.Entities
                                 collType == Area.CollisionTypeEnum.SCAFFOLDING_BLOCK ||
                                 collType == Area.CollisionTypeEnum.SCAFFOLDING_BRIDGE)
                             {
-                                solidFound = true;
+                                //make sure ground above target isn't water or deep water (topwater is allowed)
+                                Area.CollisionTypeEnum collTypeAbove = area.GetCollisionTypeAt((int)(tenativePos.X + sprite.GetFrameWidth()) / 8, ((int)(tenativePos.Y + sprite.GetFrameHeight()) / 8) + (i-1));
+                                if (collTypeAbove != Area.CollisionTypeEnum.WATER &&
+                                    collTypeAbove != Area.CollisionTypeEnum.DEEP_WATER)
+                                {
+                                    solidFound = true;
+                                }
+                                break;
                             }
                         }
                     }

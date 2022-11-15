@@ -480,7 +480,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="44" name="pathing" visible="0">
+ <objectgroup id="44" name="pathing">
   <object id="66" x="760" y="184" width="24" height="32">
    <properties>
     <property name="type" value="conditionalJump"/>

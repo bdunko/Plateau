@@ -17,7 +17,7 @@ namespace Plateau.Entities
         private PartialRecolorSprite sprite;
 
         public PEntityLightSource(PartialRecolorSprite sprite, Vector2 tilePosition, Area.LightSource.Strength lightStrength, PlaceableItem sourceItem, DrawLayer drawLayer) : 
-            base(tilePosition, sourceItem, drawLayer, sprite != null ? sprite.GetFrameWidth()/8 : 1, sprite != null ? sprite.GetFrameHeight()/8 : 1)
+            base(tilePosition, sourceItem, drawLayer, sprite != null ? sprite.GetFrameWidth()/8 : 0, sprite != null ? sprite.GetFrameHeight()/8 : 0)
         {
             this.sprite = sprite;
             this.itemForm = sourceItem;
@@ -56,6 +56,10 @@ namespace Plateau.Entities
             if (sprite != null)
             {
                 sprite.Draw(sb, new Vector2(position.X, position.Y + 1), Color.White, layerDepth);
+            } 
+            else
+            {
+                //Util.DrawDebugRect(new RectangleF(position.X, position.Y - 8, 8, 8), Color.OrangeRed);
             }
         }
 
@@ -89,7 +93,7 @@ namespace Plateau.Entities
         {
             if(sprite == null)
             {
-                return new RectangleF(position, new Size2(8, 8));
+                return new RectangleF(position, new Size2(0, 0));
             }
             return new RectangleF(position, new Size2(sprite.GetFrameWidth(), sprite.GetFrameHeight()));
         }

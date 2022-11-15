@@ -15,7 +15,7 @@ namespace Plateau.Entities
         protected AnimatedSprite sprite;
         private float transparency;
 
-        public TEntityWaterTopper(Vector2 tilePosition, AnimatedSprite sprite, float transparency, DrawLayer drawLayer) : base(tilePosition, sprite.GetFrameWidth() / 8, sprite.GetFrameHeight() / 8, drawLayer)
+        public TEntityWaterTopper(Vector2 tilePosition, AnimatedSprite sprite, float transparency, DrawLayer drawLayer) : base(tilePosition, 0, 0, drawLayer)
         {
             this.sprite = sprite;
             this.transparency = transparency;

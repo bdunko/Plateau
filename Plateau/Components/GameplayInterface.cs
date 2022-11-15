@@ -3486,7 +3486,7 @@ namespace Plateau.Components
                             {
                                 if (showPlaceableTexture)
                                 {
-                                    player.AddNotification(new EntityPlayer.Notification("There\'s something in the way.", Color.Red));
+                                    player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
                                 }
                             }
                         }

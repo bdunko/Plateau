@@ -278,6 +278,7 @@ namespace Plateau.Components
                 Console.WriteLine("move <x> y - sets player x position, y stays same");
                 Console.WriteLine("launch - sets player y to top of screen");
 
+
                 didLastSucceed = true;
             }
             else if (pieces[0].Equals("gold"))

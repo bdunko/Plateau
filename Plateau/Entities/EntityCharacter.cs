@@ -525,10 +525,11 @@ namespace Plateau.Entities
             {
                 public enum WanderRange
                 {
-                    SMALL, MEDIUM, LARGE, INFINITE
+                    VERY_SMALL, SMALL, MEDIUM, LARGE, INFINITE
                 }
 
-                private static int SMALL_RANGE = 24;
+                private static int VERY_SMALL_RANGE = 24;
+                private static int SMALL_RANGE = 60;
                 private static int MEDIUM_RANGE = 120;
                 private static int LARGE_RANGE = 320;
                 private static int INFINITE_RANGE = 99999;
@@ -545,6 +546,8 @@ namespace Plateau.Entities
                 {
                     switch(range)
                     {
+                        case WanderRange.VERY_SMALL:
+                            return VERY_SMALL_RANGE;
                         case WanderRange.SMALL:
                             return SMALL_RANGE;
                         case WanderRange.MEDIUM:
@@ -566,7 +569,8 @@ namespace Plateau.Entities
 
                 public override void Update(float deltaTime, EntityCharacter character, Area area, Queue<MovementTypeWaypoint> waypoints)
                 {
-                    //Util.DrawDebugRect(wanderBox, Color.Green * 0.2f);
+                    if (wanderBox.Width != rangeForEnum(WanderRange.INFINITE))
+                        Util.DrawDebugRect(wanderBox, Color.Green * 0.2f);
                     timeSinceChange += deltaTime;
 
                     //chance to wander left or right
@@ -700,13 +704,15 @@ namespace Plateau.Entities
                         }
                         
                         if(area.IsCollideWithPathingHelperType(character.GetCollisionRectangle(), Area.PathingHelper.Type.BEACHHELPER) &&
-                            waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Center.Y)
+                            waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom)
                         {
+                            //force character to walk RIGHT when leaving from beach elevator, when heading to cable car
                             character.Walk(DirectionEnum.RIGHT, deltaTime);
                         }
-                        else if ((waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Center.Y && 
+                        else if ((waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom && 
                             area.IsCollideWithPathingHelperType(character.GetCollisionRectangle(), Area.PathingHelper.Type.CONDITIONALJUMP)))
                         {
+                            //indicates that a character should jump, if their destination is above them
                             character.TryJump();
                         } 
                     } else if (waypoints.Peek().movementType == MovementTypeWaypoint.MovementEnum.WARP) //WARP
@@ -1111,6 +1117,7 @@ namespace Plateau.Entities
         {
             clothingManager.TickDaily(world, this); //update clothes
             MoveToSpawn(world); //reset location
+            fadeState = FadeState.NONE; //required in the case that the day ends during a transition
         }
 
         public override void SetPosition(Vector2 position)

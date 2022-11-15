@@ -13,7 +13,7 @@ namespace Plateau.Entities
     public abstract class TileEntity : Entity, IPersist
     {
         protected Vector2 tilePosition;
-        protected int tileWidth, tileHeight;
+        protected int tileWidth = -1, tileHeight = -1;
 
         public TileEntity(Vector2 tilePosition, int tileWidth, int tileHeight, DrawLayer drawLayer) : base(new Vector2(tilePosition.X*8, tilePosition.Y*8), drawLayer)
         {
@@ -24,7 +24,7 @@ namespace Plateau.Entities
 
         public int GetTileWidth()
         {
-            if(tileWidth == 0)
+            if(tileWidth == -1)
             {
                 throw new Exception("forgot to give tilewidth in constructor?");
             }
@@ -32,7 +32,7 @@ namespace Plateau.Entities
         }
         public int GetTileHeight()
         {
-            if (tileHeight == 0)
+            if (tileHeight == -1)
             {
                 throw new Exception("forgot to give tileheight in constructor?");
             }
