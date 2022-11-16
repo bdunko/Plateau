@@ -58,9 +58,11 @@ namespace Plateau.Components
                     {
                         return true;
                     }
-                    else if ((cType == Area.CollisionTypeEnum.BRIDGE || cType == Area.CollisionTypeEnum.SCAFFOLDING_BRIDGE) && falling &&
-                        hitbox.Y + hitbox.Height >= area.GetPositionOfTile(indexXCurrent, indexYCurrent).Y)
+                    else if ((cType == Area.CollisionTypeEnum.BRIDGE || cType == Area.CollisionTypeEnum.SCAFFOLDING_BRIDGE) 
+                        && falling 
+                        && area.GetPositionOfTile(indexXCurrent, indexYCurrent).Y > hitbox.Bottom-3) //-3 seems to be a magic number - changing this may cause creatures, characters, particles to clip through bridges
                     {
+                        Vector2 tilePos = area.GetPositionOfTile(indexXCurrent, indexYCurrent);
                         return true;
                     }
                 }

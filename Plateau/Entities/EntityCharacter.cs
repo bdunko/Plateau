@@ -707,12 +707,12 @@ namespace Plateau.Entities
                         }
 
                         if (area.IsCollideWithPathingHelperType(character.GetCollisionRectangle(), Area.PathingHelper.Type.BEACHHELPER) &&
-                            waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom)
+                            waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom - 5)
                         {
                             //force character to walk RIGHT when leaving from beach elevator, when heading to cable car
                             character.Walk(DirectionEnum.RIGHT, deltaTime);
                         }
-                        else if ((waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom &&
+                        else if ((waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom - 5 &&
                             area.IsCollideWithPathingHelperType(character.GetCollisionRectangle(), Area.PathingHelper.Type.CONDITIONALJUMP)))
                         {
                             //indicates that a character should jump, if their destination is above them
@@ -1169,6 +1169,7 @@ namespace Plateau.Entities
             clothingManager.TickDaily(world, this); //update clothes
             MoveToSpawn(world); //reset location
             fadeState = FadeState.NONE; //required in the case that the day ends during a transition
+            opacity = 1.0f;
         }
 
         public override void SetPosition(Vector2 position)

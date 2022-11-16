@@ -198,7 +198,7 @@ namespace Plateau.Entities
                 {
                     collisionBox = GetCollisionRectangle();
                     RectangleF stepYCollisionBox = new RectangleF(collisionBox.X, collisionBox.Y + stepY, collisionBox.Width, collisionBox.Height);
-                    bool yCollision = CollisionHelper.CheckCollision(stepYCollisionBox, area, stepY > 0);
+                    bool yCollision = CollisionHelper.CheckCollision(stepYCollisionBox, area, stepY >= 0);
 
                     if (yCollision)
                     {

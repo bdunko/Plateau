@@ -1404,7 +1404,7 @@
    </properties>
    <point/>
   </object>
-  <object id="218" x="3152" y="496">
+  <object id="218" x="3120" y="504">
    <properties>
     <property name="name" value="rockwellDogwalk"/>
    </properties>
