@@ -73,9 +73,9 @@ namespace Plateau.Entities
 
             public bool CheckCondition(World world, EntityCharacter character)
             {
-                foreach(Func<World, EntityCharacter, bool> condition in conditionFunctions)
+                foreach (Func<World, EntityCharacter, bool> condition in conditionFunctions)
                 {
-                    if(!condition(world, character))
+                    if (!condition(world, character))
                     {
                         return false;
                     }
@@ -104,7 +104,7 @@ namespace Plateau.Entities
                 sprite.Update(deltaTime, hat.GetSpritesheet(), shirt.GetSpritesheet(), outerwear.GetSpritesheet(),
                 pants.GetSpritesheet(), socks.GetSpritesheet(), shoes.GetSpritesheet(),
                 gloves.GetSpritesheet(), earrings.GetSpritesheet(), scarf.GetSpritesheet(), glasses.GetSpritesheet(),
-                back.GetSpritesheet(), sailcloth.GetSpritesheet(), hair.GetSpritesheet(), skin.GetSpritesheet(), eyes.GetSpritesheet(), 
+                back.GetSpritesheet(), sailcloth.GetSpritesheet(), hair.GetSpritesheet(), skin.GetSpritesheet(), eyes.GetSpritesheet(),
                 facialhair.GetSpritesheet(), drawPantsOverShoes, hideHair, hideFacialHair);
             }
         }
@@ -140,7 +140,7 @@ namespace Plateau.Entities
             public void TickDaily(World world, EntityCharacter character)
             {
                 ChooseClothingSet(world, character);
-            } 
+            }
         }
 
         public class Schedule
@@ -179,7 +179,7 @@ namespace Plateau.Entities
                 public SubzoneMap(World world)
                 {
                     Node apex, beach, farm, s0walk, s0warp, store, cafe, bookstoreLower, bookstoreUpper, s1walk, s1warp,
-                        farmhouseCabin, farmhouseHouse, farmhouseMansionUpper, farmhouseMansionLower, rockwellHouse, beachHouse, piperLower, piperUpper, townhallLower, townhallUpper, 
+                        farmhouseCabin, farmhouseHouse, farmhouseMansionUpper, farmhouseMansionLower, rockwellHouse, beachHouse, piperLower, piperUpper, townhallLower, townhallUpper,
                         workshop, forge, town, s2, s3, s4, inn, innBath, innTroy, innCharlotte, innSpare1, innSpare2, innSpare3;
 
                     allNodesInMap = new List<Node>();
@@ -219,7 +219,7 @@ namespace Plateau.Entities
                     allNodesInMap.Add(townhallUpper = new Node(Area.Subarea.NameEnum.TOWNHALLUPPER));
 
                     farm.AddNeighbor(s0walk, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.FARM).GetWaypoint("TRfarmRight"), MovementTypeWaypoint.MovementEnum.WALK));
-                    
+
                     farm.AddNeighbor(town, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.FARM).GetWaypoint("TRfarmLeft"), MovementTypeWaypoint.MovementEnum.WALK));
                     farm.AddNeighbor(farmhouseCabin, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.FARM).GetWaypoint("TRtoFarmhouseCabin"), MovementTypeWaypoint.MovementEnum.WALK));
                     farm.AddNeighbor(farmhouseHouse, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.FARM).GetWaypoint("TRtoFarmhouseHouse"), MovementTypeWaypoint.MovementEnum.WALK));
@@ -303,7 +303,7 @@ namespace Plateau.Entities
 
                 private MovementTypeWaypoint.MovementEnum GetMovementTypeForSubzone(Area.Subarea.NameEnum subzone)
                 {
-                    switch(subzone)
+                    switch (subzone)
                     {
                         case Area.Subarea.NameEnum.S0WARP:
                         case Area.Subarea.NameEnum.APEX:
@@ -318,9 +318,9 @@ namespace Plateau.Entities
 
                 private Node GetNodeForSubzone(Area.Subarea.NameEnum subzone)
                 {
-                    foreach(Node node in allNodesInMap)
+                    foreach (Node node in allNodesInMap)
                     {
-                        if(node.subzone == subzone)
+                        if (node.subzone == subzone)
                         {
                             return node;
                         }
@@ -341,9 +341,9 @@ namespace Plateau.Entities
 
                 private bool DoesCurrentPathIncludeSubzone(List<Node.ConnectedNode> path, Area.Subarea.NameEnum subzone)
                 {
-                    foreach(Node.ConnectedNode node in path)
+                    foreach (Node.ConnectedNode node in path)
                     {
-                        if(node.nodeTo.subzone == subzone)
+                        if (node.nodeTo.subzone == subzone)
                         {
                             return true;
                         }
@@ -354,7 +354,7 @@ namespace Plateau.Entities
                 private Queue<MovementTypeWaypoint> BFS(List<Node.ConnectedNode> currentPath, Area.Subarea.NameEnum dest)
                 {
                     Node.ConnectedNode currentNode = currentPath[currentPath.Count - 1];
-                    if(currentNode.nodeTo.subzone == dest)
+                    if (currentNode.nodeTo.subzone == dest)
                     {
                         //System.Diagnostics.Debug.WriteLine("SUCCESSPATH");
                         //foreach (Node.ConnectedNode cn in currentPath)
@@ -368,14 +368,15 @@ namespace Plateau.Entities
                             returnQueue.Enqueue(node.waypoint);
                         }
                         return returnQueue;
-                    } else
+                    }
+                    else
                     {
-                        foreach(Node.ConnectedNode neighbor in currentNode.nodeTo.neighbors)
+                        foreach (Node.ConnectedNode neighbor in currentNode.nodeTo.neighbors)
                         {
                             if (!DoesCurrentPathIncludeSubzone(currentPath, neighbor.nodeTo.subzone))
                             {
                                 List<Node.ConnectedNode> currentPathCopy = new List<Node.ConnectedNode>();
-                                foreach(Node.ConnectedNode cn in currentPath)
+                                foreach (Node.ConnectedNode cn in currentPath)
                                 {
                                     currentPathCopy.Add(cn);
                                 }
@@ -503,10 +504,10 @@ namespace Plateau.Entities
                     {
                         timeSinceLastChange += deltaTime;
 
-                        if(timeSinceLastChange > MIN_TIME_BETWEEN_CHANGE && Util.RandInt(0, CHANCE_TO_RANDOMIZE_DIRECTION) == 0)
+                        if (timeSinceLastChange > MIN_TIME_BETWEEN_CHANGE && Util.RandInt(0, CHANCE_TO_RANDOMIZE_DIRECTION) == 0)
                         {
                             timeSinceLastChange = 0;
-                            switch(Util.RandInt(0, 1))
+                            switch (Util.RandInt(0, 1))
                             {
                                 case 0:
                                     character.direction = DirectionEnum.RIGHT;
@@ -544,7 +545,7 @@ namespace Plateau.Entities
 
                 private int rangeForEnum(WanderRange range)
                 {
-                    switch(range)
+                    switch (range)
                     {
                         case WanderRange.VERY_SMALL:
                             return VERY_SMALL_RANGE;
@@ -580,13 +581,13 @@ namespace Plateau.Entities
                         timeSinceChange = 0;
 
                         //if within valid wandering parameters, randomly choose a direction
-                        if(character.GetCollisionRectangle().Intersects(wanderBox))
+                        if (character.GetCollisionRectangle().Intersects(wanderBox))
                         {
                             if (Util.RandInt(0, 1) == 0)
                                 character.direction = DirectionEnum.LEFT;
                             else
                                 character.direction = DirectionEnum.RIGHT;
-                        } 
+                        }
                         else //otherwise, must go back towards
                         {
                             if (wanderBox.Center.X > character.GetCollisionRectangle().Center.X)
@@ -602,7 +603,7 @@ namespace Plateau.Entities
                     }
 
                     //if wandering away and outside of range, stop movement
-                    if(wandering && !wanderBox.Contains(character.GetCollisionRectangle().Center))
+                    if (wandering && !wanderBox.Contains(character.GetCollisionRectangle().Center))
                     {
                         if (character.direction == DirectionEnum.LEFT && wanderBox.Center.X > character.GetCollisionRectangle().Center.X ||
                             character.direction == DirectionEnum.RIGHT && wanderBox.Center.X < character.GetCollisionRectangle().Center.X)
@@ -630,7 +631,7 @@ namespace Plateau.Entities
                 waypoints = new Queue<MovementTypeWaypoint>();
                 this.events = events;
                 currentEvent = null;
-                if(subzoneMap == null)
+                if (subzoneMap == null)
                 {
                     subzoneMap = new SubzoneMap(world);
                 }
@@ -650,7 +651,7 @@ namespace Plateau.Entities
                     return;
                 }
 
-                if(character.fadeState == FadeState.FADE_OUT) //handle fade out before transitioning to new area
+                if (character.fadeState == FadeState.FADE_OUT) //handle fade out before transitioning to new area
                 {
                     character.velocityX = 0;
                     character.velocityY = 0;
@@ -673,24 +674,26 @@ namespace Plateau.Entities
                         }
                         character.fadeState = FadeState.FADE_IN;
                     }
-                } else if (character.fadeState == FadeState.FADE_IN) //handle fade in when arriving at new area
+                }
+                else if (character.fadeState == FadeState.FADE_IN) //handle fade in when arriving at new area
                 {
                     character.velocityX = 0;
                     character.velocityY = 0;
                     character.opacity += FADE_SPEED * deltaTime;
-                    if(character.opacity > 1)
+                    if (character.opacity > 1)
                     {
                         character.opacity = 1;
                         character.fadeState = FadeState.NONE;
                     }
                 }
-                else if(waypoints.Count == 0) //if at destination, let event handle character
+                else if (waypoints.Count == 0) //if at destination, let event handle character
                 {
                     if (currentEvent != null)
                     {
                         currentEvent.Update(deltaTime, character, area, waypoints);
                     }
-                } else //otherwise, move towards destination
+                }
+                else //otherwise, move towards destination
                 {
                     if (waypoints.Peek().movementType == MovementTypeWaypoint.MovementEnum.WALK) //WALK
                     {
@@ -702,20 +705,21 @@ namespace Plateau.Entities
                         {
                             character.Walk(DirectionEnum.LEFT, deltaTime);
                         }
-                        
-                        if(area.IsCollideWithPathingHelperType(character.GetCollisionRectangle(), Area.PathingHelper.Type.BEACHHELPER) &&
+
+                        if (area.IsCollideWithPathingHelperType(character.GetCollisionRectangle(), Area.PathingHelper.Type.BEACHHELPER) &&
                             waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom)
                         {
                             //force character to walk RIGHT when leaving from beach elevator, when heading to cable car
                             character.Walk(DirectionEnum.RIGHT, deltaTime);
                         }
-                        else if ((waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom && 
+                        else if ((waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom &&
                             area.IsCollideWithPathingHelperType(character.GetCollisionRectangle(), Area.PathingHelper.Type.CONDITIONALJUMP)))
                         {
                             //indicates that a character should jump, if their destination is above them
                             character.TryJump();
-                        } 
-                    } else if (waypoints.Peek().movementType == MovementTypeWaypoint.MovementEnum.WARP) //WARP
+                        }
+                    }
+                    else if (waypoints.Peek().movementType == MovementTypeWaypoint.MovementEnum.WARP) //WARP
                     {
                         world.MoveCharacter(character, area, waypoints.Peek().waypoint.area);
                         character.SetPosition(waypoints.Peek().waypoint.position - new Vector2(0, 32f));
@@ -725,14 +729,14 @@ namespace Plateau.Entities
                     destinationCheck.Height += 6;
                     destinationCheck.X += 4;
                     destinationCheck.Width -= 8;
-                    if(destinationCheck.Contains(waypoints.Peek().waypoint.position))
+                    if (destinationCheck.Contains(waypoints.Peek().waypoint.position))
                     {
                         waypoints.Dequeue();
                         if (waypoints.Count > 0 && area.CheckTransition(character.GetCollisionRectangle().Center, true) != null)
                         {
                             character.fadeState = FadeState.FADE_OUT;
                         }
-                        if(waypoints.Count == 0) //arrived, stop moving
+                        if (waypoints.Count == 0) //arrived, stop moving
                         {
                             character.velocityX = 0;
                             character.velocityY = 0;
@@ -743,7 +747,7 @@ namespace Plateau.Entities
 
             public void Update(World world, EntityCharacter character, Area currentArea)
             {
-                if(currentEvent != null && !currentEvent.CheckActivation(world, character))
+                if (currentEvent != null && !currentEvent.CheckActivation(world, character))
                 {
                     currentEvent = null;
                 }
@@ -757,8 +761,8 @@ namespace Plateau.Entities
                         waypoints.Clear();
                         currentEvent = scEvent;
 
-                        waypoints = subzoneMap.FindPath(currentArea.GetSubareaAt(character.GetCollisionRectangle()), 
-                            new Area.Waypoint(character.GetCollisionRectangle().Center, "CHAR", currentArea), 
+                        waypoints = subzoneMap.FindPath(currentArea.GetSubareaAt(character.GetCollisionRectangle()),
+                            new Area.Waypoint(character.GetCollisionRectangle().Center, "CHAR", currentArea),
                             scEvent.GetArea().GetSubareaAt(new RectangleF(scEvent.GetWaypoint().position, new Size2(2, 2))),
                             scEvent.GetWaypoint());
 
@@ -792,7 +796,8 @@ namespace Plateau.Entities
 
             public bool CanActivate(World world, EntityCharacter character)
             {
-                foreach (Func<World, EntityCharacter, bool> conditionFunc in conditionFunctions) {
+                foreach (Func<World, EntityCharacter, bool> conditionFunc in conditionFunctions)
+                {
                     if (!conditionFunc(world, character))
                     {
                         return false;
@@ -815,18 +820,18 @@ namespace Plateau.Entities
             {
                 List<DialogueNode> choices = new List<DialogueNode>();
 
-                foreach(DialogueOption option in dialogueOptions)
+                foreach (DialogueOption option in dialogueOptions)
                 {
-                    if(option.CanActivate(world, character))
+                    if (option.CanActivate(world, character))
                     {
-                        for(int i = 0; i < option.GetWeight(); i++)
+                        for (int i = 0; i < option.GetWeight(); i++)
                         {
                             choices.Add(option.GetDialogue());
                         }
                     }
                 }
 
-                return choices[Util.RandInt(0, choices.Count-1)];
+                return choices[Util.RandInt(0, choices.Count - 1)];
             }
 
         }
@@ -957,12 +962,13 @@ namespace Plateau.Entities
         public void SetCurrentArea(Area newArea)
         {
             this.currentArea = newArea;
-        } 
+        }
 
         public int GetHeartLevel()
         {
             int level = 0;
-            while(heartPoints > HEART_LEVEL_BREAKPOINTS[level+1] && level < 10) {
+            while (heartPoints > HEART_LEVEL_BREAKPOINTS[level + 1] && level < 10)
+            {
                 level++;
             }
             return level;
@@ -990,7 +996,7 @@ namespace Plateau.Entities
 
         public void TryJump()
         {
-            if(grounded)
+            if (grounded)
             {
                 velocityY = JUMP_SPEED;
             }
@@ -999,12 +1005,12 @@ namespace Plateau.Entities
         public void GainHeartPoints(int amount)
         {
             heartPoints += amount;
-            if(heartPoints < 0)
+            if (heartPoints < 0)
             {
                 heartPoints = 0;
             }
         }
-             
+
         public override void Draw(SpriteBatch sb, float layerDepth)
         {
             Vector2 modifiedPosition = new Vector2(position.X, position.Y);
@@ -1020,7 +1026,7 @@ namespace Plateau.Entities
 
         public override RectangleF GetCollisionRectangle()
         {
-            return new RectangleF((position.X + OFFSET_X) - (WIDTH/2), position.Y + OFFSET_Y + 1, WIDTH*2, HEIGHT - 1);
+            return new RectangleF((position.X + OFFSET_X) - (WIDTH / 2), position.Y + OFFSET_Y + 1, WIDTH * 2, HEIGHT - 1);
         }
 
         public override void Update(float deltaTime, Area area)
@@ -1110,7 +1116,7 @@ namespace Plateau.Entities
 
                     if (xCollision || !solidFound) //if next movement = collision
                     {
-                        if(jumpWouldHelp && xCollision)
+                        if (jumpWouldHelp && xCollision)
                             TryJump();
                         stepX = 0; //stop moving if collision
                         if (grounded)
@@ -1172,7 +1178,7 @@ namespace Plateau.Entities
 
         public void Tick(int minutesTicked, EntityPlayer player, Area area, World world)
         {
-            
+
         }
 
         public string GetLeftShiftClickAction(EntityPlayer player)
@@ -1187,7 +1193,7 @@ namespace Plateau.Entities
 
         public string GetLeftClickAction(EntityPlayer player)
         {
-            if(!player.GetHeldItem().GetItem().HasTag(Item.Tag.NO_TRASH))
+            if (!player.GetHeldItem().GetItem().HasTag(Item.Tag.NO_TRASH))
             {
                 return "Give";
             }
@@ -1196,14 +1202,14 @@ namespace Plateau.Entities
 
         public string GetRightClickAction(EntityPlayer player)
         {
-            if(!IsJumping() && fadeState == FadeState.NONE)
+            if (!IsJumping() && fadeState == FadeState.NONE)
                 return "Talk";
             return "";
         }
 
         public void InteractRight(EntityPlayer player, Area area, World world)
         {
-            
+
             if (!IsJumping() && fadeState == FadeState.NONE)
             {
                 velocityX = 0;
@@ -1231,7 +1237,7 @@ namespace Plateau.Entities
 
         public void InteractRightShift(EntityPlayer player, Area area, World world)
         {
-            
+
         }
 
         public void InteractLeftShift(EntityPlayer player, Area area, World world)

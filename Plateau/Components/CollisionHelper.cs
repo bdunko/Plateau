@@ -54,12 +54,12 @@ namespace Plateau.Components
                 for (int indexYCurrent = indexYTop; indexYCurrent <= indexYBottom; indexYCurrent++)
                 {
                     Area.CollisionTypeEnum cType = area.GetCollisionTypeAt(indexXCurrent, indexYCurrent);
-                    if (cType == Area.CollisionTypeEnum.SOLID || cType == Area.CollisionTypeEnum.SCAFFOLDING_BLOCK || cType == Area.CollisionTypeEnum.BOUNDARY)
+                    if (cType == Area.CollisionTypeEnum.SOLID || cType == Area.CollisionTypeEnum.SCAFFOLDING_BLOCK)
                     {
                         return true;
                     }
                     else if ((cType == Area.CollisionTypeEnum.BRIDGE || cType == Area.CollisionTypeEnum.SCAFFOLDING_BRIDGE) && falling &&
-                        hitbox.Bottom >= area.GetPositionOfTile(indexXCurrent, indexYCurrent).Y)
+                        hitbox.Y + hitbox.Height >= area.GetPositionOfTile(indexXCurrent, indexYCurrent).Y)
                     {
                         return true;
                     }

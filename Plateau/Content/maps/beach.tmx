@@ -1367,7 +1367,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup color="#ff007f" id="25" name="waypoints" visible="0">
+ <objectgroup color="#ff007f" id="25" name="waypoints">
   <object id="1" x="2544" y="520">
    <properties>
     <property name="name" value="SPbeachElevator"/>

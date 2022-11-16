@@ -311,8 +311,8 @@ namespace Plateau.Components
 
             List<EntityCharacter.DialogueOption> camusDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Camus. abcdefghijklmnopqrstuvwxyz\nABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890\nanother sentence here!.?", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
-            characters.Add(new EntityCharacter("Camus", this, EntityCharacter.CharacterEnum.CAMUS, camusClothing, camusSchedule, camusDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("camusSpawn"),
-                GameState.FLAG_LETTER_GIFT_CAMUS));
+            //characters.Add(new EntityCharacter("Camus", this, EntityCharacter.CharacterEnum.CAMUS, camusClothing, camusSchedule, camusDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("camusSpawn"),
+            //    GameState.FLAG_LETTER_GIFT_CAMUS));
 
             //AIDEN
             List<EntityCharacter.ClothingSet> aidenClothing = Util.GenerateClothingSetList(
@@ -342,8 +342,8 @@ namespace Plateau.Components
 
             List<EntityCharacter.DialogueOption> aidenDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Aiden... :(", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
-            characters.Add(new EntityCharacter("Aiden", this, EntityCharacter.CharacterEnum.AIDEN, aidenClothing, aidenSchedule, aidenDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("aidenSpawn"),
-                GameState.FLAG_LETTER_GIFT_AIDEN));
+            //characters.Add(new EntityCharacter("Aiden", this, EntityCharacter.CharacterEnum.AIDEN, aidenClothing, aidenSchedule, aidenDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("aidenSpawn"),
+            //    GameState.FLAG_LETTER_GIFT_AIDEN));
 
             //RAUL
             List<EntityCharacter.ClothingSet> raulClothing = Util.GenerateClothingSetList(
@@ -374,8 +374,8 @@ namespace Plateau.Components
 
             List<EntityCharacter.DialogueOption> raulDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Raul! :)", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
-            characters.Add(new EntityCharacter("Raul", this, EntityCharacter.CharacterEnum.RAUL, raulClothing, raulSchedule, raulDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.BEACH].GetWaypoint("raulSpawn"),
-                GameState.FLAG_LETTER_GIFT_RAUL));
+            //characters.Add(new EntityCharacter("Raul", this, EntityCharacter.CharacterEnum.RAUL, raulClothing, raulSchedule, raulDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.BEACH].GetWaypoint("raulSpawn"),
+            //    GameState.FLAG_LETTER_GIFT_RAUL));
 
             //FINLEY
             List<EntityCharacter.ClothingSet> finleyClothing = Util.GenerateClothingSetList(
@@ -401,12 +401,12 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             List<EntityCharacter.Schedule.Event> finleySchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.S0], areas[Area.AreaEnum.S0].GetWaypoint("finleySpawn"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("SPinnSpare1Hall"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
 
             List<EntityCharacter.DialogueOption> finleyDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Finley.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
-            characters.Add(new EntityCharacter("Finley", this, EntityCharacter.CharacterEnum.FINLEY, finleyClothing, finleySchedule, finleyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.S0].GetWaypoint("finleySpawn"),
-                GameState.FLAG_LETTER_GIFT_FINLEY));
+            //characters.Add(new EntityCharacter("Finley", this, EntityCharacter.CharacterEnum.FINLEY, finleyClothing, finleySchedule, finleyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.TOWN].GetWaypoint("SPbeach"),
+            //    GameState.FLAG_LETTER_GIFT_FINLEY));
         }
 
         public void MoveCharacter(EntityCharacter character, Area areaFrom, Area areaTo)
