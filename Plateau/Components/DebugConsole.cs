@@ -112,8 +112,12 @@ namespace Plateau.Components
                     int hour = 0;
                     if (Int32.TryParse(pieces[1], out hour))
                     {
-                        world.SetTime(hour, 0, player);
-                        didLastSucceed = true;
+                        if(hour >= 0 && hour < 25)
+                        {
+                            world.SetTime(hour, 0, player);
+                            didLastSucceed = true;
+                        }
+
                     }
                 } else if (pieces.Count() == 3)
                 {
@@ -122,8 +126,11 @@ namespace Plateau.Components
                     {
                         if (Int32.TryParse(pieces[2], out minute))
                         {
-                            world.SetTime(hour, minute, player);
-                            didLastSucceed = true;
+                            if (hour >= 0 && hour <= 24 && minute >= 0 && minute <= 60)
+                            {
+                                world.SetTime(hour, minute, player);
+                                didLastSucceed = true;
+                            }
                         }
                     }
                 }

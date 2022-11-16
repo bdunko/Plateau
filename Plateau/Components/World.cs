@@ -401,13 +401,14 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             //test moving from beach -> inn
-            //List<EntityCharacter.Schedule.Event> finleySchedule = Util.GenerateSchedule(
-            //    new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("SPinnSpare1Hall"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
-            //List<EntityCharacter.DialogueOption> finleyDialogue = Util.GenerateDialogueList(
-            //    new EntityCharacter.DialogueOption(new DialogueNode("I'm Finley.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
-            //characters.Add(new EntityCharacter("Finley", this, EntityCharacter.CharacterEnum.FINLEY, finleyClothing, finleySchedule, finleyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.TOWN].GetWaypoint("SPbeach"),
-            //    GameState.FLAG_LETTER_GIFT_FINLEY));
+            List<EntityCharacter.Schedule.Event> finleySchedule = Util.GenerateSchedule(
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("SPinnSpare1Hall"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
+            List<EntityCharacter.DialogueOption> finleyDialogue = Util.GenerateDialogueList(
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Finley.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+            characters.Add(new EntityCharacter("Finley", this, EntityCharacter.CharacterEnum.FINLEY, finleyClothing, finleySchedule, finleyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.TOWN].GetWaypoint("SPbeach"),
+                GameState.FLAG_LETTER_GIFT_FINLEY));
 
+            /*
             List<EntityCharacter.Schedule.Event> finleySchedule = Util.GenerateSchedule(
                 new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.S0], areas[Area.AreaEnum.S0].GetWaypoint("finleySpawn"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
 
@@ -415,6 +416,7 @@ namespace Plateau.Components
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Finley.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
             characters.Add(new EntityCharacter("Finley", this, EntityCharacter.CharacterEnum.FINLEY, finleyClothing, finleySchedule, finleyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.S0].GetWaypoint("finleySpawn"),
                 GameState.FLAG_LETTER_GIFT_FINLEY));
+            */
         }
 
         public void MoveCharacter(EntityCharacter character, Area areaFrom, Area areaTo)

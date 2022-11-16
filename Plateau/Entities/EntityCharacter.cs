@@ -14,7 +14,7 @@ namespace Plateau.Entities
     public class EntityCharacter : EntityCollidable, ITickDaily, ITick, IInteract, IPersist
     {
         private static int HEIGHT = 24; //height of character's hitbox
-        private static int WIDTH = 6; //width of character's hitbox
+        private static int WIDTH = 8; //width of character's hitbox
         private static int OFFSET_X = 29; //offset x from where the image is to where the hitbox begins
         private static int OFFSET_Y = 8; //offset y from where the image border is to where the hitbox begins
 
@@ -581,16 +581,16 @@ namespace Plateau.Entities
                         timeSinceChange = 0;
 
                         //if within valid wandering parameters, randomly choose a direction
-                        if (character.GetCollisionRectangle().Intersects(wanderBox))
+                        if (character.GetCollisionHitbox().Intersects(wanderBox))
                         {
-                            if (Util.RandInt(0, 1) == 0)
+                            if (Util.RandInt(0, 10) == 0)
                                 character.direction = DirectionEnum.LEFT;
                             else
                                 character.direction = DirectionEnum.RIGHT;
                         }
                         else //otherwise, must go back towards
                         {
-                            if (wanderBox.Center.X > character.GetCollisionRectangle().Center.X)
+                            if (wanderBox.Center.X > character.GetCollisionHitbox().Center.X)
                                 character.direction = DirectionEnum.RIGHT;
                             else
                                 character.direction = DirectionEnum.LEFT;
@@ -603,10 +603,10 @@ namespace Plateau.Entities
                     }
 
                     //if wandering away and outside of range, stop movement
-                    if (wandering && !wanderBox.Contains(character.GetCollisionRectangle().Center))
+                    if (wandering && !wanderBox.Contains(character.GetCollisionHitbox().Center))
                     {
-                        if (character.direction == DirectionEnum.LEFT && wanderBox.Center.X > character.GetCollisionRectangle().Center.X ||
-                            character.direction == DirectionEnum.RIGHT && wanderBox.Center.X < character.GetCollisionRectangle().Center.X)
+                        if (character.direction == DirectionEnum.LEFT && wanderBox.Center.X > character.GetCollisionHitbox().Center.X ||
+                            character.direction == DirectionEnum.RIGHT && wanderBox.Center.X < character.GetCollisionHitbox().Center.X)
                         {
                             wandering = false;
                             timeSinceChange = 0;
@@ -660,7 +660,7 @@ namespace Plateau.Entities
                     {
                         if (waypoints.Count != 0)
                         {
-                            Area.TransitionZone transitionZone = area.CheckTransition(character.GetCollisionRectangle().Center, true);
+                            Area.TransitionZone transitionZone = area.CheckTransition(character.GetCollisionHitbox().Center, true);
                             if (transitionZone != null)
                             {
                                 Area transitionTo = world.GetAreaByName(transitionZone.to);
@@ -697,23 +697,23 @@ namespace Plateau.Entities
                 {
                     if (waypoints.Peek().movementType == MovementTypeWaypoint.MovementEnum.WALK) //WALK
                     {
-                        if (waypoints.Peek().waypoint.position.X > character.GetCollisionRectangle().Center.X)
+                        if (waypoints.Peek().waypoint.position.X > character.GetCollisionHitbox().Center.X)
                         {
                             character.Walk(DirectionEnum.RIGHT, deltaTime);
                         }
-                        else if (waypoints.Peek().waypoint.position.X < character.GetCollisionRectangle().Center.X)
+                        else if (waypoints.Peek().waypoint.position.X < character.GetCollisionHitbox().Center.X)
                         {
                             character.Walk(DirectionEnum.LEFT, deltaTime);
                         }
 
-                        if (area.IsCollideWithPathingHelperType(character.GetCollisionRectangle(), Area.PathingHelper.Type.BEACHHELPER) &&
-                            waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom - 5)
+                        if (area.IsCollideWithPathingHelperType(character.GetCollisionHitbox(), Area.PathingHelper.Type.BEACHHELPER) &&
+                            waypoints.Peek().waypoint.position.Y < character.GetCollisionHitbox().Bottom - 5)
                         {
                             //force character to walk RIGHT when leaving from beach elevator, when heading to cable car
                             character.Walk(DirectionEnum.RIGHT, deltaTime);
                         }
-                        else if ((waypoints.Peek().waypoint.position.Y < character.GetCollisionRectangle().Bottom - 5 &&
-                            area.IsCollideWithPathingHelperType(character.GetCollisionRectangle(), Area.PathingHelper.Type.CONDITIONALJUMP)))
+                        else if ((waypoints.Peek().waypoint.position.Y < character.GetCollisionHitbox().Bottom - 5 &&
+                            area.IsCollideWithPathingHelperType(character.GetCollisionHitbox(), Area.PathingHelper.Type.CONDITIONALJUMP)))
                         {
                             //indicates that a character should jump, if their destination is above them
                             character.TryJump();
@@ -725,14 +725,14 @@ namespace Plateau.Entities
                         character.SetPosition(waypoints.Peek().waypoint.position - new Vector2(0, 32f));
                     }
 
-                    RectangleF destinationCheck = character.GetCollisionRectangle();
+                    RectangleF destinationCheck = character.GetCollisionHitbox();
                     destinationCheck.Height += 6;
-                    destinationCheck.X += 4;
-                    destinationCheck.Width -= 8;
+                    destinationCheck.X += 2;
+                    destinationCheck.Width -= 4;
                     if (destinationCheck.Contains(waypoints.Peek().waypoint.position))
                     {
                         waypoints.Dequeue();
-                        if (waypoints.Count > 0 && area.CheckTransition(character.GetCollisionRectangle().Center, true) != null)
+                        if (waypoints.Count > 0 && area.CheckTransition(character.GetCollisionHitbox().Center, true) != null)
                         {
                             character.fadeState = FadeState.FADE_OUT;
                         }
@@ -761,8 +761,8 @@ namespace Plateau.Entities
                         waypoints.Clear();
                         currentEvent = scEvent;
 
-                        waypoints = subzoneMap.FindPath(currentArea.GetSubareaAt(character.GetCollisionRectangle()),
-                            new Area.Waypoint(character.GetCollisionRectangle().Center, "CHAR", currentArea),
+                        waypoints = subzoneMap.FindPath(currentArea.GetSubareaAt(character.GetCollisionHitbox()),
+                            new Area.Waypoint(character.GetCollisionHitbox().Center, "CHAR", currentArea),
                             scEvent.GetArea().GetSubareaAt(new RectangleF(scEvent.GetWaypoint().position, new Size2(2, 2))),
                             scEvent.GetWaypoint());
 
@@ -1024,6 +1024,13 @@ namespace Plateau.Entities
             emotionPanel.Draw(sb, emotionPanelPos, Color.White, layerDepth);
         }
 
+        //used for collision calculations internally. Not as wide as GetCollisionRectangle, which is wider to allow player to interact from a range 
+        private RectangleF GetCollisionHitbox()
+        {
+            //Util.DrawDebugRect(new RectangleF((position.X + OFFSET_X), position.Y + OFFSET_Y + 1, WIDTH, HEIGHT - 1), Color.Red * 0.1f);
+            return new RectangleF((position.X + OFFSET_X), position.Y + OFFSET_Y + 1, WIDTH, HEIGHT - 1);
+        }
+
         public override RectangleF GetCollisionRectangle()
         {
             return new RectangleF((position.X + OFFSET_X) - (WIDTH / 2), position.Y + OFFSET_Y + 1, WIDTH * 2, HEIGHT - 1);
@@ -1044,13 +1051,13 @@ namespace Plateau.Entities
             velocityY += GRAVITY * deltaTime;
 
             //calculate collisions
-            RectangleF collisionBox = GetCollisionRectangle();
+            RectangleF collisionBox = GetCollisionHitbox();
             float stepX = velocityX / COLLISION_STEPS;
             for (int step = 0; step < COLLISION_STEPS; step++)
             {
                 if (stepX != 0) //move X
                 {
-                    collisionBox = GetCollisionRectangle();
+                    collisionBox = GetCollisionHitbox();
                     RectangleF stepXCollisionBox = new RectangleF(collisionBox.X + stepX, collisionBox.Y, collisionBox.Width, collisionBox.Height);
                     bool xCollision = CollisionHelper.CheckCollision(stepXCollisionBox, area, false);
                     RectangleF stepXCollisionBoxForesight = new RectangleF(collisionBox.X + (stepX * 15), collisionBox.Y, collisionBox.Width, collisionBox.Height);
@@ -1137,7 +1144,7 @@ namespace Plateau.Entities
             {
                 if (stepY != 0) //move Y
                 {
-                    collisionBox = GetCollisionRectangle();
+                    collisionBox = GetCollisionHitbox();
                     RectangleF stepYCollisionBox = new RectangleF(collisionBox.X, collisionBox.Y + stepY, collisionBox.Width, collisionBox.Height);
                     bool yCollision = CollisionHelper.CheckCollision(stepYCollisionBox, area, stepY > 0);
 
