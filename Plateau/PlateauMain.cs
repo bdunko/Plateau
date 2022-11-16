@@ -650,8 +650,6 @@ namespace Plateau
                     spriteBatch.End();
                 } else if (currentCutscene.background == CutsceneManager.CutsceneBackground.SKY)
                 {
-                    System.Diagnostics.Debug.WriteLine("iscomplete: " + currentCutscene.isComplete + "    transitiondone: " + cutsceneTransitionDone);
-                        
                     GRAPHICS.GraphicsDevice.SetRenderTarget(mainTarget);
                     GRAPHICS.GraphicsDevice.Clear(Color.CadetBlue);
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
