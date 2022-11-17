@@ -2912,6 +2912,7 @@ namespace Plateau.Components
         {
             this.player = player;
             selectedHotbarPosition = player.GetSelectedHotbarPosition();
+            selectedHotbarItemName = player.GetHeldItem().GetItem().GetName();
             for (int i = 0; i < EntityPlayer.INVENTORY_SIZE; i++)
             {
                 inventoryItems[i] = player.GetInventoryItemStack(i);
@@ -3111,7 +3112,6 @@ namespace Plateau.Components
                     hoveringInterfaceOpacity = Math.Max(0, hoveringInterfaceOpacity);
                 }
 
-                selectedHotbarItemName = player.GetHeldItem().GetItem().GetName();
                 inventorySelectedPosition = new Vector2(-100, -100);
                 editMode = player.IsEditMode();
 
@@ -5181,7 +5181,12 @@ namespace Plateau.Components
             if (!isHidden)
             {
                 //draw name of hotbar item
-                if (interfaceState == InterfaceState.NONE)
+                if (interfaceState != InterfaceState.INVENTORY && 
+                    interfaceState != InterfaceState.SCRAPBOOK && 
+                    interfaceState != InterfaceState.CHEST &&
+                    interfaceState != InterfaceState.SCRAPBOOK &&
+                    interfaceState != InterfaceState.SETTINGS &&
+                    interfaceState != InterfaceState.EXIT)
                 {
                     if (!selectedHotbarItemName.Equals(ItemDict.NONE.GetName()))
                     {
