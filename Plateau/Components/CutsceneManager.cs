@@ -510,6 +510,7 @@ namespace Plateau.Components
                     world.SetTime(23, 30, entityPlayer);
                 },
                 (entityPlayer, world, cam) => {
+                    cam.Unlock();
                     CutsceneManager.CUTSCENE_SLEEP.Reset(); //must reset before advanceday saves data
                     world.AdvanceDay(entityPlayer); //advance the day
                     if (!(entityPlayer.GetTargettedTileEntity() is TEntitySleepable || player.GetTargettedTileEntity() is TEntityFarmhouse)) //warp player to bed IF not sleeping in bed/tent
