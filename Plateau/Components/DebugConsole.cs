@@ -188,6 +188,85 @@ namespace Plateau.Components
                             break;
                         }
                     }
+
+                    //if not warping to area, try warping to specific landmark
+                    if(!didLastSucceed)
+                    {
+                        areaName = areaName.ToLower();
+                        if (areaName == "bookstore" || areaName == "paige" || areaName == "paiges")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPbookstoreBottom");
+                            didLastSucceed = true;
+                        }
+                        else if (areaName == "rockwell" || areaName == "rockwells")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SProckwell");
+                            didLastSucceed = true;
+                        }
+                        else if (areaName == "theo" || areaName == "beachhouse")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPclaude");
+                            didLastSucceed = true;
+                        }
+                        else if (areaName == "piper" || areaName == "pipers")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPpipers");
+                            didLastSucceed = true;
+                        }
+                        else if (areaName == "camus" || areaName == "forge" || areaName == "forgeTop" || areaName == "blacksmith")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPforgeTop");
+                            didLastSucceed = true;
+                        }
+                        else if (areaName == "cafe")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPcafe");
+                            didLastSucceed = true;
+                        }
+                        else if (areaName == "townhall")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPtownhall");
+                            didLastSucceed = true;
+                        }
+                        else if (areaName == "workshop")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPworkshop");
+                            didLastSucceed = true;
+                        }
+                        else if (areaName == "store")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPstore");
+                            didLastSucceed = true;
+                        }
+                        else if (areaName == "inn")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPinn");
+                            didLastSucceed = true;
+                        }
+                        else if (areaName == "innback")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPinnSpare3Hall");
+                            didLastSucceed = true;
+                        } else
+                        {
+                            didLastSucceed = false;
+                        }
+
+                        if(didLastSucceed)
+                            camera.Unlock();
+                    }
+
                 }
             }
             else if (pieces[0].Equals("move"))

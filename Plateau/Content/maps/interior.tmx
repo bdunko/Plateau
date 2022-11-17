@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="60" nextobjectid="385">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="60" nextobjectid="387">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="Interior"/>
@@ -1052,7 +1052,7 @@
 </data>
  </layer>
  <objectgroup id="51" name="pathing" visible="0" locked="1"/>
- <objectgroup id="50" name="subareas" visible="0" locked="1">
+ <objectgroup id="50" name="subareas">
   <object id="74" x="1664" y="440" width="262" height="96">
    <properties>
     <property name="name" value="store"/>
@@ -1063,12 +1063,12 @@
     <property name="name" value="cafe"/>
    </properties>
   </object>
-  <object id="78" x="2480" y="448" width="168" height="80">
+  <object id="78" x="2480" y="456.5" width="168" height="71.5">
    <properties>
     <property name="name" value="bookstoreLower"/>
    </properties>
   </object>
-  <object id="83" x="2424" y="368" width="224" height="80">
+  <object id="83" x="2424" y="368" width="224" height="87.75">
    <properties>
     <property name="name" value="bookstoreUpper"/>
    </properties>
@@ -1943,6 +1943,18 @@
   <object id="384" x="1664" y="744">
    <properties>
     <property name="name" value="charlotteHome"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="385" x="2544" y="520">
+   <properties>
+    <property name="name" value="paigeWork"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="386" x="2544" y="448">
+   <properties>
+    <property name="name" value="paigeHome"/>
    </properties>
    <point/>
   </object>
