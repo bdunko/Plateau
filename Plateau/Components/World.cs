@@ -270,7 +270,7 @@ namespace Plateau.Components
             List<EntityCharacter.Schedule.Event> rockwellSchedule = Util.GenerateSchedule(
                 new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellHome"), 7, 0, 7, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
                 new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("rockwellDogwalk"), 7, 30, 8, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.MEDIUM),
-                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellSpawn"), 8, 30, 19, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RIGHT),
+                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellWork"), 8, 30, 19, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RIGHT),
                 new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("rockwellDogwalk"), 19, 0, 20, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.MEDIUM),
                 new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellHome"), 20, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
 
@@ -278,7 +278,7 @@ namespace Plateau.Components
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)),
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell. (In Spring)", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(springCondition), 3));
 
-            characters.Add(new EntityCharacter("Rockwell", this, EntityCharacter.CharacterEnum.ROCKWELL, rockwellClothing, rockwellSchedule, rockwellDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellSpawn"),
+            characters.Add(new EntityCharacter("Rockwell", this, EntityCharacter.CharacterEnum.ROCKWELL, rockwellClothing, rockwellSchedule, rockwellDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellHome"),
                 GameState.FLAG_LETTER_GIFT_ROCKWELL));
 
 
@@ -306,13 +306,14 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             List<EntityCharacter.Schedule.Event> camusSchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("camusSpawn"), 7, 0, 7, 30, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RIGHT),
-                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.TOWN], areas[Area.AreaEnum.TOWN].GetWaypoint("camusShop"), 7, 30, 24, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RANDOM));
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("camusHome"), 7, 0, 7, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
+                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.TOWN], areas[Area.AreaEnum.TOWN].GetWaypoint("camusShop"), 7, 30, 17, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RANDOM),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("camusHome"), 17, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
 
             List<EntityCharacter.DialogueOption> camusDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Camus. abcdefghijklmnopqrstuvwxyz\nABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890\nanother sentence here!.?", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
             
-            characters.Add(new EntityCharacter("Camus", this, EntityCharacter.CharacterEnum.CAMUS, camusClothing, camusSchedule, camusDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("camusSpawn"),
+            characters.Add(new EntityCharacter("Camus", this, EntityCharacter.CharacterEnum.CAMUS, camusClothing, camusSchedule, camusDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("camusHome"),
                 GameState.FLAG_LETTER_GIFT_CAMUS));
 
             //AIDEN
@@ -344,7 +345,7 @@ namespace Plateau.Components
             List<EntityCharacter.DialogueOption> aidenDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Aiden... :(", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
             
-            characters.Add(new EntityCharacter("Aiden", this, EntityCharacter.CharacterEnum.AIDEN, aidenClothing, aidenSchedule, aidenDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("aidenSpawn"),
+            characters.Add(new EntityCharacter("Aiden", this, EntityCharacter.CharacterEnum.AIDEN, aidenClothing, aidenSchedule, aidenDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("aidenHome"),
                 GameState.FLAG_LETTER_GIFT_AIDEN));
 
             //RAUL
@@ -371,13 +372,13 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             List<EntityCharacter.Schedule.Event> raulSchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("raulSpawn"), 7, 0, 22, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE),
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("raulSpawn"), 22, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.SMALL));
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("raulHome"), 7, 0, 22, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.BEACH], areas[Area.AreaEnum.BEACH].GetWaypoint("raulHome"), 22, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.SMALL));
 
             List<EntityCharacter.DialogueOption> raulDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Raul! :)", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
             
-            characters.Add(new EntityCharacter("Raul", this, EntityCharacter.CharacterEnum.RAUL, raulClothing, raulSchedule, raulDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.BEACH].GetWaypoint("raulSpawn"),
+            characters.Add(new EntityCharacter("Raul", this, EntityCharacter.CharacterEnum.RAUL, raulClothing, raulSchedule, raulDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.BEACH].GetWaypoint("raulHome"),
                 GameState.FLAG_LETTER_GIFT_RAUL));
 
             //FINLEY
@@ -413,12 +414,12 @@ namespace Plateau.Components
 
 
             List<EntityCharacter.Schedule.Event> finleySchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.S0], areas[Area.AreaEnum.S0].GetWaypoint("finleySpawn"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.S0], areas[Area.AreaEnum.S0].GetWaypoint("finleyHome"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
 
             List<EntityCharacter.DialogueOption> finleyDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Finley.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
             
-            characters.Add(new EntityCharacter("Finley", this, EntityCharacter.CharacterEnum.FINLEY, finleyClothing, finleySchedule, finleyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.S0].GetWaypoint("finleySpawn"),
+            characters.Add(new EntityCharacter("Finley", this, EntityCharacter.CharacterEnum.FINLEY, finleyClothing, finleySchedule, finleyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.S0].GetWaypoint("finleyHome"),
                 GameState.FLAG_LETTER_GIFT_FINLEY));
 
             //THEO
@@ -445,12 +446,12 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             List<EntityCharacter.Schedule.Event> theoSchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("theoSpawn"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("theoHome"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
 
             List<EntityCharacter.DialogueOption> theoDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm ThEo.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
             
-            characters.Add(new EntityCharacter("Theo", this, EntityCharacter.CharacterEnum.THEO, theoClothing, theoSchedule, theoDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("theoSpawn"),
+            characters.Add(new EntityCharacter("Theo", this, EntityCharacter.CharacterEnum.THEO, theoClothing, theoSchedule, theoDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("theoHome"),
                 GameState.FLAG_LETTER_GIFT_THEO));
 
             //ELLE
@@ -477,14 +478,14 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             List<EntityCharacter.Schedule.Event> elleSchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("elleSpawn"), 7, 0, 8, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("elleHome"), 7, 0, 8, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
                 new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("elleWork"), 8, 0, 21, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RIGHT),
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("elleSpawn"), 21, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("elleHome"), 21, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
 
             List<EntityCharacter.DialogueOption> elleDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Elle!", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
 
-            characters.Add(new EntityCharacter("Elle", this, EntityCharacter.CharacterEnum.ELLE, elleClothing, elleSchedule, elleDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("elleSpawn"),
+            characters.Add(new EntityCharacter("Elle", this, EntityCharacter.CharacterEnum.ELLE, elleClothing, elleSchedule, elleDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("elleHome"),
                 GameState.FLAG_LETTER_GIFT_ELLE));
 
             //SKYE
@@ -511,12 +512,12 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             List<EntityCharacter.Schedule.Event> skyeSchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("skyeSpawn"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("skyeHome"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
 
             List<EntityCharacter.DialogueOption> skyeDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Skye...", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
 
-            characters.Add(new EntityCharacter("Skye", this, EntityCharacter.CharacterEnum.SKYE, skyeClothing, skyeSchedule, skyeDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("skyeSpawn"),
+            characters.Add(new EntityCharacter("Skye", this, EntityCharacter.CharacterEnum.SKYE, skyeClothing, skyeSchedule, skyeDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("skyeHome"),
                 GameState.FLAG_LETTER_GIFT_SKYE));
 
             //CHARLOTTE
@@ -543,14 +544,14 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             List<EntityCharacter.Schedule.Event> charlotteSchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteSpawn"), 7, 0, 8, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
-                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteWork"), 8, 0, 20, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RIGHT),
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteSpawn"), 20, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteHome"), 6, 0, 7, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
+                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteWork"), 7, 30, 20, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RIGHT),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteHome"), 20, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
 
             List<EntityCharacter.DialogueOption> charlotteDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Charlotte. :3", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
 
-            characters.Add(new EntityCharacter("Charlotte", this, EntityCharacter.CharacterEnum.CHARLOTTE, charlotteClothing, charlotteSchedule, charlotteDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteSpawn"),
+            characters.Add(new EntityCharacter("Charlotte", this, EntityCharacter.CharacterEnum.CHARLOTTE, charlotteClothing, charlotteSchedule, charlotteDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteHome"),
                 GameState.FLAG_LETTER_GIFT_CHARLOTTE));
         }
         

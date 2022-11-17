@@ -2334,7 +2334,7 @@
   </object>
   <object id="404" x="2080" y="368">
    <properties>
-    <property name="name" value="finleySpawn"/>
+    <property name="name" value="finleyHome"/>
    </properties>
    <point/>
   </object>

@@ -1888,7 +1888,7 @@
   </object>
   <object id="372" x="2944" y="520">
    <properties>
-    <property name="name" value="rockwellSpawn"/>
+    <property name="name" value="rockwellWork"/>
    </properties>
    <point/>
   </object>
@@ -1898,15 +1898,9 @@
    </properties>
    <point/>
   </object>
-  <object id="374" x="3880" y="408">
+  <object id="374" x="3896" y="408">
    <properties>
-    <property name="name" value="camusSpawn"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="375" x="3624" y="456">
-   <properties>
-    <property name="name" value="aidenSpawn"/>
+    <property name="name" value="camusHome"/>
    </properties>
    <point/>
   </object>
@@ -1918,13 +1912,13 @@
   </object>
   <object id="377" x="3272" y="520">
    <properties>
-    <property name="name" value="theoSpawn"/>
+    <property name="name" value="theoHome"/>
    </properties>
    <point/>
   </object>
   <object id="379" x="2112" y="312">
    <properties>
-    <property name="name" value="elleSpawn"/>
+    <property name="name" value="elleHome"/>
    </properties>
    <point/>
   </object>
@@ -1936,11 +1930,11 @@
   </object>
   <object id="381" x="2080" y="312">
    <properties>
-    <property name="name" value="skyeSpawn"/>
+    <property name="name" value="skyeHome"/>
    </properties>
    <point/>
   </object>
-  <object id="383" x="2084" y="520">
+  <object id="383" x="2088" y="520">
    <properties>
     <property name="name" value="charlotteWork"/>
    </properties>
@@ -1948,7 +1942,7 @@
   </object>
   <object id="384" x="1664" y="744">
    <properties>
-    <property name="name" value="charlotteSpawn"/>
+    <property name="name" value="charlotteHome"/>
    </properties>
    <point/>
   </object>
