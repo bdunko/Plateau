@@ -449,7 +449,7 @@ namespace Plateau
                                 }
                             }
                             Update(gameTime);
-                            debugConsole = new DebugConsole(world, SAVE_MANAGER, player);
+                            debugConsole = new DebugConsole(world, SAVE_MANAGER, player, camera);
                             ui.Unhide();
                             ui.TransitionFadeIn();
                         }

@@ -14,13 +14,15 @@ namespace Plateau.Components
         private World world;
         private SaveManager saveManager;
         private EntityPlayer player;
+        private Camera camera;
         private bool didLastSucceed;
 
         public static string[] COMMAND_LIST = {"help", "save", "give <item>", "givedyes", "givetops", "givebottoms", "givehats", "giveaccessories", "clearinv", "resetinv", "gold <x>", "bankrupt", "hair <item", "haircolor <color>", "skin <item>", "eyes <item>", "timeset <hour> <minute>", "nextday <days>", "warp <area>", "move <x> <y>", "launch" };
 
 
-        public DebugConsole(World world, SaveManager saveManager, EntityPlayer player)
+        public DebugConsole(World world, SaveManager saveManager, EntityPlayer player, Camera camera)
         {
+            this.camera = camera;
             this.world = world;
             this.saveManager = saveManager;
             this.player = player;
@@ -182,6 +184,7 @@ namespace Plateau.Components
                                 world.GetCurrentArea().MoveToWaypoint(player, "SPapexEntrance");
                             }
                             didLastSucceed = true;
+                            camera.Unlock();
                             break;
                         }
                     }

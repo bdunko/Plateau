@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="60" nextobjectid="379">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="60" nextobjectid="381">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="Interior"/>
@@ -1919,6 +1919,18 @@
   <object id="377" x="3272" y="520">
    <properties>
     <property name="name" value="theoSpawn"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="379" x="2112" y="312">
+   <properties>
+    <property name="name" value="elleSpawn"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="380" x="1696" y="520">
+   <properties>
+    <property name="name" value="elleWork"/>
    </properties>
    <point/>
   </object>
