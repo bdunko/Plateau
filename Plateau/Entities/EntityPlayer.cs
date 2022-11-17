@@ -1372,7 +1372,7 @@ namespace Plateau.Entities
                 }
             }
 
-            //Target tile
+            //If targetting solid or air (without ground below), move target tile up/down
             if (gravityState == GravityState.REVERSED)
             {
                 //when targetting solid ground, aim one below
@@ -1381,12 +1381,25 @@ namespace Plateau.Entities
                 {
                     targetTile.Y++;
                 }
+                else if (area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) == Area.CollisionTypeEnum.SOLID &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 1) == Area.CollisionTypeEnum.SOLID &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 2) != Area.CollisionTypeEnum.SOLID)
+                {
+                    targetTile.Y+=2;
+                }
                 //if targetting air above air above ground, move 1 down
                 else if (area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) == Area.CollisionTypeEnum.AIR &&
-                    area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 1) == Area.CollisionTypeEnum.AIR &&
-                    area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 2) != Area.CollisionTypeEnum.AIR)
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 1) == Area.CollisionTypeEnum.AIR &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 2) != Area.CollisionTypeEnum.AIR)
                 {
                     targetTile.Y--;
+                }
+                else if (area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) == Area.CollisionTypeEnum.AIR &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 1) == Area.CollisionTypeEnum.AIR &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 2) == Area.CollisionTypeEnum.AIR &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 3) != Area.CollisionTypeEnum.AIR)
+                {
+                    targetTile.Y-=2;
                 }
             }
             else //normal gravity state
@@ -1396,13 +1409,30 @@ namespace Plateau.Entities
                     area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 1) != Area.CollisionTypeEnum.SOLID)
                 {
                     targetTile.Y--;
+                    //if still targetting solid ground aim above again
+
+                }
+                //try to target tile two above
+                else if (area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) == Area.CollisionTypeEnum.SOLID &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 1) == Area.CollisionTypeEnum.SOLID &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 2) != Area.CollisionTypeEnum.SOLID)
+                {
+                    targetTile.Y-=2;
                 }
                 //if targetting air above air above ground, move 1 down
                 else if (area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) == Area.CollisionTypeEnum.AIR &&
-                    area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 1) == Area.CollisionTypeEnum.AIR &&
-                    area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 2) != Area.CollisionTypeEnum.AIR)
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 1) == Area.CollisionTypeEnum.AIR &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 2) != Area.CollisionTypeEnum.AIR)
                 {
                     targetTile.Y++;
+                }
+                //if targetting air above air above air above ground, move 2 down
+                else if (area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) == Area.CollisionTypeEnum.AIR &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 1) == Area.CollisionTypeEnum.AIR &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 2) == Area.CollisionTypeEnum.AIR &&
+                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 3) != Area.CollisionTypeEnum.AIR)
+                {
+                    targetTile.Y+=2;
                 }
             }
 
