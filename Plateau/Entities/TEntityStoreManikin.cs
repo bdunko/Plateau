@@ -75,7 +75,7 @@ namespace Plateau.Entities
             base.Draw(sb, layerDepth);
             if (quantityRemaining != 0)
             {
-                clothesItem.Draw(sb, this.position - new Vector2(24, 10), Color.White, layerDepth);
+                clothesItem.Draw(sb, this.position - new Vector2(24, 9), Color.White, layerDepth);
             }
         }
 

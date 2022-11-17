@@ -2911,6 +2911,11 @@ namespace Plateau.Components
         public void Update(float deltaTime, EntityPlayer player, RectangleF cameraBoundingBox, Area currentArea, World.TimeData timeData, World world)
         {
             this.player = player;
+            selectedHotbarPosition = player.GetSelectedHotbarPosition();
+            for (int i = 0; i < EntityPlayer.INVENTORY_SIZE; i++)
+            {
+                inventoryItems[i] = player.GetInventoryItemStack(i);
+            }
             heldItem = player.GetHeldItem();
             workbenchCraftablePosition.Clear();
             tooltipName = "";
@@ -3666,7 +3671,6 @@ namespace Plateau.Components
                     }
                     else if (interfaceState == InterfaceState.CHEST)
                     {
-                        //TODO
                         PEntityChest chest = (PEntityChest)player.GetTargettedTileEntity();
                         for (int i = 0; i < chestRectangles.Length; i++)
                         {
@@ -4091,8 +4095,6 @@ namespace Plateau.Components
                             }
                         }
 
-                        //SKIPPER
-
                         //SOUND
                         for(int i = 0; i < settingsSFXRectangles.Length; i++)
                         {
@@ -4494,12 +4496,6 @@ namespace Plateau.Components
                     }
                 }
 
-                selectedHotbarPosition = player.GetSelectedHotbarPosition();
-                for (int i = 0; i < EntityPlayer.INVENTORY_SIZE; i++)
-                {
-                    inventoryItems[i] = player.GetInventoryItemStack(i);
-                }
-
                 if (player.GetInterfaceState() == InterfaceState.CHEST)
                 {
                     PEntityChest chest = (PEntityChest)player.GetTargettedTileEntity(); ;
@@ -4876,11 +4872,6 @@ namespace Plateau.Components
                         }
                         sb.Draw(tex, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, pos), Color.White);
                     }
-                }
-
-                for (int i = 0; i < settingsMusicRectangles.Length; i++)
-                {
-
                 }
 
                 if (!PlateauMain.CanResolutionIncrease())

@@ -415,12 +415,14 @@ namespace Plateau
                         ui.Update(deltaTime, player, camera.GetBoundingBox(), world.GetCurrentArea(), world.GetTimeData(), world); //update the interface
                         if (!mainMenuTransitionStarted)
                         {
+                            //start the transition by fading to block
                             ui.Hide();
                             ui.TransitionFadeToBlack();
                             mainMenuTransitionStarted = true;
                         }
                         else if (!mainMenuTransitionDone)
                         {
+                            //wait until transition is done (fading to black) to load file
                             if (ui.IsTransitionReady())
                                 mainMenuTransitionDone = true;
                         }
@@ -439,6 +441,7 @@ namespace Plateau
                                 SAVE_MANAGER = new SaveManager(SaveManager.FILE_NAME_3);
                             }
                             SAVE_MANAGER.LoadFile(player, world);
+                            ui.Update(0, player, camera.GetBoundingBox(), world.GetCurrentArea(), world.GetTimeData(), world); //update after loading file so hotbar shows correctly on fadein
                             currentState = PlateauGameState.NORMAL;
                             UpdateWindowed();
                             for (int i = 0; i < RESOLUTIONS.Length; i++)
@@ -448,7 +451,6 @@ namespace Plateau
                                     ChangeResolution(RESOLUTIONS[i]);
                                 }
                             }
-                            Update(gameTime);
                             debugConsole = new DebugConsole(world, SAVE_MANAGER, player, camera);
                             ui.Unhide();
                             ui.TransitionFadeIn();
@@ -504,9 +506,9 @@ namespace Plateau
                         }
                         else
                         {
+                            ui.Hide();
                             cutsceneTransitionDone = true;
                             currentCutscene.OnActivation(player, world, camera);
-                            ui.Hide();
                         }
                     }
                 }
