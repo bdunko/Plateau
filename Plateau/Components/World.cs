@@ -181,45 +181,45 @@ namespace Plateau.Components
             characters = new List<EntityCharacter>();
 
             areas = new Dictionary<Area.AreaEnum, Area>();
-            areas[Area.AreaEnum.FARM] = new Area(Area.AreaEnum.FARM, Content.Load<TiledMap>(Paths.MAP_FARM), true, graphics, Content, PlateauMain.createContentManager(),player, cameraBoundingBox,
+            areas[Area.AreaEnum.FARM] = new Area(Area.AreaEnum.FARM, Content.Load<TiledMap>(Paths.MAP_FARM), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, true, true),
                 null, null, Paths.MAP_FARM_BASE, null, Paths.MAP_FARM_WALLS, null, null);
-            areas[Area.AreaEnum.TOWN] = new Area(Area.AreaEnum.TOWN, Content.Load<TiledMap>(Paths.MAP_TOWN), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
+            areas[Area.AreaEnum.TOWN] = new Area(Area.AreaEnum.TOWN, Content.Load<TiledMap>(Paths.MAP_TOWN), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, true, true),
                 Paths.MAP_TOWN_WATER, Paths.MAP_TOWN_DECORATION_FG, Paths.MAP_TOWN_BASE, Paths.MAP_TOWN_DECORATION, Paths.MAP_TOWN_WALLS, Paths.MAP_TOWN_WATER_BG, Paths.MAP_TOWN_FG_CAVE);
-            areas[Area.AreaEnum.INTERIOR] = new Area(Area.AreaEnum.INTERIOR, Content.Load<TiledMap>(Paths.MAP_INTERIOR), false, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
+            areas[Area.AreaEnum.INTERIOR] = new Area(Area.AreaEnum.INTERIOR, Content.Load<TiledMap>(Paths.MAP_INTERIOR), false, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, false, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, false, true),
                 Paths.MAP_INTERIOR_WATER, Paths.MAP_INTERIOR_DECORATION_FG, Paths.MAP_INTERIOR_BASE, Paths.MAP_INTERIOR_DECORATION, Paths.MAP_INTERIOR_WALLS, null, Paths.MAP_INTERIOR_FG_CAVE);
-            
-            areas[Area.AreaEnum.BEACH] = new Area(Area.AreaEnum.BEACH, Content.Load<TiledMap>(Paths.MAP_BEACH), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
+
+            areas[Area.AreaEnum.BEACH] = new Area(Area.AreaEnum.BEACH, Content.Load<TiledMap>(Paths.MAP_BEACH), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, false, false),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, false, false),
                 Paths.MAP_BEACH_WATER, Paths.MAP_BEACH_DECORATION_FG, Paths.MAP_BEACH_BASE, Paths.MAP_BEACH_DECORATION, Paths.MAP_BEACH_WALLS, Paths.MAP_BEACH_WATER_BG, Paths.MAP_BEACH_FG_CAVE);
-            areas[Area.AreaEnum.S0] = new Area(Area.AreaEnum.S0, Content.Load<TiledMap>(Paths.MAP_S0), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
+            areas[Area.AreaEnum.S0] = new Area(Area.AreaEnum.S0, Content.Load<TiledMap>(Paths.MAP_S0), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, true, true),
                 Paths.MAP_S0_WATER, Paths.MAP_S0_DECORATION_FG, Paths.MAP_S0_BASE, Paths.MAP_S0_DECORATION, Paths.MAP_S0_WALLS, Paths.MAP_S0_WATER_BG, Paths.MAP_S0_FG_CAVE);
-            areas[Area.AreaEnum.S1] = new Area(Area.AreaEnum.S1, Content.Load<TiledMap>(Paths.MAP_S1), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
+            areas[Area.AreaEnum.S1] = new Area(Area.AreaEnum.S1, Content.Load<TiledMap>(Paths.MAP_S1), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, true, true),
                 Paths.MAP_S1_WATER, Paths.MAP_S1_DECORATION_FG, Paths.MAP_S1_BASE, Paths.MAP_S1_DECORATION, Paths.MAP_S1_WALLS, Paths.MAP_S1_WATER_BG, Paths.MAP_S1_FG_CAVE);
-            areas[Area.AreaEnum.S2] = new Area(Area.AreaEnum.S2, Content.Load<TiledMap>(Paths.MAP_S2), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
+            areas[Area.AreaEnum.S2] = new Area(Area.AreaEnum.S2, Content.Load<TiledMap>(Paths.MAP_S2), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, false, false),
                 Paths.MAP_S2_WATER, Paths.MAP_S2_DECORATION_FG, Paths.MAP_S2_BASE, Paths.MAP_S2_DECORATION, Paths.MAP_S2_WALLS, Paths.MAP_S2_WATER_BG, Paths.MAP_S2_FG_CAVE);
-            areas[Area.AreaEnum.S3] = new Area(Area.AreaEnum.S3, Content.Load<TiledMap>(Paths.MAP_S3), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
+            areas[Area.AreaEnum.S3] = new Area(Area.AreaEnum.S3, Content.Load<TiledMap>(Paths.MAP_S3), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, true, true),
                 Paths.MAP_S3_WATER, Paths.MAP_S3_DECORATION_FG, Paths.MAP_S3_BASE, Paths.MAP_S3_DECORATION, Paths.MAP_S3_WALLS, Paths.MAP_S3_WATER_BG, Paths.MAP_S3_FG_CAVE);
 
-            areas[Area.AreaEnum.S4] = new Area(Area.AreaEnum.S4, Content.Load<TiledMap>(Paths.MAP_S4), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
+            areas[Area.AreaEnum.S4] = new Area(Area.AreaEnum.S4, Content.Load<TiledMap>(Paths.MAP_S4), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, false, false),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, false, false),
                 null, null, null, null, null, null, null);
-            areas[Area.AreaEnum.APEX] = new Area(Area.AreaEnum.APEX, Content.Load<TiledMap>(Paths.MAP_APEX), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox, 
+            areas[Area.AreaEnum.APEX] = new Area(Area.AreaEnum.APEX, Content.Load<TiledMap>(Paths.MAP_APEX), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SPACE, false, false),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SPACE, false, false),
                 null, null, null, null, null, null, null);
@@ -275,8 +275,8 @@ namespace Plateau.Components
                 new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellHome"), 20, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
 
             List<EntityCharacter.DialogueOption> rockwellDialogue = Util.GenerateDialogueList(
-                new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)), 
-                new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell. (In Spring)", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(springCondition), 3));   
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)),
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Rockwell. (In Spring)", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(springCondition), 3));
 
             characters.Add(new EntityCharacter("Rockwell", this, EntityCharacter.CharacterEnum.ROCKWELL, rockwellClothing, rockwellSchedule, rockwellDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("rockwellSpawn"),
                 GameState.FLAG_LETTER_GIFT_ROCKWELL));
@@ -311,6 +311,7 @@ namespace Plateau.Components
 
             List<EntityCharacter.DialogueOption> camusDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Camus. abcdefghijklmnopqrstuvwxyz\nABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890\nanother sentence here!.?", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+            
             characters.Add(new EntityCharacter("Camus", this, EntityCharacter.CharacterEnum.CAMUS, camusClothing, camusSchedule, camusDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("camusSpawn"),
                 GameState.FLAG_LETTER_GIFT_CAMUS));
 
@@ -342,6 +343,7 @@ namespace Plateau.Components
 
             List<EntityCharacter.DialogueOption> aidenDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Aiden... :(", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+            
             characters.Add(new EntityCharacter("Aiden", this, EntityCharacter.CharacterEnum.AIDEN, aidenClothing, aidenSchedule, aidenDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("aidenSpawn"),
                 GameState.FLAG_LETTER_GIFT_AIDEN));
 
@@ -374,6 +376,7 @@ namespace Plateau.Components
 
             List<EntityCharacter.DialogueOption> raulDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Raul! :)", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+            
             characters.Add(new EntityCharacter("Raul", this, EntityCharacter.CharacterEnum.RAUL, raulClothing, raulSchedule, raulDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.BEACH].GetWaypoint("raulSpawn"),
                 GameState.FLAG_LETTER_GIFT_RAUL));
 
@@ -401,23 +404,56 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             //test moving from beach -> inn
-            List<EntityCharacter.Schedule.Event> finleySchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("SPinnSpare1Hall"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
-            List<EntityCharacter.DialogueOption> finleyDialogue = Util.GenerateDialogueList(
-                new EntityCharacter.DialogueOption(new DialogueNode("I'm Finley.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
-            characters.Add(new EntityCharacter("Finley", this, EntityCharacter.CharacterEnum.FINLEY, finleyClothing, finleySchedule, finleyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.TOWN].GetWaypoint("SPbeach"),
-                GameState.FLAG_LETTER_GIFT_FINLEY));
+            //List<EntityCharacter.Schedule.Event> finleySchedule = Util.GenerateSchedule(
+            //    new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("SPinnSpare1Hall"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
+            //List<EntityCharacter.DialogueOption> finleyDialogue = Util.GenerateDialogueList(
+            //    new EntityCharacter.DialogueOption(new DialogueNode("I'm Finley.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+            //characters.Add(new EntityCharacter("Finley", this, EntityCharacter.CharacterEnum.FINLEY, finleyClothing, finleySchedule, finleyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.TOWN].GetWaypoint("SPbeach"),
+            //    GameState.FLAG_LETTER_GIFT_FINLEY));
 
-            /*
+
             List<EntityCharacter.Schedule.Event> finleySchedule = Util.GenerateSchedule(
                 new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.S0], areas[Area.AreaEnum.S0].GetWaypoint("finleySpawn"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.INFINITE));
 
             List<EntityCharacter.DialogueOption> finleyDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Finley.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+            
             characters.Add(new EntityCharacter("Finley", this, EntityCharacter.CharacterEnum.FINLEY, finleyClothing, finleySchedule, finleyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.S0].GetWaypoint("finleySpawn"),
                 GameState.FLAG_LETTER_GIFT_FINLEY));
-            */
+
+            //THEO
+            List<EntityCharacter.ClothingSet> theoClothing = Util.GenerateClothingSetList(
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(trueCondition), 0),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.JEANS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(springCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.BUTTON_DOWN, ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.CHINO_SHORTS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(summerCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.BUTTON_DOWN, Util.WHITE), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.CHINOS, Util.LIGHT_BROWN), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(fallCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(winterCondition), 1));
+
+            List<EntityCharacter.Schedule.Event> theoSchedule = Util.GenerateSchedule(
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("theoSpawn"), 7, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
+
+            List<EntityCharacter.DialogueOption> theoDialogue = Util.GenerateDialogueList(
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm ThEo.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+            
+            characters.Add(new EntityCharacter("Theo", this, EntityCharacter.CharacterEnum.THEO, theoClothing, theoSchedule, theoDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("theoSpawn"),
+                GameState.FLAG_LETTER_GIFT_THEO));
         }
+        
 
         public void MoveCharacter(EntityCharacter character, Area areaFrom, Area areaTo)
         {

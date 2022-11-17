@@ -37,7 +37,8 @@ namespace Plateau.Entities
 
         public enum CharacterEnum
         {
-            AIDEN, CADE, CAMUS, CECILY, CHARLOTTE, CLAUDE, ELLE, FINLEY, HIMEKO, MEREDITH, OTIS, PAIGE, PIPER, RAUL, ROCKWELL, SKYE, TROY
+
+            AIDEN, CADE, CAMUS, CECILY, CHARLOTTE, THEO, ELLE, FINLEY, HIMEKO, MEREDITH, OTIS, PAIGE, PIPER, RAUL, ROCKWELL, SKYE, TROY
         }
 
         public class ClothingSet
