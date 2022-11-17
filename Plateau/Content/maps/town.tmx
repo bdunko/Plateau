@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="440" height="33" tilewidth="8" tileheight="8" infinite="0" nextlayerid="68" nextobjectid="138">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="440" height="33" tilewidth="8" tileheight="8" infinite="0" nextlayerid="68" nextobjectid="139">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="Nimbus Town"/>
@@ -964,6 +964,12 @@ Please avoid littering in communal areas. Offenders may be fined.
   <object id="137" x="1584" y="216">
    <properties>
     <property name="name" value="camusShop"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="138" x="1032" y="216">
+   <properties>
+    <property name="name" value="piperFarm"/>
    </properties>
    <point/>
   </object>
