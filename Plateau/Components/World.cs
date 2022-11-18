@@ -621,6 +621,40 @@ namespace Plateau.Components
 
             characters.Add(new EntityCharacter("Piper", this, EntityCharacter.CharacterEnum.PIPER, piperClothing, piperSchedule, piperDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("piperHome"),
                 GameState.FLAG_LETTER_GIFT_PIPER));
+
+            //HIMEKO
+            List<EntityCharacter.ClothingSet> himekoClothing = Util.GenerateClothingSetList(
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(trueCondition), 0),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.JEANS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(springCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.BUTTON_DOWN, ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.CHINO_SHORTS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(summerCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.BUTTON_DOWN, Util.WHITE), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.CHINOS, Util.LIGHT_BROWN), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(fallCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(winterCondition), 1));
+
+            List<EntityCharacter.Schedule.Event> himekoSchedule = Util.GenerateSchedule(
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("himekoHome"), 6, 0, 9, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
+                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("himekoWork"), 9, 0, 14, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.LEFT),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("himekoHome"), 14, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
+
+            List<EntityCharacter.DialogueOption> himekoDialogue = Util.GenerateDialogueList(
+                new EntityCharacter.DialogueOption(new DialogueNode("Himeko.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+
+            characters.Add(new EntityCharacter("Himeko", this, EntityCharacter.CharacterEnum.HIMEKO, himekoClothing, himekoSchedule, himekoDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("himekoHome"),
+                GameState.FLAG_LETTER_GIFT_HIMEKO));
         }
         
 

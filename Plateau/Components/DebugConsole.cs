@@ -256,7 +256,7 @@ namespace Plateau.Components
                         else if (areaName == "innback")
                         {
                             world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
-                            world.GetCurrentArea().MoveToWaypoint(player, "SPinnSpare3Hall");
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPinnHimekoHall");
                             didLastSucceed = true;
                         } else
                         {

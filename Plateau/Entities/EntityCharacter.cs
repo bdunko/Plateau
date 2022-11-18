@@ -181,7 +181,7 @@ namespace Plateau.Entities
                 {
                     Node apex, beach, farm, s0walk, s0warp, store, cafe, bookstoreLower, bookstoreUpper, s1walk, s1warp,
                         farmhouseCabin, farmhouseHouse, farmhouseMansionUpper, farmhouseMansionLower, rockwellHouse, beachHouse, piperLower, piperUpper, townhallLower, townhallUpper,
-                        workshop, forge, town, s2, s3, s4, inn, innBath, innTroy, innCharlotte, innSpare1, innSpare2, innSpare3;
+                        workshop, forge, town, s2, s3, s4, inn, innBath, innTroy, innCharlotte, innSpare1, innSpare2, innHimeko;
 
                     allNodesInMap = new List<Node>();
                     allNodesInMap.Add(apex = new Node(Area.Subarea.NameEnum.APEX));
@@ -216,7 +216,7 @@ namespace Plateau.Entities
                     allNodesInMap.Add(innCharlotte = new Node(Area.Subarea.NameEnum.INNCHARLOTTE));
                     allNodesInMap.Add(innSpare1 = new Node(Area.Subarea.NameEnum.INNSPARE1));
                     allNodesInMap.Add(innSpare2 = new Node(Area.Subarea.NameEnum.INNSPARE2));
-                    allNodesInMap.Add(innSpare3 = new Node(Area.Subarea.NameEnum.INNSPARE3));
+                    allNodesInMap.Add(innHimeko = new Node(Area.Subarea.NameEnum.INNHIMEKO));
                     allNodesInMap.Add(townhallUpper = new Node(Area.Subarea.NameEnum.TOWNHALLUPPER));
 
                     farm.AddNeighbor(s0walk, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.FARM).GetWaypoint("TRfarmRight"), MovementTypeWaypoint.MovementEnum.WALK));
@@ -278,14 +278,14 @@ namespace Plateau.Entities
                     inn.AddNeighbor(innCharlotte, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnCharlotteHall"), MovementTypeWaypoint.MovementEnum.WALK));
                     inn.AddNeighbor(innSpare1, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnSpare1Hall"), MovementTypeWaypoint.MovementEnum.WALK));
                     inn.AddNeighbor(innSpare2, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnSpare2Hall"), MovementTypeWaypoint.MovementEnum.WALK));
-                    inn.AddNeighbor(innSpare3, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnSpare3Hall"), MovementTypeWaypoint.MovementEnum.WALK));
+                    inn.AddNeighbor(innHimeko, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnHimekoHall"), MovementTypeWaypoint.MovementEnum.WALK));
 
                     innBath.AddNeighbor(inn, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnBath"), MovementTypeWaypoint.MovementEnum.WALK));
                     innTroy.AddNeighbor(inn, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnTroy"), MovementTypeWaypoint.MovementEnum.WALK));
                     innCharlotte.AddNeighbor(inn, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnCharlotte"), MovementTypeWaypoint.MovementEnum.WALK));
                     innSpare1.AddNeighbor(inn, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnSpare1"), MovementTypeWaypoint.MovementEnum.WALK));
                     innSpare2.AddNeighbor(inn, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnSpare2"), MovementTypeWaypoint.MovementEnum.WALK));
-                    innSpare3.AddNeighbor(inn, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnSpare3"), MovementTypeWaypoint.MovementEnum.WALK));
+                    innHimeko.AddNeighbor(inn, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.INTERIOR).GetWaypoint("SPinnHimeko"), MovementTypeWaypoint.MovementEnum.WALK));
 
                     s1warp.AddNeighbor(s1walk, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.S1).GetWaypoint("SPs1entrance"), MovementTypeWaypoint.MovementEnum.WARP));
                     s1warp.AddNeighbor(s2, new MovementTypeWaypoint(world.GetAreaByEnum(Area.AreaEnum.S1).GetWaypoint("SPs1exit"), MovementTypeWaypoint.MovementEnum.WARP));
