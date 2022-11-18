@@ -544,14 +544,13 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             List<EntityCharacter.Schedule.Event> charlotteSchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteHome"), 6, 0, 7, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
-                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteWork"), 7, 30, 20, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RIGHT),
+                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteWork"), 6, 0, 20, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RIGHT),
                 new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteHome"), 20, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
 
             List<EntityCharacter.DialogueOption> charlotteDialogue = Util.GenerateDialogueList(
                 new EntityCharacter.DialogueOption(new DialogueNode("I'm Charlotte. :3", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
 
-            characters.Add(new EntityCharacter("Charlotte", this, EntityCharacter.CharacterEnum.CHARLOTTE, charlotteClothing, charlotteSchedule, charlotteDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteHome"),
+            characters.Add(new EntityCharacter("Charlotte", this, EntityCharacter.CharacterEnum.CHARLOTTE, charlotteClothing, charlotteSchedule, charlotteDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("charlotteWork"),
                 GameState.FLAG_LETTER_GIFT_CHARLOTTE));
 
             //PAIGE
@@ -680,13 +679,114 @@ namespace Plateau.Components
                 Util.QuickArray(winterCondition), 1));
 
             List<EntityCharacter.Schedule.Event> meredithSchedule = Util.GenerateSchedule(
-                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("meredithHome"), 6, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
+                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("meredithHome"), 6, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.LEFT));
 
             List<EntityCharacter.DialogueOption> meredithDialogue = Util.GenerateDialogueList(
-                new EntityCharacter.DialogueOption(new DialogueNode("Meredith.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Meredith... *cough*", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
 
-            characters.Add(new EntityCharacter("I'm Meredith... *cough*", this, EntityCharacter.CharacterEnum.MEREDITH, meredithClothing, meredithSchedule, meredithDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("meredithHome"),
+            characters.Add(new EntityCharacter("Meredith", this, EntityCharacter.CharacterEnum.MEREDITH, meredithClothing, meredithSchedule, meredithDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("meredithHome"),
                 GameState.FLAG_LETTER_GIFT_MEREDITH));
+
+            //Otis
+            List<EntityCharacter.ClothingSet> otisClothing = Util.GenerateClothingSetList(
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(trueCondition), 0),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.JEANS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(springCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.BUTTON_DOWN, ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.CHINO_SHORTS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(summerCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.BUTTON_DOWN, Util.WHITE), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.CHINOS, Util.LIGHT_BROWN), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(fallCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(winterCondition), 1));
+
+            List<EntityCharacter.Schedule.Event> otisSchedule = Util.GenerateSchedule(
+                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("otisHome"), 6, 0, 7, 30, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RIGHT),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("otisWork"), 7, 30, 18, 15, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
+                new EntityCharacter.Schedule.StandAtEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("otisHome"), 18, 15, 24, 0, trueCondition, 0, EntityCharacter.Schedule.StandAtEvent.DirectionBehavior.RIGHT));
+
+            List<EntityCharacter.DialogueOption> otisDialogue = Util.GenerateDialogueList(
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Otis! Oh ho ho!.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+
+            characters.Add(new EntityCharacter("Otis", this, EntityCharacter.CharacterEnum.OTIS, otisClothing, otisSchedule, otisDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("otisHome"),
+                GameState.FLAG_LETTER_GIFT_OTIS));
+
+            //Cecily
+            List<EntityCharacter.ClothingSet> cecilyClothing = Util.GenerateClothingSetList(
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(trueCondition), 0),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.JEANS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(springCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.BUTTON_DOWN, ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.CHINO_SHORTS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(summerCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.BUTTON_DOWN, Util.WHITE), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.CHINOS, Util.LIGHT_BROWN), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(fallCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(winterCondition), 1));
+
+            List<EntityCharacter.Schedule.Event> cecilySchedule = Util.GenerateSchedule(
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("cecilyWork"), 6, 0, 7, 30, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("cecilyHome"), 20, 2, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
+
+            List<EntityCharacter.DialogueOption> cecilyDialogue = Util.GenerateDialogueList(
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Cecily!", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+
+            characters.Add(new EntityCharacter("Cecily", this, EntityCharacter.CharacterEnum.CECILY, cecilyClothing, cecilySchedule, cecilyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("cecilyWork"),
+                GameState.FLAG_LETTER_GIFT_CECILY));
+
+            //Troy
+            List<EntityCharacter.ClothingSet> troyClothing = Util.GenerateClothingSetList(
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(trueCondition), 0),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.JEANS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(springCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.BUTTON_DOWN, ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.CHINO_SHORTS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(summerCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.BUTTON_DOWN, Util.WHITE), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.CHINOS, Util.LIGHT_BROWN), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(fallCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(winterCondition), 1));
+
+            List<EntityCharacter.Schedule.Event> troySchedule = Util.GenerateSchedule(
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("troyHome"), 6, 0, 8, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.TOWN], areas[Area.AreaEnum.TOWN].GetWaypoint("troyPark"), 8, 0, 16, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.LARGE),
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("troyHome"), 16, 0, 24, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.VERY_SMALL));
+
+            List<EntityCharacter.DialogueOption> troyDialogue = Util.GenerateDialogueList(
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Troy.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+
+            characters.Add(new EntityCharacter("Troy", this, EntityCharacter.CharacterEnum.TROY, troyClothing, troySchedule, troyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("troyHome"),
+                GameState.FLAG_LETTER_GIFT_TROY));
         }
         
 

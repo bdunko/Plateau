@@ -66,9 +66,9 @@ namespace Plateau.Components
 
             if(npc) //longer length between bends for NPC
             {
-                frameLengths[0] = 3.0f; //idle
+                frameLengths[0] = 5.0f; //idle
                 frameLengths[1] = 0.2f; //idle
-                frameLengths[2] = 3.0f; //idle
+                frameLengths[2] = 5.0f; //idle
                 frameLengths[3] = 0.2f; //idle
             }
 
