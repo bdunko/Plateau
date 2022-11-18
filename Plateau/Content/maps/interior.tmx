@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="60" nextobjectid="397">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="600" height="100" tilewidth="8" tileheight="8" infinite="0" nextlayerid="60" nextobjectid="398">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="Interior"/>
@@ -2009,6 +2009,12 @@
   <object id="396" x="1528" y="744">
    <properties>
     <property name="name" value="troyHome"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="397" x="2592" y="448">
+   <properties>
+    <property name="name" value="cadeHome"/>
    </properties>
    <point/>
   </object>

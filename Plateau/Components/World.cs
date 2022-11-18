@@ -787,6 +787,38 @@ namespace Plateau.Components
 
             characters.Add(new EntityCharacter("Troy", this, EntityCharacter.CharacterEnum.TROY, troyClothing, troySchedule, troyDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("troyHome"),
                 GameState.FLAG_LETTER_GIFT_TROY));
+
+            //Cade
+            List<EntityCharacter.ClothingSet> cadeClothing = Util.GenerateClothingSetList(
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(trueCondition), 0),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(springCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(summerCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(fallCondition), 1),
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
+                Util.QuickArray(winterCondition), 1));
+
+            List<EntityCharacter.Schedule.Event> cadeSchedule = Util.GenerateSchedule(
+                new EntityCharacter.Schedule.WanderNearEvent(areas[Area.AreaEnum.INTERIOR], areas[Area.AreaEnum.INTERIOR].GetWaypoint("cadeHome"), 6, 0, 8, 0, trueCondition, 0, EntityCharacter.Schedule.WanderNearEvent.WanderRange.SMALL));
+
+            List<EntityCharacter.DialogueOption> cadeDialogue = Util.GenerateDialogueList(
+                new EntityCharacter.DialogueOption(new DialogueNode("I'm Cade.", DialogueNode.PORTRAIT_SYSTEM), Util.QuickArray(trueCondition)));
+
+            characters.Add(new EntityCharacter("Cade", this, EntityCharacter.CharacterEnum.CADE, cadeClothing, cadeSchedule, cadeDialogue, Content.Load<Texture2D>(Paths.EMOTION_PANEL), areas[Area.AreaEnum.INTERIOR].GetWaypoint("cadeHome"),
+                GameState.FLAG_LETTER_GIFT_CADE));
         }
         
 
