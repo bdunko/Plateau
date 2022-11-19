@@ -910,12 +910,11 @@ namespace Plateau.Components
             CRATE = new ChoppingLootTable(2, 4, new LootEntry(ItemDict.WOOD, 40), new LootEntry(ItemDict.STONE, 24), new LootEntry(ItemDict.COAL, 16), new LootEntry(ItemDict.IRON_ORE, 10), new LootEntry(ItemDict.CLAY, 4), new LootEntry(ItemDict.IRON_BAR, 4), new LootEntry(ItemDict.ANCIENT_KEY, 1));
             CRATE_PILE = new ChoppingLootTable(5, 8, new LootEntry(ItemDict.WOOD, 52), new LootEntry(ItemDict.HARDWOOD, 6), new LootEntry(ItemDict.STONE, 25), new LootEntry(ItemDict.COAL, 18), new LootEntry(ItemDict.CLAY, 4), new LootEntry(ItemDict.IRON_ORE, 8), new LootEntry(ItemDict.IRON_BAR, 4), new LootEntry(ItemDict.ANCIENT_KEY, 1));
             MINECART = new ForageLootTable(3, 6, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.COAL, 43), new LootEntry(ItemDict.STONE, 3), new LootEntry(ItemDict.IRON_ORE, 3), new LootEntry(ItemDict.IGNEOUS_KEY, 1));
-            TRASHCAN = new LootTable(1, 3, new LootEntry(ItemDict.HONEY_BEE, 3), new LootEntry(ItemDict.GLASSES, 1), new LootEntry(ItemDict.BAKED_POTATO, 1), 
-                new LootEntry(ItemDict.BRICKS, 1), new LootEntry(ItemDict.EGG, 1), new LootEntry(ItemDict.BROWN_CICADA, 3), new LootEntry(ItemDict.EARTHWORM, 7), new LootEntry(ItemDict.CARP, 1), 
-                new LootEntry(ItemDict.STONE, 2), new LootEntry(ItemDict.LUCKY_COIN, 1), new LootEntry(ItemDict.QUALITY_COMPOST, 1), new LootEntry(ItemDict.PINK_DYE, 1), 
-                new LootEntry(ItemDict.VANILLA_ICE_CREAM, 1), new LootEntry(ItemDict.FRIED_FISH, 1), new LootEntry(ItemDict.COLESLAW, 1), new LootEntry(ItemDict.WILD_MEAT, 1), 
-                new LootEntry(ItemDict.WEEDS, 12), new LootEntry(ItemDict.BLACK_FEATHER, 3), new LootEntry(ItemDict.WHITE_FEATHER, 3), new LootEntry(ItemDict.CLAY, 7), 
-                new LootEntry(ItemDict.LOAMY_COMPOST, 10), new LootEntry(ItemDict.TIGHTIES, 1), new LootEntry(ItemDict.ANCIENT_KEY, 1));
+            TRASHCAN = new LootTable(1, 3, new LootEntry(ItemDict.HONEY_BEE, 3), new LootEntry(ItemDict.BOARD, 2), new LootEntry(ItemDict.BRICKS, 1),
+                new LootEntry(ItemDict.EARTHWORM, 14), new LootEntry(ItemDict.CARP, 1), new LootEntry(ItemDict.THICK_COMPOST, 3),
+                new LootEntry(ItemDict.STONE, 5), new LootEntry(ItemDict.LUCKY_COIN, 1), new LootEntry(ItemDict.QUALITY_COMPOST, 1), new LootEntry(ItemDict.FRIED_FISH, 1), 
+                new LootEntry(ItemDict.WEEDS, 18), new LootEntry(ItemDict.BLACK_FEATHER, 3), new LootEntry(ItemDict.WHITE_FEATHER, 3), new LootEntry(ItemDict.CLAY, 16), 
+                new LootEntry(ItemDict.LOAMY_COMPOST, 15), new LootEntry(ItemDict.TIGHTIES, 1), new LootEntry(ItemDict.ANCIENT_KEY, 2));
             IRON_ROCK = new MiningLootTable(2, 3, new LootEntry(ItemDict.IRON_ORE, 180), new LootEntry(ItemDict.SCRAP_IRON, 75), new LootEntry(ItemDict.AMETHYST, 15), new LootEntry(ItemDict.STONE, 50), new LootEntry(ItemDict.IGNEOUS_KEY, 1));
             MYTHRIL_ROCK = new MiningLootTable(2, 2, new LootEntry(ItemDict.MYTHRIL_ORE, 270), new LootEntry(ItemDict.SAPPHIRE, 15), new LootEntry(ItemDict.STONE, 50), new LootEntry(ItemDict.AQUAMARINE, 15), new LootEntry(ItemDict.IGNEOUS_KEY, 1), new LootEntry(ItemDict.CRYSTAL_KEY, 1)); 
             GOLD_ROCK = new MiningLootTable(2, 3, new LootEntry(ItemDict.GOLD_ORE, 180), new LootEntry(ItemDict.TOPAZ, 15), new LootEntry(ItemDict.STONE, 40), new LootEntry(ItemDict.IGNEOUS_KEY, 1)); 

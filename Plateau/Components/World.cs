@@ -790,23 +790,23 @@ namespace Plateau.Components
 
             //Cade
             List<EntityCharacter.ClothingSet> cadeClothing = Util.GenerateClothingSetList(
-                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_KID, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(trueCondition), 0),
-                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_KID, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(springCondition), 1),
-                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_KID, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(summerCondition), 1),
-                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_KID, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(fallCondition), 1),
-                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_KID, ItemDict.GetColoredItem(ItemDict.HAIR_MR_BALD, Util.HAIR_CHARCOAL_BLACK), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(winterCondition), 1));

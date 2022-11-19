@@ -5822,3 +5822,4 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_wa
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_water.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_water_bg.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_fg_cave.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\skin_kid.xnb

@@ -2860,6 +2860,7 @@ namespace Plateau.Components
         public static string SKIN_DRIFTER_SPRITESHEET = "sprites/clothes/skin_drifter";
         public static string SKIN_CHOCOLATE_SPRITESHEET = "sprites/clothes/skin_chocolate";
         public static string SKIN_ALIEN_SPRITESHEET = "sprites/clothes/skin_alien";
+        public static string SKIN_KID_SPRITESHEET = "sprites/clothes/skin_kid";
 
         //eyes
         public static string EYES_MINT_SPRITESHEET = "sprites/clothes/eyes_mint";

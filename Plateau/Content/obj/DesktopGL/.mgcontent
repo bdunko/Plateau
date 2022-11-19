@@ -2034,6 +2034,7 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/skin_drifter.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/skin_ecru.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/skin_exemplar.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/skin_kid.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/skin_meridian.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/skin_midnight.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/skin_olive.png</File>
@@ -2814,6 +2815,7 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
