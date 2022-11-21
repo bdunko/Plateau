@@ -571,8 +571,8 @@ namespace Plateau.Entities
 
                 public override void Update(float deltaTime, EntityCharacter character, Area area, Queue<MovementTypeWaypoint> waypoints)
                 {
-                    if (wanderBox.Width != rangeForEnum(WanderRange.INFINITE))
-                        Util.DrawDebugRect(wanderBox, Color.Green * 0.2f);
+                    //if (wanderBox.Width != rangeForEnum(WanderRange.INFINITE))
+                    //    Util.DrawDebugRect(wanderBox, Color.Green * 0.2f);
                     timeSinceChange += deltaTime;
 
                     //chance to wander left or right
@@ -727,9 +727,12 @@ namespace Plateau.Entities
                     }
 
                     RectangleF destinationCheck = character.GetCollisionHitbox();
-                    destinationCheck.Height += 6;
+                    destinationCheck.Height += 10;
                     destinationCheck.X += 2;
                     destinationCheck.Width -= 4;
+                    //Util.DrawDebugRect(destinationCheck, Color.Red);
+                    //Util.DrawDebugPoint(waypoints.Peek().waypoint.position, Color.Green);
+                    
                     if (destinationCheck.Contains(waypoints.Peek().waypoint.position))
                     {
                         waypoints.Dequeue();
@@ -769,6 +772,13 @@ namespace Plateau.Entities
 
                     }
                 }
+            }
+            
+            //Reset the currentEvent to null and clear waypoints; used when character ticks daily
+            public void Reset()
+            {
+                currentEvent = null;
+                waypoints.Clear();
             }
         }
 
@@ -1176,6 +1186,7 @@ namespace Plateau.Entities
         {
             clothingManager.TickDaily(world, this); //update clothes
             MoveToSpawn(world); //reset location
+            schedule.Reset();
             fadeState = FadeState.NONE; //required in the case that the day ends during a transition
             opacity = 1.0f;
         }

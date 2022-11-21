@@ -5823,3 +5823,7 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_wa
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_water_bg.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\maps\interior_fg_cave.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\skin_kid.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\special_cade_spring.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\special_cade_summer.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\special_cade_winter.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\special_cade_autumn.xnb

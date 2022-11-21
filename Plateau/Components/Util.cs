@@ -834,6 +834,11 @@ namespace Plateau.Components
             debugDrawElements.Add(new QueuedRectangle(rect, color));
         }
 
+        public static void DrawDebugPoint(Vector2 point, Color color)
+        {
+            DrawDebugRect(new RectangleF(point.X, point.Y, 1, 1), color);
+        }
+
         public static float CalculateArea(RectangleF rect)
         {
             return rect.Width * rect.Height;

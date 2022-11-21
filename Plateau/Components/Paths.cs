@@ -2862,6 +2862,12 @@ namespace Plateau.Components
         public static string SKIN_ALIEN_SPRITESHEET = "sprites/clothes/skin_alien";
         public static string SKIN_KID_SPRITESHEET = "sprites/clothes/skin_kid";
 
+        //special - cade
+        public static string SPECIAL_CADE_SPRING_SPRITESHEET = "sprites/clothes/special_cade_spring";
+        public static string SPECIAL_CADE_SUMMER_SPRITESHEET = "sprites/clothes/special_cade_summer";
+        public static string SPECIAL_CADE_AUTUMN_SPRITESHEET = "sprites/clothes/special_cade_autumn";
+        public static string SPECIAL_CADE_WINTER_SPRITESHEET = "sprites/clothes/special_cade_winter";
+
         //eyes
         public static string EYES_MINT_SPRITESHEET = "sprites/clothes/eyes_mint";
         public static string EYES_AMBER_SPRITESHEET = "sprites/clothes/eyes_amber";

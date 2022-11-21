@@ -152,6 +152,7 @@ namespace Plateau.Items
         public static ClothingItem FACIALHAIR_BARON_MUSTACHE, FACIALHAIR_BEARD, FACIALHAIR_CAVEMAN, FACIALHAIR_DROOPY, FACIALHAIR_FLUFF, FACIALHAIR_FULLBEARD, FACIALHAIR_GOATEE, FACIALHAIR_GOATEEBACK,
             FACIALHAIR_MONK, FACIALHAIR_SHORTBEARD, FACIALHAIR_SIDEBURNS, FACIALHAIR_SOULPATCH;
         public static ClothingItem SKIN_PEACH, SKIN_ALIEN, SKIN_CHOCOLATE, SKIN_DRIFTER, SKIN_ECRU, SKIN_EXEMPLAR, SKIN_MERIDIAN, SKIN_MIDNIGHT, SKIN_OLIVE, SKIN_PHANTOM, SKIN_RUSSET, SKIN_SNOW, SKIN_KID;
+        public static ClothingItem SPECIAL_CADE_SPRING, SPECIAL_CADE_SUMMER, SPECIAL_CADE_AUTUMN, SPECIAL_CADE_WINTER;
         public static ClothingItem EYES_AMBER, EYES_BLANK, EYES_BLUSH, EYES_BROWN, EYES_DOT, EYES_EMERALD, EYES_MINT, EYES_OCEAN, EYES_SILVER, EYES_SOLAR, EYES_TEAK, EYES_FROST;
         public static BuildingBlockItem SCAFFOLDING_WOOD, SCAFFOLDING_METAL, SCAFFOLDING_GOLDEN, SCAFFOLDING_MYTHRIL;
         public static BuildingBlockItem PLATFORM_WOOD, PLATFORM_METAL, PLATFORM_STONE, PLATFORM_GOLDEN, PLATFORM_MYTHRIL, PLATFORM_PLANK;
@@ -1561,6 +1562,12 @@ namespace Plateau.Items
             AddToDictionary(SKIN_RUSSET = new ClothingItem("Skin Russet", Paths.ITEM_WOOD, 1,"skpedesc", 0, Paths.SKIN_RUSSET_SPRITESHEET, null, Item.Tag.SKIN));
             AddToDictionary(SKIN_SNOW = new ClothingItem("Skin Snow", Paths.ITEM_WOOD, 1,"skpedesc", 0, Paths.SKIN_SNOW_SPRITESHEET, null, Item.Tag.SKIN));
             AddToDictionary(SKIN_KID = new ClothingItem("Skin Kid", Paths.ITEM_WOOD, 1, "skpedesc", 0, Paths.SKIN_KID_SPRITESHEET, null, Item.Tag.SKIN)); //skin used exclusively for Cade
+
+            //special clothing used exclusviely for cade
+            AddToDictionary(SPECIAL_CADE_SPRING = new ClothingItem("Special Cade Spring", Paths.ITEM_WOOD, 1, "skpedesc", 0, Paths.SPECIAL_CADE_SPRING_SPRITESHEET, null)); //spring used exclusively for Cade
+            AddToDictionary(SPECIAL_CADE_SUMMER = new ClothingItem("Special Cade Summer", Paths.ITEM_WOOD, 1, "skpedesc", 0, Paths.SPECIAL_CADE_SUMMER_SPRITESHEET, null)); //summer used exclusively for Cade
+            AddToDictionary(SPECIAL_CADE_AUTUMN = new ClothingItem("Special Cade Autumn", Paths.ITEM_WOOD, 1, "skpedesc", 0, Paths.SPECIAL_CADE_AUTUMN_SPRITESHEET, null)); //autumn used exclusively for Cade
+            AddToDictionary(SPECIAL_CADE_WINTER = new ClothingItem("Special Cade Winter", Paths.ITEM_WOOD, 1, "skpedesc", 0, Paths.SPECIAL_CADE_WINTER_SPRITESHEET, null)); //winter used exclusively for Cade
 
             AddToDictionary(EYES_AMBER = new ClothingItem("Eyes Amber", Paths.ITEM_WOOD, 1,"eyedesc", 0, Paths.EYES_AMBER_SPRITESHEET, null, Item.Tag.EYES));
             AddToDictionary(EYES_BLANK = new ClothingItem("Eyes Blank", Paths.ITEM_WOOD, 1,"eyedesc", 0, Paths.EYES_BLANK_SPRITESHEET, null, Item.Tag.EYES));

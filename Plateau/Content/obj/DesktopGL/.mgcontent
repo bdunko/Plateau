@@ -2052,6 +2052,10 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/socks_short_socks_default.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/socks_striped_socks.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/socks_striped_socks_default.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/special_cade_autumn.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/special_cade_spring.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/special_cade_summer.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/special_cade_winter.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/cow_spritesheet.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/door.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/exclaimation.png</File>
@@ -2815,6 +2819,10 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
