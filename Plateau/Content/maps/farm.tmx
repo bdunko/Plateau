@@ -575,7 +575,7 @@
     <property name="bush" value="0.5"/>
     <property name="pine_tree" value="0.5"/>
     <property name="rock" value="0.5"/>
-    <property name="seasonal_forage" value="0.5"/>
+    <property name="seasonal_forage" value="2"/>
     <property name="type" value="ground"/>
     <property name="weed" value="0.5"/>
    </properties>
@@ -585,7 +585,7 @@
     <property name="branch" value="0.5"/>
     <property name="bush" value="0.25"/>
     <property name="pine_tree" value="0.5"/>
-    <property name="seasonal_forage" value="0.75"/>
+    <property name="seasonal_forage" value="1.5"/>
     <property name="stone" value="0.25"/>
     <property name="type" value="ground"/>
     <property name="weed" value="0.75"/>
@@ -602,7 +602,7 @@
     <property name="branch" value="0.3"/>
     <property name="bush" value="0.25"/>
     <property name="pine_tree" value="0.75"/>
-    <property name="seasonal_forage" value="0.75"/>
+    <property name="seasonal_forage" value="2"/>
     <property name="stone" value="0.2"/>
     <property name="type" value="ground"/>
     <property name="weed" value="0.75"/>
@@ -613,7 +613,7 @@
     <property name="branch" value="1.5"/>
     <property name="bush" value="1"/>
     <property name="pine_tree" value="1.75"/>
-    <property name="seasonal_forage" value="1.5"/>
+    <property name="seasonal_forage" value="3"/>
     <property name="stone" value="1"/>
     <property name="type" value="ground"/>
     <property name="weed" value="2"/>
@@ -624,7 +624,7 @@
     <property name="branch" value="2"/>
     <property name="bush" value="0.15"/>
     <property name="pine_tree" value="1.75"/>
-    <property name="seasonal_forage" value="2"/>
+    <property name="seasonal_forage" value="3"/>
     <property name="stone" value="0.15"/>
     <property name="type" value="ground"/>
     <property name="weed" value="1"/>
@@ -635,7 +635,7 @@
     <property name="branch" value="0.75"/>
     <property name="bush" value="0.75"/>
     <property name="pine_tree" value="0.5"/>
-    <property name="seasonal_forage" value="1.25"/>
+    <property name="seasonal_forage" value="1.75"/>
     <property name="stone" value="0.25"/>
     <property name="type" value="ground"/>
     <property name="weed" value="0.75"/>

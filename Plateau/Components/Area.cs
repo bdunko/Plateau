@@ -172,12 +172,9 @@ namespace Plateau
             public virtual void TickDaily(Area area, Rectangle legalTiles) {
                 foreach (Entry entry in possibleSpawns)
                 {
-                    if (entry.season != World.Season.NONE)
+                    if (entry.season != World.Season.NONE && entry.season != area.GetSeason())
                     {
-                        if (entry.season != area.areaSeason)
-                        {
-                            continue;
-                        }
+                        continue;
                     }
 
                     float spawnsLeft = entry.spawnFrequency;
@@ -1793,6 +1790,7 @@ namespace Plateau
                         spawnZone.AddEntry(EntityType.WILD_PINE_TREE, frequency, World.Season.NONE);
                     } else if (entity.Equals("seasonal_forage"))
                     {
+                        System.Diagnostics.Debug.WriteLine("Adding seasonal forage to zone");
                         spawnZone.AddEntry(EntityType.CHICKWEED, frequency / 3.0f, World.Season.SPRING);
                         spawnZone.AddEntry(EntityType.BLUEBELL, frequency / 3.0f, World.Season.SPRING);
                         spawnZone.AddEntry(EntityType.NETTLES, frequency / 3.0f, World.Season.SPRING);
@@ -3349,13 +3347,13 @@ namespace Plateau
                     {
                         removedEn.Add(en);
                     }
-                    if (Util.RandInt(1, 10) == 1)
+                    if (Util.RandInt(1, 15) == 1)
                     {
                         removedEn.Add(en);
                     }
                 } else if (en is TEntityToolable)
                 {
-                    if(Util.RandInt(1, 15) == 1)
+                    if(Util.RandInt(1, 10) == 1)
                     {
                         removedEn.Add(en);
                     }
