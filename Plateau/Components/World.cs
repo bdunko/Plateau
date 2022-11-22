@@ -318,24 +318,24 @@ namespace Plateau.Components
 
             //AIDEN
             List<EntityCharacter.ClothingSet> aidenClothing = Util.GenerateClothingSetList(
-                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_SNOW, ItemDict.GetColoredItem(ItemDict.HAIR_CLEAN_CONOR, Util.HAIR_VINYL_BROWN), ItemDict.EYES_BROWN,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(trueCondition), 0),
-                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
-                ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.JEANS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_SNOW, ItemDict.GetColoredItem(ItemDict.HAIR_CLEAN_CONOR, Util.HAIR_VINYL_BROWN), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.BLACK), ItemDict.GetColoredItem(ItemDict.TORN_JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.BLACK), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(springCondition), 1),
-                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
-                ItemDict.CLOTHING_NONE, ItemDict.BUTTON_DOWN, ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.CHINO_SHORTS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_SNOW, ItemDict.GetColoredItem(ItemDict.HAIR_CLEAN_CONOR, Util.HAIR_VINYL_BROWN), ItemDict.EYES_BROWN,
+                ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.PINK), ItemDict.GetColoredItem(ItemDict.TORN_JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.BLACK), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(summerCondition), 1),
-                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
-                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.BUTTON_DOWN, Util.WHITE), ItemDict.GetColoredItem(ItemDict.ALL_SEASON_JACKET, Util.BLACK), ItemDict.GetColoredItem(ItemDict.CHINOS, Util.LIGHT_BROWN), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_SNOW, ItemDict.GetColoredItem(ItemDict.HAIR_CLEAN_CONOR, Util.HAIR_VINYL_BROWN), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.SNAPBACK, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.BLACK), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HIGH_TOPS, Util.RED), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(fallCondition), 1),
-                new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_LUCKY_LUKE, Util.HAIR_CHARCOAL_BLACK), ItemDict.EYES_BROWN,
-                ItemDict.GetColoredItem(ItemDict.BASEBALL_CAP, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.LIGHT_GREY), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                new EntityCharacter.ClothingSet(ItemDict.SKIN_SNOW, ItemDict.GetColoredItem(ItemDict.HAIR_CLEAN_CONOR, Util.HAIR_VINYL_BROWN), ItemDict.EYES_BROWN,
+                ItemDict.GetColoredItem(ItemDict.SNAPBACK, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.WHITE), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HIGH_TOPS, Util.RED), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(winterCondition), 1));
 

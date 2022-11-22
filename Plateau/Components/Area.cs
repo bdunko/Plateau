@@ -1793,13 +1793,13 @@ namespace Plateau
                         spawnZone.AddEntry(EntityType.WILD_PINE_TREE, frequency, World.Season.NONE);
                     } else if (entity.Equals("seasonal_forage"))
                     {
-                        spawnZone.AddEntry(EntityType.CHICKWEED, frequency / 3, World.Season.SPRING);
-                        spawnZone.AddEntry(EntityType.BLUEBELL, frequency / 3, World.Season.SPRING);
-                        spawnZone.AddEntry(EntityType.NETTLES, frequency / 3, World.Season.SPRING);
+                        spawnZone.AddEntry(EntityType.CHICKWEED, frequency / 3.0f, World.Season.SPRING);
+                        spawnZone.AddEntry(EntityType.BLUEBELL, frequency / 3.0f, World.Season.SPRING);
+                        spawnZone.AddEntry(EntityType.NETTLES, frequency / 3.0f, World.Season.SPRING);
 
-                        spawnZone.AddEntry(EntityType.SUNFLOWER, frequency / 3, World.Season.SUMMER);
-                        spawnZone.AddEntry(EntityType.MARIGOLD, frequency / 3, World.Season.SUMMER);
-                        spawnZone.AddEntry(EntityType.LAVENDER, frequency / 3, World.Season.SUMMER);
+                        spawnZone.AddEntry(EntityType.SUNFLOWER, frequency / 3.0f, World.Season.SUMMER);
+                        spawnZone.AddEntry(EntityType.MARIGOLD, frequency / 3.0f, World.Season.SUMMER);
+                        spawnZone.AddEntry(EntityType.LAVENDER, frequency / 3.0f, World.Season.SUMMER);
 
                         spawnZone.AddEntry(EntityType.FALL_LEAF_PILE, frequency, World.Season.AUTUMN);
 
