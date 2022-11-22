@@ -331,11 +331,11 @@ namespace Plateau.Components
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(summerCondition), 1),
                 new EntityCharacter.ClothingSet(ItemDict.SKIN_SNOW, ItemDict.GetColoredItem(ItemDict.HAIR_CLEAN_CONOR, Util.HAIR_VINYL_BROWN), ItemDict.EYES_BROWN,
-                ItemDict.GetColoredItem(ItemDict.SNAPBACK, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.BLACK), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HIGH_TOPS, Util.RED), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.BLACK), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HIGH_TOPS, Util.RED), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(fallCondition), 1),
                 new EntityCharacter.ClothingSet(ItemDict.SKIN_SNOW, ItemDict.GetColoredItem(ItemDict.HAIR_CLEAN_CONOR, Util.HAIR_VINYL_BROWN), ItemDict.EYES_BROWN,
-                ItemDict.GetColoredItem(ItemDict.SNAPBACK, Util.BLACK), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.WHITE), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HIGH_TOPS, Util.RED), ItemDict.CLOTHING_NONE,
+                ItemDict.GetColoredItem(ItemDict.SNAPBACK, Util.WHITE), ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HOODED_SWEATSHIRT, Util.WHITE), ItemDict.GetColoredItem(ItemDict.JEANS, Util.BLACK), ItemDict.GetColoredItem(ItemDict.HIGH_TOPS, Util.RED), ItemDict.CLOTHING_NONE,
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(winterCondition), 1));
 
