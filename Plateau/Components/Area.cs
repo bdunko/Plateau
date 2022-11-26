@@ -1790,7 +1790,6 @@ namespace Plateau
                         spawnZone.AddEntry(EntityType.WILD_PINE_TREE, frequency, World.Season.NONE);
                     } else if (entity.Equals("seasonal_forage"))
                     {
-                        System.Diagnostics.Debug.WriteLine("Adding seasonal forage to zone");
                         spawnZone.AddEntry(EntityType.CHICKWEED, frequency / 3.0f, World.Season.SPRING);
                         spawnZone.AddEntry(EntityType.BLUEBELL, frequency / 3.0f, World.Season.SPRING);
                         spawnZone.AddEntry(EntityType.NETTLES, frequency / 3.0f, World.Season.SPRING);
