@@ -392,7 +392,7 @@ namespace Plateau.Components
                 ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.LONG_SOCKS, Util.LIGHT_BROWN), ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(springCondition), 1),
                 new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_DIRTY_JACK, Util.HAIR_SOLAR_BLOND), ItemDict.EYES_DOT,
-                ItemDict.CLOTHING_NONE, ItemDict.BUTTON_DOWN, ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.CHINO_SHORTS, Util.NAVY), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.WHITE), ItemDict.CLOTHING_NONE,
+                ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.SHORT_SLEEVE_TEE, Util.OLIVE), ItemDict.CLOTHING_NONE, ItemDict.GetColoredItem(ItemDict.CHINO_SHORTS, Util.LIGHT_BROWN), ItemDict.GetColoredItem(ItemDict.SNEAKERS, Util.DARK_BROWN), ItemDict.GetColoredItem(ItemDict.BACKPACK, Util.LIGHT_BROWN),
                 ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE, ItemDict.CLOTHING_NONE,
                 Util.QuickArray(summerCondition), 1),
                 new EntityCharacter.ClothingSet(ItemDict.SKIN_PEACH, ItemDict.GetColoredItem(ItemDict.HAIR_DIRTY_JACK, Util.HAIR_SOLAR_BLOND), ItemDict.EYES_DOT,

@@ -45,7 +45,7 @@ namespace Plateau.Components
                 {
                     return map[greyscale];
                 }
-                return greyscale;
+                throw new Exception("No matching color found for greyscale recolor!");
             }
 
             public string GetName()
@@ -240,10 +240,10 @@ namespace Plateau.Components
             DARK_BROWN.AddMapping(GREYSCALE_255.color, new Color(113, 65, 59));
             DARK_BROWN.AddMapping(GREYSCALE_225.color, new Color(91, 49, 56));
             DARK_BROWN.AddMapping(GREYSCALE_195.color, new Color(66, 36, 51));
-            DARK_BROWN.AddMapping(GREYSCALE_165.color, new Color(66, 36, 51));
-            DARK_BROWN.AddMapping(GREYSCALE_135.color, new Color(66, 36, 51));
+            DARK_BROWN.AddMapping(GREYSCALE_165.color, new Color(50, 43, 40));
+            DARK_BROWN.AddMapping(GREYSCALE_135.color, new Color(50, 43, 40));
             DARK_BROWN.AddMapping(GREYSCALE_105.color, new Color(50, 43, 40));
-            DARK_BROWN.AddMapping(GREYSCALE_75.color, new Color(50, 43, 40));
+            DARK_BROWN.AddMapping(GREYSCALE_75.color, new Color(34, 28, 26));
             DARK_BROWN.AddMapping(GREYSCALE_45.color, new Color(34, 28, 26));
 
             LIGHT_BROWN.AddMapping(GREYSCALE_255.color, new Color(244, 210, 156));
