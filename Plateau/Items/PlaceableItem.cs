@@ -57,7 +57,7 @@ namespace Plateau.Items
             if(recolorMap != null)
             {
                 textureRecolor = Util.GenerateRecolor(textureRecolor, recolorMap);
-                placedTextureRecolor = Util.GenerateRecolor(placedTextureRecolor, recolorMap, placementType != PlacementType.WALLPAPER ? Util.RecolorAdjustment.SLIGHT_LIGHTEN : Util.RecolorAdjustment.DARKEN);
+                placedTextureRecolor = Util.GenerateRecolor(placedTextureRecolor, recolorMap, placementType != PlacementType.WALLPAPER ? Util.RecolorAdjustment.LIGHTEN_PLACEABLE : Util.RecolorAdjustment.DARKEN_WALLPAPER);
             }
 
             //load preview texture

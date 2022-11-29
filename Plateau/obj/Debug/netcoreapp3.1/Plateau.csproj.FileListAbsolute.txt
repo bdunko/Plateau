@@ -5827,3 +5827,4 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\special_cade_summer.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\special_cade_winter.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\special_cade_autumn.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\placeables\chefs_table_greyscale.xnb

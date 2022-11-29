@@ -12,13 +12,18 @@ namespace Plateau.Items
     public class ClothingItem : Item
     {
         private Util.RecolorMap recolorMap;
-        private string onBodySpritesheetPath;
-        private Texture2D onBodySpritesheet;
+        private string onBodySpritesheetRecolorPath; //path to body recolor spritesheet
+        private string onBodySpritesheetPath; //path to body spritesheet
+        private Texture2D onBodySpritesheet; //body spritesheet texture
+        private string textureRecolorPath; //path to icon recolor spritesheet
+        private Texture2D textureRecolor;  //recolored texture itself
 
-        public ClothingItem(string name, string texturePath, int stackCapacity, string description, int value, string onBodySpritesheetPath, Util.RecolorMap recolorMap, params Tag[] tags) : base(name, texturePath, stackCapacity, description, value, tags)
+        public ClothingItem(string name, string texturePath, string recolorTexturePath, int stackCapacity, string description, int value, string onBodySpritesheetPath, string onBodySpritesheetRecolorPath, Util.RecolorMap recolorMap, params Tag[] tags) : base(name, texturePath, stackCapacity, description, value, tags)
         {
             this.onBodySpritesheetPath = onBodySpritesheetPath;
             this.recolorMap = recolorMap;
+            this.textureRecolorPath = recolorTexturePath;
+            this.onBodySpritesheetRecolorPath = onBodySpritesheetRecolorPath;
         }
 
         public override void Load()
@@ -30,8 +35,11 @@ namespace Plateau.Items
             //recolor
             if (recolorMap != null)
             {
-                texture = Util.GenerateRecolor(texture, recolorMap);
-                onBodySpritesheet = Util.GenerateRecolor(onBodySpritesheet, recolorMap, GetRecolorAdjustment());
+                textureRecolor = PlateauMain.CONTENT.Load<Texture2D>(textureRecolorPath);
+                textureRecolor = Util.GenerateRecolor(textureRecolor, recolorMap, GetRecolorAdjustment());
+
+                //generate the recolor; then for pixels that exist in the original but not the recolor (ie: glasses glass; anything with static color); overlay it on top of the recolor
+                onBodySpritesheet = Util.OverlayTextureOnto(onBodySpritesheet, Util.GenerateRecolor(PlateauMain.CONTENT.Load<Texture2D>(onBodySpritesheetRecolorPath), recolorMap, GetRecolorAdjustment()));
             }
         }
 
@@ -46,11 +54,19 @@ namespace Plateau.Items
             } else if (this.HasTag(Tag.OUTERWEAR) || this.HasTag(Tag.SOCKS))
             {
                 return Util.RecolorAdjustment.SLIGHT_LIGHTEN;
+            } else if (this.HasTag(Tag.BACK))
+            {
+                return Util.RecolorAdjustment.EXTRA_DARKEN;
             }
             else
             {
                 return Util.RecolorAdjustment.NORMAL;
             }
+        }
+
+        public string GetBaseSpritesheetPath()
+        {
+            return this.onBodySpritesheetPath;
         }
 
         public Texture2D GetSpritesheet()
@@ -65,6 +81,8 @@ namespace Plateau.Items
         public override void Draw(SpriteBatch sb, Vector2 position, Color color, float layerDepth)
         {
             base.Draw(sb, position, color, layerDepth);
+            if(textureRecolor != null)
+                sb.Draw(textureRecolor, position, color);
         }
     }
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/gym_bench_greyscale.png</SourceFile>
-  <SourceTime>2019-09-10T17:50:22-04:00</SourceTime>
+  <SourceTime>2022-11-28T17:00:59.4721089-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/items/placeables/gym_bench_greyscale.xnb</DestFile>
-  <DestTime>2022-11-01T17:22:40.4145615-04:00</DestTime>
+  <DestTime>2022-11-28T23:21:57.2211389-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -944,6 +944,7 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/cart.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/cart_greyscale.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/chefs_table.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/chefs_table_greyscale.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/chest.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/chest_greyscale.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/clay_ball.png</File>
@@ -2819,6 +2820,7 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

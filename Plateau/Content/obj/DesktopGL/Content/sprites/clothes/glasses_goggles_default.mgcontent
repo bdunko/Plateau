@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/glasses_goggles_default.png</SourceFile>
-  <SourceTime>2019-09-03T11:52:48-04:00</SourceTime>
+  <SourceTime>2022-11-29T00:53:14.0016972-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/sprites/clothes/glasses_goggles_default.xnb</DestFile>
-  <DestTime>2022-11-01T17:23:05.0951109-04:00</DestTime>
+  <DestTime>2022-11-29T01:02:01.3848732-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

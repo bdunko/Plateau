@@ -13,14 +13,22 @@ namespace Plateau.Items
     public class BuildingBlockItem : Item
     {
         private Util.RecolorMap recolorMap;
+
         private string placedTexturePath;
+        private string placedTextureRecolorPath;
         private Texture2D placedTexture;
+
+        private string textureRecolorPath; 
+        private Texture2D textureRecolor; //the recolored inventory icon, if this has one\
+
         private BlockType type;
 
-        public BuildingBlockItem(string name, string texturePath, string placedTexturePath, BlockType type, int stackCapacity, string description, int value, Util.RecolorMap recolorMap, params Tag[] tags) : base(name, texturePath, stackCapacity, description, value, tags)
+        public BuildingBlockItem(string name, string texturePath, string textureRecolorPath, string placedTexturePath, string placedTextureRecolorPath, BlockType type, int stackCapacity, string description, int value, Util.RecolorMap recolorMap, params Tag[] tags) : base(name, texturePath, stackCapacity, description, value, tags)
         {
             this.recolorMap = recolorMap;
             this.placedTexturePath = placedTexturePath;
+            this.placedTextureRecolorPath = placedTextureRecolorPath;
+            this.textureRecolorPath = textureRecolorPath;
             this.type = type;
         }
 
@@ -33,9 +41,14 @@ namespace Plateau.Items
             //recolor
             if(recolorMap != null)
             {
-                texture = Util.GenerateRecolor(texture, recolorMap);
-                placedTexture = Util.GenerateRecolor(placedTexture, recolorMap);
+                textureRecolor = Util.GenerateRecolor(PlateauMain.CONTENT.Load<Texture2D>(textureRecolorPath), recolorMap);
+                placedTexture = Util.OverlayTextureOnto(placedTexture, Util.GenerateRecolor(PlateauMain.CONTENT.Load<Texture2D>(placedTextureRecolorPath), recolorMap));
             }
+        }
+
+        public string GetBasePlacedPath()
+        {
+            return placedTexturePath;
         }
 
         public Texture2D GetPlacedTexture()
@@ -60,6 +73,8 @@ namespace Plateau.Items
         public override void Draw(SpriteBatch sb, Vector2 position, Color color, float layerDepth)
         {
             base.Draw(sb, position, color, layerDepth);
+            if (textureRecolor != null)
+                sb.Draw(textureRecolor, position, color);
         }
     }
 }

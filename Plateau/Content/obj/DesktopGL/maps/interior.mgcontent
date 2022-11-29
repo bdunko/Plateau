@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior.tmx</SourceFile>
-  <SourceTime>2022-11-20T22:12:42.5848959-05:00</SourceTime>
+  <SourceTime>2022-11-22T17:42:45.5605183-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/interior.xnb</DestFile>
-  <DestTime>2022-11-20T22:12:46.7928781-05:00</DestTime>
+  <DestTime>2022-11-27T23:05:31.6286881-05:00</DestTime>
   <Importer>TiledMapImporter</Importer>
   <ImporterTime>2020-08-29T17:17:30-04:00</ImporterTime>
   <Processor>TiledMapProcessor</Processor>

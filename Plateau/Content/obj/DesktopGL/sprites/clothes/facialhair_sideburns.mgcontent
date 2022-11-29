@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/facialhair_sideburns.png</SourceFile>
-  <SourceTime>2020-07-08T22:37:26-04:00</SourceTime>
+  <SourceTime>2022-11-25T21:45:53.589925-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/clothes/facialhair_sideburns.xnb</DestFile>
-  <DestTime>2022-11-20T15:54:21.4482055-05:00</DestTime>
+  <DestTime>2022-11-27T23:05:32.3866886-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/sandcastle_spritesheet.png</SourceFile>
-  <SourceTime>2019-09-11T21:07:52-04:00</SourceTime>
+  <SourceTime>2022-11-28T17:53:06.7430122-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/sprites/placeables/sandcastle_spritesheet.xnb</DestFile>
-  <DestTime>2022-11-01T17:23:08.4470995-04:00</DestTime>
+  <DestTime>2022-11-28T23:22:05.370971-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

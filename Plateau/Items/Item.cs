@@ -72,6 +72,11 @@ namespace Plateau.Items
             isLoaded = true;
         }
 
+        public String GetTexturePath()
+        {
+            return texturePath;
+        }
+
         public Texture2D GetTexture()
         {
             if(!this.IsLoaded())
