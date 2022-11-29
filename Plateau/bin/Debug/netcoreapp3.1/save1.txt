@@ -698,6 +698,21 @@ PLACEABLE{[positionX,2784][positionY,208][tileX,348][tileY,26][entitytype,WINTER
 PLACEABLE{[positionX,840][positionY,208][tileX,105][tileY,26][entitytype,ROCK][area,TOWN]}
 PLACEABLE{[positionX,1328][positionY,208][tileX,166][tileY,26][entitytype,BRANCH][area,TOWN]}
 PLACEABLE{[positionX,2296][positionY,208][tileX,287][tileY,26][entitytype,CRATE][area,TOWN]}
+CHARACTER{[character,ROCKWELL][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,CAMUS][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,AIDEN][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,THEO][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,ELLE][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,SKYE][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,CHARLOTTE][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,PAIGE][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,PIPER][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,HIMEKO][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,MEREDITH][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,OTIS][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,CECILY][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,TROY][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,CADE][heartpoints,0][area,INTERIOR]}
 PLACEABLE{[positionX,2160][positionY,720][tileX,270][tileY,90][entitytype,BAMBOO_POT][harvested,False][area,INTERIOR]}
 PLACEABLE{[positionX,2664][positionY,728][tileX,333][tileY,91][entitytype,BED][sheetsDye,none][area,INTERIOR]}
 PLACEABLE{[positionX,3160][positionY,728][tileX,395][tileY,91][entitytype,BED][sheetsDye,none][area,INTERIOR]}
@@ -757,21 +772,7 @@ PLACEABLE{[positionX,2920][positionY,696][tileX,365][tileY,87][sourceitem,Solid 
 PLACEABLE{[positionX,2920][positionY,688][tileX,365][tileY,86][sourceitem,Solid Wallpaper (Red)][entitytype,USE_ITEM][area,INTERIOR]}
 PLACEABLE{[positionX,2928][positionY,688][tileX,366][tileY,86][sourceitem,Solid Wallpaper (Red)][entitytype,USE_ITEM][area,INTERIOR]}
 PLACEABLE{[positionX,2936][positionY,688][tileX,367][tileY,86][sourceitem,Solid Wallpaper (Red)][entitytype,USE_ITEM][area,INTERIOR]}
-CHARACTER{[character,ROCKWELL][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,CAMUS][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,AIDEN][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,THEO][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,SKYE][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,PAIGE][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,PIPER][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,HIMEKO][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,MEREDITH][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,OTIS][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,TROY][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,CADE][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,ELLE][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,CHARLOTTE][heartpoints,0][area,INTERIOR]}
-CHARACTER{[character,CECILY][heartpoints,0][area,INTERIOR]}
+CHARACTER{[character,RAUL][heartpoints,0][area,BEACH]}
 PLACEABLE{[positionX,2720][positionY,209][tileX,340][tileY,26][entitytype,MINECART][harvested,False][area,BEACH]}
 PLACEABLE{[positionX,2896][positionY,521][tileX,362][tileY,65][entitytype,MINECART][harvested,False][area,BEACH]}
 PLACEABLE{[positionX,2560][positionY,329][tileX,320][tileY,41][entitytype,SANDCASTLE][harvested,False][area,BEACH]}
@@ -1163,7 +1164,7 @@ PLACEABLE{[positionX,2424][positionY,160][tileX,303][tileY,20][entitytype,WINTER
 PLACEABLE{[positionX,1560][positionY,520][tileX,195][tileY,65][entitytype,CRATE][area,BEACH]}
 PLACEABLE{[positionX,712][positionY,600][tileX,89][tileY,75][entitytype,CRATE][area,BEACH]}
 PLACEABLE{[positionX,696][positionY,592][tileX,87][tileY,74][entitytype,CRATE_PILE][area,BEACH]}
-CHARACTER{[character,RAUL][heartpoints,0][area,BEACH]}
+CHARACTER{[character,FINLEY][heartpoints,0][area,S0]}
 PLACEABLE{[positionX,1536][positionY,793][tileX,192][tileY,99][entitytype,MINECART][harvested,False][area,S0]}
 PLACEABLE{[positionX,616][positionY,777][tileX,77][tileY,97][entitytype,MINECART][harvested,False][area,S0]}
 PLACEABLE{[positionX,848][positionY,881][tileX,106][tileY,110][entitytype,MINECART][harvested,False][area,S0]}
@@ -1960,7 +1961,6 @@ PLACEABLE{[positionX,1792][positionY,736][tileX,224][tileY,92][entitytype,IRON_R
 PLACEABLE{[positionX,904][positionY,776][tileX,113][tileY,97][entitytype,BRANCH][area,S0]}
 PLACEABLE{[positionX,1352][positionY,793][tileX,169][tileY,99][entitytype,WILD_BUSH][sprite,winter][fruitAvailable,False][isWild,True][area,S0]}
 PLACEABLE{[positionX,1272][positionY,800][tileX,159][tileY,100][entitytype,ROCK][area,S0]}
-CHARACTER{[character,FINLEY][heartpoints,0][area,S0]}
 PLACEABLE{[positionX,4376][positionY,1416][tileX,547][tileY,177][entitytype,BAMBOO_POT][harvested,False][area,S1]}
 PLACEABLE{[positionX,5120][positionY,1528][tileX,640][tileY,191][entitytype,BAMBOO_POT][harvested,False][area,S1]}
 PLACEABLE{[positionX,4808][positionY,392][tileX,601][tileY,49][entitytype,BAMBOO_POT][harvested,False][area,S1]}
@@ -2956,7 +2956,6 @@ PLACEABLE{[positionX,712][positionY,1392][tileX,89][tileY,174][entitytype,IRON_R
 PLACEABLE{[positionX,2344][positionY,1272][tileX,293][tileY,159][entitytype,CAVE_FUNGI][area,S2]}
 PLACEABLE{[positionX,1136][positionY,1432][tileX,142][tileY,179][entitytype,IRON_ROCK][area,S2]}
 PLACEABLE{[positionX,2128][positionY,1664][tileX,266][tileY,208][entitytype,EMERALD_MOSS][area,S2]}
-PLACEABLE{[positionX,456][positionY,528][tileX,57][tileY,66][entitytype,MYTHRIL_MACHINE][area,S2]}
 PLACEABLE{[positionX,1152][positionY,1560][tileX,144][tileY,195][entitytype,CAVE_SOYBEAN][area,S2]}
 PLACEABLE{[positionX,1712][positionY,1152][tileX,214][tileY,144][entitytype,IRON_ROCK][area,S2]}
 PLACEABLE{[positionX,1992][positionY,344][tileX,249][tileY,43][entitytype,WILD_LEMON_TREE][sprite,fall1][growth,1][fruitAvailable,False][isWild,True][age,35][area,S2]}

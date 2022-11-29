@@ -1465,7 +1465,7 @@ namespace Plateau.Components
                 new ScrapbookPage.BlueprintComponent(GetBlueprintPosition(13), patternTexture, GameState.COSTUME_PATTERNS_UNLOCKS[13]),
                 new ScrapbookPage.BlueprintComponent(GetBlueprintPosition(14), patternTexture, GameState.COSTUME_PATTERNS_UNLOCKS[14]),
                 new ScrapbookPage.BlueprintComponent(GetBlueprintPosition(15), patternTexture, GameState.COSTUME_PATTERNS_UNLOCKS[15])));
-            pages.Add(new ScrapbookPage("Patterns Urban", new ScrapbookPage.ImageComponent(new Vector2(0, 0), content.Load<Texture2D>(Paths.INTERFACE_SCRAPBOOK_PAGE_PATTERNS_URBAN1), Color.White),
+            pages.Add(new ScrapbookPage("Patterns Urban", new ScrapbookPage.ImageComponent(new Vector2(0, 0), content.Load<Texture2D>(Paths.INTERFACE_SCRAPBOOK_PAGE_PATTERNS_URBAN), Color.White),
                 new ScrapbookPage.BlueprintComponent(GetBlueprintPosition(0), patternTexture, GameState.URBAN_PATTERNS_UNLOCKS[0]),
                 new ScrapbookPage.BlueprintComponent(GetBlueprintPosition(1), patternTexture, GameState.URBAN_PATTERNS_UNLOCKS[1]),
                 new ScrapbookPage.BlueprintComponent(GetBlueprintPosition(2), patternTexture, GameState.URBAN_PATTERNS_UNLOCKS[2]),

@@ -337,7 +337,7 @@ namespace Plateau.Components
         public static string INTERFACE_SCRAPBOOK_PAGE_PATTERNS_TROPICAL = "interface/scrapbook_pieces/page_patterns_tropical";
         public static string INTERFACE_SCRAPBOOK_PAGE_PATTERNS_FW = "interface/scrapbook_pieces/page_patterns_basic_fw";
         public static string INTERFACE_SCRAPBOOK_PAGE_PATTERNS_SS = "interface/scrapbook_pieces/page_patterns_basic_ss";
-        public static string INTERFACE_SCRAPBOOK_PAGE_PATTERNS_URBAN1 = "interface/scrapbook_pieces/page_patterns_urban1";
+        public static string INTERFACE_SCRAPBOOK_PAGE_PATTERNS_URBAN = "interface/scrapbook_pieces/page_patterns_urban";
         public static string INTERFACE_SCRAPBOOK_PAGE_RELATIONSHIPS1 = "interface/scrapbook_pieces/page_relationships1";
         public static string INTERFACE_SCRAPBOOK_PAGE_RELATIONSHIPS2 = "interface/scrapbook_pieces/page_relationships2";
         public static string INTERFACE_SCRAPBOOK_PAGE_RELATIONSHIPS_HEART = "interface/scrapbook_pieces/page_relationships_heart";

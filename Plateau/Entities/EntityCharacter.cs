@@ -68,6 +68,23 @@ namespace Plateau.Entities
                 this.hair = hair;
                 this.eyes = eyes;
                 this.facialhair = facialhair;
+                System.Diagnostics.Debug.Assert(hat == ItemDict.CLOTHING_NONE || hat.HasTag(Item.Tag.HAT));
+                System.Diagnostics.Debug.Assert(shirt == ItemDict.CLOTHING_NONE || shirt.HasTag(Item.Tag.SHIRT));
+                System.Diagnostics.Debug.Assert(outerwear == ItemDict.CLOTHING_NONE || outerwear.HasTag(Item.Tag.OUTERWEAR));
+                System.Diagnostics.Debug.Assert(pants == ItemDict.CLOTHING_NONE || pants.HasTag(Item.Tag.PANTS));
+                System.Diagnostics.Debug.Assert(socks == ItemDict.CLOTHING_NONE || socks.HasTag(Item.Tag.SOCKS));
+                System.Diagnostics.Debug.Assert(shoes == ItemDict.CLOTHING_NONE || shoes.HasTag(Item.Tag.SHOES));
+                System.Diagnostics.Debug.Assert(gloves == ItemDict.CLOTHING_NONE || gloves.HasTag(Item.Tag.GLOVES));
+                System.Diagnostics.Debug.Assert(earrings == ItemDict.CLOTHING_NONE || earrings.HasTag(Item.Tag.EARRINGS));
+                System.Diagnostics.Debug.Assert(scarf == ItemDict.CLOTHING_NONE || scarf.HasTag(Item.Tag.SCARF));
+                System.Diagnostics.Debug.Assert(glasses == ItemDict.CLOTHING_NONE || glasses.HasTag(Item.Tag.GLASSES));
+                System.Diagnostics.Debug.Assert(back == ItemDict.CLOTHING_NONE || back.HasTag(Item.Tag.BACK));
+                System.Diagnostics.Debug.Assert(sailcloth == ItemDict.CLOTHING_NONE || sailcloth.HasTag(Item.Tag.SAILCLOTH));
+                System.Diagnostics.Debug.Assert(skin == ItemDict.CLOTHING_NONE || skin.HasTag(Item.Tag.SKIN));
+                System.Diagnostics.Debug.Assert(hair == ItemDict.CLOTHING_NONE || hair.HasTag(Item.Tag.HAIR));
+                System.Diagnostics.Debug.Assert(eyes == ItemDict.CLOTHING_NONE || eyes.HasTag(Item.Tag.EYES));
+                System.Diagnostics.Debug.Assert(facialhair == ItemDict.CLOTHING_NONE || facialhair.HasTag(Item.Tag.FACIAL_HAIR));
+
                 this.conditionFunctions = conditionFunctions;
                 this.priority = priority;
             }
