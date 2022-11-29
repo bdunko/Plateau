@@ -289,6 +289,11 @@ namespace Plateau.Components
             RED.AddMapping(GREYSCALE_225.color, new Color(180, 32, 42));
             RED.AddMapping(GREYSCALE_195.color, new Color(115, 23, 45));
             RED.AddMapping(GREYSCALE_165.color, new Color(59, 23, 37));
+            //crimson
+            //RED.AddMapping(GREYSCALE_255.color, new Color(180, 32, 42));
+            //RED.AddMapping(GREYSCALE_225.color, new Color(115, 23, 45));
+            //RED.AddMapping(GREYSCALE_195.color, new Color(59, 23, 37));
+            //RED.AddMapping(GREYSCALE_165.color, new Color(20, 16, 19));
 
             YELLOW.AddMapping(GREYSCALE_255.color, new Color(255, 252, 64));
             YELLOW.AddMapping(GREYSCALE_225.color, new Color(255, 213, 65));
@@ -637,9 +642,9 @@ namespace Plateau.Components
                     }
                     else if (adjustment == RecolorAdjustment.DARKEN_WALLPAPER)
                     {
-                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 0, DARKEN_AMOUNT * 1.25f);
-                        baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 0, DARKEN_AMOUNT * 1.25f);
-                        baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 0, DARKEN_AMOUNT * 1.25f);
+                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 0, DARKEN_AMOUNT * 1.4f);
+                        baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 0, DARKEN_AMOUNT * 1.4f);
+                        baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 0, DARKEN_AMOUNT * 1.4f);
                     }
                     else if (adjustment == RecolorAdjustment.EXTRA_DARKEN)
                     {
