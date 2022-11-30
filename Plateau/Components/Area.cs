@@ -2231,7 +2231,7 @@ namespace Plateau
             for (int i = 0; i < itemEntities.Count; i++)
             {
                 EntityItem ei = itemEntities[i];
-                if (ei.CanBeCollected() && ei.GetCollisionRectangle().Contains(player.GetAdjustedPosition()))
+                if (ei.CanBeCollected() && player.GetCollisionRectangle().Intersects(ei.GetCollisionRectangle()))
                 {
                     if (player.AddItemToInventory(ei.GetItemForm()))
                     {

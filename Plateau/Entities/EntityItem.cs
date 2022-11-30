@@ -18,13 +18,13 @@ namespace Plateau.Entities
         private float velocityY;
         private float velocityX;
         private static float GRAVITY = 8;
-        private static float FRICTION_X = 1;
+        private static float FRICTION_X = 0.6f;
         private float timeElapsed;
 
         private static float TIME_BEFORE_COLLECTION = 0.55f;
         private static int COLLISION_STEPS = 3;
-        private static float MINIMUM_BOUNCE = 1.0F;
-        private static float BOUNCE_MULTIPLIER = 0.6F;
+        private static float MINIMUM_BOUNCE = 1.0f;
+        private static float BOUNCE_MULTIPLIER = 0.6f;
 
         private bool firstUpdate;
 
@@ -44,7 +44,7 @@ namespace Plateau.Entities
         {
             this.itemForm = itemForm;
            // this.grounded = false;
-            velocityX = Util.RandInt(-50, 50) / 100.0f;
+            velocityX = Util.RandInt(-40, 40) / 100.0f;
             velocityY = Util.RandInt(-31, -24) / 10.0f;
             this.timeElapsed = 0;
             this.firstUpdate = true;
@@ -114,8 +114,6 @@ namespace Plateau.Entities
                 firstUpdate = false;
             }
 
-
-
             timeElapsed += deltaTime;
             velocityY += GRAVITY * deltaTime;
             velocityX = Util.AdjustTowards(velocityX, 0, FRICTION_X * deltaTime);
@@ -125,12 +123,11 @@ namespace Plateau.Entities
             float stepX = velocityX / COLLISION_STEPS;
             float stepY = velocityY / COLLISION_STEPS;
 
-
             for (int step = 0; step < COLLISION_STEPS; step++)
             {
                 if (stepX != 0) //move X
                 {
-                    bool xCollision = CollisionHelper.CheckCollision(new RectangleF(position.X + 6 + stepX, position.Y + 11 + stepY, 6, 5), area, stepY >= 0);
+                    bool xCollision = CollisionHelper.CheckCollision(new RectangleF(position.X + 6 + stepX, position.Y + 11, 6, 5), area, stepY >= 0);
                     
                     if (xCollision) //if next movement = collision
                     {
@@ -168,7 +165,7 @@ namespace Plateau.Entities
 
         public override RectangleF GetCollisionRectangle()
         {
-            return new RectangleF(position.X - 12, position.Y - 18, 24, 36);
+            return new RectangleF(position.X-1, position.Y-1, 14, 14);
         }
 
         public void TickDaily(World timeData, Area area, EntityPlayer player)

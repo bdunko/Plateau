@@ -315,24 +315,29 @@ namespace Plateau
 
                 if (currentState == PlateauGameState.NORMAL && (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || controller.IsKeyPressed(KeyBinds.ESCAPE) && player.GetCurrentDialogue() == null))
                 {
-                    if (!ui.IsItemHeld())
+                    if(ui.IsItemHeld()) //throw currently held item out into world
                     {
-                        if (player.GetInterfaceState() == InterfaceState.NONE)
+                        ItemStack heldItem = ui.GetHeldItem();
+                        for(int i = 0; i < heldItem.GetQuantity(); i++)
                         {
-                            player.SetInterfaceState(InterfaceState.EXIT);
-                            player.Pause();
-                            world.Pause();
+                            Vector2 position = player.GetCenteredPosition();
+                            position.X -= 6;
+                            world.GetCurrentArea().AddEntity(new EntityItem(heldItem.GetItem(), position, new Vector2((player.GetDirection() == DirectionEnum.LEFT ? -1 : 1) * Util.RandInt(55, 63) / 100.0f, -2.3f))); ;
                         }
-                        else
-                        {
-                            player.SetInterfaceState(InterfaceState.NONE);
-                            player.Unpause();
-                            world.Unpause();
-                        }
+                        ui.ClearHeldItem();
+                    }
+
+                    if (player.GetInterfaceState() == InterfaceState.NONE)
+                    {
+                        player.SetInterfaceState(InterfaceState.EXIT);
+                        player.Pause();
+                        world.Pause();
                     }
                     else
                     {
-                        player.AddNotification(new EntityPlayer.Notification("I can't close my inventory while holding an item. Place the item down then try again.", Color.Red, EntityPlayer.Notification.Length.LONG));
+                        player.SetInterfaceState(InterfaceState.NONE);
+                        player.Unpause();
+                        world.Unpause();
                     }
                 }
                 controller.Update(); //read in inputs from mouse/keyboard

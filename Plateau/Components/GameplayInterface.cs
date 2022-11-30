@@ -172,8 +172,8 @@ namespace Plateau.Components
 
             public static float LENGTH = 0.8f;
             private static float DELTA_Y = 47;
-            private static float DELTA_Y_FAST = 140;
-            private static float LENGTH_FAST = 0.6f;
+            private static float DELTA_Y_FAST = 47;
+            private static float LENGTH_FAST = 0.2f;
 
             public float timeElapsed;
             public string name;
@@ -193,7 +193,7 @@ namespace Plateau.Components
 
             public float GetYAdjustment()
             {
-                return (fast ? DELTA_Y_FAST : DELTA_Y) * (timeElapsed / (fast?LENGTH_FAST : LENGTH));
+                return (fast ? DELTA_Y_FAST : DELTA_Y) * (timeElapsed / (fast ? LENGTH_FAST : LENGTH));
             }
 
             public bool IsFinished()
@@ -338,6 +338,7 @@ namespace Plateau.Components
         private static float ITEM_COLLECTED_TOOLTIP_DELAY = 0.1f;
         private static float ITEM_COLLECTED_TOOLTIP_DELAY_FAST = 0.02f;
         private float timeSinceItemCollectedTooltipAdded = 0.0f;
+        private bool itemCollectedTooltipFast = false;
 
         private Texture2D scrapbookBase;
         private Texture2D scrapbookTab1Active, scrapbookTab2Active, scrapbookTab3Active, scrapbookTab4Active, scrapbookTab5Active, scrapbookTab6Active, scrapbookTab7Active, scrapbookTab8Active, scrapbookTab9Active, scrapbookTab10Active, scrapbookTab11Active;
@@ -500,7 +501,7 @@ namespace Plateau.Components
             this.currentNotification = null;
             this.selectedRecipeSlot = -1;
             this.numMaterialsOfRecipe = new int[4];
-            for(int i = 0; i < 4; i++)
+            for (int i = 0; i < 4; i++)
             {
                 this.numMaterialsOfRecipe[i] = 0;
             }
@@ -557,6 +558,16 @@ namespace Plateau.Components
         public bool IsItemHeld()
         {
             return inventoryHeldItem.GetItem() != ItemDict.NONE;
+        }
+
+        public ItemStack GetHeldItem()
+        {
+            return inventoryHeldItem;
+        }
+
+        public void ClearHeldItem()
+        {
+            inventoryHeldItem = new ItemStack(ItemDict.NONE, 0);
         }
 
         public void LoadContent(ContentManager content)
@@ -4409,13 +4420,24 @@ namespace Plateau.Components
                 }
                 else //if inventory/scrapbook is not open
                 {
-                    if (timeSinceItemCollectedTooltipAdded >= ITEM_COLLECTED_TOOLTIP_DELAY || (player.GetItemsCollectedRecently().Count >= CollectedTooltip.FAST_THRESHOLD && timeSinceItemCollectedTooltipAdded >= ITEM_COLLECTED_TOOLTIP_DELAY_FAST))
+                    if (player.GetItemsCollectedRecently().Count == 0)
+                        itemCollectedTooltipFast = false;
+
+                    if (timeSinceItemCollectedTooltipAdded >= ITEM_COLLECTED_TOOLTIP_DELAY || (itemCollectedTooltipFast && timeSinceItemCollectedTooltipAdded >= ITEM_COLLECTED_TOOLTIP_DELAY_FAST))
                     {
+                        if (player.GetItemsCollectedRecently().Count >= CollectedTooltip.FAST_THRESHOLD) //if above threshold, make all fast until cleared
+                        {
+                            itemCollectedTooltipFast = true;
+                            //make older ones fast too
+                            foreach(CollectedTooltip ct in collectedTooltips)
+                                ct.fast = true;
+                        }
+
                         List<Item> itemsCollectedRecently = player.GetItemsCollectedRecently();
                         if (itemsCollectedRecently.Count != 0)
                         {
                             Item newItem = itemsCollectedRecently[0];
-                            collectedTooltips.Add(new CollectedTooltip(newItem.GetName(), itemsCollectedRecently.Count >= CollectedTooltip.FAST_THRESHOLD));
+                            collectedTooltips.Add(new CollectedTooltip(newItem.GetName(), itemCollectedTooltipFast));
                             itemsCollectedRecently.Remove(newItem);
                             timeSinceItemCollectedTooltipAdded = 0.0f;
                         }
