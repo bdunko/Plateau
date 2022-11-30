@@ -2532,11 +2532,6 @@ namespace Plateau
                 }
             }
 
-            if(CheckBlockerMap(tileX, tileY) == true)
-            {
-                return false;
-            }
-
             return true;
         }
 
@@ -3438,6 +3433,10 @@ namespace Plateau
             {
                 sb.Draw(mapWalls, Vector2.Zero, Color.White);
             }
+        }
+
+        public void DrawDecorations(SpriteBatch sb, float layerDepth)
+        {
             if (mapDecoration != null)
             {
                 sb.Draw(mapDecoration, Vector2.Zero, Color.White);

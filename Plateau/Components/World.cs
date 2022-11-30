@@ -1229,6 +1229,11 @@ namespace Plateau.Components
             currentArea.DrawWalls(sb, layerDepth);
         }
 
+        public void DrawDecorations(SpriteBatch sb, float layerDepth)
+        {
+            currentArea.DrawDecorations(sb, layerDepth);
+        }
+
         public void DrawParticles(SpriteBatch sb, float layerDepth)
         {
             currentArea.DrawParticles(sb, layerDepth);

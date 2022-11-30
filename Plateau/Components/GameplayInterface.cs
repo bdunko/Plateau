@@ -3446,7 +3446,7 @@ namespace Plateau.Components
                             {
                                 if (showPlaceableTexture)
                                 {
-                                    player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
+                                    player.AddNotification(new EntityPlayer.Notification("I can only place Wallpaper in my house.", Color.Red));
                                 }
                             }
                         }

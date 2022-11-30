@@ -637,8 +637,9 @@ namespace Plateau
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
                     world.DrawWaterBackground(spriteBatch, 0.025f);
                     world.DrawWalls(spriteBatch, 0.05f); //depth 0.05f
-                    world.DrawBuildingBlocks(spriteBatch, 0.075f); //depth 0.075f
                     world.DrawEntities(spriteBatch, DrawLayer.BACKGROUND_WALLPAPER, camera.GetBoundingBox(), 0.10f); //depth 0.10f
+                    world.DrawDecorations(spriteBatch, 0.05f);
+                    world.DrawBuildingBlocks(spriteBatch, 0.075f); //depth 0.075f
                     world.DrawEntities(spriteBatch, DrawLayer.BACKGROUND_WALL, camera.GetBoundingBox(), 0.15f); //depth 0.15f
                     world.DrawEntities(spriteBatch, DrawLayer.NORMAL, camera.GetBoundingBox(), 0.20f); //depth 0.2f
                     spriteBatch.End();
