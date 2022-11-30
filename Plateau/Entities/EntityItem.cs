@@ -19,16 +19,16 @@ namespace Plateau.Entities
         private float velocityX;
         private static float GRAVITY = 8;
         private static float FRICTION_X = 1;
-        //private bool grounded;
         private float timeElapsed;
 
         private static float TIME_BEFORE_COLLECTION = 0.55f;
         private static int COLLISION_STEPS = 3;
         private static float MINIMUM_BOUNCE = 1.0F;
         private static float BOUNCE_MULTIPLIER = 0.6F;
-        private static float TIME_BEFORE_COLLISION = 0.04f;
 
-        public EntityItem(Item itemForm, Vector2 position, Vector2 velocityReplacement) : base(position, DrawLayer.PRIORITY)
+        private bool firstUpdate;
+
+        public EntityItem(Item itemForm, Vector2 position, Vector2 velocityReplacement) : this(itemForm, position)
         {
             if (velocityReplacement.X != 0)
             {
@@ -38,9 +38,6 @@ namespace Plateau.Entities
             {
                 velocityY = velocityReplacement.Y;
             }
-            this.itemForm = itemForm;
-            // this.grounded = false;
-            this.timeElapsed = 0;
         }
 
         public EntityItem(Item itemForm, Vector2 position) : base(position, DrawLayer.PRIORITY)
@@ -50,6 +47,7 @@ namespace Plateau.Entities
             velocityX = Util.RandInt(-50, 50) / 100.0f;
             velocityY = Util.RandInt(-31, -24) / 10.0f;
             this.timeElapsed = 0;
+            this.firstUpdate = true;
         }
 
         public override void Draw(SpriteBatch sb, float layerDepth)
@@ -67,8 +65,57 @@ namespace Plateau.Entities
             return itemForm;
         }
 
+        //adjusts position to attempt to not be in solid terrain; called once during the very first update
+        private void PerformInitialAdjustment(Area area)
+        {
+            RectangleF hitbox = new RectangleF(position.X + 6, position.Y + 11, 6, 5);
+
+            if (CollisionHelper.CheckCollision(hitbox, area, false))
+            {
+                for (int y = 0; y < 16; y++)
+                {
+                    for (int x = 0; x < 16; x++)
+                    {
+                        if (!CollisionHelper.CheckCollision(new RectangleF(hitbox.X + x, hitbox.Y + y, hitbox.Width, hitbox.Height), area, false))
+                        {
+                            position.X += x;
+                            position.Y += y;
+                            return;
+                        }
+                        else if (!CollisionHelper.CheckCollision(new RectangleF(hitbox.X + x, hitbox.Y - y, hitbox.Width, hitbox.Height), area, false))
+                        {
+                            position.X += x;
+                            position.Y -= y;
+                            return;
+                        }
+                        else if (!CollisionHelper.CheckCollision(new RectangleF(hitbox.X - x, hitbox.Y + y, hitbox.Width, hitbox.Height), area, false))
+                        {
+                            position.X -= x;
+                            position.Y += y;
+                            return;
+                        }
+                        else if (!CollisionHelper.CheckCollision(new RectangleF(hitbox.X - x, hitbox.Y - y, hitbox.Width, hitbox.Height), area, false))
+                        {
+                            position.X -= x;
+                            position.Y -= y;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
         public override void Update(float deltaTime, Area area)
         {
+            //try to move to prevent being stuck in ground
+            if(firstUpdate)
+            {
+                PerformInitialAdjustment(area);
+                firstUpdate = false;
+            }
+
+
+
             timeElapsed += deltaTime;
             velocityY += GRAVITY * deltaTime;
             velocityX = Util.AdjustTowards(velocityX, 0, FRICTION_X * deltaTime);
@@ -78,11 +125,13 @@ namespace Plateau.Entities
             float stepX = velocityX / COLLISION_STEPS;
             float stepY = velocityY / COLLISION_STEPS;
 
+
             for (int step = 0; step < COLLISION_STEPS; step++)
             {
                 if (stepX != 0) //move X
                 {
-                    bool xCollision = CollisionHelper.CheckCollision(new RectangleF(position.X+stepX, position.Y, 12, 16), area, stepY >= 0);
+                    bool xCollision = CollisionHelper.CheckCollision(new RectangleF(position.X + 6 + stepX, position.Y + 11 + stepY, 6, 5), area, stepY >= 0);
+                    
                     if (xCollision) //if next movement = collision
                     {
                         stepX = 0; //stop moving if collision
@@ -94,8 +143,8 @@ namespace Plateau.Entities
                 }
                 if (stepY != 0) //move Y
                 {
-                    bool yCollision = CollisionHelper.CheckCollision(new RectangleF(position.X + 6, position.Y + 15 + stepY, 6, 1), area, stepY >= 0);
-                    if (yCollision && timeElapsed > TIME_BEFORE_COLLISION)
+                    bool yCollision = CollisionHelper.CheckCollision(new RectangleF(position.X + 6, position.Y + 11 + stepY, 6, 5), area, stepY >= 0);
+                    if (yCollision)
                     {
                         stepY = 0;
                         //grounded = true;
