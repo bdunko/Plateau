@@ -2507,6 +2507,12 @@ namespace Plateau
                 return false;
             }
 
+            //can only place in house
+            Area.Subarea.NameEnum subarea = this.GetSubareaAt(new RectangleF(tileX * 8, tileY * 8, tileWidth * 8, tileHeight * 8));
+            if (subarea != Area.Subarea.NameEnum.FARMHOUSECABIN && subarea != Area.Subarea.NameEnum.FARMHOUSEHOUSE &&
+                subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONLOWER && subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONUPPER)
+                return false;
+
             for (int x = 0; x < tileWidth; x++)
             {
                 for (int y = 0; y < tileHeight; y++)
