@@ -474,7 +474,7 @@ namespace Plateau.Components
 
         private bool isHidden;
 
-        private float HOVERING_INTERFACE_MAX_OPACITY = 0.8f;
+        private float HOVERING_INTERFACE_MAX_OPACITY = 0.9f;
         private float HOVERING_INTERFACE_OPACITY_SPEED = 4.8f;
         private float hoveringInterfaceOpacity = 0.0f;
         private HoveringInterface currentHoveringInterface;
@@ -4549,13 +4549,19 @@ namespace Plateau.Components
             if(targetEntity != null && targetEntity is IHaveHoveringInterface)
             {
                 currentHoveringInterface = ((IHaveHoveringInterface)targetEntity).GetHoveringInterface(player);
-                Vector2 hoveringSize = currentHoveringInterface.GetSize();
-                hoveringInterfacePosition = targetEntity.GetPosition();
-                hoveringInterfacePosition.Y -= 10;
-                RectangleF targetSize = targetEntity.GetCollisionRectangle();
-                hoveringInterfacePosition.X += targetSize.Width / 2;
-                hoveringInterfacePosition.X -= hoveringSize.X / 2;
-                hoveringInterfacePosition.Y -= hoveringSize.Y;
+                if (currentHoveringInterface != null)
+                {
+                    Vector2 hoveringSize = currentHoveringInterface.GetSize();
+                    hoveringInterfacePosition = targetEntity.GetPosition();
+                    hoveringInterfacePosition.Y -= 10;
+                    RectangleF targetSize = targetEntity.GetCollisionRectangle();
+                    hoveringInterfacePosition.X += targetSize.Width / 2;
+                    hoveringInterfacePosition.X -= hoveringSize.X / 2;
+                    hoveringInterfacePosition.Y -= hoveringSize.Y;
+                } else
+                {
+                    hoveringInterfaceOpacity = 0;
+                }
             }
             if (currentHoveringInterface != null && interfaceState == InterfaceState.NONE && !isHidden)
             {
