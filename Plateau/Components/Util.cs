@@ -604,6 +604,71 @@ namespace Plateau.Components
         private static int LIGHTEN_AMOUNT = 35;
         private static int DARKEN_AMOUNT = 12;
 
+        private static Color AdjustColor(Color color, RecolorAdjustment adjustment)
+        {
+            Color newColor = new Color(color.R, color.G, color.B, color.A);
+            if (adjustment == RecolorAdjustment.LIGHTEN)
+            {
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT);
+            }
+            else if (adjustment == RecolorAdjustment.SLIGHT_LIGHTEN)
+            {
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.5f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.5f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.5f);
+            }
+            else if (adjustment == RecolorAdjustment.LIGHTEN_PLACEABLE)
+            {
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.2f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.2f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.2f);
+            }
+            else if (adjustment == RecolorAdjustment.DARKEN)
+            {
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 0, DARKEN_AMOUNT);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 0, DARKEN_AMOUNT);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 0, DARKEN_AMOUNT);
+            }
+            else if (adjustment == RecolorAdjustment.DARKEN_WALLPAPER)
+            {
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 0, DARKEN_AMOUNT * 1.4f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 0, DARKEN_AMOUNT * 1.4f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 0, DARKEN_AMOUNT * 1.4f);
+            }
+            else if (adjustment == RecolorAdjustment.EXTRA_DARKEN)
+            {
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 0, DARKEN_AMOUNT * 1.5f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 0, DARKEN_AMOUNT * 1.5f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 0, DARKEN_AMOUNT * 1.5f);
+            }
+            else if (adjustment == RecolorAdjustment.NORMAL)
+            {
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.15f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.15f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.15f);
+            }
+            return newColor;
+        }
+
+        public static Texture2D ApplyAdjustment(Texture2D texture, RecolorAdjustment adjustment)
+        {
+            Texture2D adjustedTexture = new Texture2D(PlateauMain.GRAPHICS.GraphicsDevice, texture.Width, texture.Height);
+            Color[] adjustedColors = new Color[adjustedTexture.Width * adjustedTexture.Height];
+            Color[] originalColors = new Color[texture.Width * texture.Height];
+            texture.GetData<Color>(originalColors);
+
+            for (int i = 0; i < adjustedColors.Length; i++)
+            {
+                if(originalColors[i].A != 0)
+                    adjustedColors[i] = AdjustColor(originalColors[i], adjustment);
+            }
+            adjustedTexture.SetData<Color>(adjustedColors);
+
+            return adjustedTexture;
+        }
+
         public static Texture2D GenerateRecolor(Texture2D greyscaleTexture, RecolorMap recolorMap, RecolorAdjustment adjustment = RecolorAdjustment.NORMAL)
         {
             //System.Diagnostics.Debug.Write(greyscaleTexture.Name);
@@ -615,50 +680,7 @@ namespace Plateau.Components
             {
                 Color baseRecolor = recolorMap.GetRecolorForGreyscale(greyscaleColors[i]);
                 if (baseRecolor.A != 0)
-                {
-                    if (adjustment == RecolorAdjustment.LIGHTEN)
-                    {
-                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 255, LIGHTEN_AMOUNT);
-                        baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 255, LIGHTEN_AMOUNT);
-                        baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 255, LIGHTEN_AMOUNT);
-                    }
-                    else if (adjustment == RecolorAdjustment.SLIGHT_LIGHTEN)
-                    {
-                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 255, LIGHTEN_AMOUNT * 0.5f);
-                        baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 255, LIGHTEN_AMOUNT * 0.5f);
-                        baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 255, LIGHTEN_AMOUNT * 0.5f);
-                    }
-                    else if (adjustment == RecolorAdjustment.LIGHTEN_PLACEABLE)
-                    {
-                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 255, LIGHTEN_AMOUNT * 0.2f);
-                        baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 255, LIGHTEN_AMOUNT * 0.2f);
-                        baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 255, LIGHTEN_AMOUNT * 0.2f);
-                    }
-                    else if (adjustment == RecolorAdjustment.DARKEN)
-                    {
-                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 0, DARKEN_AMOUNT);
-                        baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 0, DARKEN_AMOUNT);
-                        baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 0, DARKEN_AMOUNT);
-                    }
-                    else if (adjustment == RecolorAdjustment.DARKEN_WALLPAPER)
-                    {
-                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 0, DARKEN_AMOUNT * 1.4f);
-                        baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 0, DARKEN_AMOUNT * 1.4f);
-                        baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 0, DARKEN_AMOUNT * 1.4f);
-                    }
-                    else if (adjustment == RecolorAdjustment.EXTRA_DARKEN)
-                    {
-                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 0, DARKEN_AMOUNT * 1.5f);
-                        baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 0, DARKEN_AMOUNT * 1.5f);
-                        baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 0, DARKEN_AMOUNT * 1.5f);
-                    } else if (adjustment == RecolorAdjustment.NORMAL)
-                    {
-                        baseRecolor.R = (byte)Util.AdjustTowards(baseRecolor.R, 255, LIGHTEN_AMOUNT * 0.15f);
-                        baseRecolor.G = (byte)Util.AdjustTowards(baseRecolor.G, 255, LIGHTEN_AMOUNT * 0.15f);
-                        baseRecolor.B = (byte)Util.AdjustTowards(baseRecolor.B, 255, LIGHTEN_AMOUNT * 0.15f);
-                    }
-                }
-
+                    baseRecolor = AdjustColor(baseRecolor, adjustment);
                 recoloredColors[i] = baseRecolor;
             }
             recoloredTexture.SetData<Color>(recoloredColors);

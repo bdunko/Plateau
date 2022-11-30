@@ -50,14 +50,21 @@ namespace Plateau.Items
             base.Load();
             //load icon recolor
             textureRecolor = PlateauMain.CONTENT.Load<Texture2D>(textureRecolorPath);
-            //load placed recolor/normal
-            placedTexture = PlateauMain.CONTENT.Load<Texture2D>(placedTexturePath);
-            placedTextureRecolor = PlateauMain.CONTENT.Load<Texture2D>(placedTextureRecolorPath);
 
+            //load placed
+            placedTexture = Util.ApplyAdjustment(PlateauMain.CONTENT.Load<Texture2D>(placedTexturePath), placementType != PlacementType.WALLPAPER ? Util.RecolorAdjustment.LIGHTEN_PLACEABLE : Util.RecolorAdjustment.DARKEN_WALLPAPER);
+            
+
+            //recolor
+            placedTextureRecolor = PlateauMain.CONTENT.Load<Texture2D>(placedTextureRecolorPath);
             if(recolorMap != null)
             {
                 textureRecolor = Util.GenerateRecolor(textureRecolor, recolorMap);
                 placedTextureRecolor = Util.GenerateRecolor(placedTextureRecolor, recolorMap, placementType != PlacementType.WALLPAPER ? Util.RecolorAdjustment.LIGHTEN_PLACEABLE : Util.RecolorAdjustment.DARKEN_WALLPAPER);
+            }
+            else
+            {
+                placedTextureRecolor = placedTexture; //a bad but functional workaround for adjusting normal version color
             }
 
             //load preview texture
