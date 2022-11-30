@@ -258,7 +258,14 @@ namespace Plateau.Components
                             world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
                             world.GetCurrentArea().MoveToWaypoint(player, "SPinnHimekoHall");
                             didLastSucceed = true;
-                        } else
+                        }
+                        else if (areaName == "cellar")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPcellarLadder");
+                            didLastSucceed = true;
+                        }
+                        else
                         {
                             didLastSucceed = false;
                         }

@@ -65,7 +65,7 @@ namespace Plateau
                 APEX, BEACH, FARM, STORE, CAFE, BOOKSTORELOWER, BOOKSTOREUPPER, ROCKWELLHOUSE, BEACHHOUSE,
                 PIPERHOUSE, TOWNHALLLOWER, TOWNHALLUPPER, WORKSHOP, FORGE, S0WALK, S0WARP, S1WALK, S1WARP, S2, S3, S4, TOWN, INN, PIPERUPPER, PIPERLOWER,
                 INNBATH, INNTROY, INNCHARLOTTE, INNSPARE1, INNSPARE2, INNHIMEKO,
-                FARMHOUSECABIN, FARMHOUSEHOUSE, FARMHOUSEMANSIONLOWER, FARMHOUSEMANSIONUPPER
+                FARMHOUSECABIN, FARMHOUSEHOUSE, FARMHOUSEMANSIONLOWER, FARMHOUSEMANSIONUPPER, FARMHOUSECELLAR
             }
 
             public RectangleF rect;
@@ -2510,7 +2510,8 @@ namespace Plateau
             //can only place in house
             Area.Subarea.NameEnum subarea = this.GetSubareaAt(new RectangleF(tileX * 8, tileY * 8, tileWidth * 8, tileHeight * 8));
             if (subarea != Area.Subarea.NameEnum.FARMHOUSECABIN && subarea != Area.Subarea.NameEnum.FARMHOUSEHOUSE &&
-                subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONLOWER && subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONUPPER)
+                subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONLOWER && subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONUPPER &&
+                subarea != Area.Subarea.NameEnum.FARMHOUSECELLAR)
                 return false;
 
             for (int x = 0; x < tileWidth; x++)

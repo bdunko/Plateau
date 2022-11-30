@@ -3447,8 +3447,9 @@ namespace Plateau.Components
                                 if (showPlaceableTexture)
                                 {
                                     Area.Subarea.NameEnum subarea = currentArea.GetSubareaAt(player.GetCollisionRectangle());
-                                    if(subarea != Area.Subarea.NameEnum.FARMHOUSECABIN && subarea != Area.Subarea.NameEnum.FARMHOUSEHOUSE && 
-                                        subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONLOWER && subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONUPPER)
+                                    if (subarea != Area.Subarea.NameEnum.FARMHOUSECABIN && subarea != Area.Subarea.NameEnum.FARMHOUSEHOUSE &&
+                                        subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONLOWER && subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONUPPER &&
+                                        subarea != Area.Subarea.NameEnum.FARMHOUSECELLAR)
                                         player.AddNotification(new EntityPlayer.Notification("I can only place Wallpaper in my house.", Color.Red));
                                     else
                                         player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
