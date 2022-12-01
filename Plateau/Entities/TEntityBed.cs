@@ -22,6 +22,7 @@ namespace Plateau.Entities
         public TEntityBed(Texture2D texture, Texture2D sheetsGreyscale, Vector2 tilePosition, int tileWidth, int tileHeight, Vector2 drawAdjustment) : base(texture, tilePosition, tileWidth, tileHeight, drawAdjustment)
         {
             this.sheetsGreyscale = sheetsGreyscale;
+            texture = Util.ApplyAdjustment(texture, Util.RecolorAdjustment.LIGHTEN_PLACEABLE);
             sheetsRecolored = null;
             sheetsDye = ItemDict.NONE;
 

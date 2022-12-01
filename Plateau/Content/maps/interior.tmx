@@ -1548,7 +1548,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="13" name="waypoints" locked="1">
+ <objectgroup id="13" name="waypoints" visible="0" locked="1">
   <object id="1" x="2456" y="448">
    <properties>
     <property name="cameraX" value="2564"/>
