@@ -603,7 +603,7 @@ namespace Plateau.Items
             AddToDictionary(OLD_BONE = new Item("Old Bone", Paths.ITEM_OLD_BONE, DEFAULT_STACK_SIZE, "Go fetch!", 75, Tag.ORE));
             AddToDictionary(FOSSIL_SHARDS = new Item("Fossil Shards", Paths.ITEM_FOSSIL_SHARDS, DEFAULT_STACK_SIZE, "Unfortunately impossible to repair, but maybe you can find someone to take them off your hands.", 5, Tag.ORE));
 
-            AddToDictionary(WEEDS = new Item("Weeds", Paths.ITEM_WEEDS, DEFAULT_STACK_SIZE, "A clump of stubborn weeds. Useful for crafting and composting.", 2));
+            AddToDictionary(WEEDS = new Item("Weeds", Paths.ITEM_WEEDS, DEFAULT_STACK_SIZE, "A clump of stubborn weeds. Useful for crafting and composting.", 2, Tag.FORAGE));
             AddToDictionary(CLAM = new Item("Clam", Paths.ITEM_CLAM, DEFAULT_STACK_SIZE, "A bit shy. Very tasty type of shellfish.", 60, Tag.FISH));
             AddToDictionary(CRIMSON_CORAL = new Item("Crimson Coral", Paths.ITEM_CRIMSON_CORAL, DEFAULT_STACK_SIZE, "This vibrant chunk of coral can be pressed into dye.", 30, Tag.FORAGE));
             AddToDictionary(SEA_URCHIN = new Item("Sea Urchin", Paths.ITEM_SEA_URCHIN, DEFAULT_STACK_SIZE, "Spiky! Can be pressed into a dark blue dye.", 40, Tag.FORAGE));

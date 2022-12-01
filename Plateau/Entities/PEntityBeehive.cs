@@ -285,7 +285,7 @@ namespace Plateau.Entities
                      new HoveringInterface.Row(
                         new HoveringInterface.ItemStackElement(new ItemStack(beesAdded != 0 ? beeType : ItemDict.NONE, beesAdded))));
             }
-            return new HoveringInterface();
+            return null;
         }
 
         public void TickDaily(World timeData, Area area, EntityPlayer player)

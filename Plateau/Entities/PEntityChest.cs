@@ -180,7 +180,7 @@ namespace Plateau.Entities
                     new HoveringInterface.Row(
                         new HoveringInterface.ItemStackElement(contents[0])));
             }
-            return new HoveringInterface();
+            return null;
         }
     }
 }

@@ -291,7 +291,7 @@ namespace Plateau.Entities
                         new HoveringInterface.ItemStackElement(contents[8]),
                         new HoveringInterface.ItemStackElement(contents[9])));
             }
-            return new HoveringInterface();
+            return null;
         }
     }
 }

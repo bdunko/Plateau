@@ -141,7 +141,7 @@ namespace Plateau.Entities
             {
                 return activeStall.GetHoveringInterface(player);
             }
-            return new HoveringInterface();
+            return null;
         }
 
         public override void Update(float deltaTime, Area area)

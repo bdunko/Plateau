@@ -159,7 +159,7 @@ namespace Plateau.Entities
                     new HoveringInterface.Row(
                         new HoveringInterface.ItemStackElement(soulchestContents[itemForm][0])));
             }
-            return new HoveringInterface();
+            return null;
         }
     }
 }

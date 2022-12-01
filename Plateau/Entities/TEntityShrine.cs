@@ -350,6 +350,10 @@ namespace Plateau.Entities
                 requiredItems = shrineStatus2.GetRequiredItems();
             }
 
+            //no hovering interface needed
+            if (requiredItems.Length == 0)
+                return null;
+
             foreach(GameState.ShrineStatus.RequiredItem ri in requiredItems)
             {
                 int needed = ri.amountNeeded - ri.amountHave;
