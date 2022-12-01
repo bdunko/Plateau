@@ -19377,6 +19377,18 @@
 /processorParam:TextureFormat=Color
 /build:items/products/origami/origami_box.png
 
+#begin items/products/origami/origami_candy.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:items/products/origami/origami_candy.png
+
 #begin items/products/origami/origami_dragon.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19437,6 +19449,30 @@
 /processorParam:TextureFormat=Color
 /build:items/products/origami/origami_frog.png
 
+#begin items/products/origami/origami_heart.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:items/products/origami/origami_heart.png
+
+#begin items/products/origami/origami_kite.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:items/products/origami/origami_kite.png
+
 #begin items/products/origami/origami_leaf.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19460,6 +19496,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/origami/origami_lion.png
+
+#begin items/products/origami/origami_rabbit.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:items/products/origami/origami_rabbit.png
 
 #begin items/products/origami/origami_sailboat.png
 /importer:TextureImporter

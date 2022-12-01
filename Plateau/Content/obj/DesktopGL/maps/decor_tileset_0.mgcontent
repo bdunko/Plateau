@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/maps/decor_tileset.png</SourceFile>
-  <SourceTime>2022-11-29T23:17:07.3093612-05:00</SourceTime>
+  <SourceTime>2022-11-30T21:59:59.0586689-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/maps/decor_tileset_0.xnb</DestFile>
-  <DestTime>2022-11-30T20:54:31.9863079-05:00</DestTime>
+  <DestTime>2022-11-30T23:00:47.2285885-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

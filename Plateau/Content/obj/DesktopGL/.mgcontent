@@ -1618,13 +1618,17 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_ball.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_beetle.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_box.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_candy.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_dragon.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_fan.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_fish.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_flower.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_frog.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_heart.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_kite.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_leaf.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_lion.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_rabbit.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_sailboat.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_swan.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_tiger.png</File>
@@ -2824,6 +2828,10 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

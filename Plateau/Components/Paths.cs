@@ -2355,6 +2355,11 @@ namespace Plateau.Components
         public static string ITEM_ORIGAMI_TIGER = "items/products/origami/origami_tiger";
         public static string ITEM_ORIGAMI_TURTLE = "items/products/origami/origami_turtle";
         public static string ITEM_ORIGAMI_WHALE = "items/products/origami/origami_whale";
+        public static string ITEM_ORIGAMI_HEART = "items/products/origami/origami_heart";
+        public static string ITEM_ORIGAMI_RABBIT = "items/products/origami/origami_rabbit";
+        public static string ITEM_ORIGAMI_KITE = "items/products/origami/origami_kite";
+        public static string ITEM_ORIGAMI_CANDY = "items/products/origami/origami_candy";
+
 
 
         //wallpaper

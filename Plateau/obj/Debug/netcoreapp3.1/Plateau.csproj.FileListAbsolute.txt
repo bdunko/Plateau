@@ -5832,3 +5832,7 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\d
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\dye\cyan_dye.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\dye\mint_dye.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\dye\wheat_dye.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\origami\origami_candy.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\origami\origami_heart.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\origami\origami_kite.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\origami\origami_rabbit.xnb

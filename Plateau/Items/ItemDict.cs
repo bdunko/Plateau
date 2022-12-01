@@ -125,7 +125,7 @@ namespace Plateau.Items
             STRIPED_BRACER, CARNIVORE_BRACER, PURIFICATION_BRACER, SCRAP_BRACER, PIN_BRACER, ESSENCE_BRACER, DISSECTION_PENDANT, SOUND_PENDANT, GAIA_PENDANT, CYCLE_PENDANT, EROSION_PENDANT, POLYCULTURE_PENDANT,
             CONTRACT_PENDANT, LADYBUG_PENDANT, DYNAMITE_PENDANT, OILY_PENDANT, NEUTRALIZED_PENDANT, STREAMLINE_PENDANT, TORNADO_PENDANT;
         public static Item ORIGAMI_AIRPLANE, ORIGAMI_BALL, ORIGAMI_BEETLE, ORIGAMI_BOX, ORIGAMI_DRAGON, ORIGAMI_FAN, ORIGAMI_FISH, ORIGAMI_FLOWER, ORIGAMI_FROG, ORIGAMI_LEAF, ORIGAMI_LION, ORIGAMI_SAILBOAT,
-            ORIGAMI_SWAN, ORIGAMI_TIGER, ORIGAMI_TURTLE, ORIGAMI_WHALE;
+            ORIGAMI_SWAN, ORIGAMI_TIGER, ORIGAMI_TURTLE, ORIGAMI_WHALE, ORIGAMI_KITE, ORIGAMI_HEART, ORIGAMI_CANDY, ORIGAMI_RABBIT;
         //clothing
         public static ClothingItem CLOTHING_NONE;
         public static ClothingItem BACKPACK, RUCKSACK, CAPE, WOLF_TAIL, FOX_TAIL, CAT_TAIL, CLOCKWORK, ROBO_ARMS, GUITAR;
@@ -1372,22 +1372,27 @@ namespace Plateau.Items
             AddToDictionary(TORNADO_PENDANT = new Item("Tornado Pendant", Paths.ITEM_TORNADO_PENDANT, 1,"", 1800, Tag.ACCESSORY));
            
             AddToDictionary(ORIGAMI_AIRPLANE = new Item("Origami Airplane", Paths.ITEM_ORIGAMI_AIRPLANE, 1,"", 400, Tag.ACCESSORY));
-            AddToDictionary(ORIGAMI_BALL = new Item("Origami Ball", Paths.ITEM_ORIGAMI_BALL, 1,"", 350, Tag.ACCESSORY));
+            AddToDictionary(ORIGAMI_BALL = new Item("Origami Ball", Paths.ITEM_ORIGAMI_BALL, 1,"", 310, Tag.ACCESSORY));
             AddToDictionary(ORIGAMI_BEETLE = new Item("Origami Beetle", Paths.ITEM_ORIGAMI_BEETLE, 1,"", 400, Tag.ACCESSORY));
             AddToDictionary(ORIGAMI_BOX = new Item("Origami Box", Paths.ITEM_ORIGAMI_BOX, 1,"", 420, Tag.ACCESSORY));
-            AddToDictionary(ORIGAMI_DRAGON = new Item("Origami Dragon", Paths.ITEM_ORIGAMI_DRAGON, 1,"", 450, Tag.ACCESSORY));
+            AddToDictionary(ORIGAMI_DRAGON = new Item("Origami Dragon", Paths.ITEM_ORIGAMI_DRAGON, 1,"", 410, Tag.ACCESSORY));
             AddToDictionary(ORIGAMI_FAN = new Item("Origami Fan", Paths.ITEM_ORIGAMI_FAN, 1,"", 2600, Tag.ACCESSORY));
-            AddToDictionary(ORIGAMI_FISH = new Item("Origami Fish", Paths.ITEM_ORIGAMI_FISH, 1,"", 390, Tag.ACCESSORY));
+            AddToDictionary(ORIGAMI_FISH = new Item("Origami Fish", Paths.ITEM_ORIGAMI_FISH, 1,"", 750, Tag.ACCESSORY));
             AddToDictionary(ORIGAMI_FLOWER = new Item("Origami Flower", Paths.ITEM_ORIGAMI_FLOWER, 1,"", 440, Tag.ACCESSORY));
             AddToDictionary(ORIGAMI_FROG = new Item("Origami Frog", Paths.ITEM_ORIGAMI_FROG, 1,"", 390, Tag.ACCESSORY));
             AddToDictionary(ORIGAMI_LEAF = new Item("Origami Leaf", Paths.ITEM_ORIGAMI_LEAF, 1,"", 360, Tag.ACCESSORY));
-            AddToDictionary(ORIGAMI_LION = new Item("Origami Lion", Paths.ITEM_ORIGAMI_LION, 1,"", 400, Tag.ACCESSORY));
+            AddToDictionary(ORIGAMI_LION = new Item("Origami Lion", Paths.ITEM_ORIGAMI_LION, 1,"", 430, Tag.ACCESSORY));
             AddToDictionary(ORIGAMI_SAILBOAT = new Item("Origami Sailboat", Paths.ITEM_ORIGAMI_SAILBOAT, 1,"", 500, Tag.ACCESSORY));
             AddToDictionary(ORIGAMI_SWAN = new Item("Origami Swan", Paths.ITEM_ORIGAMI_SWAN, 1,"", 450, Tag.ACCESSORY));
             AddToDictionary(ORIGAMI_TIGER = new Item("Origami Tiger", Paths.ITEM_ORIGAMI_TIGER, 1,"", 490, Tag.ACCESSORY));
-            AddToDictionary(ORIGAMI_TURTLE = new Item("Origami Turtle", Paths.ITEM_ORIGAMI_TURTLE, 1,"", 350, Tag.ACCESSORY));
-            AddToDictionary(ORIGAMI_WHALE = new Item("Origami Whale", Paths.ITEM_ORIGAMI_WHALE, 1,"", 400, Tag.ACCESSORY));
-            
+            AddToDictionary(ORIGAMI_TURTLE = new Item("Origami Turtle", Paths.ITEM_ORIGAMI_TURTLE, 1,"", 400, Tag.ACCESSORY));
+            AddToDictionary(ORIGAMI_WHALE = new Item("Origami Whale", Paths.ITEM_ORIGAMI_WHALE, 1,"", 390, Tag.ACCESSORY));
+            AddToDictionary(ORIGAMI_HEART = new Item("Origami Heart", Paths.ITEM_ORIGAMI_HEART, 1, "", 410, Tag.ACCESSORY));
+            AddToDictionary(ORIGAMI_KITE = new Item("Origami Kite", Paths.ITEM_ORIGAMI_KITE, 1, "", 390, Tag.ACCESSORY));
+            AddToDictionary(ORIGAMI_RABBIT = new Item("Origami Rabbit", Paths.ITEM_ORIGAMI_RABBIT, 1, "", 440, Tag.ACCESSORY));
+            AddToDictionary(ORIGAMI_CANDY = new Item("Origami Candy", Paths.ITEM_ORIGAMI_CANDY, 1, "", 490, Tag.ACCESSORY));
+
+
             AddToDictionary(CLOTHING_NONE = new ClothingItem("clothingnone", Paths.ITEM_NONE, Paths.ITEM_NONE, 1,"nodesc", 0, Paths.CLOTHING_NONE_SPRITESHEET, Paths.CLOTHING_NONE_SPRITESHEET, null));
 
             AddToDictionary(BACKPACK = new ClothingItem("Backpack", Paths.ITEM_BACKPACK, Paths.ITEM_BACKPACK, 1,"A convenient backpack. Favorite of hikers and students alike.", 1000, Paths.CLOTHING_BACKPACK_SPRITESHEET_DEFAULT, Paths.CLOTHING_NONE_SPRITESHEET, null, Item.Tag.BACK, Item.Tag.DYEABLE, Item.Tag.CLOTHING));

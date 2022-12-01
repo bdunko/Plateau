@@ -26,10 +26,10 @@ namespace Plateau.Entities
         private ResultHoverBox resultHoverBox;
 
         private static Dictionary<Item, Item> ORIGAMI_DICTIONARY = new Dictionary<Item, Item> {
-            {ItemDict.BLUE_DYE, ItemDict.ORIGAMI_FISH},
-            {ItemDict.NAVY_DYE, ItemDict.ORIGAMI_WHALE},
+            {ItemDict.NAVY_DYE, ItemDict.ORIGAMI_HEART},
+            {ItemDict.BLUE_DYE, ItemDict.ORIGAMI_WHALE},
             {ItemDict.BLACK_DYE, ItemDict.ORIGAMI_BOX},
-            {ItemDict.RED_DYE, ItemDict.ORIGAMI_DRAGON},
+            {ItemDict.RED_DYE, ItemDict.ORIGAMI_KITE},
             {ItemDict.PINK_DYE, ItemDict.ORIGAMI_FAN},
             {ItemDict.LIGHT_BROWN_DYE, ItemDict.ORIGAMI_BEETLE},
             {ItemDict.DARK_BROWN_DYE, ItemDict.ORIGAMI_FROG},
@@ -42,6 +42,11 @@ namespace Plateau.Entities
             {ItemDict.LIGHT_GREY_DYE, ItemDict.ORIGAMI_AIRPLANE},
             {ItemDict.DARK_GREY_DYE, ItemDict.ORIGAMI_SAILBOAT},
             {ItemDict.UN_DYE, ItemDict.ORIGAMI_BALL},
+            {ItemDict.CYAN_DYE, ItemDict.ORIGAMI_FISH},
+            {ItemDict.CRIMSON_DYE, ItemDict.ORIGAMI_DRAGON},
+            {ItemDict.WHEAT_DYE, ItemDict.ORIGAMI_RABBIT},
+            {ItemDict.MINT_DYE, ItemDict.ORIGAMI_CANDY},
+
         };
 
         public PEntityOrigamiStation(PartialRecolorSprite sprite, Vector2 tilePosition, PlaceableItem sourceItem, DrawLayer drawLayer) : base(tilePosition, sourceItem, drawLayer, sprite.GetFrameWidth() / 8, sprite.GetFrameHeight() / 8)

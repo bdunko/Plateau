@@ -417,7 +417,7 @@ namespace Plateau.Components
             BASIC_PATTERNS_SS_UNLOCKS = new Item[] { ItemDict.RUCKSACK, ItemDict.GUITAR, ItemDict.GLASSES, ItemDict.GOGGLES, ItemDict.BASEBALL_CAP, ItemDict.HEADBAND, ItemDict.BUTTERFLY_CLIP, ItemDict.ALL_SEASON_JACKET, ItemDict.JEANS,
             ItemDict.CHINO_SHORTS, ItemDict.SHORT_SKIRT, ItemDict.PUFF_SKIRT, ItemDict.SAILCLOTH, ItemDict.SHORT_SLEEVE_TEE, ItemDict.STRIPED_SHIRT, ItemDict.TANKER, ItemDict.SNEAKERS, ItemDict.SHORT_SOCKS}; //18
 
-            BASIC_PATTERNS_FW_UNLOCKS = new Item[] { ItemDict.WOOL_MITTENS, ItemDict.BOWLER, ItemDict.CAMEL_HAT, ItemDict.SQUARE_HAT, ItemDict.FLAT_CAP, ItemDict.NECKWARMER, ItemDict.SCRAP_BRACER, ItemDict.HOODED_SWEATSHIRT, ItemDict.OVERCOAT,
+            BASIC_PATTERNS_FW_UNLOCKS = new Item[] { ItemDict.WOOL_MITTENS, ItemDict.BOWLER, ItemDict.CAMEL_HAT, ItemDict.SQUARE_HAT, ItemDict.FLAT_CAP, ItemDict.NECKWARMER, ItemDict.SCARF, ItemDict.HOODED_SWEATSHIRT, ItemDict.OVERCOAT,
             ItemDict.CHINOS, ItemDict.LONG_SKIRT, ItemDict.LONG_SLEEVE_TEE, ItemDict.BUTTON_DOWN, ItemDict.PLAID_BUTTON, ItemDict.TURTLENECK, ItemDict.SWEATER, ItemDict.HIGH_TOPS, ItemDict.LONG_SOCKS, ItemDict.STRIPED_SOCKS,
             ItemDict.FESTIVE_SOCKS}; //20
 
