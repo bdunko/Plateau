@@ -1773,6 +1773,10 @@ namespace Plateau.Components
         public static string ITEM_WHITE_DYE = "items/products/dye/white_dye";
         public static string ITEM_LIGHT_GREY_DYE = "items/products/dye/light_grey_dye";
         public static string ITEM_DARK_GREY_DYE = "items/products/dye/dark_grey_dye";
+        public static string ITEM_MINT_DYE = "items/products/dye/mint_dye";
+        public static string ITEM_CRIMSON_DYE = "items/products/dye/crimson_dye";
+        public static string ITEM_WHEAT_DYE = "items/products/dye/wheat_dye";
+        public static string ITEM_CYAN_DYE = "items/products/dye/cyan_dye";
         public static string ITEM_UN_DYE = "items/products/dye/un_dye";
 
         //cloth

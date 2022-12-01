@@ -1587,11 +1587,14 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/cooking/wrapped_cabbage.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/black_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/blue_dye.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/crimson_dye.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/cyan_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/dark_brown_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/dark_grey_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/green_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/light_brown_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/light_grey_dye.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/mint_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/navy_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/olive_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/orange_dye.png</File>
@@ -1599,6 +1602,7 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/purple_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/red_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/un_dye.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/wheat_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/white_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/dye/yellow_dye.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/items/products/glass/glass_sheet.png</File>
@@ -2820,6 +2824,10 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

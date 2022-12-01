@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/clay_oven_spritesheet.png</SourceFile>
-  <SourceTime>2019-10-05T23:32:54-04:00</SourceTime>
+  <SourceTime>2022-11-29T00:27:02.252522-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/placeables/clay_oven_spritesheet.xnb</DestFile>
-  <DestTime>2022-11-20T15:54:25.9878999-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:35.3073122-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

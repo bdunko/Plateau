@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/guitar_greyscale.png</SourceFile>
-  <SourceTime>2022-11-27T23:12:23.2775174-05:00</SourceTime>
+  <SourceTime>2022-11-28T23:38:06.3020471-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/clothing/guitar_greyscale.xnb</DestFile>
-  <DestTime>2022-11-27T23:36:48.8726167-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:26.6003086-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

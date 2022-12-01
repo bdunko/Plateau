@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/interface/scrapbook_pieces/page_patterns_urban.png</SourceFile>
-  <SourceTime>2021-08-14T02:44:21.4009722-04:00</SourceTime>
+  <SourceTime>2022-11-29T18:43:43.5079981-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/interface/scrapbook_pieces/page_patterns_urban.xnb</DestFile>
-  <DestTime>2022-11-20T15:53:47.6589845-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:25.7453114-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

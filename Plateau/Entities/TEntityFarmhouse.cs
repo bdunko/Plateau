@@ -46,7 +46,7 @@ namespace Plateau.Entities
             recolorTentDialogue.decisionUpNode = new DialogueNode("Looking good!", DialogueNode.PORTRAIT_SYSTEM, (player, currentArea, world) =>
             {
                 TEntityFarmhouse house = (TEntityFarmhouse)player.GetTargettedTileEntity();
-                house.DyeWalls(player.GetHeldItem().GetItem());
+                house.DyeRoof(player.GetHeldItem().GetItem());
                 player.GetHeldItem().Subtract(1);
             });
             recolorTentDialogue.decisionDownText = "Nevermind";
@@ -168,7 +168,7 @@ namespace Plateau.Entities
             }
             else
             {
-                Texture2D recoloredTrim = Util.GenerateRecolor(trimSS, ((DyeItem)trimDye).GetRecolorMap(), Util.RecolorAdjustment.DARKEN_HOUSE_TRIM);
+                Texture2D recoloredTrim = Util.GenerateRecolor(trimSS, ((DyeItem)trimDye).GetRecolorMap(), Util.RecolorAdjustment.LIGHTEN_HOUSE_TRIM);
                 trimSprite = GenerateAnimatedSprite(recoloredTrim);
             }
         }

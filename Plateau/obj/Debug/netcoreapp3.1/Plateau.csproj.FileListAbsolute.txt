@@ -5828,3 +5828,7 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\special_cade_winter.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\clothes\special_cade_autumn.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\placeables\chefs_table_greyscale.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\dye\crimson_dye.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\dye\cyan_dye.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\dye\mint_dye.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\dye\wheat_dye.xnb

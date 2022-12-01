@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/paintings/paintingframe_huge_greyscale.png</SourceFile>
-  <SourceTime>2021-07-05T15:22:40.7701439-04:00</SourceTime>
+  <SourceTime>2022-11-28T22:20:06.183229-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/placeables/paintings/paintingframe_huge_greyscale.xnb</DestFile>
-  <DestTime>2022-11-20T15:53:51.4209715-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:29.3683089-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

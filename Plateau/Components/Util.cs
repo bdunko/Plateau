@@ -161,7 +161,7 @@ namespace Plateau.Components
         public static NamedColor GREYSCALE_45 = new NamedColor(new Color(45, 45, 45), "GS-45");
 
         public static RecolorMap BLACK = new RecolorMap("Black");
-        public static RecolorMap BLUE = new RecolorMap("Blue");
+        public static RecolorMap CYAN = new RecolorMap("Cyan");
         public static RecolorMap DARK_BROWN = new RecolorMap("Dark Brown");
         public static RecolorMap LIGHT_BROWN = new RecolorMap("Light Brown");
         public static RecolorMap DARK_GREY = new RecolorMap("Dark Grey");
@@ -175,6 +175,10 @@ namespace Plateau.Components
         public static RecolorMap RED = new RecolorMap("Red");
         public static RecolorMap WHITE = new RecolorMap("White");
         public static RecolorMap YELLOW = new RecolorMap("Yellow");
+        public static RecolorMap BLUE = new RecolorMap("Blue");
+        public static RecolorMap CRIMSON = new RecolorMap("Crimson");
+        public static RecolorMap WHEAT = new RecolorMap("Wheat");
+        public static RecolorMap MINT = new RecolorMap("Mint");
 
         public static RecolorMap HAIR_TREEBARK_BROWN = new RecolorMap("Hair Treebark Brown");
         public static RecolorMap HAIR_CHARCOAL_BLACK = new RecolorMap("Hair Charcoal Black");
@@ -197,7 +201,7 @@ namespace Plateau.Components
         public static RecolorMap HAIR_WINTER_MINT = new RecolorMap("Hair Winter Mint");
         public static RecolorMap HAIR_VINYL_BROWN = new RecolorMap("Hair Vinyl Brown");
 
-        public static RecolorMap[] DYE_COLORS = { BLACK, BLUE, LIGHT_BROWN, DARK_BROWN, DARK_GREY, LIGHT_GREY, NAVY, GREEN, OLIVE, ORANGE, PINK, PURPLE, RED, YELLOW, WHITE};
+        public static RecolorMap[] DYE_COLORS = { BLACK, CYAN, LIGHT_BROWN, DARK_BROWN, DARK_GREY, LIGHT_GREY, NAVY, GREEN, OLIVE, ORANGE, PINK, PURPLE, RED, YELLOW, WHITE, MINT, BLUE, WHEAT, CRIMSON};
         public static RecolorMap[] HAIR_COLORS = { HAIR_TREEBARK_BROWN, HAIR_CHARCOAL_BLACK, HAIR_SNOW_WHITE, HAIR_SOLAR_BLOND, HAIR_FLARE_GINGER, HAIR_CHERRYWOOD_BROWN, HAIR_SAND_BLOND, HAIR_DUST_BLOND,
         HAIR_ANTIQUE_SILVER, HAIR_RUSTED_GREY, HAIR_MAGMA_RED, HAIR_FOREST_GREEN, HAIR_NEON_GREEN, HAIR_ABYSS_NAVY, HAIR_CHRYSALIS_BLUE, HAIR_SWEET_PINK, HAIR_MOTH_PURPLE, HAIR_GREY_FROST, HAIR_WINTER_MINT, HAIR_VINYL_BROWN};
 
@@ -214,50 +218,65 @@ namespace Plateau.Components
             BLACK.AddMapping(GREYSCALE_195.color, new Color(20, 16, 19));
             BLACK.AddMapping(GREYSCALE_165.color, new Color(6, 6, 6));
 
-            BLUE.AddMapping(GREYSCALE_255.color, new Color(32, 214, 199));
-            BLUE.AddMapping(GREYSCALE_225.color, new Color(36, 159, 222));
-            BLUE.AddMapping(GREYSCALE_195.color, new Color(40, 92, 196));
-            BLUE.AddMapping(GREYSCALE_165.color, new Color(20, 52, 100));
-
-            DARK_BROWN.AddMapping(GREYSCALE_255.color, new Color(113, 65, 59));
-            DARK_BROWN.AddMapping(GREYSCALE_225.color, new Color(91, 49, 56));
-            DARK_BROWN.AddMapping(GREYSCALE_195.color, new Color(66, 36, 51));
-            DARK_BROWN.AddMapping(GREYSCALE_165.color, new Color(50, 43, 40));
-
-            LIGHT_BROWN.AddMapping(GREYSCALE_255.color, new Color(244, 210, 156));
-            LIGHT_BROWN.AddMapping(GREYSCALE_225.color, new Color(219, 164, 99));
-            LIGHT_BROWN.AddMapping(GREYSCALE_195.color, new Color(187, 117, 71));
-            LIGHT_BROWN.AddMapping(GREYSCALE_165.color, new Color(113, 65, 59));
-
-            DARK_GREY.AddMapping(GREYSCALE_255.color, new Color(109, 117, 141));
-            DARK_GREY.AddMapping(GREYSCALE_225.color, new Color(74, 84, 98));
-            DARK_GREY.AddMapping(GREYSCALE_195.color, new Color(51, 57, 65));
-            DARK_GREY.AddMapping(GREYSCALE_165.color, new Color(20, 16, 19));
+            WHITE.AddMapping(GREYSCALE_255.color, new Color(255, 255, 255));
+            WHITE.AddMapping(GREYSCALE_225.color, new Color(254, 243, 192));
+            WHITE.AddMapping(GREYSCALE_195.color, new Color(250, 214, 184));
+            WHITE.AddMapping(GREYSCALE_165.color, new Color(233, 181, 163));
 
             LIGHT_GREY.AddMapping(GREYSCALE_255.color, new Color(218, 224, 234));
             LIGHT_GREY.AddMapping(GREYSCALE_225.color, new Color(179, 185, 209));
             LIGHT_GREY.AddMapping(GREYSCALE_195.color, new Color(139, 147, 175));
             LIGHT_GREY.AddMapping(GREYSCALE_165.color, new Color(109, 117, 141));
 
+            DARK_GREY.AddMapping(GREYSCALE_255.color, new Color(109, 117, 141));
+            DARK_GREY.AddMapping(GREYSCALE_225.color, new Color(74, 84, 98));
+            DARK_GREY.AddMapping(GREYSCALE_195.color, new Color(51, 57, 65));
+            DARK_GREY.AddMapping(GREYSCALE_165.color, new Color(20, 16, 19));
+
+            DARK_BROWN.AddMapping(GREYSCALE_255.color, new Color(113, 65, 59));
+            DARK_BROWN.AddMapping(GREYSCALE_225.color, new Color(91, 49, 56));
+            DARK_BROWN.AddMapping(GREYSCALE_195.color, new Color(66, 36, 51));
+            DARK_BROWN.AddMapping(GREYSCALE_165.color, new Color(34, 28, 26));
+
+            LIGHT_BROWN.AddMapping(GREYSCALE_255.color, new Color(244, 210, 156));
+            LIGHT_BROWN.AddMapping(GREYSCALE_225.color, new Color(219, 164, 99));
+            LIGHT_BROWN.AddMapping(GREYSCALE_195.color, new Color(187, 117, 71));
+            LIGHT_BROWN.AddMapping(GREYSCALE_165.color, new Color(113, 65, 59));
+
+            WHEAT.AddMapping(GREYSCALE_255.color, new Color(228, 210, 170));
+            WHEAT.AddMapping(GREYSCALE_225.color, new Color(199, 176, 139));
+            WHEAT.AddMapping(GREYSCALE_195.color, new Color(160, 134, 98));
+            WHEAT.AddMapping(GREYSCALE_165.color, new Color(121, 103, 85));
+
             NAVY.AddMapping(GREYSCALE_255.color, new Color(40, 92, 196));
             NAVY.AddMapping(GREYSCALE_225.color, new Color(20, 52, 100));
             NAVY.AddMapping(GREYSCALE_195.color, new Color(36, 34, 52));
             NAVY.AddMapping(GREYSCALE_165.color, new Color(20, 16, 19));
 
-            GREEN.AddMapping(GREYSCALE_255.color, new Color(214, 242, 100));
-            GREEN.AddMapping(GREYSCALE_225.color, new Color(157, 219, 67));
-            GREEN.AddMapping(GREYSCALE_195.color, new Color(89, 193, 53));
-            GREEN.AddMapping(GREYSCALE_165.color, new Color(20, 160, 46));
+            CYAN.AddMapping(GREYSCALE_255.color, new Color(166, 252, 219));
+            CYAN.AddMapping(GREYSCALE_225.color, new Color(32, 214, 199));
+            CYAN.AddMapping(GREYSCALE_195.color, new Color(36, 159, 222));
+            CYAN.AddMapping(GREYSCALE_165.color, new Color(40, 92, 196));
+
+            BLUE.AddMapping(GREYSCALE_255.color, new Color(227, 230, 255));
+            BLUE.AddMapping(GREYSCALE_225.color, new Color(185, 191, 251));
+            BLUE.AddMapping(GREYSCALE_195.color, new Color(132, 155, 228));
+            BLUE.AddMapping(GREYSCALE_165.color, new Color(88, 141, 190));
+
+            GREEN.AddMapping(GREYSCALE_255.color, new Color(156, 219, 67));
+            GREEN.AddMapping(GREYSCALE_225.color, new Color(89, 193, 53));
+            GREEN.AddMapping(GREYSCALE_195.color, new Color(20, 160, 46));
+            GREEN.AddMapping(GREYSCALE_165.color, new Color(26, 122, 62));
 
             OLIVE.AddMapping(GREYSCALE_255.color, new Color(26, 122, 62));
             OLIVE.AddMapping(GREYSCALE_225.color, new Color(36, 82, 59));
             OLIVE.AddMapping(GREYSCALE_195.color, new Color(18, 32, 32));
             OLIVE.AddMapping(GREYSCALE_165.color, new Color(20, 16, 19));
 
-            ORANGE.AddMapping(GREYSCALE_255.color, new Color(249, 163, 27));
-            ORANGE.AddMapping(GREYSCALE_225.color, new Color(250, 106, 10));
-            ORANGE.AddMapping(GREYSCALE_195.color, new Color(223, 62, 35));
-            ORANGE.AddMapping(GREYSCALE_165.color, new Color(180, 32, 42));
+            MINT.AddMapping(GREYSCALE_255.color, new Color(205, 247, 226));
+            MINT.AddMapping(GREYSCALE_225.color, new Color(146, 220, 186));
+            MINT.AddMapping(GREYSCALE_195.color, new Color(93, 175, 141));
+            MINT.AddMapping(GREYSCALE_165.color, new Color(50, 132, 100));
 
             PINK.AddMapping(GREYSCALE_255.color, new Color(250, 214, 184));
             PINK.AddMapping(GREYSCALE_225.color, new Color(245, 160, 151));
@@ -269,25 +288,25 @@ namespace Plateau.Components
             PURPLE.AddMapping(GREYSCALE_195.color, new Color(64, 51, 83));
             PURPLE.AddMapping(GREYSCALE_165.color, new Color(36, 34, 52));
 
-            RED.AddMapping(GREYSCALE_255.color, new Color(223, 62, 35));
-            RED.AddMapping(GREYSCALE_225.color, new Color(180, 32, 42));
-            RED.AddMapping(GREYSCALE_195.color, new Color(115, 23, 45));
-            RED.AddMapping(GREYSCALE_165.color, new Color(59, 23, 37));
-            //crimson
-            //RED.AddMapping(GREYSCALE_255.color, new Color(180, 32, 42));
-            //RED.AddMapping(GREYSCALE_225.color, new Color(115, 23, 45));
-            //RED.AddMapping(GREYSCALE_195.color, new Color(59, 23, 37));
-            //RED.AddMapping(GREYSCALE_165.color, new Color(20, 16, 19));
-
             YELLOW.AddMapping(GREYSCALE_255.color, new Color(255, 252, 64));
             YELLOW.AddMapping(GREYSCALE_225.color, new Color(255, 213, 65));
             YELLOW.AddMapping(GREYSCALE_195.color, new Color(249, 163, 27));
             YELLOW.AddMapping(GREYSCALE_165.color, new Color(250, 106, 10));
 
-            WHITE.AddMapping(GREYSCALE_255.color, new Color(255, 255, 255));
-            WHITE.AddMapping(GREYSCALE_225.color, new Color(254, 243, 192));
-            WHITE.AddMapping(GREYSCALE_195.color, new Color(250, 214, 184));
-            WHITE.AddMapping(GREYSCALE_165.color, new Color(233, 181, 163));
+            ORANGE.AddMapping(GREYSCALE_255.color, new Color(249, 163, 27));
+            ORANGE.AddMapping(GREYSCALE_225.color, new Color(250, 106, 10));
+            ORANGE.AddMapping(GREYSCALE_195.color, new Color(223, 62, 35));
+            ORANGE.AddMapping(GREYSCALE_165.color, new Color(180, 32, 42));
+
+            RED.AddMapping(GREYSCALE_255.color, new Color(223, 62, 35));
+            RED.AddMapping(GREYSCALE_225.color, new Color(180, 32, 42));
+            RED.AddMapping(GREYSCALE_195.color, new Color(115, 23, 45));
+            RED.AddMapping(GREYSCALE_165.color, new Color(59, 23, 37));
+
+            CRIMSON.AddMapping(GREYSCALE_255.color, new Color(180, 32, 42));
+            CRIMSON.AddMapping(GREYSCALE_225.color, new Color(115, 23, 45));
+            CRIMSON.AddMapping(GREYSCALE_195.color, new Color(59, 23, 37));
+            CRIMSON.AddMapping(GREYSCALE_165.color, new Color(20, 16, 19));
 
             HAIR_TREEBARK_BROWN.AddMapping(GREYSCALE_255.color, new Color(146, 86, 63));
             HAIR_TREEBARK_BROWN.AddMapping(GREYSCALE_225.color, new Color(118, 65, 50));
@@ -447,7 +466,7 @@ namespace Plateau.Components
         {
             LIGHTEN, SLIGHT_LIGHTEN, DARKEN, EXTRA_DARKEN, NORMAL, //used for clothing
             LIGHTEN_PLACEABLE, DARKEN_WALLPAPER, //used for placeables & bed
-            LIGHTEN_HOUSE_ROOF, DARKEN_HOUSE_WALLS, DARKEN_HOUSE_TRIM //used for farmhouse
+            LIGHTEN_HOUSE_ROOF, DARKEN_HOUSE_WALLS, LIGHTEN_HOUSE_TRIM //used for farmhouse
         }
 
         private static int LIGHTEN_AMOUNT = 35;
@@ -480,6 +499,12 @@ namespace Plateau.Components
                 newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.3f);
                 newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.3f);
             }
+            else if (adjustment == RecolorAdjustment.LIGHTEN_HOUSE_TRIM)
+            {
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.1f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.1f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.1f);
+            }
             else if (adjustment == RecolorAdjustment.DARKEN)
             {
                 newColor.R = (byte)Util.AdjustTowards(newColor.R, 0, DARKEN_AMOUNT);
@@ -494,15 +519,9 @@ namespace Plateau.Components
             }
             else if (adjustment == RecolorAdjustment.DARKEN_HOUSE_WALLS)
             {
-                newColor.R = (byte)Util.AdjustTowards(newColor.R, 0, DARKEN_AMOUNT * 1.15f);
-                newColor.G = (byte)Util.AdjustTowards(newColor.G, 0, DARKEN_AMOUNT * 1.15f);
-                newColor.B = (byte)Util.AdjustTowards(newColor.B, 0, DARKEN_AMOUNT * 1.15f);
-            }
-            else if (adjustment == RecolorAdjustment.DARKEN_HOUSE_TRIM)
-            {
-                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.1f);
-                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.1f);
-                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.1f);
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 0, DARKEN_AMOUNT * 0.6f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 0, DARKEN_AMOUNT * 0.6f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 0, DARKEN_AMOUNT * 0.6f);
             }
             else if (adjustment == RecolorAdjustment.EXTRA_DARKEN)
             {

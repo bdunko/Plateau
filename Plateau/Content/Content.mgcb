@@ -19005,6 +19005,30 @@
 /processorParam:TextureFormat=Color
 /build:items/products/dye/blue_dye.png
 
+#begin items/products/dye/crimson_dye.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:items/products/dye/crimson_dye.png
+
+#begin items/products/dye/cyan_dye.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:items/products/dye/cyan_dye.png
+
 #begin items/products/dye/dark_brown_dye.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -19064,6 +19088,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/dye/light_grey_dye.png
+
+#begin items/products/dye/mint_dye.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:items/products/dye/mint_dye.png
 
 #begin items/products/dye/navy_dye.png
 /importer:TextureImporter
@@ -19148,6 +19184,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:items/products/dye/un_dye.png
+
+#begin items/products/dye/wheat_dye.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:items/products/dye/wheat_dye.png
 
 #begin items/products/dye/white_dye.png
 /importer:TextureImporter

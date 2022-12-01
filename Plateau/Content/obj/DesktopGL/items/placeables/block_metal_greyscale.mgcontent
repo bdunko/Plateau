@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/block_metal_greyscale.png</SourceFile>
-  <SourceTime>2021-10-24T15:01:38.673391-04:00</SourceTime>
+  <SourceTime>2022-11-28T00:32:02.4045658-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/placeables/block_metal_greyscale.xnb</DestFile>
-  <DestTime>2022-11-20T15:53:50.2159703-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:28.1693091-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/shirt_short_sleeve_tee.png</SourceFile>
-  <SourceTime>2019-09-05T15:23:28-04:00</SourceTime>
+  <SourceTime>2022-11-29T02:25:33.4326994-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/clothes/shirt_short_sleeve_tee.xnb</DestFile>
-  <DestTime>2022-11-20T15:54:24.2188929-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:34.0453102-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

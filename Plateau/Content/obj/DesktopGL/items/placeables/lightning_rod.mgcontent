@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/lightning_rod.png</SourceFile>
-  <SourceTime>2019-09-10T17:57:06-04:00</SourceTime>
+  <SourceTime>2022-11-28T17:16:12.2567777-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/placeables/lightning_rod.xnb</DestFile>
-  <DestTime>2022-11-20T15:53:51.0399725-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:28.9963084-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

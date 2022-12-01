@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/recycler_greyscale.png</SourceFile>
-  <SourceTime>2020-07-15T18:09:02-04:00</SourceTime>
+  <SourceTime>2022-11-28T17:52:05.218387-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/placeables/recycler_greyscale.xnb</DestFile>
-  <DestTime>2022-11-20T15:53:51.6549709-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:29.6703085-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

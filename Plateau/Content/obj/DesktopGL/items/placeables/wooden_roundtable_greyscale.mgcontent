@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/wooden_roundtable_greyscale.png</SourceFile>
-  <SourceTime>2019-09-10T17:36:54-04:00</SourceTime>
+  <SourceTime>2022-11-28T18:43:49.5597413-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/placeables/wooden_roundtable_greyscale.xnb</DestFile>
-  <DestTime>2022-11-20T15:53:52.319299-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:30.4733078-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

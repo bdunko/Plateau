@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/igloo_spritesheet_greyscale.png</SourceFile>
-  <SourceTime>2019-09-11T22:17:56-04:00</SourceTime>
+  <SourceTime>2022-11-28T17:10:12.8570903-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/placeables/igloo_spritesheet_greyscale.xnb</DestFile>
-  <DestTime>2022-11-20T15:54:26.5020159-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:35.9483097-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

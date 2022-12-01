@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/clothing/overcoat_greyscale.png</SourceFile>
-  <SourceTime>2022-11-27T23:11:42.3756361-05:00</SourceTime>
+  <SourceTime>2022-11-28T23:12:46.8247355-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/clothing/overcoat_greyscale.xnb</DestFile>
-  <DestTime>2022-11-27T23:36:48.894618-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:26.7763095-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/birdhouse_greyscale.png</SourceFile>
-  <SourceTime>2019-10-06T00:55:24-04:00</SourceTime>
+  <SourceTime>2022-11-27T23:55:37.4268399-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/placeables/birdhouse_greyscale.xnb</DestFile>
-  <DestTime>2022-11-20T15:53:50.1849711-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:28.1233091-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -1447,7 +1447,7 @@ namespace Plateau.Components
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SANDCASTLE, 1), new ItemStack(ItemDict.PEARL, 1), new ItemStack(ItemDict.EARTH_CRYSTAL, 1)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.UMBRELLA, 1), new ItemStack(ItemDict.IRON_BAR, 1), new ItemStack(ItemDict.LINEN_CLOTH, 3)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.UMBRELLA_TABLE, 1), new ItemStack(ItemDict.UMBRELLA, 1), new ItemStack(ItemDict.WOODEN_ROUNDTABLE, 1)));
-            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SURFBOARD, 1), new ItemStack(ItemDict.WOOD, 3), new ItemStack(ItemDict.BLUE_DYE, 2)));
+            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SURFBOARD, 1), new ItemStack(ItemDict.WOOD, 3), new ItemStack(ItemDict.CYAN_DYE, 5)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BAMBOO_FENCE, 5), new ItemStack(ItemDict.BAMBOO, 3)));
             //fab farm
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.CART, 1), new ItemStack(ItemDict.BOARD, 3), new ItemStack(ItemDict.IRON_BAR, 1)));
@@ -1458,7 +1458,7 @@ namespace Plateau.Components
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.MARKET_STALL, 1), new ItemStack(ItemDict.PLANK, 8), new ItemStack(ItemDict.LINEN_CLOTH, 4)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.MILK_JUG, 1), new ItemStack(ItemDict.IRON_BAR, 1), new ItemStack(ItemDict.MILK, 1)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.PET_BOWL, 1), new ItemStack(ItemDict.IRON_BAR, 2)));
-            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.PILE_OF_BRICKS, 1), new ItemStack(ItemDict.BRICKS, 3), new ItemStack(ItemDict.RED_DYE, 1)));
+            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.PILE_OF_BRICKS, 1), new ItemStack(ItemDict.BRICKS, 3), new ItemStack(ItemDict.CRIMSON_DYE, 1)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SCARECROW, 1), new ItemStack(ItemDict.MOUNTAIN_WHEAT, 3), new ItemStack(ItemDict.WEEDS, 2), new ItemStack(ItemDict.HARDWOOD, 1)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SIGNPOST, 1), new ItemStack(ItemDict.BOARD, 3), new ItemStack(ItemDict.BLACK_DYE, 1)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TOOLBOX, 1), new ItemStack(ItemDict.IRON_BAR, 2), new ItemStack(ItemDict.RED_DYE, 2)));
@@ -1470,10 +1470,10 @@ namespace Plateau.Components
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TALL_FENCE, 5), new ItemStack(ItemDict.BOARD, 5)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BELL, 1), new ItemStack(ItemDict.WOOD, 2), new ItemStack(ItemDict.GOLD_BAR, 1)));
             //reflec
-            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.ANATOMICAL_POSTER, 1), new ItemStack(ItemDict.RED_DYE, 4), new ItemStack(ItemDict.ORANGE_DYE, 2)));
+            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.ANATOMICAL_POSTER, 1), new ItemStack(ItemDict.CRIMSON_DYE, 4), new ItemStack(ItemDict.ORANGE_DYE, 2)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BANNER, 1), new ItemStack(ItemDict.LINEN_CLOTH, 2)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.CANVAS, 1), new ItemStack(ItemDict.BOARD, 2), new ItemStack(ItemDict.PAPER, 4)));
-            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.HELIX_POSTER, 1), new ItemStack(ItemDict.BLUE_DYE, 4), new ItemStack(ItemDict.NAVY_DYE, 4)));
+            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.HELIX_POSTER, 1), new ItemStack(ItemDict.CYAN_DYE, 4), new ItemStack(ItemDict.BLUE_DYE, 4), new ItemStack(ItemDict.NAVY_DYE, 4)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.HORIZONTAL_MIRROR, 1), new ItemStack(ItemDict.GOLD_BAR, 1), new ItemStack(ItemDict.GLASS_SHEET, 3)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.ORNATE_MIRROR, 1), new ItemStack(ItemDict.GOLDEN_LEAF, 3), new ItemStack(ItemDict.GLASS_SHEET, 6)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.RAINBOW_GRAFFITI, 1), new ItemStack(ItemDict.ORANGE_DYE, 3), new ItemStack(ItemDict.BLUE_DYE, 2), new ItemStack(ItemDict.OLIVE_DYE, 1), new ItemStack(ItemDict.PURPLE_DYE, 1)));
@@ -1511,13 +1511,13 @@ namespace Plateau.Components
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TRAFFIC_LIGHT, 1), new ItemStack(ItemDict.IRON_BAR, 4), new ItemStack(ItemDict.RED_DYE, 1), new ItemStack(ItemDict.YELLOW_DYE, 1), new ItemStack(ItemDict.GREEN_DYE, 1)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TRASHCAN, 1), new ItemStack(ItemDict.IRON_BAR, 2), new ItemStack(ItemDict.WEEDS, 6)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.FULL_THROTTLE_GRAFFITI, 1), new ItemStack(ItemDict.ORANGE_DYE, 3), new ItemStack(ItemDict.RED_DYE, 3)));
-            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.HEARTBREAK_GRAFFITI, 1), new ItemStack(ItemDict.RED_DYE, 3), new ItemStack(ItemDict.PURPLE_DYE, 3)));
+            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.HEARTBREAK_GRAFFITI, 1), new ItemStack(ItemDict.CRIMSON_DYE, 3), new ItemStack(ItemDict.PURPLE_DYE, 3)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.HEROINE_GRAFFITI, 1), new ItemStack(ItemDict.PINK_DYE, 3), new ItemStack(ItemDict.PURPLE_DYE, 3)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.LEFTWARD_GRAFFITI, 1), new ItemStack(ItemDict.RED_DYE, 7)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.NOIZEBOYZ_GRAFFITI, 1), new ItemStack(ItemDict.YELLOW_DYE, 3), new ItemStack(ItemDict.GREEN_DYE, 3), new ItemStack(ItemDict.WHITE_DYE, 2)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.RETRO_GRAFFITI, 1), new ItemStack(ItemDict.YELLOW_DYE, 6)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.RIGHT_ARROW_GRAFFITI, 1), new ItemStack(ItemDict.GREEN_DYE, 3), new ItemStack(ItemDict.OLIVE_DYE, 3)));
-            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SMILE_GRAFFITI, 1), new ItemStack(ItemDict.RED_DYE, 2), new ItemStack(ItemDict.BLUE_DYE, 2), new ItemStack(ItemDict.GREEN_DYE, 2)));
+            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SMILE_GRAFFITI, 1), new ItemStack(ItemDict.RED_DYE, 2), new ItemStack(ItemDict.CYAN_DYE, 2), new ItemStack(ItemDict.MINT_DYE, 2), new ItemStack(ItemDict.WHEAT_DYE, 2)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SOURCE_UNKNOWN_GRAFFITI, 1), new ItemStack(ItemDict.BLUE_DYE, 3), new ItemStack(ItemDict.NAVY_DYE, 3)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.METAL_FENCE, 5), new ItemStack(ItemDict.IRON_BAR, 1)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.MYTHRIL_FENCE, 5), new ItemStack(ItemDict.MYTHRIL_BAR, 1)));
@@ -1554,18 +1554,18 @@ namespace Plateau.Components
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.THIN_TATAMI_FLOOR, 5), new ItemStack(ItemDict.BAMBOO, 2)));
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.MAT_FLOOR, 5), new ItemStack(ItemDict.COTTON_CLOTH, 1)));
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.FOOTPRINT_FLOOR, 5), new ItemStack(ItemDict.CLAY, 2)));
-            WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TRIANGULATE_FLOOR, 5), new ItemStack(ItemDict.BLUE_DYE, 1), new ItemStack(ItemDict.RED_DYE, 1)));
+            WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TRIANGULATE_FLOOR, 5), new ItemStack(ItemDict.CYAN_DYE, 1), new ItemStack(ItemDict.RED_DYE, 1)));
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SQUARE_FLOOR, 5), new ItemStack(ItemDict.STONE, 2)));
 
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SOLID_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.HARDWOOD, 1)));
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.HORIZONTAL_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.BLUE_DYE, 1), new ItemStack(ItemDict.WHITE_DYE, 1)));
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.VERTICAL_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.LIGHT_BROWN_DYE, 2)));
-            WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.WAVE_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.BLUE_DYE, 2)));
+            WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.WAVE_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.CYAN_DYE, 2)));
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.STAR_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.BLACK_DYE, 1), new ItemStack(ItemDict.YELLOW_DYE, 1)));
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BUBBLE_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.BLUE_DYE, 1), new ItemStack(ItemDict.NAVY_DYE, 1)));
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.DOT_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.WHITE_DYE, 1), new ItemStack(ItemDict.BLACK_DYE, 1)));
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.POLKA_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.LIGHT_BROWN_DYE, 1), new ItemStack(ItemDict.YELLOW_DYE, 1)));
-            WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.INVADER_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.RED_DYE, 1), new ItemStack(ItemDict.BLACK_DYE, 1)));
+            WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.INVADER_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.CRIMSON_DYE, 1), new ItemStack(ItemDict.BLACK_DYE, 1)));
             WALL_FLOOR_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.ODD_WALLPAPER, 5), new ItemStack(ItemDict.PAPER, 2), new ItemStack(ItemDict.GREEN_DYE, 1), new ItemStack(ItemDict.OLIVE_DYE, 1)));
 
             // (S/S) (F/W) (COUNTRY) (URBAN) (TROPICAL) (COSTUME)
@@ -1574,7 +1574,7 @@ namespace Plateau.Components
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TANKER, 1), new ItemStack(ItemDict.LINEN_CLOTH, 1), new ItemStack(ItemDict.BLUE_DYE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.LONG_SLEEVE_TEE, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BUTTON_DOWN, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2), new ItemStack(ItemDict.BLUE_DYE, 1), new ItemStack(ItemDict.PEARL, 1)));
-            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.PLAID_BUTTON, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 2), new ItemStack(ItemDict.BLACK_DYE, 1), new ItemStack(ItemDict.RED_DYE, 1)));
+            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.PLAID_BUTTON, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 2), new ItemStack(ItemDict.BLACK_DYE, 1), new ItemStack(ItemDict.CRIMSON_DYE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TURTLENECK, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 3), new ItemStack(ItemDict.OLIVE_DYE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SWEATER, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 3), new ItemStack(ItemDict.ORANGE_DYE, 1), new ItemStack(ItemDict.RED_DYE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.LINEN_BUTTON, 1), new ItemStack(ItemDict.LINEN_CLOTH, 2), new ItemStack(ItemDict.PEARL, 1)));
@@ -1596,9 +1596,9 @@ namespace Plateau.Components
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.OVERCOAT, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 6), new ItemStack(ItemDict.LIGHT_BROWN_DYE, 3)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.APRON, 1), new ItemStack(ItemDict.COTTON_CLOTH, 5), new ItemStack(ItemDict.PINK_DYE, 2)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.OVERALLS, 1), new ItemStack(ItemDict.COTTON_CLOTH, 6), new ItemStack(ItemDict.NAVY_DYE, 4)));
-            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.RAINCOAT, 1), new ItemStack(ItemDict.COTTON_CLOTH, 4), new ItemStack(ItemDict.BEESWAX, 6))); //add beewax
-            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.PUNK_JACKET, 1), new ItemStack(ItemDict.BOAR_HIDE, 6), new ItemStack(ItemDict.RED_DYE, 6)));
-            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.ONESIE, 1), new ItemStack(ItemDict.COTTON_CLOTH, 6), new ItemStack(ItemDict.BLUE_DYE, 3)));
+            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.RAINCOAT, 1), new ItemStack(ItemDict.COTTON_CLOTH, 4), new ItemStack(ItemDict.BEESWAX, 6)));
+            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.PUNK_JACKET, 1), new ItemStack(ItemDict.BOAR_HIDE, 6), new ItemStack(ItemDict.CRIMSON_DYE, 6)));
+            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.ONESIE, 1), new ItemStack(ItemDict.COTTON_CLOTH, 6), new ItemStack(ItemDict.CYAN_DYE, 3)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.WEDDING_DRESS, 1), new ItemStack(ItemDict.LINEN_CLOTH, 8), new ItemStack(ItemDict.DIAMOND, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SUIT_JACKET, 1), new ItemStack(ItemDict.COTTON_CLOTH, 5), new ItemStack(ItemDict.SKY_ROSE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.NOMAD_VEST, 1), new ItemStack(ItemDict.LINEN_CLOTH, 4), new ItemStack(ItemDict.ORANGE_DYE, 3), new ItemStack(ItemDict.GOLDEN_LEAF, 1)));
@@ -1622,12 +1622,12 @@ namespace Plateau.Components
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SASH, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 1), new ItemStack(ItemDict.RED_DYE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.ASCOT, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 2), new ItemStack(ItemDict.NAVY_DYE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.NECKLACE, 1), new ItemStack(ItemDict.PEARL, 3)));
-            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TIE, 1), new ItemStack(ItemDict.LINEN_CLOTH, 1), new ItemStack(ItemDict.RED_DYE, 1)));
+            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TIE, 1), new ItemStack(ItemDict.LINEN_CLOTH, 1), new ItemStack(ItemDict.CRIMSON_DYE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.MEDAL, 1), new ItemStack(ItemDict.LINEN_CLOTH, 1), new ItemStack(ItemDict.GOLDEN_LEAF, 1)));
 
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.WOOL_MITTENS, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 1), new ItemStack(ItemDict.SNOW_CRYSTAL, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.WORK_GLOVES, 1), new ItemStack(ItemDict.BOAR_HIDE, 2), new ItemStack(ItemDict.WOOLEN_CLOTH, 1)));
-            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BOXING_MITTS, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2), new ItemStack(ItemDict.RED_DYE, 2)));
+            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BOXING_MITTS, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2), new ItemStack(ItemDict.CRIMSON_DYE, 2)));
 
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SAILCLOTH, 1), new ItemStack(ItemDict.LINEN_CLOTH, 1), new ItemStack(ItemDict.WIND_CRYSTAL, 1)));
 
@@ -1657,7 +1657,7 @@ namespace Plateau.Components
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BASEBALL_CAP, 1), new ItemStack(ItemDict.LINEN_CLOTH, 1), new ItemStack(ItemDict.GREEN_DYE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.HEADBAND, 1), new ItemStack(ItemDict.LINEN_CLOTH, 1), new ItemStack(ItemDict.GREEN_DYE, 1)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BUTTERFLY_CLIP, 1), new ItemStack(ItemDict.WOOD, 1), new ItemStack(ItemDict.YELLOW_BUTTERFLY, 1)));
-            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BOWLER, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2), new ItemStack(ItemDict.DARK_BROWN_DYE, 2)));
+            CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BOWLER, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2), new ItemStack(ItemDict.WHEAT_DYE, 2)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.CAMEL_HAT, 1), new ItemStack(ItemDict.WOOLEN_CLOTH, 2), new ItemStack(ItemDict.BOAR_HIDE, 2)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SQUARE_HAT, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2), new ItemStack(ItemDict.DARK_BROWN_DYE, 2)));
             CLOTHING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.FLAT_CAP, 1), new ItemStack(ItemDict.COTTON_CLOTH, 2), new ItemStack(ItemDict.BLUE_DYE, 3)));

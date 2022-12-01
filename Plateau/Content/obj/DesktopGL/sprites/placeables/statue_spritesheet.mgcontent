@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/statue_spritesheet.png</SourceFile>
-  <SourceTime>2020-11-23T23:46:34.6381726-05:00</SourceTime>
+  <SourceTime>2022-11-28T18:01:00.8975119-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/placeables/statue_spritesheet.xnb</DestFile>
-  <DestTime>2022-11-20T15:54:27.3030808-05:00</DestTime>
+  <DestTime>2022-11-30T20:54:36.9533067-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

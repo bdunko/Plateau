@@ -27,23 +27,27 @@ namespace Plateau.Entities
 
         private static Dictionary<Item, Item> DYE_MAP = new Dictionary<Item, Item> {
             {ItemDict.BLUEBELL, ItemDict.BLUE_DYE}, {ItemDict.BLUEGILL, ItemDict.BLUE_DYE},
+            {ItemDict.FLAX, ItemDict.CYAN_DYE}, 
             {ItemDict.SEA_URCHIN, ItemDict.NAVY_DYE},
             {ItemDict.INKY_SQUID, ItemDict.BLACK_DYE}, {ItemDict.BLACKENED_OCTOPUS, ItemDict.BLACK_DYE}, {ItemDict.ONYX_EEL, ItemDict.BLACK_DYE},
-            {ItemDict.CRIMSON_CORAL, ItemDict.RED_DYE}, {ItemDict.BEET, ItemDict.RED_DYE}, {ItemDict.RED_GINGER, ItemDict.RED_DYE},
+            {ItemDict.RED_GINGER, ItemDict.RED_DYE}, {ItemDict.CHERRY, ItemDict.RED_DYE}, {ItemDict.APPLE, ItemDict.RED_DYE}, {ItemDict.WATERMELON_SLICE, ItemDict.RED_DYE},
+            {ItemDict.CRIMSON_CORAL, ItemDict.CRIMSON_DYE}, {ItemDict.BEET, ItemDict.CRIMSON_DYE},
             {ItemDict.FAIRY_DUST, ItemDict.PINK_DYE}, {ItemDict.PEARL, ItemDict.PINK_DYE},
-            {ItemDict.CACAO_BEAN, ItemDict.DARK_BROWN_DYE}, {ItemDict.POTATO, ItemDict.DARK_BROWN_DYE},
-            {ItemDict.COCONUT, ItemDict.LIGHT_BROWN_DYE}, {ItemDict.BROWN_CICADA, ItemDict.LIGHT_BROWN_DYE}, {ItemDict.CHICORY_ROOT, ItemDict.LIGHT_BROWN_DYE},
-            {ItemDict.MARIGOLD, ItemDict.ORANGE_DYE}, {ItemDict.PUMPKIN, ItemDict.ORANGE_DYE}, {ItemDict.ORANGE, ItemDict.ORANGE_DYE},
-            {ItemDict.SUNFLOWER, ItemDict.YELLOW_DYE}, {ItemDict.YELLOW_BUTTERFLY, ItemDict.YELLOW_DYE}, {ItemDict.BANANA, ItemDict.YELLOW_DYE}, {ItemDict.LEMON, ItemDict.YELLOW_DYE},
-            {ItemDict.LAVENDER, ItemDict.PURPLE_DYE}, {ItemDict.ROYAL_JELLY, ItemDict.PURPLE_DYE},
+            {ItemDict.CACAO_BEAN, ItemDict.DARK_BROWN_DYE}, {ItemDict.POTATO, ItemDict.DARK_BROWN_DYE}, 
+            {ItemDict.COCONUT, ItemDict.LIGHT_BROWN_DYE},  {ItemDict.CHICORY_ROOT, ItemDict.LIGHT_BROWN_DYE}, {ItemDict.CAVE_SOYBEAN, ItemDict.LIGHT_BROWN_DYE},
+            {ItemDict.MOUNTAIN_WHEAT, ItemDict.WHEAT_DYE}, 
+            {ItemDict.MARIGOLD, ItemDict.ORANGE_DYE}, {ItemDict.PUMPKIN, ItemDict.ORANGE_DYE}, {ItemDict.ORANGE, ItemDict.ORANGE_DYE}, {ItemDict.CARROT, ItemDict.ORANGE_DYE},
+            {ItemDict.SUNFLOWER, ItemDict.YELLOW_DYE}, {ItemDict.BANANA, ItemDict.YELLOW_DYE}, {ItemDict.LEMON, ItemDict.YELLOW_DYE},
+            {ItemDict.LAVENDER, ItemDict.PURPLE_DYE}, {ItemDict.ROYAL_JELLY, ItemDict.PURPLE_DYE}, {ItemDict.EGGPLANT, ItemDict.PURPLE_DYE},
             {ItemDict.EMERALD_MOSS, ItemDict.GREEN_DYE}, {ItemDict.CACTUS, ItemDict.GREEN_DYE},
             {ItemDict.MOSSY_BARK, ItemDict.OLIVE_DYE}, {ItemDict.OLIVE, ItemDict.OLIVE_DYE},
             {ItemDict.SNOWDROP, ItemDict.WHITE_DYE}, {ItemDict.POLLEN_PUFF, ItemDict.WHITE_DYE}, {ItemDict.WHITE_BLOWFISH, ItemDict.WHITE_DYE},
             {ItemDict.BAT_WING, ItemDict.LIGHT_GREY_DYE}, {ItemDict.OYSTER, ItemDict.LIGHT_GREY_DYE},
             {ItemDict.COAL, ItemDict.DARK_GREY_DYE}, {ItemDict.JUNGLE_PIRANHA, ItemDict.DARK_GREY_DYE},
+            {ItemDict.WINTERGREEN, ItemDict.MINT_DYE}, 
             {ItemDict.SNOW_CRYSTAL, ItemDict.UN_DYE},
             {ItemDict.SARDINE, ItemDict.OIL }, {ItemDict.STRIPED_BASS, ItemDict.OIL}, {ItemDict.HERRING, ItemDict.OIL}, {ItemDict.MACKEREL, ItemDict.OIL},
-            {ItemDict.CATFISH, ItemDict.OIL}, {ItemDict.CARP, ItemDict.OIL}, {ItemDict.SALMON, ItemDict.OIL}, {ItemDict.TUNA, ItemDict.OIL}
+            {ItemDict.CATFISH, ItemDict.OIL}, {ItemDict.CARP, ItemDict.OIL}, {ItemDict.SALMON, ItemDict.OIL}, {ItemDict.TUNA, ItemDict.OIL},
         };
 
         public PEntityPaintersPress(PartialRecolorSprite sprite, Vector2 tilePosition, PlaceableItem sourceItem, DrawLayer drawLayer) : base(tilePosition, sourceItem, drawLayer, sprite.GetFrameWidth() / 8, sprite.GetFrameHeight() / 8)
