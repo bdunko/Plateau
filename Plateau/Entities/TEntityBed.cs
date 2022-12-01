@@ -58,7 +58,7 @@ namespace Plateau.Entities
             }
             else
             {
-                sheetsRecolored = Util.GenerateRecolor(sheetsGreyscale, ((DyeItem)sheetsDye).GetRecolorMap());
+                sheetsRecolored = Util.GenerateRecolor(sheetsGreyscale, ((DyeItem)sheetsDye).GetRecolorMap(), Util.RecolorAdjustment.LIGHTEN_PLACEABLE);
             }
         }
 

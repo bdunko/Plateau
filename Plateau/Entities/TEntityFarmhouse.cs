@@ -146,7 +146,7 @@ namespace Plateau.Entities
                 roofSprite = null;
             } else
             {
-                Texture2D recoloredRoof = Util.GenerateRecolor(roofSS, ((DyeItem)roofDye).GetHouseRecolorMap(), Util.RecolorAdjustment.SLIGHT_LIGHTEN);
+                Texture2D recoloredRoof = Util.GenerateRecolor(roofSS, ((DyeItem)roofDye).GetRecolorMap(), Util.RecolorAdjustment.LIGHTEN_HOUSE_ROOF);
                 roofSprite = GenerateAnimatedSprite(recoloredRoof);
             }
 
@@ -157,7 +157,7 @@ namespace Plateau.Entities
             }
             else
             {
-                Texture2D recoloredWalls = Util.GenerateRecolor(wallsSS, ((DyeItem)wallsDye).GetHouseRecolorMap());
+                Texture2D recoloredWalls = Util.GenerateRecolor(wallsSS, ((DyeItem)wallsDye).GetRecolorMap(), Util.RecolorAdjustment.DARKEN_HOUSE_WALLS);
                 wallsSprite = GenerateAnimatedSprite(recoloredWalls);
             }
 
@@ -168,7 +168,7 @@ namespace Plateau.Entities
             }
             else
             {
-                Texture2D recoloredTrim = Util.GenerateRecolor(trimSS, ((DyeItem)trimDye).GetHouseRecolorMap(), Util.RecolorAdjustment.EXTRA_DARKEN);
+                Texture2D recoloredTrim = Util.GenerateRecolor(trimSS, ((DyeItem)trimDye).GetRecolorMap(), Util.RecolorAdjustment.DARKEN_HOUSE_TRIM);
                 trimSprite = GenerateAnimatedSprite(recoloredTrim);
             }
         }

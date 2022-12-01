@@ -10,22 +10,16 @@ namespace Plateau.Items
 {
     public class DyeItem : Item
     {
-        private RecolorMap color, houseColor;
+        private RecolorMap color;
 
-        public DyeItem(string name, string texturePath, int stackCapacity, RecolorMap color, RecolorMap houseColor, string description, int value, params Tag[] tags) : base(name, texturePath, stackCapacity, description, value, tags)
+        public DyeItem(string name, string texturePath, int stackCapacity, RecolorMap color, string description, int value, params Tag[] tags) : base(name, texturePath, stackCapacity, description, value, tags)
         {
             this.color = color;
-            this.houseColor = houseColor;
         }
 
         public RecolorMap GetRecolorMap()
         {
             return this.color;
-        }
-
-        public RecolorMap GetHouseRecolorMap()
-        {
-            return this.houseColor;
         }
 
         public string GetDyedNameAdjustment()
