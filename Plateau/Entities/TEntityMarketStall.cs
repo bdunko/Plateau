@@ -170,6 +170,11 @@ namespace Plateau.Entities
                     saleItems.Add(new SaleItem(ItemDict.OLIVE_DYE, 25, Util.GetSaleValue(ItemDict.OLIVE_DYE), new DialogueNode("The stall says \"Piper's Inks\". Looks like the color of the day is Olive.", DialogueNode.PORTRAIT_SYSTEM)));
                     saleItems.Add(new SaleItem(ItemDict.WHITE_DYE, 25, Util.GetSaleValue(ItemDict.WHITE_DYE), new DialogueNode("The stall says \"Piper's Inks\". Looks like the color of the day is White.", DialogueNode.PORTRAIT_SYSTEM)));
                     saleItems.Add(new SaleItem(ItemDict.LIGHT_GREY_DYE, 25, Util.GetSaleValue(ItemDict.LIGHT_GREY_DYE), new DialogueNode("The stall says \"Piper's Inks\". Looks like the color of the day is Light Grey.", DialogueNode.PORTRAIT_SYSTEM)));
+                    saleItems.Add(new SaleItem(ItemDict.WHEAT_DYE, 25, Util.GetSaleValue(ItemDict.LIGHT_GREY_DYE), new DialogueNode("The stall says \"Piper's Inks\". Looks like the color of the day is Wheat.", DialogueNode.PORTRAIT_SYSTEM)));
+                    saleItems.Add(new SaleItem(ItemDict.CYAN_DYE, 25, Util.GetSaleValue(ItemDict.LIGHT_GREY_DYE), new DialogueNode("The stall says \"Piper's Inks\". Looks like the color of the day is Cyan.", DialogueNode.PORTRAIT_SYSTEM)));
+                    saleItems.Add(new SaleItem(ItemDict.CRIMSON_DYE, 25, Util.GetSaleValue(ItemDict.LIGHT_GREY_DYE), new DialogueNode("The stall says \"Piper's Inks\". Looks like the color of the day is Crimson.", DialogueNode.PORTRAIT_SYSTEM)));
+                    saleItems.Add(new SaleItem(ItemDict.MINT_DYE, 25, Util.GetSaleValue(ItemDict.LIGHT_GREY_DYE), new DialogueNode("The stall says \"Piper's Inks\". Looks like the color of the day is Mint.", DialogueNode.PORTRAIT_SYSTEM)));
+
                     break;
                 case StallType.SPIRIT_FISH:
                     costsTrilobites = true;
