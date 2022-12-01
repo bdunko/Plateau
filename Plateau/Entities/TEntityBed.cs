@@ -107,7 +107,7 @@ namespace Plateau.Entities
 
         public override void Update(float deltaTime, Area area)
         {
-            //no update
+            
         }
     }
 }
