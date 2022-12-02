@@ -445,33 +445,34 @@ namespace Plateau.Components
             {
                 List<Item> loot = new List<Item>();
                 int boost = 0;
-                if (player.HasEffect(AppliedEffects.CHOPPING_I) ||
-                   (player.HasEffect(AppliedEffects.CHOPPING_I_AUTUMN) && timeData.season == World.Season.AUTUMN))
+                if (player.HasEffect(AppliedEffects.CHOPPING_VI))
                 {
-                    boost = Util.RandInt(0, 1);
+                    boost = 3;
                 }
-                else if (player.HasEffect(AppliedEffects.CHOPPING_II) ||
-                    (player.HasEffect(AppliedEffects.CHOPPING_II_SPRING) && timeData.season == World.Season.SPRING))
+                else if (player.HasEffect(AppliedEffects.CHOPPING_V))
                 {
-                    boost = 1;
+                    boost = Util.RandInt(2, 3);
+                }
+                else if (player.HasEffect(AppliedEffects.CHOPPING_IV))
+                {
+                    boost = 2;
                 }
                 else if (player.HasEffect(AppliedEffects.CHOPPING_III) ||
                     (player.HasEffect(AppliedEffects.CHOPPING_III_AUTUMN) && timeData.season == World.Season.AUTUMN))
                 {
                     boost = Util.RandInt(1, 2);
                 }
-                else if (player.HasEffect(AppliedEffects.CHOPPING_IV))
+                else if (player.HasEffect(AppliedEffects.CHOPPING_II) ||
+                    (player.HasEffect(AppliedEffects.CHOPPING_II_SPRING) && timeData.season == World.Season.SPRING))
                 {
-                    boost = 2;
+                    boost = 1;
                 }
-                else if (player.HasEffect(AppliedEffects.CHOPPING_V))
+                else if (player.HasEffect(AppliedEffects.CHOPPING_I) ||
+                    (player.HasEffect(AppliedEffects.CHOPPING_I_AUTUMN) && timeData.season == World.Season.AUTUMN))
                 {
-                    boost = Util.RandInt(2, 3);
+                    boost = Util.RandInt(0, 1);
                 }
-                else if (player.HasEffect(AppliedEffects.CHOPPING_VI))
-                {
-                    boost = 3;
-                }
+
 
                 int numRolls = Util.RandInt(minRolls, maxRolls) + boost;
 
