@@ -551,10 +551,6 @@ namespace Plateau.Components
         public static string SPRITE_WALLPAPER_INVADER_GREYSCALE_BOTTOM = "sprites/placeables/wallpaper_invader_greyscale_bottom";
         public static string SPRITE_WALLPAPER_ODD = "sprites/placeables/wallpaper_odd";
         public static string SPRITE_WALLPAPER_ODD_GREYSCALE = "sprites/placeables/wallpaper_odd_greyscale";
-        public static string SPRITE_WALLPAPER_ODD_TOP = "sprites/placeables/wallpaper_odd_top";
-        public static string SPRITE_WALLPAPER_ODD_GREYSCALE_TOP = "sprites/placeables/wallpaper_odd_greyscale_top";
-        public static string SPRITE_WALLPAPER_ODD_BOTTOM = "sprites/placeables/wallpaper_odd_bottom";
-        public static string SPRITE_WALLPAPER_ODD_GREYSCALE_BOTTOM = "sprites/placeables/wallpaper_odd_greyscale_bottom";
 
         //floor spritesheet
         public static string SPRITE_FLOOR_CONCRETE = "sprites/placeables/floor_concrete";

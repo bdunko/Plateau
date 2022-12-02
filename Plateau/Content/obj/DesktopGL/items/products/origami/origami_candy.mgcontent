@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/products/origami/origami_candy.png</SourceFile>
-  <SourceTime>2022-11-30T22:55:32.9973383-05:00</SourceTime>
+  <SourceTime>2022-11-30T23:06:21.9117536-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/products/origami/origami_candy.xnb</DestFile>
-  <DestTime>2022-11-30T23:00:46.9465916-05:00</DestTime>
+  <DestTime>2022-12-01T19:39:28.2527424-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

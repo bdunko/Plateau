@@ -47,6 +47,11 @@ namespace Plateau.Items
                 placedTextureRecolorTop = Util.GenerateRecolor(placedTextureRecolorTop, recolorMap, Util.RecolorAdjustment.DARKEN_WALLPAPER);
                 placedTextureRecolorBottom = Util.GenerateRecolor(placedTextureRecolorBottom, recolorMap, Util.RecolorAdjustment.DARKEN_WALLPAPER);
             }
+            else
+            {
+                placedTextureRecolorTop = Util.ApplyAdjustment(placedTextureRecolorTop, Util.RecolorAdjustment.DARKEN_WALLPAPER);
+                placedTextureRecolorBottom = Util.ApplyAdjustment(placedTextureRecolorBottom, Util.RecolorAdjustment.DARKEN_WALLPAPER);
+            }
         }
 
         public string GetPlacedTextureBottomPath()

@@ -2905,7 +2905,6 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\backgrounds\snow
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\backgrounds\star.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\backgrounds\sun.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\fonts\Font.xnb
-D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\fonts\font_atlas.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\9slice_black\bottomcenter.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\9slice_black\bottomleft.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\9slice_black\bottomright.xnb
@@ -5672,11 +5671,7 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeabl
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_invader_greyscale_top.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_invader_top.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_odd.xnb
-D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_odd_bottom.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_odd_greyscale.xnb
-D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_odd_greyscale_bottom.xnb
-D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_odd_greyscale_top.xnb
-D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_odd_top.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_polka.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_polka_bottom.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\placeables\wallpaper_polka_greyscale.xnb

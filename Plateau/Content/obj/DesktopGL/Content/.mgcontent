@@ -44,7 +44,6 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/backgrounds/star.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/backgrounds/sun.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/fonts/Font.spritefont</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/fonts/font_atlas.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/9slice_dialogue/bottomcenter.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/9slice_dialogue/bottomleft.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/9slice_dialogue/bottomright.png</File>
@@ -2721,11 +2720,7 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_invader_greyscale_top.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_invader_top.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_odd.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_odd_bottom.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_odd_greyscale.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_odd_greyscale_bottom.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_odd_greyscale_top.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_odd_top.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_polka.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_polka_bottom.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_polka_greyscale.png</File>
@@ -2828,11 +2823,6 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

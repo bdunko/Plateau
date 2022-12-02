@@ -489,18 +489,6 @@
 /processorParam:TextureFormat=Color
 /build:fonts/Font.spritefont
 
-#begin fonts/font_atlas.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:fonts/font_atlas.png
-
 #begin interface/9slice_dialogue/bottomcenter.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -32531,18 +32519,6 @@
 /processorParam:TextureFormat=Color
 /build:sprites/placeables/wallpaper_odd.png
 
-#begin sprites/placeables/wallpaper_odd_bottom.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:sprites/placeables/wallpaper_odd_bottom.png
-
 #begin sprites/placeables/wallpaper_odd_greyscale.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -32554,42 +32530,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sprites/placeables/wallpaper_odd_greyscale.png
-
-#begin sprites/placeables/wallpaper_odd_greyscale_bottom.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:sprites/placeables/wallpaper_odd_greyscale_bottom.png
-
-#begin sprites/placeables/wallpaper_odd_greyscale_top.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:sprites/placeables/wallpaper_odd_greyscale_top.png
-
-#begin sprites/placeables/wallpaper_odd_top.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:sprites/placeables/wallpaper_odd_top.png
 
 #begin sprites/placeables/wallpaper_polka.png
 /importer:TextureImporter
