@@ -308,31 +308,36 @@ namespace Plateau.Components
             {
                 List<Item> loot = new List<Item>();
                 int woodBoost = 0;
-                if (player.HasEffect(AppliedEffects.CHOPPING_I)||
-                    (player.HasEffect(AppliedEffects.CHOPPING_I_AUTUMN) && timeData.season == World.Season.AUTUMN))
+                if (player.HasEffect(AppliedEffects.CHOPPING_VI))
                 {
-                    woodBoost = 1;
+                    woodBoost = 6;
                 }
-                else if (player.HasEffect(AppliedEffects.CHOPPING_II) ||
-                    (player.HasEffect(AppliedEffects.CHOPPING_II_SPRING) && timeData.season == World.Season.SPRING))
+                else if (player.HasEffect(AppliedEffects.CHOPPING_V))
                 {
-                    woodBoost = 2;
+                    woodBoost = 5;
+                }
+                else if (player.HasEffect(AppliedEffects.CHOPPING_IV))
+                {
+                    woodBoost = 4;
                 }
                 else if (player.HasEffect(AppliedEffects.CHOPPING_III) ||
                     (player.HasEffect(AppliedEffects.CHOPPING_III_AUTUMN) && timeData.season == World.Season.AUTUMN))
                 {
                     woodBoost = 3;
                 }
-                else if (player.HasEffect(AppliedEffects.CHOPPING_IV))
+                else if (player.HasEffect(AppliedEffects.CHOPPING_II) ||
+                    (player.HasEffect(AppliedEffects.CHOPPING_II_SPRING) && timeData.season == World.Season.SPRING))
                 {
-                    woodBoost = 4;
-                } else if (player.HasEffect(AppliedEffects.CHOPPING_V))
-                {
-                    woodBoost = 5;
-                } else if (player.HasEffect(AppliedEffects.CHOPPING_VI))
-                {
-                    woodBoost = 6;
+                    woodBoost = 2;
                 }
+                ellse if (player.HasEffect(AppliedEffects.CHOPPING_I)||
+                    (player.HasEffect(AppliedEffects.CHOPPING_I_AUTUMN) && timeData.season == World.Season.AUTUMN))
+                {
+                    woodBoost = 1;
+                }
+
+
+
 
                 int numRolls = Util.RandInt(minRolls, maxRolls) + woodBoost;
 
@@ -497,31 +502,31 @@ namespace Plateau.Components
             {
                 List<Item> loot = new List<Item>();
                 int boost = 0;
-                if (player.HasEffect(AppliedEffects.MINING_I))
+                if (player.HasEffect(AppliedEffects.MINING_VI) ||
+                    (player.HasEffect(AppliedEffects.MINING_VI_AUTUMN) && timeData.season == World.Season.AUTUMN))
                 {
-                    boost = Util.RandInt(0, 1);
+                    boost = 3;
                 }
-                else if (player.HasEffect(AppliedEffects.MINING_II))
+                else if (player.HasEffect(AppliedEffects.MINING_V))
                 {
-                    boost = 1;
+                    boost = Util.RandInt(2, 3);
+                }
+                else if (player.HasEffect(AppliedEffects.MINING_IV))
+                {
+                    boost = 2;
                 }
                 else if (player.HasEffect(AppliedEffects.MINING_III) ||
                     (player.HasEffect(AppliedEffects.MINING_III_AUTUMN) && timeData.season == World.Season.AUTUMN))
                 {
                     boost = Util.RandInt(1, 2);
                 }
-                else if (player.HasEffect(AppliedEffects.MINING_IV))
+                else if (player.HasEffect(AppliedEffects.MINING_II))
                 {
-                    boost = 2;
+                    boost = 1;
                 }
-                else if(player.HasEffect(AppliedEffects.MINING_V))
+                else if (player.HasEffect(AppliedEffects.MINING_I))
                 {
-                    boost = Util.RandInt(2, 3);
-                }
-                else if (player.HasEffect(AppliedEffects.MINING_VI) ||
-                    (player.HasEffect(AppliedEffects.MINING_VI_AUTUMN) && timeData.season == World.Season.AUTUMN))
-                {
-                    boost = 3;
+                    boost = Util.RandInt(0, 1);
                 }
 
                 int numRolls = Util.RandInt(minRolls, maxRolls) + boost;
@@ -608,23 +613,17 @@ namespace Plateau.Components
             {
                 List<Item> loot = new List<Item>();
                 int boost = 0;
-                if (player.HasEffect(AppliedEffects.BUG_CATCHING_I) ||
-                    (player.HasEffect(AppliedEffects.BUG_CATCHING_I_SPRING) && timeData.season == World.Season.SPRING) ||
-                    (player.HasEffect(AppliedEffects.BUG_CATCHING_I_SUMMER) && timeData.season == World.Season.SUMMER) ||
-                    (player.HasEffect(AppliedEffects.BUG_CATCHING_I_AUTUMN) && timeData.season == World.Season.AUTUMN))
+                if (player.HasEffect(AppliedEffects.BUG_CATCHING_VI) ||
+                    (player.HasEffect(AppliedEffects.BUG_CATCHING_VI_NIGHT) && timeData.timeOfDay == World.TimeOfDay.NIGHT) ||
+                    (player.HasEffect(AppliedEffects.BUG_CATCHING_VI_AUTUMN) && timeData.season == World.Season.AUTUMN) ||
+                    (player.HasEffect(AppliedEffects.BUG_CATCHING_VI_SPRING) && timeData.season == World.Season.SPRING) ||
+                    (player.HasEffect(AppliedEffects.BUG_CATCHING_VI_SUMMER) && timeData.season == World.Season.SUMMER))
                 {
-                    boost = Util.RandInt(0, 1);
+                    boost = 3;
                 }
-                else if (player.HasEffect(AppliedEffects.BUG_CATCHING_II) ||
-                    (player.HasEffect(AppliedEffects.BUG_CATCHING_II_SUMMER) && timeData.season == World.Season.SUMMER))
+                else if (player.HasEffect(AppliedEffects.BUG_CATCHING_V))
                 {
-                    boost = 1;
-                }
-                else if (player.HasEffect(AppliedEffects.BUG_CATCHING_III) ||
-                    (player.HasEffect(AppliedEffects.BUG_CATCHING_III_SPRING) && timeData.season == World.Season.SPRING) ||
-                    (player.HasEffect(AppliedEffects.BUG_CATCHING_III_SUMMER) && timeData.season == World.Season.SUMMER))
-                {
-                    boost = Util.RandInt(1, 2);
+                    boost = Util.RandInt(2, 3);
                 }
                 else if (player.HasEffect(AppliedEffects.BUG_CATCHING_IV) ||
                     (player.HasEffect(AppliedEffects.BUG_CATCHING_IV_MORNING) && timeData.timeOfDay == World.TimeOfDay.MORNING) ||
@@ -633,17 +632,26 @@ namespace Plateau.Components
                     (player.HasEffect(AppliedEffects.BUG_CATCHING_IV_SPRING) && timeData.season == World.Season.SPRING))
                 {
                     boost = 2;
-                } else if (player.HasEffect(AppliedEffects.BUG_CATCHING_V))
-                {
-                    boost = Util.RandInt(2, 3);
-                } else if (player.HasEffect(AppliedEffects.BUG_CATCHING_VI) ||
-                    (player.HasEffect(AppliedEffects.BUG_CATCHING_VI_NIGHT) && timeData.timeOfDay == World.TimeOfDay.NIGHT) ||
-                    (player.HasEffect(AppliedEffects.BUG_CATCHING_VI_AUTUMN) && timeData.season == World.Season.AUTUMN) ||
-                    (player.HasEffect(AppliedEffects.BUG_CATCHING_VI_SPRING) && timeData.season == World.Season.SPRING) ||
-                    (player.HasEffect(AppliedEffects.BUG_CATCHING_VI_SUMMER) && timeData.season == World.Season.SUMMER))
-                {
-                    boost = 3;
                 }
+                else if (player.HasEffect(AppliedEffects.BUG_CATCHING_III) ||
+                    (player.HasEffect(AppliedEffects.BUG_CATCHING_III_SPRING) && timeData.season == World.Season.SPRING) ||
+                    (player.HasEffect(AppliedEffects.BUG_CATCHING_III_SUMMER) && timeData.season == World.Season.SUMMER))
+                {
+                    boost = Util.RandInt(1, 2);
+                }
+                else if (player.HasEffect(AppliedEffects.BUG_CATCHING_II) ||
+                     (player.HasEffect(AppliedEffects.BUG_CATCHING_II_SUMMER) && timeData.season == World.Season.SUMMER))
+                {
+                    boost = 1;
+                }
+                else if (player.HasEffect(AppliedEffects.BUG_CATCHING_I) ||
+                     (player.HasEffect(AppliedEffects.BUG_CATCHING_I_SPRING) && timeData.season == World.Season.SPRING) ||
+                     (player.HasEffect(AppliedEffects.BUG_CATCHING_I_SUMMER) && timeData.season == World.Season.SUMMER) ||
+                     (player.HasEffect(AppliedEffects.BUG_CATCHING_I_AUTUMN) && timeData.season == World.Season.AUTUMN))
+                {
+                    boost = Util.RandInt(0, 1);
+                }
+
 
                 int numRolls = Util.RandInt(minRolls, maxRolls) + boost;
 
@@ -671,29 +679,30 @@ namespace Plateau.Components
             }  
 
             int rerolls = 0;
-            if (player.HasEffect(AppliedEffects.LUCK_I))
+
+            if (player.HasEffect(AppliedEffects.LUCK_VI))
             {
-                rerolls = 1;
-            }
-            else if (player.HasEffect(AppliedEffects.LUCK_II))
-            {
-                rerolls = 2;
-            }
-            else if (player.HasEffect(AppliedEffects.LUCK_III))
-            {
-                rerolls = 3;
-            }
-            else if (player.HasEffect(AppliedEffects.LUCK_IV))
-            {
-                rerolls = 4;
+                rerolls = 6;
             }
             else if (player.HasEffect(AppliedEffects.LUCK_V))
             {
                 rerolls = 5;
             }
-            else if (player.HasEffect(AppliedEffects.LUCK_VI))
+            else if (player.HasEffect(AppliedEffects.LUCK_IV))
             {
-                rerolls = 6;
+                rerolls = 4;
+            }
+            else if (player.HasEffect(AppliedEffects.LUCK_III))
+            {
+                rerolls = 3;
+            }
+            else if (player.HasEffect(AppliedEffects.LUCK_II))
+            {
+                rerolls = 2;
+            }
+            else if (player.HasEffect(AppliedEffects.LUCK_I))
+            {
+                rerolls = 1;
             }
 
             if (player.HasEffect(AppliedEffects.WISHBOAT_FORTUNE)) //stacks with luck

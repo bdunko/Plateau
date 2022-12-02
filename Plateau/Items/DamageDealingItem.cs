@@ -29,32 +29,32 @@ namespace Plateau.Items
             float modifiedDamage = damage;
             if(HasTag(Item.Tag.AXE))
             {
-                if (player.HasEffect(AppliedEffects.CHOPPING_I) ||
-                   (player.HasEffect(AppliedEffects.CHOPPING_I_AUTUMN) && timeData.season == World.Season.AUTUMN))
+                if (player.HasEffect(AppliedEffects.CHOPPING_VI))
                 {
-                    modifiedDamage += 2;
+                    modifiedDamage += 12;
                 }
-                else if (player.HasEffect(AppliedEffects.CHOPPING_II) ||
-                    (player.HasEffect(AppliedEffects.CHOPPING_II_SPRING) && timeData.season == World.Season.SPRING))
+                else if (player.HasEffect(AppliedEffects.CHOPPING_V))
                 {
-                    modifiedDamage += 4;
+                    modifiedDamage += 10;
+                }
+                else if (player.HasEffect(AppliedEffects.CHOPPING_IV))
+                {
+                    modifiedDamage += 8;
                 }
                 else if (player.HasEffect(AppliedEffects.CHOPPING_III) ||
                     (player.HasEffect(AppliedEffects.CHOPPING_III_AUTUMN) && timeData.season == World.Season.AUTUMN))
                 {
                     modifiedDamage += 6;
                 }
-                else if (player.HasEffect(AppliedEffects.CHOPPING_IV))
+                else if (player.HasEffect(AppliedEffects.CHOPPING_II) ||
+                    (player.HasEffect(AppliedEffects.CHOPPING_II_SPRING) && timeData.season == World.Season.SPRING))
                 {
-                    modifiedDamage += 8;
+                    modifiedDamage += 4;
                 }
-                else if (player.HasEffect(AppliedEffects.CHOPPING_V))
+                else if (player.HasEffect(AppliedEffects.CHOPPING_I) ||
+                    (player.HasEffect(AppliedEffects.CHOPPING_I_AUTUMN) && timeData.season == World.Season.AUTUMN))
                 {
-                    modifiedDamage += 10;
-                }
-                else if (player.HasEffect(AppliedEffects.CHOPPING_VI))
-                {
-                    modifiedDamage += 12;
+                    modifiedDamage += 2;
                 }
                 else if (player.HasEffect(AppliedEffects.DIZZY))
                 {
@@ -62,40 +62,7 @@ namespace Plateau.Items
                 }
             } else if (HasTag(Item.Tag.FISHING_ROD))
             {
-                if (player.HasEffect(AppliedEffects.FISHING_I))
-                {
-                    modifiedDamage += 2;
-                }
-                else if (player.HasEffect(AppliedEffects.FISHING_II)
-                || (player.HasEffect(AppliedEffects.FISHING_II_SUMMER) && timeData.season == World.Season.SUMMER)
-                || (player.HasEffect(AppliedEffects.FISHING_II_OCEAN) && fishType == LootTables.FishingLootTable.FishType.OCEAN))
-                {
-                    modifiedDamage += 4;
-                }
-                else if (player.HasEffect(AppliedEffects.FISHING_III)
-                || (player.HasEffect(AppliedEffects.FISHING_III_AUTUMN) && timeData.season == World.Season.AUTUMN)
-                || (player.HasEffect(AppliedEffects.FISHING_III_OCEAN) && fishType == LootTables.FishingLootTable.FishType.OCEAN)
-                || (player.HasEffect(AppliedEffects.FISHING_III_FRESHWATER) && fishType == LootTables.FishingLootTable.FishType.FRESHWATER)
-                || (player.HasEffect(AppliedEffects.FISHING_III_LAVA) && fishType == LootTables.FishingLootTable.FishType.LAVA)
-                || (player.HasEffect(AppliedEffects.FISHING_III_CLOUD) && fishType == LootTables.FishingLootTable.FishType.CLOUD))
-                {
-                    modifiedDamage += 6;
-                }
-                else if (player.HasEffect(AppliedEffects.FISHING_IV)
-                  || (player.HasEffect(AppliedEffects.FISHING_IV_CAVE) && fishType == LootTables.FishingLootTable.FishType.CAVE)
-                  || (player.HasEffect(AppliedEffects.FISHING_IV_CLOUD) && fishType == LootTables.FishingLootTable.FishType.CLOUD)
-                  || (player.HasEffect(AppliedEffects.FISHING_IV_FRESHWATER) && fishType == LootTables.FishingLootTable.FishType.FRESHWATER)
-                  || (player.HasEffect(AppliedEffects.FISHING_IV_LAVA) && fishType == LootTables.FishingLootTable.FishType.LAVA)
-                  || (player.HasEffect(AppliedEffects.FISHING_IV_OCEAN) && fishType == LootTables.FishingLootTable.FishType.OCEAN))
-                {
-                    modifiedDamage += 8;
-                }
-                else if (player.HasEffect(AppliedEffects.FISHING_V) ||
-                  (player.HasEffect(AppliedEffects.FISHING_V_OCEAN) && fishType == LootTables.FishingLootTable.FishType.OCEAN))
-                {
-                    modifiedDamage += 10;
-                }
-                else if (player.HasEffect(AppliedEffects.FISHING_VI) ||
+                if (player.HasEffect(AppliedEffects.FISHING_VI) ||
                    (player.HasEffect(AppliedEffects.FISHING_VI_SUMMER) && timeData.season == World.Season.SUMMER) ||
                    (player.HasEffect(AppliedEffects.FISHING_VI_CAVE) && fishType == LootTables.FishingLootTable.FishType.CAVE) ||
                    (player.HasEffect(AppliedEffects.FISHING_VI_CLOUD) && fishType == LootTables.FishingLootTable.FishType.CLOUD) ||
@@ -103,38 +70,72 @@ namespace Plateau.Items
                 {
                     modifiedDamage += 12;
                 }
+                else if (player.HasEffect(AppliedEffects.FISHING_V)
+                     || (player.HasEffect(AppliedEffects.FISHING_V_OCEAN) && fishType == LootTables.FishingLootTable.FishType.OCEAN))
+                {
+                    modifiedDamage += 10;
+                }
+                else if (player.HasEffect(AppliedEffects.FISHING_IV)
+                     || (player.HasEffect(AppliedEffects.FISHING_IV_CAVE) && fishType == LootTables.FishingLootTable.FishType.CAVE)
+                     || (player.HasEffect(AppliedEffects.FISHING_IV_CLOUD) && fishType == LootTables.FishingLootTable.FishType.CLOUD)
+                     || (player.HasEffect(AppliedEffects.FISHING_IV_FRESHWATER) && fishType == LootTables.FishingLootTable.FishType.FRESHWATER)
+                     || (player.HasEffect(AppliedEffects.FISHING_IV_LAVA) && fishType == LootTables.FishingLootTable.FishType.LAVA)
+                     || (player.HasEffect(AppliedEffects.FISHING_IV_OCEAN) && fishType == LootTables.FishingLootTable.FishType.OCEAN))
+                {
+                    modifiedDamage += 8;
+                }
+                else if (player.HasEffect(AppliedEffects.FISHING_III)
+                     || (player.HasEffect(AppliedEffects.FISHING_III_AUTUMN) && timeData.season == World.Season.AUTUMN)
+                     || (player.HasEffect(AppliedEffects.FISHING_III_OCEAN) && fishType == LootTables.FishingLootTable.FishType.OCEAN)
+                     || (player.HasEffect(AppliedEffects.FISHING_III_FRESHWATER) && fishType == LootTables.FishingLootTable.FishType.FRESHWATER)
+                     || (player.HasEffect(AppliedEffects.FISHING_III_LAVA) && fishType == LootTables.FishingLootTable.FishType.LAVA)
+                     || (player.HasEffect(AppliedEffects.FISHING_III_CLOUD) && fishType == LootTables.FishingLootTable.FishType.CLOUD))
+                {
+                    modifiedDamage += 6;
+                }
+                else if (player.HasEffect(AppliedEffects.FISHING_II)
+                    || (player.HasEffect(AppliedEffects.FISHING_II_SUMMER) && timeData.season == World.Season.SUMMER)
+                    || (player.HasEffect(AppliedEffects.FISHING_II_OCEAN) && fishType == LootTables.FishingLootTable.FishType.OCEAN))
+                {
+                    modifiedDamage += 4;
+                }
+                else if (player.HasEffect(AppliedEffects.FISHING_I))
+                {
+                    modifiedDamage += 2;
+                }
                 else if (player.HasEffect(AppliedEffects.DIZZY))
                 {
                     modifiedDamage *= 0.25f;
                 }
             } else if (HasTag(Item.Tag.PICKAXE))
             {
-                if (player.HasEffect(AppliedEffects.MINING_I))
+                if (player.HasEffect(AppliedEffects.MINING_VI) ||
+                    (player.HasEffect(AppliedEffects.MINING_VI_AUTUMN) && timeData.season == World.Season.AUTUMN))
                 {
-                    modifiedDamage += 2;
+                    modifiedDamage += 12;
                 }
-                else if (player.HasEffect(AppliedEffects.MINING_II))
+                else if (player.HasEffect(AppliedEffects.MINING_V))
                 {
-                    modifiedDamage += 4;
+                    modifiedDamage += 10;
+                }
+                else if (player.HasEffect(AppliedEffects.MINING_IV))
+                {
+                    modifiedDamage += 8;
                 }
                 else if (player.HasEffect(AppliedEffects.MINING_III) ||
                     (player.HasEffect(AppliedEffects.MINING_III_AUTUMN) && timeData.season == World.Season.AUTUMN))
                 {
                     modifiedDamage += 6;
                 }
-                else if (player.HasEffect(AppliedEffects.MINING_IV))
+                else if (player.HasEffect(AppliedEffects.MINING_II))
                 {
-                    modifiedDamage += 8;
+                    modifiedDamage += 4;
                 }
-                else if (player.HasEffect(AppliedEffects.MINING_V))
+                else if (player.HasEffect(AppliedEffects.MINING_I))
                 {
-                    modifiedDamage += 10;
+                    modifiedDamage += 2;
                 }
-                else if (player.HasEffect(AppliedEffects.MINING_VI) ||
-                    (player.HasEffect(AppliedEffects.MINING_VI_AUTUMN) && timeData.season == World.Season.AUTUMN))
-                {
-                    modifiedDamage += 12;
-                } else if (player.HasEffect(AppliedEffects.DIZZY))
+                else if (player.HasEffect(AppliedEffects.DIZZY))
                 {
                     modifiedDamage *= 0.25f;
                 }
