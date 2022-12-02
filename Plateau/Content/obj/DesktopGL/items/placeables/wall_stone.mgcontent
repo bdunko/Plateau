@@ -3,7 +3,7 @@
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/items/placeables/wall_stone.png</SourceFile>
   <SourceTime>2019-05-21T22:56:08-04:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/items/placeables/wall_stone.xnb</DestFile>
-  <DestTime>2022-11-20T15:53:52.1419724-05:00</DestTime>
+  <DestTime>2022-12-01T19:59:40.4822481-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
