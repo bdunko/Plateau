@@ -1008,7 +1008,7 @@ namespace Plateau.Components
                 new LootEntry(ItemDict.SPORTBALL_UNIFORM, 1), new LootEntry(ItemDict.RAINCOAT, 1), new LootEntry(ItemDict.ISLANDER_TATTOO, 1), new LootEntry(ItemDict.TIGHTIES, 1), new LootEntry(ItemDict.SUPER_SHORTS, 1),
                 new LootEntry(ItemDict.BUTTON_DOWN, 1), new LootEntry(ItemDict.LINEN_BUTTON, 1), new LootEntry(ItemDict.TURTLENECK, 1), new LootEntry(ItemDict.STRIPED_SHIRT, 1), new LootEntry(ItemDict.WING_SANDLES, 1),
                 new LootEntry(ItemDict.FLASH_HEELS, 1), new LootEntry(ItemDict.MISMATTCHED, 1), new LootEntry(ItemDict.FESTIVE_SOCKS, 1)); 
-            VENDING_MACHINE = new LootTable(1, 2, new LootEntry(ItemDict.SUPER_JUICE, 1), new LootEntry(ItemDict.WATERMELON_ICE, 1), new LootEntry(ItemDict.VANILLA_ICE_CREAM, 1), new LootEntry(ItemDict.MINTY_MELT, 1),
+            VENDING_MACHINE = new LootTable(1, 1, new LootEntry(ItemDict.SUPER_JUICE, 1), new LootEntry(ItemDict.WATERMELON_ICE, 1), new LootEntry(ItemDict.VANILLA_ICE_CREAM, 1), new LootEntry(ItemDict.MINTY_MELT, 1),
                 new LootEntry(ItemDict.BERRY_MILKSHAKE, 3), new LootEntry(ItemDict.TOMATO_SOUP, 1), new LootEntry(ItemDict.CREAM_OF_MUSHROOM, 1), new LootEntry(ItemDict.DARK_TEA, 5), new LootEntry(ItemDict.REJUVENATION_TEA, 5),
                 new LootEntry(ItemDict.SWEET_COCO_TREAT, 1)); 
             FILING_CABINET = new LootTable(1, 1, new LootEntry(ItemDict.BUBBLE_WALLPAPER, 1)); //todo
