@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/clothes/hat_dog_mask.png</SourceFile>
-  <SourceTime>2022-11-28T23:08:09.9775711-05:00</SourceTime>
+  <SourceTime>2022-12-01T20:35:26.4977031-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/sprites/clothes/hat_dog_mask.xnb</DestFile>
-  <DestTime>2022-11-28T23:22:02.0506689-05:00</DestTime>
+  <DestTime>2022-12-01T20:35:57.5428366-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
