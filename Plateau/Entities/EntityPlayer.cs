@@ -1303,6 +1303,14 @@ namespace Plateau.Entities
             Update(deltaTime, area, false);
         }
 
+        private static bool IsTileAirOrWater(Area.CollisionTypeEnum tileType)
+        {
+            return tileType == Area.CollisionTypeEnum.AIR ||
+                tileType == Area.CollisionTypeEnum.WATER ||
+                tileType == Area.CollisionTypeEnum.DEEP_WATER ||
+                tileType == Area.CollisionTypeEnum.TOP_WATER;
+        }
+
         public void Update(float deltaTime, Area area, bool cutscene)
         {
             if (notifications.Count != 0)
@@ -1388,16 +1396,16 @@ namespace Plateau.Entities
                     targetTile.Y+=2;
                 }
                 //if targetting air above air above ground, move 1 down
-                else if (area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) == Area.CollisionTypeEnum.AIR &&
-                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 1) == Area.CollisionTypeEnum.AIR &&
-                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 2) != Area.CollisionTypeEnum.AIR)
+                else if (IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y)) &&
+                         IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 1)) &&
+                         !IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 2)))
                 {
                     targetTile.Y--;
                 }
-                else if (area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) == Area.CollisionTypeEnum.AIR &&
-                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 1) == Area.CollisionTypeEnum.AIR &&
-                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 2) == Area.CollisionTypeEnum.AIR &&
-                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 3) != Area.CollisionTypeEnum.AIR)
+                else if (IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y)) &&
+                         IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) - 1) &&
+                         IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 2)) &&
+                         !IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y - 3)))
                 {
                     targetTile.Y-=2;
                 }
@@ -1420,17 +1428,17 @@ namespace Plateau.Entities
                     targetTile.Y-=2;
                 }
                 //if targetting air above air above ground, move 1 down
-                else if (area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) == Area.CollisionTypeEnum.AIR &&
-                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 1) == Area.CollisionTypeEnum.AIR &&
-                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 2) != Area.CollisionTypeEnum.AIR)
+                else if (IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y)) &&
+                         IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 1)) &&
+                         !IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 2)))
                 {
                     targetTile.Y++;
                 }
                 //if targetting air above air above air above ground, move 2 down
-                else if (area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y) == Area.CollisionTypeEnum.AIR &&
-                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 1) == Area.CollisionTypeEnum.AIR &&
-                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 2) == Area.CollisionTypeEnum.AIR &&
-                         area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 3) != Area.CollisionTypeEnum.AIR)
+                else if (IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y)) &&
+                         IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 1)) &&
+                         IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 2)) &&
+                         !IsTileAirOrWater(area.GetCollisionTypeAt((int)targetTile.X, (int)targetTile.Y + 3)))
                 {
                     targetTile.Y+=2;
                 }
