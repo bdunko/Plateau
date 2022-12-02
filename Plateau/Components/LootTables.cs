@@ -330,14 +330,11 @@ namespace Plateau.Components
                 {
                     woodBoost = 2;
                 }
-                ellse if (player.HasEffect(AppliedEffects.CHOPPING_I)||
+                else if (player.HasEffect(AppliedEffects.CHOPPING_I)||
                     (player.HasEffect(AppliedEffects.CHOPPING_I_AUTUMN) && timeData.season == World.Season.AUTUMN))
                 {
                     woodBoost = 1;
                 }
-
-
-
 
                 int numRolls = Util.RandInt(minRolls, maxRolls) + woodBoost;
 
