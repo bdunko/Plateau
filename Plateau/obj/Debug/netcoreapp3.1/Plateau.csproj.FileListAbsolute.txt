@@ -5831,3 +5831,8 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\o
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\origami\origami_heart.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\origami\origami_kite.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\items\products\origami\origami_rabbit.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\crafting_pieces\clothing_tab_hover.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\crafting_pieces\floor_wall_tab_hover.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\crafting_pieces\furniture_tab_hover.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\crafting_pieces\machine_tab_hover.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\crafting_pieces\scaffolding_tab_hover.xnb

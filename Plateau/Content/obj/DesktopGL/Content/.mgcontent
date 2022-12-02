@@ -104,13 +104,18 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/arrow_right.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/blueprint_depressed.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/clothing_tab.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/clothing_tab_hover.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/craft_button.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/craft_button_enlarged.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/floor_wall_tab.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/floor_wall_tab_hover.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/furniture_tab.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/furniture_tab_hover.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/machine_tab.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/machine_tab_hover.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/question_mark.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/scaffolding_tab.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/crafting_pieces/scaffolding_tab_hover.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/datetime_panel.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/devlogo_spritesheet.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/dialogue_box.png</File>
@@ -2823,6 +2828,11 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

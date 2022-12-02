@@ -193,6 +193,11 @@ namespace Plateau.Components
         public static string INTERFACE_CRAFTING_TAB_FLOOR_WALL = "interface/crafting_pieces/floor_wall_tab";
         public static string INTERFACE_CRAFTING_TAB_MACHINE = "interface/crafting_pieces/machine_tab";
         public static string INTERFACE_CRAFTING_TAB_SCAFFOLDING = "interface/crafting_pieces/scaffolding_tab";
+        public static string INTERFACE_CRAFTING_TAB_CLOTHING_HOVER = "interface/crafting_pieces/clothing_tab_hover";
+        public static string INTERFACE_CRAFTING_TAB_FURNITURE_HOVER = "interface/crafting_pieces/furniture_tab_hover";
+        public static string INTERFACE_CRAFTING_TAB_FLOOR_WALL_HOVER = "interface/crafting_pieces/floor_wall_tab_hover";
+        public static string INTERFACE_CRAFTING_TAB_MACHINE_HOVER = "interface/crafting_pieces/machine_tab_hover";
+        public static string INTERFACE_CRAFTING_TAB_SCAFFOLDING_HOVER = "interface/crafting_pieces/scaffolding_tab_hover";
         public static string INTERFACE_CRAFTING_ARROW_LEFT = "interface/crafting_pieces/arrow_left";
         public static string INTERFACE_CRAFTING_ARROW_RIGHT = "interface/crafting_pieces/arrow_right";
         public static string INTERFACE_CRAFTING_CRAFT_BUTTON = "interface/crafting_pieces/craft_button";

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/floor_footprint.png</SourceFile>
-  <SourceTime>2021-06-16T18:29:18.8938959-04:00</SourceTime>
+  <SourceTime>2022-12-01T20:47:34.6296917-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/placeables/floor_footprint.xnb</DestFile>
-  <DestTime>2022-12-01T20:00:18.440093-05:00</DestTime>
+  <DestTime>2022-12-01T23:28:29.0863167-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

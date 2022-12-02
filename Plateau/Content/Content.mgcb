@@ -1209,6 +1209,18 @@
 /processorParam:TextureFormat=Color
 /build:interface/crafting_pieces/clothing_tab.png
 
+#begin interface/crafting_pieces/clothing_tab_hover.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/crafting_pieces/clothing_tab_hover.png
+
 #begin interface/crafting_pieces/craft_button.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1245,6 +1257,18 @@
 /processorParam:TextureFormat=Color
 /build:interface/crafting_pieces/floor_wall_tab.png
 
+#begin interface/crafting_pieces/floor_wall_tab_hover.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/crafting_pieces/floor_wall_tab_hover.png
+
 #begin interface/crafting_pieces/furniture_tab.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1257,6 +1281,18 @@
 /processorParam:TextureFormat=Color
 /build:interface/crafting_pieces/furniture_tab.png
 
+#begin interface/crafting_pieces/furniture_tab_hover.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/crafting_pieces/furniture_tab_hover.png
+
 #begin interface/crafting_pieces/machine_tab.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1268,6 +1304,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:interface/crafting_pieces/machine_tab.png
+
+#begin interface/crafting_pieces/machine_tab_hover.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/crafting_pieces/machine_tab_hover.png
 
 #begin interface/crafting_pieces/question_mark.png
 /importer:TextureImporter
@@ -1292,6 +1340,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:interface/crafting_pieces/scaffolding_tab.png
+
+#begin interface/crafting_pieces/scaffolding_tab_hover.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/crafting_pieces/scaffolding_tab_hover.png
 
 #begin interface/datetime_panel.png
 /importer:TextureImporter

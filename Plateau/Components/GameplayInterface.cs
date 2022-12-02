@@ -429,14 +429,15 @@ namespace Plateau.Components
 
         private static Texture2D workbench;
         private static Texture2D workbenchClothingTab, workbenchFloorWallTab, workbenchScaffoldingTab, workbenchFurnitureTab, workbenchMachineTab;
+        private static Texture2D workbenchClothingTabHover, workbenchFloorWallTabHover, workbenchScaffoldingTabHover, workbenchFurnitureTabHover, workbenchMachineTabHover;
         private static Texture2D workbenchArrowLeft, workbenchArrowRight, workbenchCraftButton, workbenchCraftButtonEnlarged, workbenchQuestionMark, workbenchBlueprintDepression;
 
-        private static Vector2 WORKBENCH_POSITION = new Vector2(53, 14); //m
-        private static Vector2 WORKBENCH_MACHINE_TAB_POSITION = WORKBENCH_POSITION + new Vector2(0, 28);
-        private static Vector2 WORKBENCH_SCAFFOLDING_TAB_POSITION = WORKBENCH_MACHINE_TAB_POSITION + new Vector2(0, 11);
-        private static Vector2 WORKBENCH_FURNITURE_TAB_POSITION = WORKBENCH_SCAFFOLDING_TAB_POSITION + new Vector2(0, 11);
-        private static Vector2 WORKBENCH_HOUSE_TAB_POSITION = WORKBENCH_FURNITURE_TAB_POSITION + new Vector2(0, 11);
-        private static Vector2 WORKBENCH_CLOTHING_TAB_POSITION = WORKBENCH_HOUSE_TAB_POSITION + new Vector2(0, 11);
+        private static Vector2 WORKBENCH_POSITION = new Vector2(50, 14); //m
+        private static Vector2 WORKBENCH_MACHINE_TAB_POSITION = WORKBENCH_POSITION + new Vector2(-1, 27);
+        private static Vector2 WORKBENCH_SCAFFOLDING_TAB_POSITION = WORKBENCH_MACHINE_TAB_POSITION + new Vector2(0, 12);
+        private static Vector2 WORKBENCH_FURNITURE_TAB_POSITION = WORKBENCH_SCAFFOLDING_TAB_POSITION + new Vector2(0, 12);
+        private static Vector2 WORKBENCH_HOUSE_TAB_POSITION = WORKBENCH_FURNITURE_TAB_POSITION + new Vector2(0, 12);
+        private static Vector2 WORKBENCH_CLOTHING_TAB_POSITION = WORKBENCH_HOUSE_TAB_POSITION + new Vector2(0, 12);
         private static Vector2 WORKBENCH_LEFT_ARROW_POSITION = WORKBENCH_POSITION + new Vector2(16, 92);
         private static Vector2 WORKBENCH_RIGHT_ARROW_POSITION = WORKBENCH_LEFT_ARROW_POSITION + new Vector2(91, 0);
         private static Vector2 WORKBENCH_CRAFT_BUTTON = WORKBENCH_POSITION + new Vector2(156, 98);
@@ -449,7 +450,7 @@ namespace Plateau.Components
         private static Vector2 WORKBENCH_SELECTED_RECIPE_COMPONENT_4 = WORKBENCH_SELECTED_RECIPE_COMPONENT_3 + new Vector2(20, 0);
         private static int blueprintDeltaX = 20, blueprintDeltaY = 20, haveBoxesDeltaY = 28;
         private bool hoveringLeftArrow, hoveringRightArrow, hoveringCraftButton;
-        private int workbenchCurrentTab, workbenchCurrentPage;
+        private int workbenchCurrentTab, workbenchCurrentPage, workbenchHoverTab;
         private RectangleF[] workbenchTabRectangles;
         private RectangleF[] workbenchBlueprintRectangles;
         private RectangleF workbenchLeftArrowRectangle, workbenchRightArrowRectangle, workbenchCraftButtonRectangle;
@@ -510,6 +511,7 @@ namespace Plateau.Components
             this.workbenchInventorySelectedPosition = new Vector2(-1000, -1000);
             this.hoveringLeftArrow = false;
             this.hoveringRightArrow = false;
+            this.workbenchHoverTab = -1;
             this.workbenchCurrentPage = 0;
             this.workbenchCurrentTab = 0;
             this.transitionPosition = new Vector2(0, 0);
@@ -790,6 +792,11 @@ namespace Plateau.Components
             workbenchScaffoldingTab = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_TAB_SCAFFOLDING);
             workbenchFurnitureTab = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_TAB_FURNITURE);
             workbenchMachineTab = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_TAB_MACHINE);
+            workbenchClothingTabHover = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_TAB_CLOTHING_HOVER);
+            workbenchFloorWallTabHover = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_TAB_FLOOR_WALL_HOVER);
+            workbenchScaffoldingTabHover = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_TAB_SCAFFOLDING_HOVER);
+            workbenchFurnitureTabHover = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_TAB_FURNITURE_HOVER);
+            workbenchMachineTabHover = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_TAB_MACHINE_HOVER);
             workbenchQuestionMark = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_QUESTION_MARK);
             workbenchBlueprintDepression = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_BLUEPRINT_DEPRESSION);
 
@@ -799,11 +806,11 @@ namespace Plateau.Components
             workbenchCraftButtonEnlarged = content.Load<Texture2D>(Paths.INTERFACE_CRAFTING_CRAFT_BUTTON_ENLARGED);
 
             workbenchTabRectangles = new RectangleF[5];
-            workbenchTabRectangles[0] = new RectangleF(WORKBENCH_MACHINE_TAB_POSITION, new Size2(10, 9));
-            workbenchTabRectangles[1] = new RectangleF(WORKBENCH_SCAFFOLDING_TAB_POSITION, new Size2(10, 9));
-            workbenchTabRectangles[2] = new RectangleF(WORKBENCH_FURNITURE_TAB_POSITION, new Size2(10, 9));
-            workbenchTabRectangles[3] = new RectangleF(WORKBENCH_HOUSE_TAB_POSITION, new Size2(10, 9));
-            workbenchTabRectangles[4] = new RectangleF(WORKBENCH_CLOTHING_TAB_POSITION, new Size2(10, 9));
+            workbenchTabRectangles[0] = new RectangleF(WORKBENCH_MACHINE_TAB_POSITION, new Size2(11, 11));
+            workbenchTabRectangles[1] = new RectangleF(WORKBENCH_SCAFFOLDING_TAB_POSITION, new Size2(11, 11));
+            workbenchTabRectangles[2] = new RectangleF(WORKBENCH_FURNITURE_TAB_POSITION, new Size2(11, 11));
+            workbenchTabRectangles[3] = new RectangleF(WORKBENCH_HOUSE_TAB_POSITION, new Size2(11, 11));
+            workbenchTabRectangles[4] = new RectangleF(WORKBENCH_CLOTHING_TAB_POSITION, new Size2(11, 11));
 
             workbenchBlueprintRectangles = new RectangleF[15];
             workbenchBlueprintRectangles[0] = new RectangleF(WORKBENCH_BLUEPRINT_POSITION, new Size2(18, 18));
@@ -4174,6 +4181,17 @@ namespace Plateau.Components
                         }
                     }
 
+                    //hover over tab
+                    workbenchHoverTab = -1;
+                    for (int i = 0; i < workbenchTabRectangles.Length; i++)
+                    {
+                        if (workbenchTabRectangles[i].Contains(mousePosition))
+                        {
+                            workbenchHoverTab = i;
+                            break;
+                        }
+                    }
+
                     if (controller.GetMouseLeftDown()) //change tab
                     {
                         for (int i = 0; i < workbenchTabRectangles.Length; i++)
@@ -4946,6 +4964,30 @@ namespace Plateau.Components
                 sb.Draw(black_background, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, BACKGROUND_BLACK_OFFSET), Color.White * BLACK_BACKGROUND_OPACITY);
                 string pageName = "";
                 sb.Draw(workbench, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, WORKBENCH_POSITION), Color.White);
+
+                switch (workbenchHoverTab)
+                {
+                    case -1:
+                        break;
+                    case 0:
+                        sb.Draw(workbenchMachineTabHover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, WORKBENCH_MACHINE_TAB_POSITION), Color.White);
+                        break;
+                    case 1:
+                        sb.Draw(workbenchScaffoldingTabHover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, WORKBENCH_SCAFFOLDING_TAB_POSITION), Color.White);
+                        break;
+                    case 2:
+                        sb.Draw(workbenchFurnitureTabHover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, WORKBENCH_FURNITURE_TAB_POSITION), Color.White);
+                        break;
+                    case 3:
+                        sb.Draw(workbenchFloorWallTabHover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, WORKBENCH_HOUSE_TAB_POSITION), Color.White);
+                        break;
+                    case 4:
+                        sb.Draw(workbenchClothingTabHover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, WORKBENCH_CLOTHING_TAB_POSITION), Color.White);
+                        break;
+                    default:
+                        throw new Exception();
+                }
+
                 switch (workbenchCurrentTab)
                 {
                     case 0:
