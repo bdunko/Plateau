@@ -18,7 +18,8 @@ namespace Plateau.Entities
         private float velocityY;
         private float velocityX;
         private static float GRAVITY = 8;
-        private static float FRICTION_X = 0.6f;
+        private static float FRICTION_X_AIRBORNE = 0.6f;
+        private static float FRICTION_X_GROUNDED = 1.5f;
         private float timeElapsed;
 
         private static float TIME_BEFORE_COLLECTION = 0.55f;
@@ -27,6 +28,7 @@ namespace Plateau.Entities
         private static float BOUNCE_MULTIPLIER = 0.6f;
 
         private bool firstUpdate;
+        private bool grounded;
 
         public EntityItem(Item itemForm, Vector2 position, Vector2 velocityReplacement) : this(itemForm, position)
         {
@@ -48,6 +50,7 @@ namespace Plateau.Entities
             velocityY = Util.RandInt(-31, -24) / 10.0f;
             this.timeElapsed = 0;
             this.firstUpdate = true;
+            this.grounded = false;
         }
 
         public override void Draw(SpriteBatch sb, float layerDepth)
@@ -116,7 +119,7 @@ namespace Plateau.Entities
 
             timeElapsed += deltaTime;
             velocityY += GRAVITY * deltaTime;
-            velocityX = Util.AdjustTowards(velocityX, 0, FRICTION_X * deltaTime);
+            velocityX = Util.AdjustTowards(velocityX, 0, (grounded ? FRICTION_X_GROUNDED : FRICTION_X_AIRBORNE) * deltaTime);
 
 
             //calculate collisions
@@ -144,7 +147,7 @@ namespace Plateau.Entities
                     if (yCollision)
                     {
                         stepY = 0;
-                        //grounded = true;
+                        grounded = true;
                         if (velocityY > MINIMUM_BOUNCE)
                         {
                             velocityY = -velocityY * BOUNCE_MULTIPLIER;
@@ -157,6 +160,7 @@ namespace Plateau.Entities
                     }
                     else
                     {
+                        grounded = false;
                         this.position.Y += stepY;
                     }
                 }

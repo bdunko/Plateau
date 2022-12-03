@@ -1613,7 +1613,7 @@ namespace Plateau.Entities
                             List<Item> drops = currentFishingPool.lootTable.RollLoot(this, area, world.GetTimeData());
                             foreach (Item drop in drops)
                             {
-                                area.AddEntity(new EntityItem(drop, originSpot, new Vector2((direction == DirectionEnum.LEFT ? 1 : -1) * Util.RandInt(112, 128) / 100.0f, -3.6f)));
+                                area.AddEntity(new EntityItem(drop, originSpot, new Vector2((direction == DirectionEnum.LEFT ? 1 : -1) * Util.RandInt(90, 94) / 100.0f, -3.2f)));
                             }
                             fishlineParts.Clear();
                             for (int i = 0; i < 12; i++)
@@ -1650,29 +1650,31 @@ namespace Plateau.Entities
                         if (GetHeldItem().GetItem().HasTag(Item.Tag.FISHING_ROD))
                         {
                             if (currentFishingPool == null) {
-                                Vector2 targetSpot = GetAdjustedPosition() + new Vector2(direction == DirectionEnum.LEFT ? -9 : 13, HEIGHT + 1 - 8); ;
+                                Vector2 targetSpot = GetAdjustedPosition() + new Vector2(direction == DirectionEnum.LEFT ? -9 : 12, HEIGHT + 1 - 8);
                                 bool foundWater = false;
                                 bool foundLand = false;
                                 int lineLength = 0;
 
                                 while (!foundWater && !foundLand && lineLength <= 3)
                                 {
-                                    if (area.GetCollisionTypeAt((int)(((direction == DirectionEnum.LEFT ? 1 : 1) + targetSpot.X) / 8), (int)(targetSpot.Y / 8)) == Area.CollisionTypeEnum.WATER)
+                                    Area.CollisionTypeEnum collisionType = area.GetCollisionTypeAt((int)(((direction == DirectionEnum.LEFT ? 1 : 1) + targetSpot.X) / 8), (int)(targetSpot.Y / 8));
+                                    if (collisionType == Area.CollisionTypeEnum.WATER || collisionType == Area.CollisionTypeEnum.TOP_WATER || collisionType == Area.CollisionTypeEnum.DEEP_WATER)
                                     {
                                         foundWater = true;
-                                    } else if (area.GetCollisionTypeAt((int)(((direction == DirectionEnum.LEFT ? 1 : 1) + targetSpot.X) / 8), (int)(targetSpot.Y / 8)) == Area.CollisionTypeEnum.SOLID)
+                                    } else if (collisionType == Area.CollisionTypeEnum.SOLID ||
+                                        collisionType == Area.CollisionTypeEnum.SCAFFOLDING_BLOCK)
                                     {
                                         foundLand = true;
                                     }
-
+                                    
                                     if (foundWater)
                                     {
                                         fishlineParts.Add(new FishlinePart(FishlinePart.FishingPartType.HOOK, targetSpot));
                                     } else if (!foundLand)
                                     {
                                         fishlineParts.Add(new FishlinePart(FishlinePart.FishingPartType.LINE, targetSpot));
-                                        lineLength++;
                                     }
+                                    lineLength++;
                                     targetSpot.Y += 8;
                                 }
 
@@ -2413,8 +2415,9 @@ namespace Plateau.Entities
                     sprite.SetLoopIfNot(direction == DirectionEnum.LEFT ? ClothedSprite.FISH_L : ClothedSprite.FISH_R);
                 } else
                 {
-                    //can also happen from doing clearinv while in middle of animation
-                    throw new Exception("No tool animation?");
+                    //can happen from starting animation, then entering inventory and changing held item
+                    sprite.SetLoopIfNot(direction == DirectionEnum.LEFT ? ClothedSprite.IDLE_CYCLE_L : ClothedSprite.IDLE_CYCLE_R);
+                    useTool = false;
                 }
                 if (sprite.IsCurrentLoopFinished() && !GetHeldItem().GetItem().HasTag(Item.Tag.FISHING_ROD))
                 {

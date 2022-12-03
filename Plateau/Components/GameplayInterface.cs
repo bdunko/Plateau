@@ -280,29 +280,23 @@ namespace Plateau.Components
         private static Vector2 DATETIME_PANEL_GOLD_OFFSET = new Vector2(35, 29);
 
         private string mouseLeftAction, mouseRightAction, mouseLeftShiftAction, mouseRightShiftAction;
-        private static Vector2 MOUSE_CONTROL_POSITION = new Vector2(272, 155); //m
-        private static Vector2 MOUSE_LEFT_TEXT_POSITION = new Vector2(273, 170); //m
-        private static Vector2 MOUSE_RIGHT_TEXT_POSITION = new Vector2(302, 170); //m
+        private static Vector2 MOUSE_CONTROL_POSITION = new Vector2(272, 155); 
+        private static Vector2 MOUSE_LEFT_TEXT_POSITION = new Vector2(273, 170); 
+        private static Vector2 MOUSE_RIGHT_TEXT_POSITION = new Vector2(302, 170); 
 
         private string upAction, leftAction, rightAction, downAction;
-        private static Vector2 KEY_CONTROL_POSITION = new Vector2(15, 152); //m
-        private static Vector2 KEY_RIGHT_TEXT_POSITION = new Vector2(50, 153); //m
-        private static Vector2 KEY_LEFT_TEXT_POSITION = new Vector2(12, 153); //m
-        private static Vector2 KEY_UP_TEXT_POSITION = new Vector2(30, 148); //m
-        private static Vector2 KEY_DOWN_TEXT_POSITION = new Vector2(30, 176); //m
+        private static Vector2 KEY_CONTROL_POSITION = new Vector2(15, 152); 
+        private static Vector2 KEY_RIGHT_TEXT_POSITION = new Vector2(50, 153); 
+        private static Vector2 KEY_LEFT_TEXT_POSITION = new Vector2(12, 153); 
+        private static Vector2 KEY_UP_TEXT_POSITION = new Vector2(30, 148); 
+        private static Vector2 KEY_DOWN_TEXT_POSITION = new Vector2(30, 176); 
 
-        private static Vector2 KEY_CONTROL_POSITION_DIALOGUE = new Vector2(160, 70); //m
-        private static Vector2 KEY_RIGHT_TEXT_POSITION_DIALOGUE = new Vector2(212, 79); //m
-        private static Vector2 KEY_LEFT_TEXT_POSITION_DIALOGUE = new Vector2(135, 79); //m
-        private static Vector2 KEY_UP_TEXT_POSITION_DIALOGUE = new Vector2(175, 62); //m
-        private static Vector2 KEY_DOWN_TEXT_POSITION_DIALOGUE = new Vector2(175, 98); //m
-
-        private static Vector2 MENU_CONTROL_POSITION = new Vector2(1, 49); //m
-        private static Vector2 MENU_BAG_HOTKEY_POSITION = new Vector2(16, 53); //m
-        private static Vector2 MENU_SCRAPBOOK_HOTKEY_POSITION = new Vector2(16, 66); //m
-        private static Vector2 MENU_CRAFTING_HOTKEY_POSITION = new Vector2(16, 79); //m
-        private static Vector2 MENU_SETTINGS_HOTKEY_POSITION = new Vector2(16, 92); //m
-        private static Vector2 MENU_EDITMODE_HOTKEY_POSITION = new Vector2(16, 105); //TODODO
+        private static Vector2 MENU_CONTROL_POSITION = new Vector2(1, 49); 
+        private static Vector2 MENU_BAG_HOTKEY_POSITION = new Vector2(16, 53); 
+        private static Vector2 MENU_SCRAPBOOK_HOTKEY_POSITION = new Vector2(16, 66); 
+        private static Vector2 MENU_CRAFTING_HOTKEY_POSITION = new Vector2(16, 79); 
+        private static Vector2 MENU_SETTINGS_HOTKEY_POSITION = new Vector2(16, 92); 
+        private static Vector2 MENU_EDITMODE_HOTKEY_POSITION = new Vector2(16, 105); 
         private Texture2D menuControlsInventoryEnlarge, menuControlsInventoryDepressed;
         private Texture2D menuControlsScrapbookEnlarge, menuControlsScrapbookDepressed;
         private Texture2D menuControlsSettingsEnlarge, menuControlsSettingsDepressed;
@@ -413,10 +407,15 @@ namespace Plateau.Components
         private bool inDialogue;
         private float currentDialogueNumChars;
         private static float DIALOGUE_SPEED_CHARS_PER_FRAME = 0.6f; //speed of dialogue
-        private static Vector2 DIALOGUE_BOX_LOCATION = new Vector2(65.5f, 8);
-        private static Vector2 DIALOGUE_PORTRAIT_LOCATION = DIALOGUE_BOX_LOCATION + new Vector2(7, 8);
-        private static Vector2 DIALOGUE_TEXT_LOCATION = DIALOGUE_BOX_LOCATION + new Vector2(50, 8);
-        private static Vector2 DIALOGUE_BOUNCE_ARROW_LOCATION = DIALOGUE_BOX_LOCATION + new Vector2(188, 37);
+        private static Vector2 DIALOGUE_BOX_POSITION = new Vector2(57f, 8);
+        private static Vector2 DIALOGUE_PORTRAIT_POSITION = DIALOGUE_BOX_POSITION + new Vector2(7, 8);
+        private static Vector2 DIALOGUE_TEXT_POSITION = DIALOGUE_BOX_POSITION + new Vector2(50, 8);
+        private static Vector2 DIALOGUE_BOUNCE_ARROW_POSITION = DIALOGUE_BOX_POSITION + new Vector2(188, 37);
+        private static Vector2 KEY_CONTROL_POSITION_DIALOGUE = new Vector2(DIALOGUE_BOX_POSITION.X + 91, DIALOGUE_BOX_POSITION.Y + 62);
+        private static Vector2 KEY_RIGHT_TEXT_POSITION_DIALOGUE = new Vector2(KEY_CONTROL_POSITION_DIALOGUE.X + 52, KEY_CONTROL_POSITION_DIALOGUE.Y + 9);
+        private static Vector2 KEY_LEFT_TEXT_POSITION_DIALOGUE = new Vector2(KEY_CONTROL_POSITION_DIALOGUE.X - 25, KEY_CONTROL_POSITION_DIALOGUE.Y + 9);
+        private static Vector2 KEY_UP_TEXT_POSITION_DIALOGUE = new Vector2(KEY_CONTROL_POSITION_DIALOGUE.X + 15, KEY_CONTROL_POSITION_DIALOGUE.Y - 8);
+        private static Vector2 KEY_DOWN_TEXT_POSITION_DIALOGUE = new Vector2(KEY_CONTROL_POSITION_DIALOGUE.X + 15, KEY_CONTROL_POSITION_DIALOGUE.Y + 28);
 
         private static int TRANSITION_DELTA_Y = 500;
         private static int TRANSITION_DELTA_X = 725;
@@ -5426,7 +5425,7 @@ namespace Plateau.Components
             //draw the dialogue bubble
             if(inDialogue)
             { 
-                dialogueBox.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_BOX_LOCATION), Color.White, layerDepth);
+                dialogueBox.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_BOX_POSITION), Color.White, layerDepth);
                 if (dialogueBox.IsCurrentLoopFinished() && dialogueBox.IsCurrentLoop("anim"))
                 {
                     if (currentDialogue == null)
@@ -5435,11 +5434,11 @@ namespace Plateau.Components
                     }
                     else
                     {
-                        sb.Draw(currentDialogue.portrait, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_PORTRAIT_LOCATION), Color.White);
-                        QUEUED_STRINGS.Add(new QueuedString(currentDialogue.GetText((int)currentDialogueNumChars, dialogueNodePage), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_TEXT_LOCATION), Color.Black));
+                        sb.Draw(currentDialogue.portrait, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_PORTRAIT_POSITION), Color.White);
+                        QUEUED_STRINGS.Add(new QueuedString(currentDialogue.GetText((int)currentDialogueNumChars, dialogueNodePage), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_TEXT_POSITION), Color.Black));
                         if (currentDialogueNumChars >= currentDialogue.dialogueTexts[dialogueNodePage].Length)
                         {
-                            bounceArrow.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_BOUNCE_ARROW_LOCATION), Color.White, layerDepth);
+                            bounceArrow.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_BOUNCE_ARROW_POSITION), Color.White, layerDepth);
                         }
                     }
                 } else if (dialogueBox.IsCurrentLoopFinished() && dialogueBox.IsCurrentLoop("close"))
