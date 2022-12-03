@@ -269,8 +269,8 @@ namespace Plateau.Components
         private static RectangleF ACCESSORY3_INVENTORY_RECT = new RectangleF(206f, 50, 18, 18);
         private static Color CLOTHING_INDICATOR_COLOR = Color.Green * 0.5f;
 
-        private static Vector2 HOTBAR_POSITION = new Vector2(58.5f, 157);
-        private static Vector2 HOTBAR_SELECTED_POSITION_0 = new Vector2(64.5f, 158);
+        private static Vector2 HOTBAR_POSITION = new Vector2(57f, 157);
+        private static Vector2 HOTBAR_SELECTED_POSITION_0 = new Vector2(63f, 158);
         private static Vector2 CHEST_INVENTORY_POSITION = INVENTORY_POSITION - new Vector2(0, 9);
         private static Vector2 INVENTORY_PLAYER_PREVIEW = new Vector2(48.5f, 0);
         private static Vector2 DATETIME_PANEL_POSITION = new Vector2(271, 2);
@@ -398,6 +398,7 @@ namespace Plateau.Components
         private Texture2D garbageCanOpen, garbageCanClosed;
         private static Vector2 GARBAGE_CAN_LOCATION_POSITION = new Vector2(44, 118);
         private RectangleF garbageCanRectangle;
+        private RectangleF[] dropRectangles;
 
         private static string selectedHotbarItemName;
         private static Vector2 SELECTED_HOTBAR_ITEM_NAME_POSITION = new Vector2(160, 156);
@@ -554,21 +555,6 @@ namespace Plateau.Components
             rightAction = "";
             downAction = "";
             upAction = "";
-        }
-
-        public bool IsItemHeld()
-        {
-            return inventoryHeldItem.GetItem() != ItemDict.NONE;
-        }
-
-        public ItemStack GetHeldItem()
-        {
-            return inventoryHeldItem;
-        }
-
-        public void ClearHeldItem()
-        {
-            inventoryHeldItem = new ItemStack(ItemDict.NONE, 0);
         }
 
         public void LoadContent(ContentManager content)
@@ -752,6 +738,14 @@ namespace Plateau.Components
             garbageCanClosed = content.Load<Texture2D>(Paths.INTERFACE_GARBAGE_CAN_CLOSED);
             garbageCanOpen = content.Load<Texture2D>(Paths.INTERFACE_GARBAGE_CAN_OPEN);
             garbageCanRectangle = new RectangleF(GARBAGE_CAN_LOCATION_POSITION, new Vector2(garbageCanClosed.Width, garbageCanClosed.Height));
+            dropRectangles = new RectangleF[] {
+                new RectangleF(0, 0, 61, 200), //left side
+                new RectangleF(61, 0, 28, 73), //left upper
+                new RectangleF(256, 0, 65, 200), //right side
+                new RectangleF(227, 0, 29, 73), //right upper
+                new RectangleF(89, 0, 138, 11), //top
+                new RectangleF(61, 152, 195, 6) //bottom between inv & hotbar
+            };
 
             float[] frameLengths = Util.CreateAndFillArray(4, DIALOGUE_BOX_ANIMATION_LENGTH);
             dialogueBox = new AnimatedSprite(content.Load<Texture2D>(Paths.INTERFACE_DIALOGUE_BOX), 4, 1, 4, frameLengths);
@@ -3723,13 +3717,21 @@ namespace Plateau.Components
 
                     if (controller.GetMouseLeftPress())
                     {
-
                         Vector2 mousePos = controller.GetMousePos();
                         if (garbageCanRectangle.Contains(mousePos))
                         {
                             if (!inventoryHeldItem.GetItem().HasTag(Item.Tag.NO_TRASH))
                             {
                                 inventoryHeldItem = new ItemStack(ItemDict.NONE, 0);
+                            }
+                        } else
+                        {
+                            foreach(RectangleF dropRectangle in dropRectangles)
+                            {
+                                if(dropRectangle.Contains(mousePos) && inventoryHeldItem.GetItem() != ItemDict.NONE)
+                                {
+                                    DropHeldItem(world);
+                                }
                             }
                         }
 
@@ -5566,6 +5568,20 @@ namespace Plateau.Components
         public bool NoMenusOpen()
         {
             return interfaceState == InterfaceState.NONE;
+        }
+
+        public void DropHeldItem(World world)
+        {
+            if(inventoryHeldItem.GetItem() != ItemDict.NONE)
+            {
+                for (int i = 0; i < inventoryHeldItem.GetQuantity(); i++)
+                {
+                    Vector2 position = player.GetCenteredPosition();
+                    position.X -= 6;
+                    world.GetCurrentArea().AddEntity(new EntityItem(inventoryHeldItem.GetItem(), position, new Vector2((player.GetDirection() == DirectionEnum.LEFT ? -1 : 1) * Util.RandInt(55, 63) / 100.0f, -2.3f))); ;
+                }
+                inventoryHeldItem = new ItemStack(ItemDict.NONE, 0);
+            }
         }
     }
 

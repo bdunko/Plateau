@@ -315,17 +315,7 @@ namespace Plateau
 
                 if (currentState == PlateauGameState.NORMAL && (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || controller.IsKeyPressed(KeyBinds.ESCAPE) && player.GetCurrentDialogue() == null))
                 {
-                    if(ui.IsItemHeld()) //throw currently held item out into world
-                    {
-                        ItemStack heldItem = ui.GetHeldItem();
-                        for(int i = 0; i < heldItem.GetQuantity(); i++)
-                        {
-                            Vector2 position = player.GetCenteredPosition();
-                            position.X -= 6;
-                            world.GetCurrentArea().AddEntity(new EntityItem(heldItem.GetItem(), position, new Vector2((player.GetDirection() == DirectionEnum.LEFT ? -1 : 1) * Util.RandInt(55, 63) / 100.0f, -2.3f))); ;
-                        }
-                        ui.ClearHeldItem();
-                    }
+                    ui.DropHeldItem(world); //throw currently held item out into world, if any
 
                     if (player.GetInterfaceState() == InterfaceState.NONE)
                     {

@@ -483,27 +483,27 @@ namespace Plateau.Components
             }
             else if (adjustment == RecolorAdjustment.SLIGHT_LIGHTEN)
             {
-                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.5f);
-                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.5f);
-                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.5f);
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.75f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.75f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.75f);
             }
             else if (adjustment == RecolorAdjustment.LIGHTEN_PLACEABLE)
+            {
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.35f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.35f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.35f);
+            }
+            else if (adjustment == RecolorAdjustment.LIGHTEN_HOUSE_ROOF)
+            {
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.4f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.4f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.4f);
+            }
+            else if (adjustment == RecolorAdjustment.LIGHTEN_HOUSE_TRIM)
             {
                 newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.2f);
                 newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.2f);
                 newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.2f);
-            }
-            else if (adjustment == RecolorAdjustment.LIGHTEN_HOUSE_ROOF)
-            {
-                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.3f);
-                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.3f);
-                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.3f);
-            }
-            else if (adjustment == RecolorAdjustment.LIGHTEN_HOUSE_TRIM)
-            {
-                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.1f);
-                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.1f);
-                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.1f);
             }
             else if (adjustment == RecolorAdjustment.DARKEN)
             {
@@ -519,9 +519,9 @@ namespace Plateau.Components
             }
             else if (adjustment == RecolorAdjustment.DARKEN_HOUSE_WALLS)
             {
-                newColor.R = (byte)Util.AdjustTowards(newColor.R, 0, DARKEN_AMOUNT * 0.6f);
-                newColor.G = (byte)Util.AdjustTowards(newColor.G, 0, DARKEN_AMOUNT * 0.6f);
-                newColor.B = (byte)Util.AdjustTowards(newColor.B, 0, DARKEN_AMOUNT * 0.6f);
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 0, DARKEN_AMOUNT * 0.7f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 0, DARKEN_AMOUNT * 0.7f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 0, DARKEN_AMOUNT * 0.7f);
             }
             else if (adjustment == RecolorAdjustment.EXTRA_DARKEN)
             {
@@ -531,9 +531,9 @@ namespace Plateau.Components
             }
             else if (adjustment == RecolorAdjustment.NORMAL)
             {
-                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.15f);
-                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.15f);
-                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.15f);
+                newColor.R = (byte)Util.AdjustTowards(newColor.R, 255, LIGHTEN_AMOUNT * 0.2f);
+                newColor.G = (byte)Util.AdjustTowards(newColor.G, 255, LIGHTEN_AMOUNT * 0.2f);
+                newColor.B = (byte)Util.AdjustTowards(newColor.B, 255, LIGHTEN_AMOUNT * 0.2f);
             }
             return newColor;
         }
