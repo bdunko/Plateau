@@ -5417,11 +5417,11 @@ namespace Plateau.Components
                     WHITE_9SLICE.DrawString(sb, notification, notificationPos, cameraBoundingBox, Color.CornflowerBlue, Util.UI_BLACK_9SLICE.color);
                 }
 
-                if (currentNotification != null && interfaceState != InterfaceState.EXIT && interfaceState != InterfaceState.EXIT_CONFIRMED)
-                {
+                if (currentNotification != null && interfaceState == InterfaceState.NONE && currentDialogue == null)
                     currentNotification.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, NOTIFICATION_POSITION), cameraBoundingBox);
-                }
-            } //!cutscne
+                else
+                    player.ClearNotifications();
+            } 
 
             //draw the dialogue bubble
             if(inDialogue)

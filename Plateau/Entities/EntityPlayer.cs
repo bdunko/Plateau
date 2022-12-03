@@ -2719,6 +2719,11 @@ namespace Plateau.Entities
             return notifications.Peek();
         }
 
+        public void ClearNotifications()
+        {
+            notifications.Clear();
+        }
+
         public override bool IsColliding(RectangleF solidRect)
         {
             return solidRect.Intersects(collisionRectangle);
