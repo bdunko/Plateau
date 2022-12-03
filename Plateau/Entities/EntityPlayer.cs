@@ -2561,6 +2561,7 @@ namespace Plateau.Entities
         {
             sprite.SetLoop(direction == DirectionEnum.LEFT ? ClothedSprite.IDLE_CYCLE_L : ClothedSprite.IDLE_CYCLE_R);
             rolling = false;
+            useTool = false;
         }
 
         public void UpdateSprite(float deltaTime)
