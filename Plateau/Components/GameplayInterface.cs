@@ -3512,7 +3512,8 @@ namespace Plateau.Components
                             }
                             else
                             {
-                                if (showPlaceableTexture)
+                                //also doesn't give message when attempting to place scaffolding over scaffolding
+                                if (showPlaceableTexture && currentArea.GetBuildingBlockAt((int)tile.X, (int)tile.Y) == null)
                                 {
                                     player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
                                 }

@@ -119,13 +119,7 @@ namespace Plateau.Entities
 
         public override void OnRemove(EntityPlayer player, Area area, World world)
         {
-            if (heldItem.GetItem() != ItemDict.NONE)
-            {
-                for (int i = 0; i < heldItem.GetQuantity(); i++)
-                {
-                    area.AddEntity(new EntityItem(heldItem.GetItem(), new Vector2(position.X, position.Y - 10)));
-                }
-            }
+            InteractRight(player, area, world);
             base.OnRemove(player, area, world);
         }
 
