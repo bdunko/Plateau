@@ -269,10 +269,10 @@ namespace Plateau.Components
         private static RectangleF ACCESSORY3_INVENTORY_RECT = new RectangleF(206f, 50, 18, 18);
         private static Color CLOTHING_INDICATOR_COLOR = Color.Green * 0.5f;
 
-        private static Vector2 HOTBAR_POSITION = new Vector2(58.5f, 157); //m
-        private static Vector2 HOTBAR_SELECTED_POSITION_0 = new Vector2(64.5f, 158); //m
+        private static Vector2 HOTBAR_POSITION = new Vector2(58.5f, 157);
+        private static Vector2 HOTBAR_SELECTED_POSITION_0 = new Vector2(64.5f, 158);
         private static Vector2 CHEST_INVENTORY_POSITION = INVENTORY_POSITION - new Vector2(0, 9);
-        private static Vector2 INVENTORY_PLAYER_PREVIEW = new Vector2(48.5f, 0); //m
+        private static Vector2 INVENTORY_PLAYER_PREVIEW = new Vector2(48.5f, 0);
         private static Vector2 DATETIME_PANEL_POSITION = new Vector2(271, 2);
         private static Vector2 DATETIME_PANEL_DAYTEXT_OFFSET = new Vector2(1, 15);
         private static Vector2 DATETIME_PANEL_SEASONTEXT_OFFSET = new Vector2(2, 1);
@@ -305,11 +305,11 @@ namespace Plateau.Components
         private bool isMouseOverInventoryMC, isMouseOverScrapbookMC, isMouseOverCraftingMC, isMouseOverSettingsMC, isMouseOverEditModeMC;
         private static Vector2 BACKGROUND_BLACK_OFFSET = new Vector2(-9, -9);
 
-        private static Vector2 SHIFT_CONTROL_POSITION = new Vector2(295, 143); //m
-        private static Vector2 SHIFT_TEXT_POSITION = new Vector2(258, 138); //m
+        private static Vector2 SHIFT_CONTROL_POSITION = new Vector2(295, 143);
+        private static Vector2 SHIFT_TEXT_POSITION = new Vector2(258, 138);
 
-        private static Vector2 ESC_CONTROL_POSITION = new Vector2(295, 127f); //m
-        private static Vector2 ESC_TEXT_POSITION = new Vector2(281, 129f); //m
+        private static Vector2 ESC_CONTROL_POSITION = new Vector2(295, 127f);
+        private static Vector2 ESC_TEXT_POSITION = new Vector2(281, 129f);
 
         private static Vector2 EDIT_MODE_NOTIFICATION_TEXT = new Vector2(33, 133);
 
@@ -339,7 +339,7 @@ namespace Plateau.Components
         private Texture2D scrapbookTab1Hover, scrapbookTab2Hover, scrapbookTab3Hover, scrapbookTab4Hover, scrapbookTab5Hover, scrapbookTab6Hover, scrapbookTab7Hover, scrapbookTab8Hover, scrapbookTab9Hover, scrapbookTab10Hover, scrapbookTab11Hover;
         private Texture2D scrapbookTab1ActiveHover, scrapbookTab2ActiveHover, scrapbookTab3ActiveHover, scrapbookTab4ActiveHover, scrapbookTab5ActiveHover, scrapbookTab6ActiveHover, scrapbookTab7ActiveHover, scrapbookTab8ActiveHover, scrapbookTab9ActiveHover, scrapbookTab10ActiveHover, scrapbookTab11ActiveHover;
         private Texture2D scrapbookTitleActive, scrapbookTitleHover, scrapbookTitleActiveHover;
-        public static Vector2 SCRAPBOOK_POSITION = new Vector2(17, 6); //m
+        public static Vector2 SCRAPBOOK_POSITION = new Vector2(17, 6);
         private static Vector2 SCRAPBOOK_TAB1_POSITION = SCRAPBOOK_POSITION + new Vector2(-1, 24);
         private static Vector2 SCRAPBOOK_TAB2_POSITION = SCRAPBOOK_TAB1_POSITION + new Vector2(0, 10);
         private static Vector2 SCRAPBOOK_TAB3_POSITION = SCRAPBOOK_TAB2_POSITION + new Vector2(0, 10);
@@ -378,11 +378,11 @@ namespace Plateau.Components
 
         private Texture2D exitPrompt;
         private Texture2D exitButtonEnlarge;
-        private static Vector2 EXIT_PROMPT_POSITION = new Vector2(130, 13); //m
+        private static Vector2 EXIT_PROMPT_POSITION = new Vector2(130, 13);
         private RectangleF exitPromptButton;
 
         private Texture2D settings, checkmark, checkmark_hover, resolutionup_enlarge, resolutionup_disabled, resolutiondown_enlarge, resolutiondown_disabled, sound_segment_end, sound_segment, sound_segment_farleft, sound_segment_end_farright, sound_segment_end_farleft;
-        private static Vector2 SETTINGS_POSITION = new Vector2(130, 15); //m
+        private static Vector2 SETTINGS_POSITION = new Vector2(130, 15);
         private static Vector2 SETTINGS_RESOLUTION_TEXT_POSITION = SETTINGS_POSITION + new Vector2(40, 38);
         private RectangleF[] settingsOtherRectangles;
         private RectangleF[] settingsResolutionRectangles;
@@ -396,11 +396,11 @@ namespace Plateau.Components
         private bool drawReticle;
 
         private Texture2D garbageCanOpen, garbageCanClosed;
-        private static Vector2 GARBAGE_CAN_LOCATION_POSITION = new Vector2(44, 118); //m 
+        private static Vector2 GARBAGE_CAN_LOCATION_POSITION = new Vector2(44, 118);
         private RectangleF garbageCanRectangle;
 
         private static string selectedHotbarItemName;
-        private static Vector2 SELECTED_HOTBAR_ITEM_NAME_POSITION = new Vector2(160, 156); //m
+        private static Vector2 SELECTED_HOTBAR_ITEM_NAME_POSITION = new Vector2(160, 156);
 
         private AnimatedSprite dialogueBox, bounceArrow;
         private static float DIALOGUE_BOX_ANIMATION_LENGTH = 0.033f; //0.33 per 4 frames
@@ -431,7 +431,7 @@ namespace Plateau.Components
         private static Texture2D workbenchClothingTabHover, workbenchFloorWallTabHover, workbenchScaffoldingTabHover, workbenchFurnitureTabHover, workbenchMachineTabHover;
         private static Texture2D workbenchArrowLeft, workbenchArrowRight, workbenchCraftButton, workbenchCraftButtonEnlarged, workbenchQuestionMark, workbenchBlueprintDepression;
 
-        private static Vector2 WORKBENCH_POSITION = new Vector2(50, 14); //m
+        private static Vector2 WORKBENCH_POSITION = new Vector2(50, 14);
         private static Vector2 WORKBENCH_MACHINE_TAB_POSITION = WORKBENCH_POSITION + new Vector2(-1, 27);
         private static Vector2 WORKBENCH_SCAFFOLDING_TAB_POSITION = WORKBENCH_MACHINE_TAB_POSITION + new Vector2(0, 12);
         private static Vector2 WORKBENCH_FURNITURE_TAB_POSITION = WORKBENCH_SCAFFOLDING_TAB_POSITION + new Vector2(0, 12);
