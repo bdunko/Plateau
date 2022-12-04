@@ -1625,7 +1625,7 @@ namespace Plateau.Components
                         if (inventoryHeldItem.GetItem() is DyeItem)
                         {
                             mouseRightAction = "Apply Dye";
-                            mouseRightShiftAction = "x10 Dye";
+                            mouseRightShiftAction = "10x Dye";
                         }
                     }
                     else
@@ -2853,24 +2853,33 @@ namespace Plateau.Components
                 if (toDye.GetItem().HasTag(Item.Tag.DYEABLE))
                 {
                     string name = ItemDict.GetColoredItemBaseForm(toDye.GetItem());
+                    bool multidye = toDye.GetItem().HasTag(Item.Tag.MULTIDYE);
                     if (inventoryHeldItem.GetItem() != ItemDict.UN_DYE)
                     {
                         name += ((DyeItem)inventoryHeldItem.GetItem()).GetDyedNameAdjustment();
                     }
-                    if (!name.Equals(toDye.GetItem().GetName()))
+                    if (!name.Equals(toDye.GetItem().GetName())) //prevent dying object to color it already is
                     {
-                        if (toDye.GetMaxQuantity() == 1)
+                        if (toDye.GetQuantity() == 1) //dye the 1 item in place
                         {
                             toDye.SetItem(ItemDict.GetItemByName(name));
-                            inventoryHeldItem.Subtract(1);
+                            inventoryHeldItem.Subtract(1); //use one dye
                         }
                         else
                         {
-                            if (player.AddItemToInventory(ItemDict.GetItemByName(name), false, false))
+                            bool dyeUsed = false;
+                            for (int i = 0; i < (multidye ? 5 : 1); i++)
                             {
-                                inventoryHeldItem.Subtract(1);
-                                toDye.Subtract(1);
+                                if (player.AddItemToInventory(ItemDict.GetItemByName(name), false, false)) //otherwise create a new item
+                                {
+                                    toDye.Subtract(1); //remove one of the dyed item
+                                    dyeUsed = true;
+                                }
+                                if (toDye.GetQuantity() == 0) //ran out of items to dye
+                                    break;
                             }
+                            if (dyeUsed) //if at least one was successfully dyed
+                                inventoryHeldItem.Subtract(1); //use one dye
                         }
                     }
                 }
