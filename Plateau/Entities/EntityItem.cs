@@ -176,9 +176,11 @@ namespace Plateau.Entities
         {
             if(itemForm.HasTag(Item.Tag.NO_TRASH))
             {
-                System.Diagnostics.Debug.WriteLine("Discarding a notrash item!");
-                GameState.LOST_ITEMS.Add(itemForm); //prevent losing key items
-                GameState.SetFlag(GameState.FLAG_LETTER_LOST_ITEMS, 1);
+                if (!GameState.LOST_ITEMS.Contains(itemForm)) //allows removal of duplicate nodrop items; which is possible through shrine of creation giving extra tools
+                {
+                    GameState.LOST_ITEMS.Add(itemForm); //prevent losing key items
+                    GameState.SetFlag(GameState.FLAG_LETTER_LOST_ITEMS, 1);
+                }
             }
             //despawn
             area.RemoveEntity(this);

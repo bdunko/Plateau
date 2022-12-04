@@ -593,7 +593,7 @@ namespace Plateau.Components
                 new List<Item> { ItemDict.HEART_VESSEL },
                 AppliedEffects.SPEED_II);
             STS_LIBRARIAN = new ShrineTradeSets(new List<Item> { ItemDict.PAPER },
-                new List<Item> { ItemDict.BLACK_DYE, ItemDict.BLUE_DYE, ItemDict.DARK_BROWN_DYE, ItemDict.DARK_GREY_DYE, ItemDict.GREEN_DYE, ItemDict.LIGHT_BROWN_DYE, ItemDict.LIGHT_GREY_DYE, ItemDict.NAVY_DYE, ItemDict.OLIVE_DYE, ItemDict.ORANGE_DYE, ItemDict.RED_DYE, ItemDict.PURPLE_DYE, ItemDict.WHITE_DYE, ItemDict.YELLOW_DYE },
+                new List<Item> { ItemDict.BLACK_DYE, ItemDict.BLUE_DYE, ItemDict.DARK_BROWN_DYE, ItemDict.DARK_GREY_DYE, ItemDict.GREEN_DYE, ItemDict.LIGHT_BROWN_DYE, ItemDict.LIGHT_GREY_DYE, ItemDict.NAVY_DYE, ItemDict.OLIVE_DYE, ItemDict.ORANGE_DYE, ItemDict.RED_DYE, ItemDict.PURPLE_DYE, ItemDict.WHITE_DYE, ItemDict.YELLOW_DYE, ItemDict.CRIMSON_DYE, ItemDict.CYAN_DYE, ItemDict.MINT_DYE, ItemDict.WHEAT_DYE },
                 new List<Item> { ItemDict.SKY_ROSE }, 
                 AppliedEffects.SPEED_II);
             STS_PAINTER = new ShrineTradeSets(new List<Item> { ItemDict.SEA_URCHIN, ItemDict.INKY_SQUID, ItemDict.MOSSY_BARK, ItemDict.EMERALD_MOSS },
@@ -654,7 +654,7 @@ namespace Plateau.Components
                 AppliedEffects.BUG_CATCHING_III);
             STS_BIRD = new ShrineTradeSets(new List<Item> { ItemDict.BIRDS_NEST, ItemDict.BLACK_FEATHER },
                 new List<Item> { ItemDict.BLUE_FEATHER, ItemDict.RED_FEATHER },
-                new List<Item> { ItemDict.PRISMATIC_FEATHER },
+                new List<Item> { ItemDict.PRISMATIC_FEATHER},
                 AppliedEffects.FORAGING_II);
             STS_LABOURER = new ShrineTradeSets(new List<Item> { ItemDict.WOOD, ItemDict.STONE, ItemDict.CLAY },
                 new List<Item> { ItemDict.HARDWOOD, ItemDict.BAMBOO, ItemDict.IRON_ORE },
