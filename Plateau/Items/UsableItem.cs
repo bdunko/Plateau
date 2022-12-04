@@ -187,12 +187,12 @@ namespace Plateau.Items
             {
                 DialogueNode firstUse = new DialogueNode("The crystal undulates vigorously.\nYour current position has been remembered.", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
-                    for (int i = 0; i < 40; i++)
+                    for (int i = 0; i < 80; i++)
                     {
-                        area.AddParticle(ParticleFactory.GenerateParticle(player.GetCenteredPosition() + new Vector2(0, Util.RandInt(-100, 100)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(player.GetCenteredPosition() + new Vector2(0, Util.RandInt(-200, 200)),
                             ParticleBehavior.ROTATE_STATIONARY, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GOLDEN_WISP.color, ParticleFactory.DURATION_VERY_LONG));
-                        area.AddParticle(ParticleFactory.GenerateParticle(player.GetCenteredPosition() + new Vector2(0, Util.RandInt(-100, 100)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(player.GetCenteredPosition() + new Vector2(0, Util.RandInt(-200, 200)),
                             ParticleBehavior.ROTATE_STATIONARY, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_YELLOW_WISP.color, ParticleFactory.DURATION_VERY_LONG));
                     }

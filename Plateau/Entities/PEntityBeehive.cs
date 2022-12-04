@@ -194,8 +194,11 @@ namespace Plateau.Entities
                 {
                     area.AddEntity(new EntityItem(resultItem, new Vector2(position.X, position.Y - 10)));
                 }
+                if(producedItem.GetQuantity() == MAX_CAPACITY)
+                    timeRemaining = PROCESSING_TIME;
                 sprite.SetLoop("placement");
                 producedItem = new ItemStack(ItemDict.NONE, 0);
+                
             }
         }
 
@@ -206,13 +209,13 @@ namespace Plateau.Entities
             {
                 if(producedItem.GetItem() != ItemDict.NONE)
                 {
-                    player.AddNotification(new EntityPlayer.Notification("I can't add bees after honey is being produced.", Color.Black));
+                    player.AddNotification(new EntityPlayer.Notification("I can't add bees while honey is being produced.", Color.Black));
                 } else if (area.GetSeason() == World.Season.WINTER)
                 {
                     player.AddNotification(new EntityPlayer.Notification("I can't add bees to the Beehive in Winter.", Color.Black));
                 } else if (beeType != ItemDict.NONE && held != beeType)
                 {
-                    player.AddNotification(new EntityPlayer.Notification("I need to empty the hive if I want to change types,\nI can't mix Bees and Hornets!", Color.Black));
+                    player.AddNotification(new EntityPlayer.Notification("I can't mix Bees and Hornets!", Color.Black));
                 } else if (!INCLUDED_AREAS.Contains(area.GetAreaEnum()))
                 {
                     player.AddNotification(new EntityPlayer.Notification("I can't beekeep in this area!", Color.Black));

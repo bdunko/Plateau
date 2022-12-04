@@ -198,7 +198,6 @@ namespace Plateau.Entities
                 heldItem = new ItemStack(ItemDict.NONE, 0);
                 state = ReplicatorState.WORKING;
                 timeRemaining = PROCESSING_TIME_BY_GEMSTONE[seed];
-
             } else if (seed != ItemDict.NONE)
             {
                 area.AddEntity(new EntityItem(seed, new Vector2(position.X, position.Y - 10)));

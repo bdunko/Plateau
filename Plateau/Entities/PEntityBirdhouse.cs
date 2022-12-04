@@ -273,6 +273,8 @@ namespace Plateau.Entities
                 {
                     area.AddEntity(new EntityItem(resultItem, new Vector2(position.X, position.Y - 10)));
                 }
+                if(producedItem.GetQuantity() == MAX_CAPACITY)
+                    timeRemaining = PROCESSING_TIME;
                 sprite.SetLoop("placement");
                 producedItem = new ItemStack(ItemDict.NONE, 0);
             }

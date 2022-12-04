@@ -296,6 +296,7 @@ namespace Plateau.Entities
                 sprite.SetLoop("placement");
                 heldItem = new ItemStack(ItemDict.NONE, 0);
                 state = ExtractorState.WORKING;
+                timeRemaining = PROCESSING_TIME;
             } 
         }
 
@@ -327,7 +328,6 @@ namespace Plateau.Entities
             {
                 heldItem = new ItemStack(GetSynthesizedItem(area.GetAreaEnum()), 1);
                 sprite.SetLoop("placement");
-                timeRemaining = PROCESSING_TIME;
                 if(heldItem.GetQuantity() == MAX_CAPACITY)
                 {
                     state = ExtractorState.FINISHED;
