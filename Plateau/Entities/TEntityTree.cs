@@ -567,9 +567,11 @@ namespace Plateau.Entities
                 SpawnFallingParticles(area, false);
                 shakeAvailable = false;
 
-                if (Util.RandInt(1, 3) == 1)
+                //1/4 chance for birdnest/honeycomb/bark/oyster mushroom drop; 1/2 for pine trees (but only drops birdnest/honeycomb/honeybee)
+                int treeShakeOdds = GetTreeType() == TreeType.PALM ? 2 : 4;
+                if (Util.RandInt(1, treeShakeOdds) == 1)
                 {
-                    LootTables.LootTable shake = LootTables.TREE_SHAKE;
+                    LootTables.LootTable shake = GetTreeType() == TreeType.PALM ? LootTables.PALM_SHAKE : LootTables.TREE_SHAKE;
 
                     List<Item> loot = shake.RollLoot(player, area, world.GetTimeData());
                     foreach (Item item in loot)
@@ -578,26 +580,31 @@ namespace Plateau.Entities
                     }
                 }
 
-                if (area.GetSeason() == World.Season.WINTER && GetTreeType() != TreeType.PALM)
-                {
-                    LootTables.LootTable snow = LootTables.SNOW;
-                    List<Item> snowLoot = snow.RollLoot(player, area, world.GetTimeData());
-                    foreach (Item item in snowLoot)
+                
+                if (GetTreeType() != TreeType.PALM) {
+                    //if winter and not palm, guaranteed to drop 1-2 snow crystal
+                    if (area.GetSeason() == World.Season.WINTER)
                     {
-                        for (int i = 0; i < Util.RandInt(1, 2); i++)
+                        LootTables.LootTable snow = LootTables.SNOW;
+                        List<Item> snowLoot = snow.RollLoot(player, area, world.GetTimeData());
+                        foreach (Item item in snowLoot)
+                        {
+                            for (int i = 0; i < Util.RandInt(1, 2); i++)
+                            {
+                                area.AddEntity(new EntityItem(item, new Vector2(position.X, position.Y + (sprite.GetFrameHeight() - GetStageHeight()))));
+                            }
+                        }
+                    }
+                    //otherwise (not winter), roll to drop an insect
+                    else if (Util.RandInt(1, 3) == 1)
+                    {
+                        LootTables.LootTable insect = LootTables.INSECT;
+
+                        List<Item> loot = insect.RollLoot(player, area, world.GetTimeData());
+                        foreach (Item item in loot)
                         {
                             area.AddEntity(new EntityItem(item, new Vector2(position.X, position.Y + (sprite.GetFrameHeight() - GetStageHeight()))));
                         }
-                    }
-                }
-                else if (Util.RandInt(1, 2) == 1)
-                {
-                    LootTables.LootTable insect = LootTables.INSECT;
-
-                    List<Item> loot = insect.RollLoot(player, area, world.GetTimeData());
-                    foreach (Item item in loot)
-                    {
-                        area.AddEntity(new EntityItem(item, new Vector2(position.X, position.Y + (sprite.GetFrameHeight() - GetStageHeight()))));
                     }
                 }
             }

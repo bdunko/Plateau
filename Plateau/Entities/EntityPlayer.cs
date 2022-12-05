@@ -1729,12 +1729,12 @@ namespace Plateau.Entities
 
                                     for (int i = 0; i < 5; i++)
                                     {
-                                        area.AddParticle(ParticleFactory.GenerateParticle(placementLocation + new Vector2(4, 14), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
+                                        area.AddParticle(ParticleFactory.GenerateParticle(placementLocation + new Vector2(4, 15.5f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
                                             area.GetPrimaryColorForTile((int)modifiedTarget.X, (int)modifiedTarget.Y + 1), ParticleFactory.DURATION_LONG));
                                     }
                                     for (int i = 0; i < 3; i++)
                                     {
-                                        area.AddParticle(ParticleFactory.GenerateParticle(placementLocation + new Vector2(4, 14), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
+                                        area.AddParticle(ParticleFactory.GenerateParticle(placementLocation + new Vector2(4, 15.5f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
                                             area.GetSecondaryColorForTile((int)modifiedTarget.X, (int)modifiedTarget.Y + 1), ParticleFactory.DURATION_LONG));
                                     }
                                 }

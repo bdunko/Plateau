@@ -803,7 +803,7 @@ namespace Plateau.Components
         public static LootTable GEM_ROCK;
 
         //ChoppingLootTable
-        public static LootTable TREE_SHAKE;
+        public static LootTable TREE_SHAKE, PALM_SHAKE;
         public static LootTable FARM_BRANCH, FARM_BIG_BRANCH;
         public static LootTable CRATE, MINECART, CRATE_PILE;
         public static LootTable TREE_PINE, TREE_FRUIT, TREE_THIN, TREE_PALM;
@@ -829,7 +829,8 @@ namespace Plateau.Components
 
         public static void Initialize()
         {
-            TREE_SHAKE = new ChoppingLootTable(1, 1, new LootEntry(ItemDict.HONEYCOMB, 1), new LootEntry(ItemDict.BIRDS_NEST, 1), new LootEntry(ItemDict.MOSSY_BARK, 1), new LootEntry(ItemDict.OYSTER_MUSHROOM, 1));
+            TREE_SHAKE = new LootTable(1, 1, new LootEntry(ItemDict.HONEYCOMB, 1), new LootEntry(ItemDict.BIRDS_NEST, 1), new LootEntry(ItemDict.MOSSY_BARK, 1), new LootEntry(ItemDict.OYSTER_MUSHROOM, 1));
+            PALM_SHAKE = new LootTable(1, 1, new LootEntry(ItemDict.HONEYCOMB, 1), new LootEntry(ItemDict.BIRDS_NEST, 1), new LootEntry(ItemDict.HONEY_BEE, 1));
             INSECT = new InsectLootTable(1, 1,
                 new LootEntry(ItemDict.STAG_BEETLE, 1, LootEntry.notS1Only, LootEntry.notS2Only, LootEntry.notS3Only, LootEntry.notS4Only),
                 new LootEntry(ItemDict.HONEY_BEE, 10, LootEntry.notS2Only, LootEntry.notNightOnly),
@@ -854,10 +855,8 @@ namespace Plateau.Components
                 new LootEntry(ItemDict.SOLDIER_ANT, 18, LootEntry.autumnOnly, LootEntry.notS2Only),
                 new LootEntry(ItemDict.RICE_GRASSHOPPER, 24, LootEntry.notS2Only));
             SNOW = new ForageLootTable(1, 1, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.SNOW_CRYSTAL, 999), new LootEntry(ItemDict.ICE_NINE, 1));
-            BEE = new InsectLootTable(1, 1, new LootEntry(ItemDict.HONEY_BEE, 10, LootEntry.notS2Only),
-                new LootEntry(ItemDict.STINGER_HORNET, 3, LootEntry.s3Only));
-            BEACH_FORAGE = new ForageLootTable(1, 1, ForageLootTable.ForageType.BEACH, new LootEntry(ItemDict.SEAWEED, 30), new LootEntry(ItemDict.SEA_URCHIN, 22), new LootEntry(ItemDict.CLAM, 4), new LootEntry(ItemDict.OYSTER, 2),
-                new LootEntry(ItemDict.CRIMSON_CORAL, 18), new LootEntry(ItemDict.FLAWLESS_CONCH, 1), new LootEntry(ItemDict.SALT_SHARDS, 4), new LootEntry(ItemDict.WOOD, 6));
+            BEE = new InsectLootTable(1, 1, new LootEntry(ItemDict.HONEY_BEE, 10, LootEntry.notS2Only), new LootEntry(ItemDict.STINGER_HORNET, 3, LootEntry.s3Only));
+            BEACH_FORAGE = new ForageLootTable(1, 1, ForageLootTable.ForageType.BEACH, new LootEntry(ItemDict.SEAWEED, 30), new LootEntry(ItemDict.SEA_URCHIN, 22), new LootEntry(ItemDict.CRIMSON_CORAL, 18), new LootEntry(ItemDict.FLAWLESS_CONCH, 1), new LootEntry(ItemDict.SALT_SHARDS, 4), new LootEntry(ItemDict.WOOD, 6));
             WEEDS = new ForageLootTable(1, 2, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.WEEDS, 399), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
             BLUEBELL = new ForageLootTable(1, 1, ForageLootTable.ForageType.NORMAL, 0.5f, BEE, new LootEntry(ItemDict.BLUEBELL, 299), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
             NETTLES = new ForageLootTable(2, 3, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.NETTLES, 399), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
@@ -900,8 +899,8 @@ namespace Plateau.Components
             WILD_ORANGE = new ForageLootTable(1, 2, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.ORANGE, 149), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
             BANANA = new ForageLootTable(3, 3, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.BANANA, 149), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
             WILD_BANANA = new ForageLootTable(2, 3, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.BANANA, 149), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
-            COCONUT = new ForageLootTable(2, 5, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.COCONUT, 149), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
-            WILD_COCONUT = new ForageLootTable(1, 3, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.COCONUT, 149), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
+            COCONUT = new LootTable(2, 5, new LootEntry(ItemDict.COCONUT, 149), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
+            WILD_COCONUT = new LootTable(1, 3, new LootEntry(ItemDict.COCONUT, 149), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
             BUSH = new ForageLootTable(3, 4, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.WOOD, 250), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
             BLACKBERRY = new ForageLootTable(3, 5, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.BLACKBERRY, 599), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
             ELDERBERRY = new ForageLootTable(2, 5, ForageLootTable.ForageType.NORMAL, new LootEntry(ItemDict.ELDERBERRY, 599), new LootEntry(ItemDict.SEDIMENTARY_KEY, 1));
@@ -1019,8 +1018,8 @@ namespace Plateau.Components
                 new LootEntry(ItemDict.BERRY_MILKSHAKE, 3), new LootEntry(ItemDict.TOMATO_SOUP, 1), new LootEntry(ItemDict.CREAM_OF_MUSHROOM, 1), new LootEntry(ItemDict.DARK_TEA, 5), new LootEntry(ItemDict.REJUVENATION_TEA, 5),
                 new LootEntry(ItemDict.SWEET_COCO_TREAT, 1)); 
             FILING_CABINET = new LootTable(1, 1, new LootEntry(ItemDict.BUBBLE_WALLPAPER, 1)); //todo
-            SCI_TABLE1 = new LootTable(2, 3, new LootEntry(ItemDict.RICE_GRASSHOPPER, 1)); //todo
-            SCI_TABLE2 = new LootTable(3, 5, new LootEntry(ItemDict.GLASS_SHEET, 1)); //todo
+            SCI_TABLE1 = new LootTable(4, 6, new LootEntry(ItemDict.RICE_GRASSHOPPER, 10), new LootEntry(ItemDict.BROWN_CICADA, 10), new LootEntry(ItemDict.CAVEWORM, 10), new LootEntry(ItemDict.EARTHWORM, 10), new LootEntry(ItemDict.FIREFLY, 10), new LootEntry(ItemDict.SNAIL, 10), new LootEntry(ItemDict.YELLOW_BUTTERFLY, 10), new LootEntry(ItemDict.STAG_BEETLE, 1), new LootEntry(ItemDict.JEWEL_SPIDER, 1), new LootEntry(ItemDict.EMPRESS_BUTTERFLY, 1));
+            SCI_TABLE2 = new LootTable(1, 1, new LootEntry(ItemDict.MOSS_BOTTLE, 50), new LootEntry(ItemDict.TROPICAL_BOTTLE, 10), new LootEntry(ItemDict.SKY_BOTTLE, 3), new LootEntry(ItemDict.SHIMMERING_SALVE, 1)); //todo
             HOEING = new LootTable(1, 1, new LootEntry(ItemDict.CLAY, 137), new LootEntry(ItemDict.CAVEWORM, 32, LootEntry.s2Only), new LootEntry(ItemDict.EARTHWORM, 16, LootEntry.notS2Only), new LootEntry(ItemDict.EARTHWORM, 87, LootEntry.rainyOnly, LootEntry.notS2Only), new LootEntry(ItemDict.LUCKY_COIN, 2), new LootEntry(ItemDict.ANCIENT_KEY, 1));
             MYTHRIL_MACHINE = new MiningLootTable(2, 3, new LootEntry(ItemDict.MYTHRIL_CHIP, 35), new LootEntry(ItemDict.IRON_CHIP, 50), new LootEntry(ItemDict.GOLD_CHIP, 15));
             GEM_ROCK = new MiningLootTable(1, 1, new LootEntry(ItemDict.AQUAMARINE, 6), new LootEntry(ItemDict.DIAMOND, 1), new LootEntry(ItemDict.EMERALD, 3), new LootEntry(ItemDict.AMETHYST, 9), new LootEntry(ItemDict.OPAL, 6), new LootEntry(ItemDict.QUARTZ, 11), new LootEntry(ItemDict.RUBY, 3), new LootEntry(ItemDict.SAPPHIRE, 3), new LootEntry(ItemDict.TOPAZ, 7), new LootEntry(ItemDict.CRYSTAL_KEY, 1));

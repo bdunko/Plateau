@@ -85,38 +85,38 @@ namespace Plateau.Entities
                 string season = sprite.GetCurrentLoop();
                 if (season.StartsWith("spring"))
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
                         Util.PARTICLE_GRASS_SPRING_PRIMARY.color, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_SPRING_PRIMARY.color, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_SPRING_SECONDARY.color, ParticleFactory.DURATION_LONG));
                 }
                 else if (season.StartsWith("summer"))
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
                         Util.PARTICLE_GRASS_SUMMER_PRIMARY.color, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_SUMMER_PRIMARY.color, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_SUMMER_SECONDARY.color, ParticleFactory.DURATION_LONG));
                 }
                 else if (season.StartsWith("fall"))
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
                         Util.PARTICLE_GRASS_FALL_PRIMARY.color, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_FALL_PRIMARY.color, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_FALL_SECONDARY.color, ParticleFactory.DURATION_LONG));
                 }
                 else
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
                         Util.PARTICLE_GRASS_WINTER_PRIMARY.color, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_WINTER_PRIMARY.color, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position - new Vector2(-4, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(4, -0.1f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_WINTER_SECONDARY.color, ParticleFactory.DURATION_LONG));
                 }
             }

@@ -401,19 +401,19 @@ namespace Plateau.Entities
                 {
                     Texture2D tex = PlateauMain.CONTENT.Load<Texture2D>(Paths.SPRITE_VENDING_MACHINE);
                     Texture2D texHarvested = PlateauMain.CONTENT.Load<Texture2D>(Paths.SPRITE_VENDING_MACHINE_EMPTY);
-                    return new TEntityGatherableContainer(tex, texHarvested, tilePlacement, type, Color.Transparent, Color.Transparent, LootTables.VENDING_MACHINE, 0.5f);
+                    return new TEntityGatherableContainer(tex, texHarvested, tilePlacement, type, Color.Transparent, Color.Transparent, LootTables.VENDING_MACHINE, 1.0f);
                 }
                 else if (type == EntityType.SCI_TABLE1)
                 {
                     Texture2D tex = PlateauMain.CONTENT.Load<Texture2D>(Paths.SPRITE_SCI_TABLE1);
                     Texture2D texHarvested = PlateauMain.CONTENT.Load<Texture2D>(Paths.SPRITE_SCI_TABLE1_EMPTY);
-                    return new TEntityGatherableContainer(tex, texHarvested, tilePlacement, type, Color.Transparent, Color.Transparent, LootTables.SCI_TABLE1, 0.33f);
+                    return new TEntityGatherableContainer(tex, texHarvested, tilePlacement, type, Color.Transparent, Color.Transparent, LootTables.SCI_TABLE1, 1.0f);
                 }
                 else if (type == EntityType.SCI_TABLE2)
                 {
                     Texture2D tex = PlateauMain.CONTENT.Load<Texture2D>(Paths.SPRITE_SCI_TABLE2);
                     Texture2D texHarvested = PlateauMain.CONTENT.Load<Texture2D>(Paths.SPRITE_SCI_TABLE2_EMPTY);
-                    return new TEntityGatherableContainer(tex, texHarvested, tilePlacement, type, Color.Transparent, Color.Transparent, LootTables.SCI_TABLE2, 0.33f);
+                    return new TEntityGatherableContainer(tex, texHarvested, tilePlacement, type, Color.Transparent, Color.Transparent, LootTables.SCI_TABLE2, 0.34f);
                 }
                 else if (type == EntityType.ANCIENT_CHEST)
                 {

@@ -502,7 +502,7 @@
     <property name="automatic" value="yes"/>
    </properties>
   </object>
-  <object id="6" x="3296" y="184" width="50.3182" height="35">
+  <object id="6" x="3283.45" y="176.909" width="62.8637" height="46.0909">
    <properties>
     <property name="animation" value="left"/>
     <property name="areaSpawn" value="SPcafe"/>
@@ -510,7 +510,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="8" x="3144" y="184" width="39.4886" height="32.375">
+  <object id="8" x="3139.09" y="184" width="49.6704" height="38.7386">
    <properties>
     <property name="animation" value="up"/>
     <property name="areaSpawn" value="SPbookstoreTop"/>
@@ -518,7 +518,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="9" x="1736.79" y="177.591" width="63.0682" height="37.9091">
+  <object id="9" x="1736.79" y="177.591" width="71.7955" height="48.2727">
    <properties>
     <property name="animation" value="left"/>
     <property name="areaSpawn" value="SPworkshop"/>
@@ -526,7 +526,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="10" x="3088" y="184" width="47.7614" height="36.25">
+  <object id="10" x="3084.55" y="182.545" width="53.2159" height="41.1591">
    <properties>
     <property name="animation" value="left"/>
     <property name="areaSpawn" value="SPbookstoreBottom"/>
@@ -534,7 +534,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="11" x="1904" y="176" width="62.1136" height="40.842">
+  <object id="11" x="1898.36" y="176" width="70.1136" height="48.1147">
    <properties>
     <property name="animation" value="left"/>
     <property name="areaSpawn" value="SPstore"/>
@@ -542,7 +542,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="12" x="672" y="176" width="39.625" height="40.75">
+  <object id="12" x="663.455" y="176" width="54.5341" height="51.4773">
    <properties>
     <property name="animation" value="down"/>
     <property name="areaSpawn" value="SPbeachElevator"/>
@@ -550,7 +550,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="27" x="1640" y="176" width="53.8068" height="40.75">
+  <object id="27" x="1631.64" y="173.455" width="65.8068" height="52.9318">
    <properties>
     <property name="animation" value="left"/>
     <property name="areaSpawn" value="SPforgeTop"/>
@@ -558,7 +558,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="29" x="1112" y="176" width="41.875" height="40.75">
+  <object id="29" x="1112" y="176" width="51.3295" height="45.4773">
    <properties>
     <property name="animation" value="left"/>
     <property name="areaSpawn" value="SPpipers"/>
@@ -566,7 +566,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="30" x="2976" y="184" width="57.3182" height="35.375">
+  <object id="30" x="2976" y="178.545" width="57.3182" height="46.2841">
    <properties>
     <property name="animation" value="left"/>
     <property name="areaSpawn" value="SPtownhall"/>
@@ -574,7 +574,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="33" x="1168" y="176" width="44.75" height="40.75">
+  <object id="33" x="1164.55" y="176" width="48.2045" height="45.4773">
    <properties>
     <property name="animation" value="left"/>
     <property name="areaSpawn" value="SPpipers2"/>
@@ -582,7 +582,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="48" x="552" y="80" width="80.3205" height="48.3864">
+  <object id="48" x="545.091" y="80" width="87.2296" height="56.75">
    <properties>
     <property name="animation" value="up"/>
     <property name="areaSpawn" value="SPs1entrance"/>

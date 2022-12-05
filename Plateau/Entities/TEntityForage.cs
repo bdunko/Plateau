@@ -84,17 +84,17 @@ namespace Plateau.Entities
                 //player.SetAnimLock
                 for (int i = 0; i < 3; i++)
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(texture.Width/2, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(texture.Width/2, texture.Height-0.5f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
                         particleColor1, ParticleFactory.DURATION_LONG));
                 }
                 for (int i = 0; i < 2; i++)
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(texture.Width/2, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(texture.Width/2, texture.Height-0.5f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                         particleColor2, ParticleFactory.DURATION_LONG));
                 }
                 for (int i = 0; i < 2; i++)
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(texture.Width/2, 1.25f), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
+                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(texture.Width/2, texture.Height-1), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.SMALL,
                         area.GetSecondaryColorForTile((int)tilePosition.X, (int)tilePosition.Y + tileHeight), ParticleFactory.DURATION_LONG));
                 }
                 harvested = true;
