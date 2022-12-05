@@ -226,7 +226,7 @@ namespace Plateau.Entities
                         if (got is TEntityFarmable)
                         {
                             TEntityFarmable toWater = (TEntityFarmable)got;
-                            toWater.WaterGeyser();
+                            toWater.WaterGeyser(area);
                         }
                     }
                 }

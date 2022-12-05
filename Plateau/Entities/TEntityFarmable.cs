@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
 using Plateau.Components;
 using Plateau.Items;
+using Plateau.Particles;
 
 namespace Plateau.Entities
 {
@@ -364,14 +365,27 @@ namespace Plateau.Entities
             return true;
         }
 
-        public void WaterGeyser()
+        public void WaterGeyser(Area area)
         {
-            Water();
+            Water(area);
             geyserWater = true;
         }
-        public void Water()
+        public void Water(Area area)
         {
-            this.isWatered = true;
+            if(!isWatered)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    for (int j = 0; j < 2; j++)
+                    {
+                        area.AddParticle(ParticleFactory.GenerateParticle(position + new Vector2(3 + (i / 2) + Util.RandInt(0, 10) / 10.0f, 15f - i), ParticleBehavior.RUSH_OUTWARD, ParticleTextureStyle.ONEXONE,
+                            Util.PARTICLE_WATER_PRIMARY.color, ParticleFactory.DURATION_SHORT));
+                    }
+                }
+            }
+
+            isWatered = true;
+            //water particles
         }
 
         private bool Plant(Item seed)
@@ -486,7 +500,7 @@ namespace Plateau.Entities
         {
             if(area.GetWeather() == World.Weather.RAINY || area.GetWeather() == World.Weather.SNOWY)
             {
-                Water();
+                Water(area);
             }
 
             sprite.Update(deltaTime);
@@ -671,7 +685,7 @@ namespace Plateau.Entities
             Item heldItem = player.GetHeldItem().GetItem();
             if (heldItem.HasTag(Item.Tag.WATERING_CAN))
             {
-                Water();
+                Water(area);
             }
             else if (heldItem.HasTag(Item.Tag.PICKAXE))
             {

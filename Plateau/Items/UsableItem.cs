@@ -312,7 +312,7 @@ namespace Plateau.Items
                             }
                             else if (targetEntity is TEntityFarmable)
                             {
-                                ((TEntityFarmable)targetEntity).Water();
+                                ((TEntityFarmable)targetEntity).Water(area);
                             }
                         }
                     }
