@@ -372,7 +372,8 @@ namespace Plateau.Entities
         }
         public void Water(Area area)
         {
-            if(!isWatered)
+            //water particles
+            if (!isWatered)
             {
                 for (int i = 0; i < 4; i++)
                 {
@@ -385,7 +386,6 @@ namespace Plateau.Entities
             }
 
             isWatered = true;
-            //water particles
         }
 
         private bool Plant(Item seed)

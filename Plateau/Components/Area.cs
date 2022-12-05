@@ -65,7 +65,8 @@ namespace Plateau
                 APEX, BEACH, FARM, STORE, CAFE, BOOKSTORELOWER, BOOKSTOREUPPER, ROCKWELLHOUSE, BEACHHOUSE,
                 PIPERHOUSE, TOWNHALLLOWER, TOWNHALLUPPER, WORKSHOP, FORGE, S0WALK, S0WARP, S1WALK, S1WARP, S2, S3, S4, TOWN, INN, PIPERUPPER, PIPERLOWER,
                 INNBATH, INNTROY, INNCHARLOTTE, INNSPARE1, INNSPARE2, INNHIMEKO,
-                FARMHOUSECABIN, FARMHOUSEHOUSE, FARMHOUSEMANSIONLOWER, FARMHOUSEMANSIONUPPER, FARMHOUSECELLAR
+                FARMHOUSECABIN, FARMHOUSEHOUSE, FARMHOUSEMANSIONLOWER, FARMHOUSEMANSIONUPPER, FARMHOUSECELLAR,
+                NONE
             }
 
             public RectangleF rect;
@@ -2078,7 +2079,7 @@ namespace Plateau
                     return sa.subareaName;
                 }
             }
-            throw new Exception("No subarea found at " + rect);
+            return Subarea.NameEnum.NONE;
         }
 
         public string GetZoneName(Vector2 playerPosition)

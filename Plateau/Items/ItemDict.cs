@@ -825,7 +825,7 @@ namespace Plateau.Items
             AddToDictionary(PINEAPPLE_SALSA = new EdibleItem("Pineapple Salsa", Paths.ITEM_PINEAPPLE_SALSA, DEFAULT_STACK_SIZE, "Sweet tropical salsa made from pineapple. Good over fish.", new AppliedEffects.Effect[] { AppliedEffects.SPEED_II_SUMMER, AppliedEffects.FISHING_II_SUMMER }, AppliedEffects.LENGTH_MEDIUM, "Delicious!", 225, Tag.FOOD, Tag.SWEET, Tag.FRUITY, Tag.CUISINE));
             AddToDictionary(TROPICAL_RUM = new EdibleItem("Tropical Rum", Paths.ITEM_TROPICAL_RUM, DEFAULT_STACK_SIZE, "A rum made from pineapple. It has a very bold pineapple flavor.", new AppliedEffects.Effect[] { AppliedEffects.FISHING_VI_SUMMER, AppliedEffects.DIZZY }, AppliedEffects.LENGTH_MEDIUM, "Delicious!", 400, Tag.FOOD, Tag.ALCOHOL, Tag.SWEET, Tag.FRUITY, Tag.CUISINE));
 
-            AddToDictionary(GLASS_SHEET = new PlaceableItem("Glass Sheet", Paths.ITEM_GLASS_SHEET, Paths.ITEM_GLASS_SHEET, Paths.SPRITE_GLASS_SHEET_SPRITESHEET, Paths.SPRITE_GLASS_SHEET_SPRITESHEET, 1, 1, DEFAULT_STACK_SIZE, "A pristine sheet of clear glass. It's stronger than it looks in movies. Can be placed on walls as window panels. Also used for crafting.", 110, EntityType.WALL_DECOR, PlaceableItem.PlacementType.WALL, null, Item.Tag.DYEABLE, Item.Tag.MULTIDYE, Item.Tag.PLACEABLE));
+            AddToDictionary(GLASS_SHEET = new PlaceableItem("Glass Sheet", Paths.ITEM_GLASS_SHEET, Paths.ITEM_GLASS_SHEET, Paths.SPRITE_GLASS_SHEET_SPRITESHEET, Paths.SPRITE_GLASS_SHEET_SPRITESHEET, 1, 1, DEFAULT_STACK_SIZE, "A pristine sheet of clear glass. It's stronger than it looks in movies. Can be placed on walls as window panels. Also used for crafting.", 110, EntityType.WALL_DECOR, PlaceableItem.PlacementType.WALL, null, Item.Tag.DYEABLE, Item.Tag.MULTIDYE,Item.Tag.PLACEABLE));
             AddToDictionary(WALL_MIRROR = new PlaceableItem("Wall Mirror", Paths.ITEM_WALL_MIRROR, Paths.ITEM_WALL_MIRROR, Paths.SPRITE_WALL_MIRROR_SPRITESHEET, Paths.SPRITE_WALL_MIRROR_SPRITESHEET, 2, 3, DEFAULT_STACK_SIZE, "A nice mirror really spices up otherwise boring walls.", 1000, EntityType.WALL_DECOR, PlaceableItem.PlacementType.WALL, null, Item.Tag.DYEABLE, Item.Tag.PLACEABLE));
 
 
@@ -1275,7 +1275,7 @@ namespace Plateau.Items
                 Paths.SPRITE_WALLPAPER_SOLID_BOTTOM, Paths.SPRITE_WALLPAPER_SOLID_BOTTOM,
                 1, 1, DEFAULT_STACK_SIZE, "A roll of basic solid colored wallpaper.", 50, EntityType.WALLPAPER, PlaceableItem.PlacementType.WALLPAPER, null, Item.Tag.DYEABLE, Item.Tag.MULTIDYE, Item.Tag.PLACEABLE));
             AddToDictionary(VERTICAL_WALLPAPER = new WallpaperItem("Vertical Wallpaper", Paths.ITEM_WALLPAPER_VERTICAL, Paths.ITEM_WALLPAPER_VERTICAL,
-                Paths.SPRITE_WALLPAPER_VERTICAL, Paths.SPRITE_WALLPAPER_BUBBLE,
+                Paths.SPRITE_WALLPAPER_VERTICAL, Paths.SPRITE_WALLPAPER_VERTICAL,
                 Paths.SPRITE_WALLPAPER_VERTICAL_TOP, Paths.SPRITE_WALLPAPER_VERTICAL_TOP,
                 Paths.SPRITE_WALLPAPER_VERTICAL_BOTTOM, Paths.SPRITE_WALLPAPER_VERTICAL_BOTTOM,
                 1, 1, DEFAULT_STACK_SIZE, "A roll of vertically striped wallpaper.", 75, EntityType.WALLPAPER, PlaceableItem.PlacementType.WALLPAPER, null, Item.Tag.DYEABLE, Item.Tag.MULTIDYE, Item.Tag.PLACEABLE));

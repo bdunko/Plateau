@@ -348,6 +348,8 @@ namespace Plateau.Entities
 
                 public Queue<MovementTypeWaypoint> FindPath(Area.Subarea.NameEnum source, Area.Waypoint sourceWaypoint, Area.Subarea.NameEnum destinationSubzone, Area.Waypoint destinationWaypoint)
                 {
+                    System.Diagnostics.Debug.Assert(source != Area.Subarea.NameEnum.NONE);
+                    System.Diagnostics.Debug.Assert(destinationSubzone != Area.Subarea.NameEnum.NONE);
                     List<Node.ConnectedNode> startingPath = new List<Node.ConnectedNode>();
                     startingPath.Add(new Node.ConnectedNode(GetNodeForSubzone(source), new MovementTypeWaypoint(sourceWaypoint, MovementTypeWaypoint.MovementEnum.WALK)));
 
