@@ -356,7 +356,7 @@ namespace Plateau.Items
                             }
                             else if (targetEntity is TEntityFarmable)
                             {
-                                ((TEntityFarmable)targetEntity).Accelerate(1);
+                                ((TEntityFarmable)targetEntity).Accelerate(1, area);
                             }
                         }
                     }
@@ -400,7 +400,7 @@ namespace Plateau.Items
                             }
                             else if (targetEntity is TEntityFarmable)
                             {
-                                ((TEntityFarmable)targetEntity).Accelerate(3);
+                                ((TEntityFarmable)targetEntity).Accelerate(3, area);
                             }
                         }
                     }
@@ -444,7 +444,7 @@ namespace Plateau.Items
                             }
                             else if (targetEntity is TEntityFarmable)
                             {
-                                ((TEntityFarmable)targetEntity).Accelerate(10);
+                                ((TEntityFarmable)targetEntity).Accelerate(10, area);
                             }
                         }
                     }

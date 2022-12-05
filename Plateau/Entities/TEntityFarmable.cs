@@ -580,6 +580,7 @@ namespace Plateau.Entities
                     area.AddEntity(new EntityItem(ItemDict.ANCIENT_KEY, new Vector2(position.X, position.Y - 16)));
                 }
 
+                player.PlayHarvestAnimation();
                 GameState.STATISTICS[GameState.STAT_CROPS_HARVESTED] += 1;
             }
         }
@@ -645,12 +646,11 @@ namespace Plateau.Entities
             return "";
         }
 
-        public void Accelerate(int daysAccelerated)
+        public void Accelerate(int daysAccelerated, Area area)
         {
-            growth += daysAccelerated;
-
-            if (planted != null)
+            if (planted != null && planted.season == area.GetSeason())
             {
+                growth += daysAccelerated;
                 UpdateFrame();
             }
         }

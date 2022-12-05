@@ -2868,7 +2868,7 @@ namespace Plateau.Components
                         else
                         {
                             bool dyeUsed = false;
-                            for (int i = 0; i < (multidye ? 5 : 1); i++)
+                            for (int i = 0; i < (multidye ? 10 : 1); i++)
                             {
                                 if (player.AddItemToInventory(ItemDict.GetItemByName(name), false, false)) //otherwise create a new item
                                 {

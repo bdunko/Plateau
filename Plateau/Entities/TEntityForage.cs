@@ -99,6 +99,7 @@ namespace Plateau.Entities
                 }
                 harvested = true;
                 GameState.STATISTICS[GameState.STAT_FORAGE_COLLECTED] += 1;
+                player.PlayHarvestAnimation();
             }
         }
 

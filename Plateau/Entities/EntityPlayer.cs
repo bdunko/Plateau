@@ -264,6 +264,7 @@ namespace Plateau.Entities
         private bool ignoreMouseThisFrame = false;
         private bool swimming = false; //if player is currently in water
         private bool editmode = false;
+        private bool harvesting = false; //if player is harvesting crops/forage
         private InterfaceState interfaceState = InterfaceState.NONE;
 
         private ItemStack hair, skin, eyes, facialhair;
@@ -2503,6 +2504,11 @@ namespace Plateau.Entities
                     sprite.SetLoopIfNot(direction == DirectionEnum.LEFT ? ClothedSprite.IDLE_CYCLE_L : ClothedSprite.IDLE_CYCLE_R);
                 }
             }
+        }
+
+        public void PlayHarvestAnimation()
+        {
+            sprite.SetLoopIfNot(direction == DirectionEnum.LEFT ? ClothedSprite.LANDING_ANIM_L : ClothedSprite.LANDING_ANIM_R);
         }
 
         public override void SetPosition(Vector2 position)
