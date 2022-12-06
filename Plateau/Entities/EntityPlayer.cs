@@ -264,7 +264,6 @@ namespace Plateau.Entities
         private bool ignoreMouseThisFrame = false;
         private bool swimming = false; //if player is currently in water
         private bool editmode = false;
-        private bool harvesting = false; //if player is harvesting crops/forage
         private InterfaceState interfaceState = InterfaceState.NONE;
 
         private ItemStack hair, skin, eyes, facialhair;

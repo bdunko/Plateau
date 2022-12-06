@@ -482,6 +482,11 @@ namespace Plateau.Components
         private Vector2 hoveringInterfacePosition = new Vector2(-100, -100);
 
         private bool editMode = false;
+        private enum RemovalMode
+        {
+            ANY, PLACEABLE, SCAFFOLDING_AND_WALLPAPER
+        }
+        private RemovalMode removalMode = RemovalMode.ANY;
 
         public static List<QueuedString> QUEUED_STRINGS;
 
@@ -3525,41 +3530,58 @@ namespace Plateau.Components
                     }
                     else if (controller.GetMouseRightDown()) //remove placeable
                     {
+                        
+                        //TODODOREMOVE
                         Vector2 location = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, controller.GetMousePos());
                         Vector2 tile = new Vector2((int)(location.X / 8), (int)(location.Y / 8));
-                        Item itemForm = currentArea.GetTileEntityItemForm((int)tile.X, (int)tile.Y);
-                        if (itemForm != ItemDict.NONE)
+
+                        //first, attempt to remove placeable (floor or wall).
+                        //if successful, ONLY remove placeables (floor or wall) until mouse lifted
+                        if(removalMode == RemovalMode.ANY || removalMode == RemovalMode.PLACEABLE)
                         {
-                            currentArea.RemoveTileEntity(player, (int)tile.X, (int)tile.Y, world);
-                            player.IgnoreMouseInputThisFrame();
+                            //try ground placeable
+                            Item itemForm = currentArea.GetTileEntityItemForm((int)tile.X, (int)tile.Y);
+                            if (itemForm != ItemDict.NONE)
+                            {
+                                currentArea.RemoveTileEntity(player, (int)tile.X, (int)tile.Y, world);
+                                player.IgnoreMouseInputThisFrame();
+                                removalMode = RemovalMode.PLACEABLE;
+                            }
+
+                            //try wall placeable
+                            itemForm = currentArea.GetWallEntityItemForm((int)tile.X, (int)tile.Y);
+                            if (itemForm != ItemDict.NONE)
+                            {
+                                currentArea.RemoveWallEntity(player, (int)tile.X, (int)tile.Y, world);
+                                player.IgnoreMouseInputThisFrame();
+                                removalMode = RemovalMode.PLACEABLE;
+                            }
                         }
-                        else
+
+                        //if we haven't removed a placeable, try to removal wallpaper or scaffolding
+                        //if successful, ONLY remove wallpaper or scaffolidng until mouse lifted
+                        if(removalMode == RemovalMode.ANY || removalMode == RemovalMode.SCAFFOLDING_AND_WALLPAPER)
                         {
-                            itemForm = currentArea.GetBuildingBlockItemForm((int)tile.X, (int)tile.Y);
+                            Item itemForm = currentArea.GetBuildingBlockItemForm((int)tile.X, (int)tile.Y);
                             if (itemForm != ItemDict.NONE)
                             {
                                 currentArea.RemoveBuildingBlock((int)tile.X, (int)tile.Y, player, world);
                                 player.IgnoreMouseInputThisFrame();
+                                removalMode = RemovalMode.SCAFFOLDING_AND_WALLPAPER;
                             }
-                            else
+
+                            itemForm = currentArea.GetWallpaperItemForm((int)tile.X, (int)tile.Y);
+                            if (itemForm != ItemDict.NONE)
                             {
-                                itemForm = currentArea.GetWallEntityItemForm((int)tile.X, (int)tile.Y);
-                                if (itemForm != ItemDict.NONE)
-                                {
-                                    currentArea.RemoveWallEntity(player, (int)tile.X, (int)tile.Y, world);
-                                    player.IgnoreMouseInputThisFrame();
-                                }
-                                else
-                                {
-                                    itemForm = currentArea.GetWallpaperItemForm((int)tile.X, (int)tile.Y);
-                                    if (itemForm != ItemDict.NONE)
-                                    {
-                                        currentArea.RemoveWallpaperEntity(player, (int)tile.X, (int)tile.Y, world);
-                                        player.IgnoreMouseInputThisFrame();
-                                    }
-                                }
+                                currentArea.RemoveWallpaperEntity(player, (int)tile.X, (int)tile.Y, world);
+                                player.IgnoreMouseInputThisFrame();
+                                removalMode = RemovalMode.SCAFFOLDING_AND_WALLPAPER;
                             }
                         }
+                    }
+                    else
+                    {
+                        removalMode = RemovalMode.ANY;
                     }
                 }
                 
@@ -5428,10 +5450,14 @@ namespace Plateau.Components
                     WHITE_9SLICE.DrawString(sb, notification, notificationPos, cameraBoundingBox, Color.CornflowerBlue, Util.UI_BLACK_9SLICE.color);
                 }
 
-                if (currentNotification != null && interfaceState == InterfaceState.NONE && currentDialogue == null)
-                    currentNotification.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, NOTIFICATION_POSITION), cameraBoundingBox);
-                else
+                if(interfaceState != InterfaceState.NONE || currentDialogue != null)
+                {
                     player.ClearNotifications();
+                    currentNotification = null;
+                }
+
+                if (currentNotification != null)
+                    currentNotification.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, NOTIFICATION_POSITION), cameraBoundingBox);
             } 
 
             //draw the dialogue bubble

@@ -408,7 +408,6 @@ namespace Plateau.Items
                 });
                 TROPICAL_BOTTLE_DIALOGUE.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
             }
-
             if (SKY_BOTTLE_DIALOGUE == null)
             {
                 SKY_BOTTLE_DIALOGUE = new DialogueNode("Use the Sky Bottle?", DialogueNode.PORTRAIT_SYSTEM);
