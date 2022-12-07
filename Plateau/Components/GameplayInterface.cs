@@ -296,7 +296,8 @@ namespace Plateau.Components
         private static Vector2 MENU_SCRAPBOOK_HOTKEY_POSITION = new Vector2(16, 66); 
         private static Vector2 MENU_CRAFTING_HOTKEY_POSITION = new Vector2(16, 79); 
         private static Vector2 MENU_SETTINGS_HOTKEY_POSITION = new Vector2(16, 92); 
-        private static Vector2 MENU_EDITMODE_HOTKEY_POSITION = new Vector2(16, 105); 
+        private static Vector2 MENU_EDITMODE_HOTKEY_POSITION = new Vector2(16, 105);
+        private static Vector2 MENU_CYCLE_INVENTORY_HOTKEY_POSITION = new Vector2(16, 118);
         private Texture2D menuControlsInventoryEnlarge, menuControlsInventoryDepressed;
         private Texture2D menuControlsScrapbookEnlarge, menuControlsScrapbookDepressed;
         private Texture2D menuControlsSettingsEnlarge, menuControlsSettingsDepressed;
@@ -396,7 +397,7 @@ namespace Plateau.Components
         private bool drawReticle;
 
         private Texture2D garbageCanOpen, garbageCanClosed;
-        private static Vector2 GARBAGE_CAN_LOCATION_POSITION = new Vector2(44, 118);
+        private static Vector2 GARBAGE_CAN_POSITION = new Vector2(44, 124);
         private RectangleF garbageCanRectangle;
         private RectangleF[] dropRectangles;
 
@@ -742,7 +743,7 @@ namespace Plateau.Components
 
             garbageCanClosed = content.Load<Texture2D>(Paths.INTERFACE_GARBAGE_CAN_CLOSED);
             garbageCanOpen = content.Load<Texture2D>(Paths.INTERFACE_GARBAGE_CAN_OPEN);
-            garbageCanRectangle = new RectangleF(GARBAGE_CAN_LOCATION_POSITION, new Vector2(garbageCanClosed.Width, garbageCanClosed.Height));
+            garbageCanRectangle = new RectangleF(GARBAGE_CAN_POSITION, new Vector2(garbageCanClosed.Width, garbageCanClosed.Height));
             dropRectangles = new RectangleF[] {
                 new RectangleF(0, 0, 61, 200), //left side
                 new RectangleF(61, 0, 28, 73), //left upper
@@ -3306,6 +3307,36 @@ namespace Plateau.Components
                     menuButtons[i] = new RectangleF(MENU_CONTROL_POSITION + new Vector2(0, i * MENU_DELTA_Y), MENU_BUTTON_SIZE);
                 }
 
+                //inventory manipulations - mouse wheel, num keys, and tab to cycle
+                if(currentDialogue == null && !player.GetUseTool() && (interfaceState == InterfaceState.INVENTORY || interfaceState == InterfaceState.CHEST || interfaceState == InterfaceState.CRAFTING || interfaceState == InterfaceState.SCRAPBOOK || interfaceState == InterfaceState.NONE || interfaceState == InterfaceState.SETTINGS))
+                {
+                    //cycling inventory
+                    if (controller.IsKeyPressed(KeyBinds.CYCLE_INVENTORY))
+                        player.CycleInventory();
+
+
+                    //adjust selectedhotbarposition according to mouse wheel movement
+                    int newHotbarPosition = player.GetSelectedHotbarPosition() + controller.GetChangeInMouseWheel();
+                    if (newHotbarPosition >= HOTBAR_LENGTH)
+                        newHotbarPosition = 0;
+                    else if (newHotbarPosition < 0)
+                        newHotbarPosition = HOTBAR_LENGTH - 1;
+                    player.SetSelectedHotbarPosition(newHotbarPosition);
+
+                    //adjust selectedhotbarposition if any of the 1-9 keys are pressed down
+                    for (int i = 0; i < HOTBAR_LENGTH; i++)
+                        if (controller.IsKeyPressed(KeyBinds.HOTBAR_SELECT[i]))
+                            player.SetSelectedHotbarPosition(i);
+                }
+
+                
+                
+
+
+
+
+
+                //clicking on a button in left sidebar
                 Vector2 mousePosition = controller.GetMousePos();
                 if ((controller.GetMouseLeftPress() || controller.GetMouseRightPress()) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
                 {
@@ -4794,11 +4825,11 @@ namespace Plateau.Components
                 //draw garbage can
                 if (garbageCanRectangle.Contains(controller.GetMousePos()) && inventoryHeldItem.GetItem() != ItemDict.NONE && !inventoryHeldItem.GetItem().HasTag(Item.Tag.NO_TRASH))
                 {
-                    sb.Draw(garbageCanOpen, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, GARBAGE_CAN_LOCATION_POSITION), Color.White);
+                    sb.Draw(garbageCanOpen, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, GARBAGE_CAN_POSITION), Color.White);
                 }
                 else
                 {
-                    sb.Draw(garbageCanClosed, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, GARBAGE_CAN_LOCATION_POSITION), Color.White);
+                    sb.Draw(garbageCanClosed, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, GARBAGE_CAN_POSITION), Color.White);
                 }
 
 
@@ -5440,6 +5471,7 @@ namespace Plateau.Components
                     QUEUED_STRINGS.Add(new QueuedString("Crafting: " + KeyBinds.CRAFTING.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_CRAFTING_HOTKEY_POSITION), Color.White));
                     QUEUED_STRINGS.Add(new QueuedString("Settings: " + KeyBinds.SETTINGS.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_SETTINGS_HOTKEY_POSITION), Color.White));
                     QUEUED_STRINGS.Add(new QueuedString("Editmode: " + KeyBinds.EDIT_MODE.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_EDITMODE_HOTKEY_POSITION), Color.White));
+                    QUEUED_STRINGS.Add(new QueuedString("Cycle: " + KeyBinds.CYCLE_INVENTORY.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_CYCLE_INVENTORY_HOTKEY_POSITION), Color.White));
                 }
 
                 if(editMode && interfaceState == InterfaceState.NONE)
@@ -5611,8 +5643,7 @@ namespace Plateau.Components
             {
                 for (int i = 0; i < inventoryHeldItem.GetQuantity(); i++)
                 {
-                    Vector2 position = player.GetCenteredPosition();
-                    position.X -= 6;
+                    Vector2 position = player.GetCenteredPosition() + new Vector2(0, 4);
                     world.GetCurrentArea().AddEntity(new EntityItem(inventoryHeldItem.GetItem(), position, new Vector2((player.GetDirection() == DirectionEnum.LEFT ? -1 : 1) * Util.RandInt(55, 63) / 100.0f, -2.3f))); ;
                 }
                 inventoryHeldItem = new ItemStack(ItemDict.NONE, 0);

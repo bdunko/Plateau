@@ -619,6 +619,12 @@ namespace Plateau.Entities
             return selectedHotbarPosition;
         }
 
+        public void SetSelectedHotbarPosition(int position)
+        {
+            System.Diagnostics.Debug.Assert(position >= 0 && position <= 9);
+            selectedHotbarPosition = position;
+        }
+
         public ItemStack GetHeldItem()
         {
             return inventory[selectedHotbarPosition];
@@ -1609,7 +1615,7 @@ namespace Plateau.Entities
                     {
                         if (currentFishingPool != null && fishingDamage > currentFishingPool.difficulty)
                         {
-                            Vector2 originSpot = new Vector2(position.X + (direction == DirectionEnum.LEFT ? 10 : WIDTH + 30), position.Y + 15);
+                            Vector2 originSpot = new Vector2(position.X + (direction == DirectionEnum.LEFT ? 18 : WIDTH + 38), position.Y + 23);
                             List<Item> drops = currentFishingPool.lootTable.RollLoot(this, area, world.GetTimeData());
                             foreach (Item drop in drops)
                             {
@@ -1924,33 +1930,6 @@ namespace Plateau.Entities
 
                 if (!useTool)
                 {
-                    //adjust selectedhotbarposition according to mouse wheel movement
-                    selectedHotbarPosition += controller.GetChangeInMouseWheel();
-                    if (selectedHotbarPosition >= GameplayInterface.HOTBAR_LENGTH)
-                    {
-                        selectedHotbarPosition = 0;
-                    }
-                    else if (selectedHotbarPosition < 0)
-                    {
-                        selectedHotbarPosition = GameplayInterface.HOTBAR_LENGTH - 1;
-                    }
-
-
-                    //adjust selectedhotbarposition if any of the 1-9 keys are pressed down
-                    for (int i = 0; i < GameplayInterface.HOTBAR_LENGTH; i++)
-                    {
-                        if (controller.IsKeyPressed(KeyBinds.HOTBAR_SELECT[i]))
-                        {
-                            selectedHotbarPosition = i;
-                        }
-                    }
-
-                    //debug
-                    if(controller.IsKeyPressed(Keys.G))
-                    {
-                        
-                    }
-
                     //handle controller up
                     if (controller.IsKeyPressed(KeyBinds.UP))
                     {
@@ -2804,6 +2783,17 @@ namespace Plateau.Entities
         public GravityState GetGravityState()
         {
             return gravityState;
+        }
+
+        public void CycleInventory()
+        {
+            ItemStack[] newInv = new ItemStack[INVENTORY_SIZE];
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                int newIndex = (i + GameplayInterface.HOTBAR_LENGTH) % inventory.Length;
+                newInv[newIndex] = inventory[i];
+            }
+            inventory = newInv;
         }
     }
 }

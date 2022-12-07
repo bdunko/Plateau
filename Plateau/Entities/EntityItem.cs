@@ -30,8 +30,11 @@ namespace Plateau.Entities
         private bool firstUpdate;
         private bool grounded;
 
-        public EntityItem(Item itemForm, Vector2 position, Vector2 velocityReplacement) : this(itemForm, position)
+        public EntityItem(Item itemForm, Vector2 centerPosition, Vector2 velocityReplacement) : this(itemForm, centerPosition)
         {
+            //adjust such that the placeable spawns centered on the given position
+            position.X -= 8;
+            position.Y -= 8;
             if (velocityReplacement.X != 0)
             {
                 velocityX = velocityReplacement.X;
