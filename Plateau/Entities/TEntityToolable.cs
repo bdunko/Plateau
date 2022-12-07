@@ -120,7 +120,7 @@ namespace Plateau.Entities
                 {
                     if (player.GetGravityState() == EntityPlayer.GravityState.REVERSED)
                     {
-                        area.AddEntity(new EntityItem(drop, new Vector2(position.X + texture.Width / 2, position.Y + texture.Height / 2), new Vector2(Util.RandInt(-50, 50) / 100.0f, -2)));
+                        area.AddEntity(new EntityItem(drop, new Vector2(position.X + texture.Width / 2, position.Y + texture.Height / 2), new Vector2(Util.RandInt(-50, 50) / 100.0f, -1.4f)));
                     }
                     else
                     {
