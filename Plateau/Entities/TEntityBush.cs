@@ -28,8 +28,11 @@ namespace Plateau.Entities
         private float shakeTimeLeft;
         private float shakeTimer;
         private float shakeModX;
+        private int growthStage;
 
-        public TEntityBush(AnimatedSprite sprite, Vector2 tilePosition, HealthBar hb, EntityType type, LootTables.LootTable lootTable, bool isWild) : base(tilePosition, sprite.GetFrameWidth() / 8, sprite.GetFrameHeight() / 8, DrawLayer.NORMAL)
+        private static int GROWTH_CHANCE = 3; //average number of days to mature to adult bush
+
+        public TEntityBush(AnimatedSprite sprite, Vector2 tilePosition, HealthBar hb, EntityType type, World.Season season, LootTables.LootTable lootTable, bool isWild) : base(tilePosition, sprite.GetFrameWidth() / 8, sprite.GetFrameHeight() / 8, DrawLayer.NORMAL)
         {
             this.sprite = sprite;
             this.position.Y += 1;
@@ -44,6 +47,8 @@ namespace Plateau.Entities
             this.shakeTimeLeft = 0;
             this.isWild = isWild;
             this.healthBar.SetPosition(this.position + new Vector2((sprite.GetFrameWidth() / 2) - (hb.GetWidth() / 2), -8));
+            this.growthStage = 1;
+            UpdateSprite(season);
         }
 
         public HealthBar GetHealthBar()
@@ -171,12 +176,15 @@ namespace Plateau.Entities
 
             if(particles)
             {
-                for (int i = 0; i < 2; i++)
+                for (int i = 0; i < (growthStage == 1 ? 1 : 2); i++)
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(sprite.GetFrameWidth() / 2, sprite.GetFrameHeight() / 2) + new Vector2(Util.RandInt(-3, 3), Util.RandInt(-1, 1)),
+                    Vector2 particlePosition = position + new Vector2(sprite.GetFrameWidth() / 2, sprite.GetFrameHeight() / 2);
+                    if (growthStage == 1)
+                        particlePosition += new Vector2(0, 3);
+                    area.AddParticle(ParticleFactory.GenerateParticle(particlePosition + new Vector2(Util.RandInt(-3, 3), Util.RandInt(-1, 1)),
                         ParticleBehavior.ROTATE_FALLING, ParticleTextureStyle.ONEXTWO,
                         leaf1, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(sprite.GetFrameWidth() / 2, sprite.GetFrameHeight() / 2) + new Vector2(Util.RandInt(-3, 3), Util.RandInt(-1, 1)),
+                    area.AddParticle(ParticleFactory.GenerateParticle(particlePosition + new Vector2(Util.RandInt(-3, 3), Util.RandInt(-1, 1)),
                         ParticleBehavior.ROTATE_FALLING, ParticleTextureStyle.ONEXTWO,
                         leaf2, ParticleFactory.DURATION_LONG));
                 }
@@ -217,11 +225,14 @@ namespace Plateau.Entities
                 
                 this.AttemptShake(player, area, world);
 
-                for (int i = 0; i < 17; i++)
+                for (int i = 0; i < (growthStage == 1 ? 7 : 17); i++)
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(sprite.GetFrameWidth() / 2, sprite.GetFrameHeight() / 2), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    Vector2 particlePosition = position + new Vector2(sprite.GetFrameWidth() / 2, sprite.GetFrameHeight() / 2);
+                    if (growthStage == 1)
+                        particlePosition += new Vector2(0, 4);
+                    area.AddParticle(ParticleFactory.GenerateParticle(particlePosition, ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                         leaf1, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(0, 1) + new Vector2(sprite.GetFrameWidth() / 2 + Util.RandInt(-2, 2)),
+                    area.AddParticle(ParticleFactory.GenerateParticle(particlePosition + new Vector2(0, 1) + new Vector2(Util.RandInt(-2, 2)),
                         ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                         leaf2, ParticleFactory.DURATION_LONG));
                 }
@@ -242,6 +253,8 @@ namespace Plateau.Entities
             save.AddData("sprite", sprite.GetCurrentLoop());
             save.AddData("fruitAvailable", fruitAvailable.ToString());
             save.AddData("isWild", isWild.ToString());
+            save.AddData("growth", growthStage.ToString());
+
             return save;
         }
 
@@ -255,6 +268,7 @@ namespace Plateau.Entities
             base.LoadSave(state);
             sprite.SetLoop(state.TryGetData("sprite", "spring"));
             fruitAvailable = state.TryGetData("fruitAvailable", false.ToString()) == true.ToString();
+            growthStage = Int32.Parse(state.TryGetData("growth", "1"));
             isWild = state.TryGetData("isWild", false.ToString()) == true.ToString();
             UpdateFruitTable();
         }
@@ -320,13 +334,20 @@ namespace Plateau.Entities
 
                 AttemptShake(player, area, world);
 
-                healthBar.Damage(((DamageDealingItem)tool).GetDamage(player, world.GetTimeData()));
+                int multiplier = 1;
+                if (growthStage == 1)
+                    multiplier = 3; //deal increased damage to baby bush
+                healthBar.Damage(((DamageDealingItem)tool).GetDamage(player, world.GetTimeData()) * multiplier);
 
-                for (int i = 0; i < 7; i++)
+                for (int i = 0; i < (growthStage == 1 ? 3 : 7); i++)
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(sprite.GetFrameWidth() / 2, sprite.GetFrameHeight() / 2), ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
+                    Vector2 particlePosition = position + new Vector2(sprite.GetFrameWidth() / 2, sprite.GetFrameHeight() / 2);
+                    if (growthStage == 1)
+                        particlePosition += new Vector2(0, 4);
+
+                    area.AddParticle(ParticleFactory.GenerateParticle(particlePosition, ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                         leaf1, ParticleFactory.DURATION_LONG));
-                    area.AddParticle(ParticleFactory.GenerateParticle(this.position + new Vector2(0, 1) + new Vector2(sprite.GetFrameWidth() / 2 + Util.RandInt(-2, 2)),
+                    area.AddParticle(ParticleFactory.GenerateParticle(particlePosition + new Vector2(Util.RandInt(-2, 2)),
                         ParticleBehavior.BOUNCE_DOWN, ParticleTextureStyle.ONEXONE,
                         leaf2, ParticleFactory.DURATION_LONG));
                 }
@@ -353,23 +374,33 @@ namespace Plateau.Entities
                     loopNameBase = "winter";
                     break;
             }
-            string fruitExtension = "";
-            if (fruitAvailable)
+
+            string extension = "";
+
+            if(growthStage == 1)
             {
-                fruitExtension += "fruit";
-                if (season == World.Season.AUTUMN)
+                extension = "Baby";
+            }
+            else
+            {
+                if (fruitAvailable)
                 {
-                    if (Util.RandInt(0, 10) >= 6)
+                    extension += "fruit";
+                    if (season == World.Season.AUTUMN)
                     {
-                        fruitExtension += "1";
-                    } else
-                    {
-                        fruitExtension += "2";
+                        if (Util.RandInt(0, 10) >= 6)
+                        {
+                            extension += "1";
+                        }
+                        else
+                        {
+                            extension += "2";
+                        }
                     }
                 }
             }
 
-            sprite.SetLoop(loopNameBase + fruitExtension);
+            sprite.SetLoop(loopNameBase + extension);
         }
 
         private void UpdateFruitTable()
@@ -402,13 +433,21 @@ namespace Plateau.Entities
 
         public void TickDaily(World world, Area area, EntityPlayer player)
         {
-            if (area.GetSeason() != World.Season.WINTER && world.GetDay() >= 4)
+            if (growthStage == 1)
             {
-                fruitAvailable = true;
+                if (Util.RandInt(0, GROWTH_CHANCE) == 0)
+                    growthStage = 2;
             }
             else
             {
-                fruitAvailable = false;
+                if (area.GetSeason() != World.Season.WINTER && world.GetDay() >= 4)
+                {
+                    fruitAvailable = true;
+                }
+                else
+                {
+                    fruitAvailable = false;
+                }
             }
             shakeAvailable = true;
             UpdateSprite(area.GetSeason());

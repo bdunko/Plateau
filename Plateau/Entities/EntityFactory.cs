@@ -1008,16 +1008,20 @@ namespace Plateau.Entities
                 else if (type == EntityType.WILD_BUSH || type == EntityType.BUSH)
                 {
                     HealthBar hb = new HealthBar(Util.RandInt(35, 45), PlateauMain.CONTENT.Load<Texture2D>(Paths.SPRITE_HEALTH_BAR), PlateauMain.CONTENT.Load<Texture2D>(Paths.SPRITE_HEALTH_BAR_SEGMENT));
-                    AnimatedSprite bushSprite = new AnimatedSprite(PlateauMain.CONTENT.Load<Texture2D>(Paths.SPRITE_BUSH_SPRITESHEET), 8, 1, 8, Util.CreateAndFillArray(8, 1000f));
-                    bushSprite.AddLoop("spring", 0, 0, false);
-                    bushSprite.AddLoop("springfruit", 1, 1, false);
-                    bushSprite.AddLoop("summer", 2, 2, false);
-                    bushSprite.AddLoop("summerfruit", 3, 3, false);
-                    bushSprite.AddLoop("fall", 4, 4, false);
-                    bushSprite.AddLoop("fallfruit1", 5, 5, false);
-                    bushSprite.AddLoop("fallfruit2", 6, 6, false);
-                    bushSprite.AddLoop("winter", 7, 7, false);
-                    return new TEntityBush(bushSprite, tilePlacement, hb, type, LootTables.BUSH, type == EntityType.WILD_BUSH);
+                    AnimatedSprite bushSprite = new AnimatedSprite(PlateauMain.CONTENT.Load<Texture2D>(Paths.SPRITE_BUSH_SPRITESHEET), 12, 1, 12, Util.CreateAndFillArray(12, 1000f));
+                    bushSprite.AddLoop("springBaby", 0, 0, false);
+                    bushSprite.AddLoop("summerBaby", 1, 1, false);
+                    bushSprite.AddLoop("fallBaby", 2, 2, false);
+                    bushSprite.AddLoop("winterBaby", 3, 3, false);
+                    bushSprite.AddLoop("spring", 4, 4, false);
+                    bushSprite.AddLoop("springfruit", 5, 5, false);
+                    bushSprite.AddLoop("summer", 6, 6, false);
+                    bushSprite.AddLoop("summerfruit", 7, 7, false);
+                    bushSprite.AddLoop("fall", 8, 8, false);
+                    bushSprite.AddLoop("fallfruit1", 9, 9, false);
+                    bushSprite.AddLoop("fallfruit2", 10, 10, false);
+                    bushSprite.AddLoop("winter", 11, 11, false);
+                    return new TEntityBush(bushSprite, tilePlacement, hb, type, area.GetSeason(), LootTables.BUSH, type == EntityType.WILD_BUSH);
                 }
             }
             else if (item is PlaceableItem)
