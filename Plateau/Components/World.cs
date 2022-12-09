@@ -910,9 +910,13 @@ namespace Plateau.Components
 
         public void ChangeArea(Area newArea)
         {
-            currentArea.UnloadLayers();
-            this.currentArea = newArea;
-            currentArea.LoadLayers();
+            if(currentArea != newArea)
+            {
+                currentArea.UnloadLayers();
+                currentArea.ClearParticles();
+                newArea.LoadLayers();
+                this.currentArea = newArea;
+            }
         }
 
         public Area GetCurrentArea()

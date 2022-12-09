@@ -5019,8 +5019,8 @@ namespace Plateau.Components
 
 
                 Vector2 resolutionTextLen = PlateauMain.FONT.MeasureString(PlateauMain.CURRENT_RESOLUTION.ToString()) * PlateauMain.FONT_SCALE;
-                Vector2 resoltionTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_RESOLUTION_TEXT_POSITION - new Vector2(resolutionTextLen.X / 2, resolutionTextLen.Y));
-                QUEUED_STRINGS.Add(new QueuedString(PlateauMain.CURRENT_RESOLUTION.ToString(), resoltionTextPos, Color.Black));
+                Vector2 resolutionTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_RESOLUTION_TEXT_POSITION - new Vector2(resolutionTextLen.X / 2, resolutionTextLen.Y));
+                QUEUED_STRINGS.Add(new QueuedString(PlateauMain.CURRENT_RESOLUTION.ToString(), resolutionTextPos, Color.Black));
 
             }
             else if (interfaceState == InterfaceState.CRAFTING)

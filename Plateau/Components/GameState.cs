@@ -1386,8 +1386,8 @@ namespace Plateau.Components
             MACHINE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TOTEM_OF_THE_CAT, 1), new ItemStack(ItemDict.HARDWOOD, 30), new ItemStack(ItemDict.LUCKY_COIN, 4), new ItemStack(ItemDict.STORMFISH, 10)));
             MACHINE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TOTEM_OF_THE_ROOSTER, 1), new ItemStack(ItemDict.HARDWOOD, 30), new ItemStack(ItemDict.GOLDEN_EGG, 2)));
             MACHINE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SOULCHEST, 1), new ItemStack(ItemDict.MYTHRIL_BAR, 8), new ItemStack(ItemDict.FIRE_CRYSTAL, 3)));
-            MACHINE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SKY_STATUE, 1), new ItemStack(ItemDict.STONE, 40), new ItemStack(ItemDict.PRISMATIC_FEATHER, 1)));
-            MACHINE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.DRACONIC_PILLAR, 1), new ItemStack(ItemDict.COAL, 20), new ItemStack(ItemDict.ADAMANTITE_BAR, 2)));
+            MACHINE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.SKY_STATUE, 2), new ItemStack(ItemDict.STONE, 40), new ItemStack(ItemDict.PRISMATIC_FEATHER, 1)));
+            MACHINE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.DRACONIC_PILLAR, 2), new ItemStack(ItemDict.COAL, 20), new ItemStack(ItemDict.ADAMANTITE_BAR, 2)));
             MACHINE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.ALCHEMIZER, 1), new ItemStack(ItemDict.GOLD_BAR, 4), new ItemStack(ItemDict.PHILOSOPHERS_STONE, 1), new ItemStack(ItemDict.PRISMATIC_FEATHER, 1)));
             MACHINE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.EXTRACTOR, 1), new ItemStack(ItemDict.IRON_BAR, 3), new ItemStack(ItemDict.IRON_CHIP, 5), new ItemStack(ItemDict.MYTHRIL_CHIP, 5), new ItemStack(ItemDict.GOLD_CHIP, 5)));
             MACHINE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.CLONING_MACHINE, 1), new ItemStack(ItemDict.ADAMANTITE_BAR, 2), new ItemStack(ItemDict.GEARS, 25), new ItemStack(ItemDict.GLASS_SHEET, 3)));
@@ -1419,6 +1419,9 @@ namespace Plateau.Components
             SCAFFOLDING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.PLATFORM_GOLDEN_FARM, 10), new ItemStack(ItemDict.GOLD_BAR, 2), new ItemStack(ItemDict.QUALITY_COMPOST, 2)));
             SCAFFOLDING_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BLOCK_GOLDEN, 10), new ItemStack(ItemDict.GOLD_BAR, 3)));
 
+            //default
+            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TORCH, 1), new ItemStack(ItemDict.WOOD, 1), new ItemStack(ItemDict.WEEDS, 2)));
+
             //simply woodworking
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BOX, 1), new ItemStack(ItemDict.HARDWOOD, 1)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BRAZIER, 1), new ItemStack(ItemDict.HARDWOOD, 2), new ItemStack(ItemDict.WEEDS, 5)));
@@ -1433,7 +1436,6 @@ namespace Plateau.Components
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.WOODEN_SQUARETABLE, 1), new ItemStack(ItemDict.BOARD, 6)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.WOODEN_STOOL, 1), new ItemStack(ItemDict.BOARD, 3)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.WOODEN_POST, 1), new ItemStack(ItemDict.WOOD, 2)));
-            FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.TORCH, 1), new ItemStack(ItemDict.WOOD, 1), new ItemStack(ItemDict.WEEDS, 2)));
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.WOODEN_FENCE, 10), new ItemStack(ItemDict.WOOD, 5)));
             //nature touch
             FURNITURE_RECIPES.Add(new CraftingRecipe(new ItemStack(ItemDict.BAMBOO_POT, 1), new ItemStack(ItemDict.CLAY, 2), new ItemStack(ItemDict.BAMBOO, 2)));

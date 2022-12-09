@@ -3655,6 +3655,11 @@ namespace Plateau
             this.particleList.Add(particle);
         }
 
+        public void ClearParticles()
+        {
+            this.particleList.Clear();
+        }
+
         private float GetDarkLevelForPosition(Vector2 position)
         {
             foreach(LightingZone lz in lightingZones)

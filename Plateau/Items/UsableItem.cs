@@ -22,11 +22,14 @@ namespace Plateau.Items
         private static int PRIMEVIL_Y_RADIUS = 5;
         private static int BURST_STONE_X_RADIUS = 20;
         private static int BURST_STONE_Y_RADIUS = 12;
-        private static int UNSTABLE_LIQUID_X_RADIUS = 24;
+        private static int UNSTABLE_LIQUID_X_RADIUS = 20;
         private static int UNSTABLE_LIQUID_Y_RADIUS = 12;
         private static int BOTTLE_X_RADIUS = 20;
-        private static int BOTTLE_Y_RAIDUS = 10;
+        private static int BOTTLE_Y_RADIUS = 12;
         private static float INVINCIROID_TIME = 300.0f;
+        private static int CANDLE_PARTICLE_X_RADIUS = 2;
+        private static int CANDLE_PARTICLE_Y_RADIUS = 20;
+        private static int CANDLE_PARTICLE_AMOUNT = 20;
         public static DialogueNode BURST_STONE_DIALOGUE;
         public static DialogueNode UNSTABLE_LIQUID_DIALOGUE;
         public static DialogueNode MILK_CREAM_DIALOGUE;
@@ -207,6 +210,23 @@ namespace Plateau.Items
                     player.TransitionTo(GameState.LAND_ELEMENT_AREA, new Vector2(GameState.LAND_ELEMENT_X, GameState.LAND_ELEMENT_Y), Area.TransitionZone.Animation.TO_UP);
                     GameState.LAND_ELEMENT_PRIMED = false;
                     player.GetHeldItem().Subtract(1);
+
+                    for (int i = 0; i < 80; i++)
+                    {
+                        area.AddParticle(ParticleFactory.GenerateParticle(player.GetCenteredPosition() + new Vector2(0, Util.RandInt(-200, 200)),
+                            ParticleBehavior.ROTATE_STATIONARY, ParticleTextureStyle.ONEXONE,
+                            Util.PARTICLE_GOLDEN_WISP.color, ParticleFactory.DURATION_VERY_LONG));
+                        area.AddParticle(ParticleFactory.GenerateParticle(player.GetCenteredPosition() + new Vector2(0, Util.RandInt(-200, 200)),
+                            ParticleBehavior.ROTATE_STATIONARY, ParticleTextureStyle.ONEXONE,
+                            Util.PARTICLE_YELLOW_WISP.color, ParticleFactory.DURATION_VERY_LONG));
+                        Vector2 arrivalParticlePos = new Vector2(GameState.LAND_ELEMENT_X, GameState.LAND_ELEMENT_Y);
+                        world.GetAreaByName(GameState.LAND_ELEMENT_AREA).AddParticle(ParticleFactory.GenerateParticle(arrivalParticlePos + new Vector2(0, Util.RandInt(-200, 200)),
+                            ParticleBehavior.ROTATE_STATIONARY, ParticleTextureStyle.ONEXONE,
+                            Util.PARTICLE_GOLDEN_WISP.color, ParticleFactory.DURATION_VERY_LONG));
+                        world.GetAreaByName(GameState.LAND_ELEMENT_AREA).AddParticle(ParticleFactory.GenerateParticle(arrivalParticlePos + new Vector2(0, Util.RandInt(-200, 200)),
+                            ParticleBehavior.ROTATE_STATIONARY, ParticleTextureStyle.ONEXONE,
+                            Util.PARTICLE_YELLOW_WISP.color, ParticleFactory.DURATION_VERY_LONG));
+                    }
                 });
 
                 DialogueNode cancel = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
@@ -332,13 +352,13 @@ namespace Plateau.Items
                     Vector2 playerLocation = player.GetAdjustedPosition();
                     for (int i = 0; i < 333; i++)
                     {
-                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RAIDUS, 8 * BOTTLE_Y_RAIDUS)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RADIUS, 8 * BOTTLE_Y_RADIUS)),
                             ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_SUMMER_PRIMARY.color, ParticleFactory.DURATION_LONG));
-                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RAIDUS, 8 * BOTTLE_Y_RAIDUS)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RADIUS, 8 * BOTTLE_Y_RADIUS)),
                             ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_SUMMER_SECONDARY.color, ParticleFactory.DURATION_LONG));
-                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RAIDUS, 8 * BOTTLE_Y_RAIDUS)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RADIUS, 8 * BOTTLE_Y_RADIUS)),
                             ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_SPRING_PRIMARY.color, ParticleFactory.DURATION_LONG));
                     }
@@ -346,7 +366,7 @@ namespace Plateau.Items
                     Vector2 tileLocation = new Vector2(((int)(playerLocation.X / 8.0f)), ((int)(playerLocation.Y / 8.0f)));
                     for (int x = -BOTTLE_X_RADIUS; x <= BOTTLE_X_RADIUS; x++)
                     {
-                        for (int y = -BOTTLE_Y_RAIDUS; y <= BOTTLE_Y_RAIDUS; y++)
+                        for (int y = -BOTTLE_Y_RADIUS; y <= BOTTLE_Y_RADIUS; y++)
                         {
                             Vector2 targetTile = new Vector2(tileLocation.X + x, tileLocation.Y + y);
                             TileEntity targetEntity = area.GetTileEntity((int)targetTile.X, (int)targetTile.Y);
@@ -376,13 +396,13 @@ namespace Plateau.Items
                     Vector2 playerLocation = player.GetAdjustedPosition();
                     for (int i = 0; i < 333; i++)
                     {
-                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RAIDUS, 8 * BOTTLE_Y_RAIDUS)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RADIUS, 8 * BOTTLE_Y_RADIUS)),
                             ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_SUMMER_PRIMARY.color, ParticleFactory.DURATION_LONG));
-                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RAIDUS, 8 * BOTTLE_Y_RAIDUS)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RADIUS, 8 * BOTTLE_Y_RADIUS)),
                             ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_GRASS_SUMMER_SECONDARY.color, ParticleFactory.DURATION_LONG));
-                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RAIDUS, 8 * BOTTLE_Y_RAIDUS)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RADIUS, 8 * BOTTLE_Y_RADIUS)),
                             ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_YELLOW_WISP.color, ParticleFactory.DURATION_LONG));
                     }
@@ -390,7 +410,7 @@ namespace Plateau.Items
                     Vector2 tileLocation = new Vector2(((int)(playerLocation.X / 8.0f)), ((int)(playerLocation.Y / 8.0f)));
                     for (int x = -BOTTLE_X_RADIUS; x <= BOTTLE_X_RADIUS; x++)
                     {
-                        for (int y = -BOTTLE_Y_RAIDUS; y <= BOTTLE_Y_RAIDUS; y++)
+                        for (int y = -BOTTLE_Y_RADIUS; y <= BOTTLE_Y_RADIUS; y++)
                         {
                             Vector2 targetTile = new Vector2(tileLocation.X + x, tileLocation.Y + y);
                             TileEntity targetEntity = area.GetTileEntity((int)targetTile.X, (int)targetTile.Y);
@@ -419,13 +439,13 @@ namespace Plateau.Items
                     Vector2 playerLocation = player.GetAdjustedPosition();
                     for (int i = 0; i < 333; i++)
                     {
-                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RAIDUS, 8 * BOTTLE_Y_RAIDUS)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RADIUS, 8 * BOTTLE_Y_RADIUS)),
                             ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_BLUE_RISER.color, ParticleFactory.DURATION_LONG));
-                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RAIDUS, 8 * BOTTLE_Y_RAIDUS)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RADIUS, 8 * BOTTLE_Y_RADIUS)),
                             ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_WHITE_WISP.color, ParticleFactory.DURATION_LONG));
-                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RAIDUS, 8 * BOTTLE_Y_RAIDUS)),
+                        area.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * BOTTLE_X_RADIUS, 8 * BOTTLE_X_RADIUS), Util.RandInt(-8 * BOTTLE_Y_RADIUS, 8 * BOTTLE_Y_RADIUS)),
                             ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE,
                             Util.PARTICLE_CHERRY_SPRING_PRIMARY.color, ParticleFactory.DURATION_LONG));
                     }
@@ -433,7 +453,7 @@ namespace Plateau.Items
                     Vector2 tileLocation = new Vector2(((int)(playerLocation.X / 8.0f)), ((int)(playerLocation.Y / 8.0f)));
                     for (int x = -BOTTLE_X_RADIUS; x <= BOTTLE_X_RADIUS; x++)
                     {
-                        for (int y = -BOTTLE_Y_RAIDUS; y <= BOTTLE_Y_RAIDUS; y++)
+                        for (int y = -BOTTLE_Y_RADIUS; y <= BOTTLE_Y_RADIUS; y++)
                         {
                             Vector2 targetTile = new Vector2(tileLocation.X + x, tileLocation.Y + y);
                             TileEntity targetEntity = area.GetTileEntity((int)targetTile.X, (int)targetTile.Y);
@@ -483,6 +503,7 @@ namespace Plateau.Items
                 DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) => {
                     player.TransitionTo("FARM", "SPfarmhouseOutside", Area.TransitionZone.Animation.TO_UP);
                     player.GetHeldItem().Subtract(1);
+                    GenerateCandleParticles(Util.ORANGE_EARTH_PRIMARY.color, Util.ORANGE_EARTH_PRIMARY.color, player, world, area, world.GetAreaByEnum(Area.AreaEnum.FARM), "SPfarmhouseOutside");
                 });
                 DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_SYSTEM);
                 BLACK_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_SYSTEM);
@@ -497,6 +518,7 @@ namespace Plateau.Items
                 DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) => {
                     player.TransitionTo("S2", "SPs2Candle", Area.TransitionZone.Animation.TO_UP);
                     player.GetHeldItem().Subtract(1);
+                    GenerateCandleParticles(Util.CAVE_STONE_PRIMARY.color, Util.CAVE_STONE_SECONDARY.color, player, world, area, world.GetAreaByEnum(Area.AreaEnum.S2), "SPs2Candle");
                 });
                 DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_SYSTEM);
                 SOOTHE_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_SYSTEM);
@@ -511,6 +533,7 @@ namespace Plateau.Items
                 DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) => {
                     player.TransitionTo("BEACH", "SPbeachCandle", Area.TransitionZone.Animation.TO_UP);
                     player.GetHeldItem().Subtract(1);
+                    GenerateCandleParticles(Util.BEACH_SAND_SECONDARY.color, Util.BEACH_SAND_SECONDARY.color, player, world, area, world.GetAreaByEnum(Area.AreaEnum.BEACH), "SPbeachCandle");
                 });
                 DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_SYSTEM);
                 SALTED_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_SYSTEM);
@@ -525,6 +548,7 @@ namespace Plateau.Items
                 DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) => {
                     player.TransitionTo("S1", "SPs1Candle", Area.TransitionZone.Animation.TO_UP);
                     player.GetHeldItem().Subtract(1);
+                    GenerateCandleParticles(Util.WHITE_EARTH_PRIMARY.color, Util.WHITE_EARTH_SECONDARY.color, player, world, area, world.GetAreaByEnum(Area.AreaEnum.S1), "SPs1Candle");
                 });
                 DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_SYSTEM);
                 SPICED_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_SYSTEM);
@@ -539,6 +563,7 @@ namespace Plateau.Items
                 DialogueNode teleport = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) => {
                     player.TransitionTo("S3", "SPs3Candle", Area.TransitionZone.Animation.TO_UP);
                     player.GetHeldItem().Subtract(1);
+                    GenerateCandleParticles(Util.RED_SAND_PRIMARY.color, Util.RED_SAND_SECONDARY.color, player, world, area, world.GetAreaByEnum(Area.AreaEnum.S3), "SPs3Candle");
                 });
                 DialogueNode failure = new DialogueNode("The wick refuses to light. It seems the candle will not work at this time.", DialogueNode.PORTRAIT_SYSTEM);
                 SUGAR_CANDLE_DIALOGUE = new DialogueNode("Light the candle?", DialogueNode.PORTRAIT_SYSTEM);
@@ -549,9 +574,24 @@ namespace Plateau.Items
             }
         }
 
-        private static void GenerateCandleDialogue()
+        private static void GenerateCandleParticles(Color primary, Color secondary, EntityPlayer player, World world, Area currentArea, Area destinationArea, String destinationWaypoint)
         {
+            Vector2 playerLocation = player.GetAdjustedPosition();
+            Vector2 destinationLocation = destinationArea.GetWaypoint(destinationWaypoint).position;
 
+            Color[] particleColors = { primary, secondary, Util.BLACK_SMOKE_PRIMARY.color, Util.BLACK_SMOKE_SECONDARY.color, Util.PARTICLE_WHITE_WISP.color };
+            for (int i = 0; i < CANDLE_PARTICLE_AMOUNT; i++)
+            {
+                foreach (Color color in particleColors)
+                {
+                    //add particle to current area
+                    currentArea.AddParticle(ParticleFactory.GenerateParticle(playerLocation + new Vector2(Util.RandInt(-8 * CANDLE_PARTICLE_X_RADIUS, 8 * CANDLE_PARTICLE_X_RADIUS), Util.RandInt(-8 * CANDLE_PARTICLE_Y_RADIUS, 8 * CANDLE_PARTICLE_Y_RADIUS)),
+                        ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE, color, ParticleFactory.DURATION_LONG));
+                    //add particle to area warped to
+                    destinationArea.AddParticle(ParticleFactory.GenerateParticle(destinationLocation + new Vector2(Util.RandInt(-8 * CANDLE_PARTICLE_X_RADIUS, 8 * CANDLE_PARTICLE_X_RADIUS), Util.RandInt(-8 * CANDLE_PARTICLE_Y_RADIUS, 8 * CANDLE_PARTICLE_Y_RADIUS)),
+                        ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.ONEXONE, color, ParticleFactory.DURATION_LONG));
+                }
+            }
         }
 
         public UsableItem(string name, string texturePath, int stackCapacity, string mouseText, DialogueNode onUse, string description, int value, params Tag[] tags) : base(name, texturePath, stackCapacity, description, value, tags)
