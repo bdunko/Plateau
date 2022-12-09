@@ -51,7 +51,7 @@ namespace Plateau.Items
             perfumeDialogue.decisionLeftNode = new DialogueNode(afterUse, DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
             {
                 player.ClearPerfumeEffects();
-                player.ApplyEffect(perfumeEffect, AppliedEffects.LENGTH_VERY_LONG);
+                player.ApplyEffect(perfumeEffect, AppliedEffects.LENGTH_VERY_LONG, area);
                 player.GetHeldItem().Subtract(1);
             });
             perfumeDialogue.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);
@@ -479,7 +479,7 @@ namespace Plateau.Items
                 MILK_CREAM_DIALOGUE.decisionRightText = "No";
                 MILK_CREAM_DIALOGUE.decisionLeftNode = new DialogueNode("You got milk. It's very refreshing!", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
                 {
-                    player.ClearEffects();
+                    player.ClearEffects(area);
                     player.GetHeldItem().Subtract(1);
                 });
                 MILK_CREAM_DIALOGUE.decisionRightNode = new DialogueNode("Don't got milk?", DialogueNode.PORTRAIT_SYSTEM);

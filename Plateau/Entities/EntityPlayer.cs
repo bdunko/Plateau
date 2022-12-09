@@ -359,7 +359,7 @@ namespace Plateau.Entities
             return this.effects;
         }
 
-        public void ApplyEffect(AppliedEffects.Effect toApply, float length)
+        public void ApplyEffect(AppliedEffects.Effect toApply, float length, Area area)
         {
             bool found = false;
             foreach(TimedEffect effect in effects)
@@ -377,6 +377,16 @@ namespace Plateau.Entities
             if (!found)
             {
                 effects.Add(new TimedEffect(toApply, length));
+            }
+
+            for (int i = 0; i < 30; i++)
+            {
+                area.AddParticle(ParticleFactory.GenerateParticle(GetCenteredPosition() + new Vector2(Util.RandInt(-WIDTH/2 - 1, WIDTH/2 + 2), HEIGHT/2 + 2),
+                    ParticleBehavior.RUSH_UPWARD_STRONG, ParticleTextureStyle.ONEXONE,
+                    Util.PARTICLE_GOLDEN_WISP.color, ParticleFactory.DURATION_SHORT_FOOD));
+                area.AddParticle(ParticleFactory.GenerateParticle(GetCenteredPosition() + new Vector2(Util.RandInt(-WIDTH/2 - 1, WIDTH/2 + 2), HEIGHT/2 + 2),
+                    ParticleBehavior.RUSH_UPWARD_STRONG, ParticleTextureStyle.ONEXONE,
+                    Util.PARTICLE_YELLOW_WISP.color, ParticleFactory.DURATION_SHORT_FOOD));
             }
         }
 
@@ -399,8 +409,17 @@ namespace Plateau.Entities
             }
         }
 
-        public void ClearEffects()
+        public void ClearEffects(Area area)
         {
+            for (int i = 0; i < 30; i++)
+            {
+                area.AddParticle(ParticleFactory.GenerateParticle(GetCenteredPosition() + new Vector2(Util.RandInt(-WIDTH / 2 - 2, WIDTH / 2 + 2), -HEIGHT/2 + 2),
+                    ParticleBehavior.RUSH_UPWARD_STRONG_REVERSED, ParticleTextureStyle.ONEXONE,
+                    Util.PARTICLE_BLUE_RISER.color, ParticleFactory.DURATION_SHORT_FOOD));
+                area.AddParticle(ParticleFactory.GenerateParticle(GetCenteredPosition() + new Vector2(Util.RandInt(-WIDTH / 2 - 2, WIDTH / 2 + 2), -HEIGHT/2 + 2),
+                    ParticleBehavior.RUSH_UPWARD_STRONG_REVERSED, ParticleTextureStyle.ONEXONE,
+                    Util.PARTICLE_WHITE_WISP.color, ParticleFactory.DURATION_SHORT_FOOD));
+            }
             effects.Clear();
         }
 
@@ -632,7 +651,10 @@ namespace Plateau.Entities
 
         public Vector2 GetCenteredPosition()
         {
-            return GetAdjustedPosition() + new Vector2(0.5f * WIDTH, 0.5f * HEIGHT);
+            Vector2 centered = GetAdjustedPosition() + new Vector2(0.5f * WIDTH, 0.5f * HEIGHT);
+            if (direction == DirectionEnum.LEFT)
+                centered.X += 1;
+            return centered;
         }
 
         public Vector2 GetAdjustedPosition()
@@ -1367,20 +1389,20 @@ namespace Plateau.Entities
                     switch (Util.RandInt(0, 4))
                     {
                         case 0:
-                            ApplyEffect(AppliedEffects.FISHING_V, AppliedEffects.LENGTH_VERY_SHORT);
+                            ApplyEffect(AppliedEffects.FISHING_V, AppliedEffects.LENGTH_VERY_SHORT, area);
                             break;
                         case 1:
-                            ApplyEffect(AppliedEffects.BUG_CATCHING_V, AppliedEffects.LENGTH_VERY_SHORT);
+                            ApplyEffect(AppliedEffects.BUG_CATCHING_V, AppliedEffects.LENGTH_VERY_SHORT, area);
                             break;
                         case 2:
-                            ApplyEffect(AppliedEffects.CHOPPING_V, AppliedEffects.LENGTH_VERY_SHORT);
+                            ApplyEffect(AppliedEffects.CHOPPING_V, AppliedEffects.LENGTH_VERY_SHORT, area);
                             break;
                         case 3:
-                            ApplyEffect(AppliedEffects.MINING_V, AppliedEffects.LENGTH_VERY_SHORT);
+                            ApplyEffect(AppliedEffects.MINING_V, AppliedEffects.LENGTH_VERY_SHORT, area);
                             break;
                         case 4:
                         default:
-                            ApplyEffect(AppliedEffects.FORAGING_V, AppliedEffects.LENGTH_VERY_SHORT);
+                            ApplyEffect(AppliedEffects.FORAGING_V, AppliedEffects.LENGTH_VERY_SHORT, area);
                             break;
                     }
                 }
@@ -1536,7 +1558,7 @@ namespace Plateau.Entities
                         {
                             foreach (AppliedEffects.Effect foodEffect in ((EdibleItem)player.GetHeldItem().GetItem()).GetEffect())
                             {
-                                player.ApplyEffect(foodEffect, ((EdibleItem)player.GetHeldItem().GetItem()).GetEffectLength());
+                                player.ApplyEffect(foodEffect, ((EdibleItem)player.GetHeldItem().GetItem()).GetEffectLength(), area);
                             }
                             player.GetHeldItem().Subtract(1);
                         });

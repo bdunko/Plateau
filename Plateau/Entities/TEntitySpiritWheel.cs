@@ -171,27 +171,27 @@ namespace Plateau.Entities
                     } else if (roll <= 11)
                     {
                         spinner.SetCurrentDialogue(boostPrize);
-                        spinner.ApplyEffect(AppliedEffects.LUCK_I, AppliedEffects.LENGTH_VERY_LONG);
+                        spinner.ApplyEffect(AppliedEffects.LUCK_I, AppliedEffects.LENGTH_VERY_LONG, area);
                         switch(Util.RandInt(1, 6))
                         {
                             case 1:
-                                spinner.ApplyEffect(AppliedEffects.CHOPPING_IV, AppliedEffects.LENGTH_VERY_LONG);
+                                spinner.ApplyEffect(AppliedEffects.CHOPPING_IV, AppliedEffects.LENGTH_VERY_LONG, area);
                                 break;
                             case 2:
-                                spinner.ApplyEffect(AppliedEffects.FISHING_IV, AppliedEffects.LENGTH_VERY_LONG);
+                                spinner.ApplyEffect(AppliedEffects.FISHING_IV, AppliedEffects.LENGTH_VERY_LONG, area);
                                 break;
                             case 3:
-                                spinner.ApplyEffect(AppliedEffects.FORAGING_IV, AppliedEffects.LENGTH_VERY_LONG);
+                                spinner.ApplyEffect(AppliedEffects.FORAGING_IV, AppliedEffects.LENGTH_VERY_LONG, area);
                                 break;
                             case 4:
-                                spinner.ApplyEffect(AppliedEffects.BUG_CATCHING_IV, AppliedEffects.LENGTH_VERY_LONG);
+                                spinner.ApplyEffect(AppliedEffects.BUG_CATCHING_IV, AppliedEffects.LENGTH_VERY_LONG, area);
                                 break;
                             case 5:
-                                spinner.ApplyEffect(AppliedEffects.MINING_IV, AppliedEffects.LENGTH_VERY_LONG);
+                                spinner.ApplyEffect(AppliedEffects.MINING_IV, AppliedEffects.LENGTH_VERY_LONG, area);
                                 break;
                             case 6:
                             default:
-                                spinner.ApplyEffect(AppliedEffects.SPEED_IV, AppliedEffects.LENGTH_VERY_LONG);
+                                spinner.ApplyEffect(AppliedEffects.SPEED_IV, AppliedEffects.LENGTH_VERY_LONG, area);
                                 break;
                         }
                             
@@ -205,13 +205,13 @@ namespace Plateau.Entities
                     } else if (roll <= 16)
                     {
                         spinner.SetCurrentDialogue(boostJackpot);
-                        spinner.ApplyEffect(AppliedEffects.CHOPPING_VI, AppliedEffects.LENGTH_VERY_LONG);
-                        spinner.ApplyEffect(AppliedEffects.FISHING_VI, AppliedEffects.LENGTH_VERY_LONG);
-                        spinner.ApplyEffect(AppliedEffects.FORAGING_VI, AppliedEffects.LENGTH_VERY_LONG);
-                        spinner.ApplyEffect(AppliedEffects.BUG_CATCHING_VI, AppliedEffects.LENGTH_VERY_LONG);
-                        spinner.ApplyEffect(AppliedEffects.MINING_VI, AppliedEffects.LENGTH_VERY_LONG);
-                        spinner.ApplyEffect(AppliedEffects.SPEED_VI, AppliedEffects.LENGTH_VERY_LONG);
-                        spinner.ApplyEffect(AppliedEffects.LUCK_VI, AppliedEffects.LENGTH_VERY_LONG);
+                        spinner.ApplyEffect(AppliedEffects.CHOPPING_VI, AppliedEffects.LENGTH_VERY_LONG, area);
+                        spinner.ApplyEffect(AppliedEffects.FISHING_VI, AppliedEffects.LENGTH_VERY_LONG, area);
+                        spinner.ApplyEffect(AppliedEffects.FORAGING_VI, AppliedEffects.LENGTH_VERY_LONG, area);
+                        spinner.ApplyEffect(AppliedEffects.BUG_CATCHING_VI, AppliedEffects.LENGTH_VERY_LONG, area);
+                        spinner.ApplyEffect(AppliedEffects.MINING_VI, AppliedEffects.LENGTH_VERY_LONG, area);
+                        spinner.ApplyEffect(AppliedEffects.SPEED_VI, AppliedEffects.LENGTH_VERY_LONG, area);
+                        spinner.ApplyEffect(AppliedEffects.LUCK_VI, AppliedEffects.LENGTH_VERY_LONG, area);
                     } else if (roll == 17)
                     {
                         spinner.SetCurrentDialogue(rareItemPrize);

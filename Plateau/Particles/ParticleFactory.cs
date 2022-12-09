@@ -30,6 +30,7 @@ namespace Plateau.Particles
         private static List<Texture2D> chunkStyleTextures = new List<Texture2D>();
         public static float DURATION_VERY_SHORT = 0.15f;
         public static float DURATION_SHORT = 0.25f;
+        public static float DURATION_SHORT_FOOD = 0.35f; //used exclusively for effect when eating food/milk and applying boost
         public static float DURATION_MEDIUM = 0.5f;
         public static float DURATION_LONG = 1.5f;
         public static float DURATION_PRETTY_LONG = 3.0f;

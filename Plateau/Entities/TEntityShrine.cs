@@ -247,8 +247,8 @@ namespace Plateau.Entities
                                 luck = AppliedEffects.LUCK_IV;
                             }
 
-                            player.ApplyEffect(boost, length);
-                            player.ApplyEffect(luck, length);
+                            player.ApplyEffect(boost, length, area);
+                            player.ApplyEffect(luck, length, area);
 
                             player.AddNotification(new EntityPlayer.Notification("The shrine accepts your offering.\nYour abilities and luck have improved.", Color.Black));
                             this.offeredIncenseToday = true;
