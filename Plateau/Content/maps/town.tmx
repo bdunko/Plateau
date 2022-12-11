@@ -494,7 +494,7 @@
  </objectgroup>
  <objectgroup id="41" name="cutscenes" visible="0" locked="1"/>
  <objectgroup color="#ff0000" id="4" name="transitions">
-  <object id="1" x="3503.33" y="0.1667" width="16.75" height="264.666">
+  <object id="1" x="3528" y="0" width="16" height="264.666">
    <properties>
     <property name="animation" value="right"/>
     <property name="areaSpawn" value="SPleft"/>
@@ -883,7 +883,7 @@ Please avoid littering in communal areas. Offenders may be fined.
  <objectgroup id="57" name="sounds" visible="0" locked="1"/>
  <objectgroup id="39" name="fishingzones" visible="0" locked="1"/>
  <objectgroup color="#ff55ff" id="11" name="waypoints">
-  <object id="5" x="3472" y="216">
+  <object id="5" x="3504" y="216">
    <properties>
     <property name="name" value="SPright"/>
    </properties>
@@ -955,7 +955,7 @@ Please avoid littering in communal areas. Offenders may be fined.
    </properties>
    <point/>
   </object>
-  <object id="63" x="3512" y="216">
+  <object id="63" x="3536" y="216">
    <properties>
     <property name="name" value="TRtownRight"/>
    </properties>

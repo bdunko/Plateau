@@ -582,6 +582,7 @@ namespace Plateau.Entities
 
                 public WanderNearEvent(Area area, Area.Waypoint waypoint, int startHour, int startMinute, int endHour, int endMinute, Func<World, EntityCharacter, bool> conditionFunction, int priority, WanderRange range) : base(area, waypoint, startHour, startMinute, endHour, endMinute, conditionFunction, priority)
                 {
+                    System.Diagnostics.Debug.Assert(area.GetWaypoint(waypoint.name) != null);
                     this.wandering = false;
                     int rangeSize = rangeForEnum(range);
                     wanderBox = new RectangleF(GetWaypoint().position.X - (rangeSize / 2), GetWaypoint().position.Y - 5000, rangeSize, 10000);
@@ -1107,7 +1108,8 @@ namespace Plateau.Entities
                             if (collType == Area.CollisionTypeEnum.SOLID ||
                                 collType == Area.CollisionTypeEnum.BRIDGE ||
                                 collType == Area.CollisionTypeEnum.SCAFFOLDING_BLOCK ||
-                                collType == Area.CollisionTypeEnum.SCAFFOLDING_BRIDGE)
+                                collType == Area.CollisionTypeEnum.SCAFFOLDING_BRIDGE ||
+                                collType == Area.CollisionTypeEnum.BOUNDARY) //necessary to allow characters to 'walk off edge' of town/farm maps
                             {
                                 //make sure ground above target isn't water or deep water (topwater is allowed)
                                 Area.CollisionTypeEnum collTypeAbove = area.GetCollisionTypeAt((int)(tenativePos.X) / 8, ((int)(tenativePos.Y + collisionBox.Height) / 8) + (i - 1));
@@ -1128,7 +1130,7 @@ namespace Plateau.Entities
                             if (collType == Area.CollisionTypeEnum.SOLID ||
                                 collType == Area.CollisionTypeEnum.BRIDGE ||
                                 collType == Area.CollisionTypeEnum.SCAFFOLDING_BLOCK ||
-                                collType == Area.CollisionTypeEnum.SCAFFOLDING_BRIDGE)
+                                collType == Area.CollisionTypeEnum.BOUNDARY) //necessary to allow characters to 'walk off edge' of town/farm maps
                             {
                                 //make sure ground above target isn't water or deep water (topwater is allowed)
                                 Area.CollisionTypeEnum collTypeAbove = area.GetCollisionTypeAt((int)(tenativePos.X + collisionBox.Width) / 8, ((int)(tenativePos.Y + collisionBox.Height) / 8) + (i - 1));
