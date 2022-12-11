@@ -298,6 +298,7 @@ namespace Plateau.Components
         private static Vector2 MENU_SETTINGS_HOTKEY_POSITION = new Vector2(16, 92); 
         private static Vector2 MENU_EDITMODE_HOTKEY_POSITION = new Vector2(16, 105);
         private static Vector2 MENU_CYCLE_INVENTORY_HOTKEY_POSITION = new Vector2(16, 118);
+        private static Vector2 MENU_DROP_HOTKEY_POSITION = new Vector2(16, 131);
         private Texture2D menuControlsInventoryEnlarge, menuControlsInventoryDepressed;
         private Texture2D menuControlsScrapbookEnlarge, menuControlsScrapbookDepressed;
         private Texture2D menuControlsSettingsEnlarge, menuControlsSettingsDepressed;
@@ -3284,8 +3285,8 @@ namespace Plateau.Components
                     if (controller.IsKeyPressed(KeyBinds.CYCLE_INVENTORY))
                         player.CycleInventory();
 
-                    //if specifically in normal mode, toss 1 of held item
-                    if (interfaceState == InterfaceState.NONE && controller.IsKeyPressed(KeyBinds.DROP_ITEM))
+                    //if specifically in normal, chest, or inv mode, toss 1 of held item
+                    if ((interfaceState == InterfaceState.NONE || interfaceState == InterfaceState.CHEST || interfaceState == InterfaceState.INVENTORY) && controller.IsKeyPressed(KeyBinds.DROP_ITEM))
                     {
                         if(controller.IsKeyDown(KeyBinds.SHIFT))
                             DropHeldItemAll(world);
@@ -5470,6 +5471,10 @@ namespace Plateau.Components
                     QUEUED_STRINGS.Add(new QueuedString("Settings: " + KeyBinds.SETTINGS.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_SETTINGS_HOTKEY_POSITION), Color.White));
                     QUEUED_STRINGS.Add(new QueuedString("Editmode: " + KeyBinds.EDIT_MODE.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_EDITMODE_HOTKEY_POSITION), Color.White));
                     QUEUED_STRINGS.Add(new QueuedString("Cycle: " + KeyBinds.CYCLE_INVENTORY.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_CYCLE_INVENTORY_HOTKEY_POSITION), Color.White));
+                    if(controller.IsKeyDown(KeyBinds.SHIFT))
+                        QUEUED_STRINGS.Add(new QueuedString("All: " + KeyBinds.DROP_ITEM.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_DROP_HOTKEY_POSITION), Color.White));
+                    else
+                        QUEUED_STRINGS.Add(new QueuedString("Drop: " + KeyBinds.DROP_ITEM.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_DROP_HOTKEY_POSITION), Color.White));
                 }
 
                 if(editMode && interfaceState == InterfaceState.NONE)
