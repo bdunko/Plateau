@@ -2360,12 +2360,12 @@ namespace Plateau
             }
             
 
-            positionalDarkLevel = Util.AdjustTowards(positionalDarkLevel, GetDarkLevelForPosition(player.GetAdjustedPosition()), LIGHTING_CHANGE_SPEED * deltaTime);
+            positionalDarkLevel = Util.AdjustTowards(positionalDarkLevel, GetDarkLevelForPosition(player.GetCenteredPosition()), LIGHTING_CHANGE_SPEED * deltaTime);
         }
 
         public bool IsPlayerInCave(EntityPlayer player)
         {
-            Vector2 playerTile = player.GetAdjustedPosition();
+            Vector2 playerTile = player.GetCenteredPosition();
             playerTile.X /= 8;
             playerTile.Y /= 8;
             playerTile.Y += 2;

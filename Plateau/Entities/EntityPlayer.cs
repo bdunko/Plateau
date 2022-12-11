@@ -656,10 +656,7 @@ namespace Plateau.Entities
 
         public Vector2 GetCenteredPosition()
         {
-            Vector2 centered = GetAdjustedPosition() + new Vector2(0.5f * WIDTH, 0.5f * HEIGHT);
-            if (direction == DirectionEnum.LEFT)
-                centered.X += 1;
-            return centered;
+            return GetAdjustedPosition() + new Vector2(0.5f * WIDTH, 0.5f * HEIGHT);
         }
 
         public Vector2 GetAdjustedPosition()
@@ -2047,9 +2044,13 @@ namespace Plateau.Entities
                         externalVelocityX = direction == DirectionEnum.LEFT ? -6 : 6;
                     }
 
-                    if (controller.IsKeyPressed(Keys.B))
+                    if (controller.IsKeyPressed(Keys.B)) //DEBUG B KEY B
                     {
                         ApplyEffect(AppliedEffects.WISHBOAT_FORTUNE, AppliedEffects.LENGTH_INFINITE, area);
+                        if (direction == DirectionEnum.LEFT)
+                            direction = DirectionEnum.RIGHT;
+                        else
+                            direction = DirectionEnum.LEFT;
                     }
 
                     //if holding down when landing from ground pound, immediately goes into high speed roll

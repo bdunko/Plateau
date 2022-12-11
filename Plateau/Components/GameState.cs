@@ -824,7 +824,7 @@ namespace Plateau.Components
                 new ShrineStatus.RequiredItem(ItemDict.SNOW_CRYSTAL, 10)));
 
             shrineList.Add(SHRINE_CHICKEN_1 = new ShrineStatus("SHRINE_CHICKEN_1", (player, area) => {
-                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_CHICKEN, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_CHICKEN, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.BASKET, 1)));
             shrineList.Add(SHRINE_CHICKEN_2 = new ShrineStatus("SHRINE_CHICKEN_2", (player, area) => {
@@ -833,7 +833,7 @@ namespace Plateau.Components
             },
                 new ShrineStatus.RequiredItem(ItemDict.EGG, 1)));
             shrineList.Add(SHRINE_SHEEP_1 = new ShrineStatus("SHRINE_SHEEP_1", (player, area) => {
-                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_SHEEP, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_SHEEP, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.SHEARS, 1)));
             shrineList.Add(SHRINE_SHEEP_2 = new ShrineStatus("SHRINE_SHEEP_2", (player, area) => {
@@ -842,7 +842,7 @@ namespace Plateau.Components
             },
                 new ShrineStatus.RequiredItem(ItemDict.WOOL, 1)));
             shrineList.Add(SHRINE_COW_1 = new ShrineStatus("SHRINE_COW_1", (player, area) => {
-                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_COW, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_COW, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.MILKING_PAIL, 1)));
             shrineList.Add(SHRINE_COW_2 = new ShrineStatus("SHRINE_COW_2", (player, area) => {
@@ -861,7 +861,7 @@ namespace Plateau.Components
             },
                 new ShrineStatus.RequiredItem(ItemDict.FRIENDSHIP_CERT, 1)));
             shrineList.Add(SHRINE_FRIENDSHIP_2 = new ShrineStatus("SHRINE_FRIENDSHIP_2", (player, area) => {
-                area.AddEntity(new EntityItem(ItemDict.PURE_FEATHER, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.PURE_FEATHER, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.LOVER_CERT, 1)));
             shrineList.Add(SHRINE_LIBRARIAN_1 = new ShrineStatus("SHRINE_LIBRARIAN_1", (player, area) => {
@@ -873,7 +873,7 @@ namespace Plateau.Components
                 new ShrineStatus.RequiredItem(ItemDict.READER_CERT, 1)));
             shrineList.Add(SHRINE_LIBRARIAN_2 = new ShrineStatus("SHRINE_LIBRARIAN_2", (player, area) => {
 
-                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_SHEEP, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_SHEEP, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.LIBRARY_CERT, 1)));
 
@@ -1017,7 +1017,7 @@ namespace Plateau.Components
             },
                 new ShrineStatus.RequiredItem(ItemDict.MOREL, 1), new ShrineStatus.RequiredItem(ItemDict.MOUNTAIN_WHEAT, 1), new ShrineStatus.RequiredItem(ItemDict.SPICY_LEAF, 1)));
             shrineList.Add(SHRINE_MOUNTAIN_2 = new ShrineStatus("SHRINE_MOUNTAIN_2", (player, area) => {
-                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_PIG, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_PIG, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.WIND_CRYSTAL, 1)));
             shrineList.Add(SHRINE_BOAR_1 = new ShrineStatus("SHRINE_BOAR_1", (player, area) => {
@@ -1107,7 +1107,7 @@ namespace Plateau.Components
             },
               new ShrineStatus.RequiredItem(ItemDict.CLAY, 3)));
             shrineList.Add(SHRINE_POTTER_2 = new ShrineStatus("SHRINE_POTTER_2", (player, area) => {
-                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_COW, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_COW, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.POTTERY_MUG, 1), new ShrineStatus.RequiredItem(ItemDict.POTTERY_JAR, 1), new ShrineStatus.RequiredItem(ItemDict.POTTERY_PLATE, 1)));
 
@@ -1182,7 +1182,7 @@ namespace Plateau.Components
             },
                 new ShrineStatus.RequiredItem(ItemDict.COCONUT, 5), new ShrineStatus.RequiredItem(ItemDict.MAIZE, 3), new ShrineStatus.RequiredItem(ItemDict.PINEAPPLE, 3)));
             shrineList.Add(SHRINE_JUNGLE_2 = new ShrineStatus("SHRINE_JUNGLE_2", (player, area) => {
-                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_COW, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_COW, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.FIRE_CRYSTAL, 1)));
             shrineList.Add(SHRINE_VOLCANO_1 = new ShrineStatus("SHRINE_VOLCANO_1", (player, area) => {
@@ -1191,7 +1191,7 @@ namespace Plateau.Components
             },
                 new ShrineStatus.RequiredItem(ItemDict.ONYX_EEL, 1), new ShrineStatus.RequiredItem(ItemDict.BLACKENED_OCTOPUS, 1), new ShrineStatus.RequiredItem(ItemDict.MOLTEN_SQUID, 1)));
             shrineList.Add(SHRINE_VOLCANO_2 = new ShrineStatus("SHRINE_VOLCANO_2", (player, area) => {
-                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_PIG, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_PIG, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.INFERNAL_SHARK, 1)));
             shrineList.Add(SHRINE_WEAVER_1 = new ShrineStatus("SHRINE_WEAVER_1", (player, area) => {
@@ -1214,7 +1214,7 @@ namespace Plateau.Components
             },
                 new ShrineStatus.RequiredItem(ItemDict.GOLD_ORE, 10)));
             shrineList.Add(SHRINE_GOLDEN_2 = new ShrineStatus("SHRINE_GOLDEN_2", (player, area) => {
-                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_SHEEP, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_SHEEP, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.GOLDEN_EGG, 1), new ShrineStatus.RequiredItem(ItemDict.GOLDEN_WOOL, 1)));
             shrineList.Add(SHRINE_LEGENDARY_1 = new ShrineStatus("SHRINE_LEGENDARY_1", (player, area) => {
@@ -1261,7 +1261,7 @@ namespace Plateau.Components
             },
                 new ShrineStatus.RequiredItem(ItemDict.RASPBERRY, 10)));
             shrineList.Add(SHRINE_SHRUBBERY_2 = new ShrineStatus("SHRINE_SHRUBBERY_2", (player, area) => {
-                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_CHICKEN, new Vector2(player.GetAdjustedPosition().X, player.GetAdjustedPosition().Y - 10)));
+                area.AddEntity(new EntityItem(ItemDict.TOTEM_OF_THE_CHICKEN, new Vector2(player.GetCenteredPosition().X, player.GetCenteredPosition().Y - 10)));
             },
                 new ShrineStatus.RequiredItem(ItemDict.BLUEBELL, 10), new ShrineStatus.RequiredItem(ItemDict.ELDERBERRY, 25), new ShrineStatus.RequiredItem(ItemDict.BLACKBERRY, 25)));
 

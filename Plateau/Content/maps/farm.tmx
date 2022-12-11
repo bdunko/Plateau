@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="267" height="50" tilewidth="8" tileheight="8" infinite="0" nextlayerid="58" nextobjectid="142">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="267" height="50" tilewidth="8" tileheight="8" infinite="0" nextlayerid="58" nextobjectid="143">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="Stratus Farm"/>
@@ -519,7 +519,7 @@
  </objectgroup>
  <objectgroup id="51" name="sounds" visible="0" locked="1"/>
  <objectgroup id="9" name="transitions">
-  <object id="2" x="-60.6667" y="0" width="52.6667" height="407.083">
+  <object id="2" x="-12.5" y="0" width="20.5" height="407.083">
    <properties>
     <property name="animation" value="left"/>
     <property name="areaSpawn" value="SPright"/>
@@ -535,7 +535,7 @@
     <property name="automatic" value="no"/>
    </properties>
   </object>
-  <object id="23" x="2144" y="0" width="70.6667" height="407.757">
+  <object id="23" x="2128" y="0" width="27.3333" height="407.757">
    <properties>
     <property name="animation" value="down"/>
     <property name="areaSpawn" value="SPtop"/>
@@ -644,7 +644,7 @@
  </objectgroup>
  <objectgroup id="22" name="cutscenes" visible="0" locked="1"/>
  <objectgroup id="11" name="waypoints">
-  <object id="6" x="0" y="352">
+  <object id="6" x="32" y="352">
    <properties>
     <property name="name" value="SPleft"/>
    </properties>
@@ -662,13 +662,13 @@
    </properties>
    <point/>
   </object>
-  <object id="53" x="2152" y="352">
+  <object id="53" x="2136" y="352">
    <properties>
     <property name="name" value="TRfarmRight"/>
    </properties>
    <point/>
   </object>
-  <object id="55" x="-16" y="352">
+  <object id="55" x="0" y="352">
    <properties>
     <property name="name" value="TRfarmLeft"/>
    </properties>

@@ -76,7 +76,7 @@ namespace Plateau.Components
         //target the camera at the given player
         public void Update(float deltaTime, EntityPlayer player, int mapWidth, int mapHeight)
         {
-            Vector2 targetPosition = player.GetAdjustedPosition();
+            Vector2 targetPosition = player.GetCenteredPosition();
             if(player.GetGravityState() == EntityPlayer.GravityState.REVERSED)
             {
                 targetPosition.Y += EntityPlayer.OFFSET_Y;

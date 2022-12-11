@@ -165,7 +165,7 @@ namespace Plateau.Components
                 return temp;
             }
 
-            List<CutsceneManager.Cutscene> possibleCutscenes = currentArea.GetPossibleCutscenes(player.GetAdjustedPosition());
+            List<CutsceneManager.Cutscene> possibleCutscenes = currentArea.GetPossibleCutscenes(player.GetCenteredPosition());
             foreach(CutsceneManager.Cutscene possibleCutscene in possibleCutscenes)
             {
                 if(possibleCutscene.CheckActivationCondition(player, this))
@@ -995,7 +995,7 @@ namespace Plateau.Components
                         }
                         else
                         {
-                            camera.Update(deltaTime, player.GetAdjustedPosition(), currentArea.MapPixelWidth(), currentArea.MapPixelHeight());
+                            camera.Update(deltaTime, player.GetCenteredPosition(), currentArea.MapPixelWidth(), currentArea.MapPixelHeight());
                             camera.Unlock();
                         }
                     } else
@@ -1308,7 +1308,7 @@ namespace Plateau.Components
             Area.TransitionZone tz;
             if(player.GetTransitionAreaTo().Equals("") && player.GetTransitionSpawnTo().Equals(""))
             {
-                tz = GetCurrentArea().CheckTransition(player.GetAdjustedPosition(), player.AttemptingTransition());
+                tz = GetCurrentArea().CheckTransition(player.GetCenteredPosition(), player.AttemptingTransition());
             } else
             {
                 tz = new Area.TransitionZone(new RectangleF(0, 0, 0, 0), player.GetTransitionAreaTo(), player.GetTransitionSpawnTo(), false, player.GetTransitionAnimation());

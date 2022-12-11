@@ -729,7 +729,7 @@ namespace Plateau
                 GRAPHICS.GraphicsDevice.Clear(Color.Black); 
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp);
                 lightsShader.Parameters["lightMask"].SetValue(lightsTarget);
-                lightsShader.Parameters["darknessLevel"].SetValue(world.GetDarkLevel() * world.GetCurrentArea().GetDarkLevel(player.GetAdjustedPosition()));
+                lightsShader.Parameters["darknessLevel"].SetValue(world.GetDarkLevel() * world.GetCurrentArea().GetDarkLevel(player.GetCenteredPosition()));
                 if (currentState != PlateauGameState.CUTSCENE || currentCutscene.background == CutsceneManager.CutsceneBackground.WORLD ||
                     (cutsceneTransitionDone == false && currentCutscene.IsComplete() == false) || (cutsceneTransitionDone == true && currentCutscene.IsComplete() == true))
                 {

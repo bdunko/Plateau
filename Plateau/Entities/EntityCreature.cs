@@ -49,7 +49,7 @@ namespace Plateau.Entities
 
         protected void TurnToFace(EntityPlayer player)
         {
-            if (player.GetAdjustedPosition().X > position.X)
+            if (player.GetCenteredPosition().X > position.X)
             {
                 direction = DirectionEnum.RIGHT;
             }

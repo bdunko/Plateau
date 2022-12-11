@@ -330,7 +330,7 @@ namespace Plateau.Components
 
         private Vector2 playerPosition;
         private int displayGold;
-        private static int ITEM_COLLECTED_TOOLTIP_Y_ADDITION = 8;
+        private static int ITEM_COLLECTED_TOOLTIP_Y_ADDITION = 16;
         private static float ITEM_COLLECTED_TOOLTIP_DELAY = 0.1f;
         private static float ITEM_COLLECTED_TOOLTIP_DELAY_FAST = 0.02f;
         private float timeSinceItemCollectedTooltipAdded = 0.0f;
@@ -2947,7 +2947,7 @@ namespace Plateau.Components
             tooltipName = "";
             tooltipDescription = "";
             areaName = currentArea.GetName();
-            zoneName = currentArea.GetZoneName(player.GetAdjustedPosition());
+            zoneName = currentArea.GetZoneName(player.GetCenteredPosition());
             if(displayGold == -1)
             {
                 displayGold = player.GetGold();
@@ -3650,7 +3650,7 @@ namespace Plateau.Components
                 SetMouseActionTexts(player, itemFormT != ItemDict.NONE);
 
                 timeSinceItemCollectedTooltipAdded += deltaTime;
-                playerPosition = player.GetAdjustedPosition();
+                playerPosition = player.GetCenteredPosition();
 
                 isHoldingPlaceable = false;
                 gridLocation = currentArea.GetPositionOfTile((int)(cameraBoundingBox.Left / 8), (int)(cameraBoundingBox.Top / 8));

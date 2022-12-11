@@ -264,11 +264,11 @@ namespace Plateau.Components
                     {
                         return true;
                     }
-                    if (directionToGo == DirectionEnum.LEFT && player.GetAdjustedPosition().X < targetX)
+                    if (directionToGo == DirectionEnum.LEFT && player.GetCenteredPosition().X < targetX)
                     {
                         return true;
                     }
-                    else if (directionToGo == DirectionEnum.RIGHT && player.GetAdjustedPosition().X > targetX)
+                    else if (directionToGo == DirectionEnum.RIGHT && player.GetCenteredPosition().X > targetX)
                     {
                         return true;
                     }
@@ -280,8 +280,8 @@ namespace Plateau.Components
                     if(!init)
                     {
                         init = true;
-                        targetX = (int)player.GetAdjustedPosition().X + movementX;
-                        if (player.GetAdjustedPosition().X > targetX)
+                        targetX = (int)player.GetCenteredPosition().X + movementX;
+                        if (player.GetCenteredPosition().X > targetX)
                         {
                             directionToGo = DirectionEnum.LEFT;
                         }
@@ -291,7 +291,7 @@ namespace Plateau.Components
                         }
                     }
 
-                    Vector2 startingPos = player.GetAdjustedPosition();
+                    Vector2 startingPos = player.GetCenteredPosition();
                     MouseState realState = Mouse.GetState();
                     dummyController.Update(new MouseState(realState.X, realState.Y, realState.ScrollWheelValue, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released),
                         new KeyboardState(directionToGo == DirectionEnum.LEFT ? KeyBinds.LEFT : KeyBinds.RIGHT));
@@ -302,7 +302,7 @@ namespace Plateau.Components
                         player.SetToDefaultPose();
                         player.StopAllMovement();
                     }
-                    Vector2 endingPos = player.GetAdjustedPosition();
+                    Vector2 endingPos = player.GetCenteredPosition();
                     if(startingPos == endingPos)
                     {
                         stuck = true;
@@ -336,7 +336,7 @@ namespace Plateau.Components
                     if(!init)
                     {
                         init = true;
-                        if(player.GetAdjustedPosition().X > targetX)
+                        if(player.GetCenteredPosition().X > targetX)
                         {
                             directionToGo = DirectionEnum.LEFT;
                         } else
@@ -345,7 +345,7 @@ namespace Plateau.Components
                         }
                     }
 
-                    Vector2 startingPos = player.GetAdjustedPosition();
+                    Vector2 startingPos = player.GetCenteredPosition();
                     MouseState realState = Mouse.GetState();
                     dummyController.Update(new MouseState(realState.X, realState.Y, realState.ScrollWheelValue, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released, ButtonState.Released),
                         new KeyboardState(directionToGo == DirectionEnum.LEFT ? KeyBinds.LEFT : KeyBinds.RIGHT));
@@ -356,7 +356,7 @@ namespace Plateau.Components
                         player.SetToDefaultPose();
                         player.StopAllMovement();
                     }
-                    Vector2 endingPos = player.GetAdjustedPosition();
+                    Vector2 endingPos = player.GetCenteredPosition();
                     if (startingPos == endingPos)
                     {
                         stuck = true;
@@ -369,10 +369,10 @@ namespace Plateau.Components
                     {
                         return true;
                     }
-                    if(directionToGo == DirectionEnum.LEFT && player.GetAdjustedPosition().X < targetX)
+                    if(directionToGo == DirectionEnum.LEFT && player.GetCenteredPosition().X < targetX)
                     {
                         return true;
-                    } else if (directionToGo == DirectionEnum.RIGHT && player.GetAdjustedPosition().X > targetX)
+                    } else if (directionToGo == DirectionEnum.RIGHT && player.GetCenteredPosition().X > targetX)
                     {
                         return true;
                     }
@@ -478,7 +478,7 @@ namespace Plateau.Components
                 (entityPlayer, world, cam) => {
                     entityPlayer.SetToDefaultPose();
                     entityPlayer.SetGroundedPosition(new Vector2(864, 376));
-                    cam.Update(0.0f, player.GetAdjustedPosition() + new Vector2(0, -30), world.GetCurrentArea().MapPixelWidth(), world.GetCurrentArea().MapPixelHeight());
+                    cam.Update(0.0f, player.GetCenteredPosition() + new Vector2(0, -30), world.GetCurrentArea().MapPixelWidth(), world.GetCurrentArea().MapPixelHeight());
                 },
                 (entityPlayer, world, cam) => { 
                     player.AddNotification(new EntityPlayer.Notification("this is a onCutsceneEnd test", Color.Red)); 

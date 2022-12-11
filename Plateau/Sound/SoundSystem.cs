@@ -70,7 +70,7 @@ namespace Plateau.Sound
         public static void Update(float deltaTime, EntityPlayer player, World world)
         {
             //ADD SOUNDS FROM SOUNDZONES
-            foreach(Area.SoundZone activeSz in world.GetCurrentArea().GetSoundZonesAtPosAndTimeAndSeason(player.GetAdjustedPosition(), world.GetTimeOfDay(), world.GetCurrentArea().GetSeason()))
+            foreach(Area.SoundZone activeSz in world.GetCurrentArea().GetSoundZonesAtPosAndTimeAndSeason(player.GetCenteredPosition(), world.GetTimeOfDay(), world.GetCurrentArea().GetSeason()))
             {
                 if(!activeZonedSounds.ContainsKey(activeSz))
                 {
