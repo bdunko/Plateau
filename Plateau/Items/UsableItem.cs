@@ -51,7 +51,7 @@ namespace Plateau.Items
             perfumeDialogue.decisionLeftNode = new DialogueNode(afterUse, DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
             {
                 player.ClearPerfumeEffects();
-                player.ApplyEffect(perfumeEffect, AppliedEffects.LENGTH_VERY_LONG, area);
+                player.ApplyEffect(perfumeEffect, AppliedEffects.LENGTH_INFINITE, area);
                 player.GetHeldItem().Subtract(1);
             });
             perfumeDialogue.decisionRightNode = new DialogueNode("Maybe later.", DialogueNode.PORTRAIT_SYSTEM);

@@ -401,21 +401,8 @@ namespace Plateau.Entities
 
         public void ClearPerfumeEffects()
         {
-            foreach(TimedEffect effect in effects)
-            {
-                if(effect.effect == AppliedEffects.PERFUME_AUTUMNS_KISS ||
-                    effect.effect == AppliedEffects.PERFUME_BIZARRE_PERFUME || 
-                    effect.effect == AppliedEffects.PERFUME_BLISSFUL_SKY ||
-                    effect.effect == AppliedEffects.PERFUME_FLORAL_PERFUME ||
-                    effect.effect == AppliedEffects.PERFUME_OCEAN_GUST ||
-                    effect.effect == AppliedEffects.PERFUME_RED_ANGEL ||
-                    effect.effect == AppliedEffects.PERFUME_SUMMERS_GIFT ||
-                    effect.effect == AppliedEffects.PERFUME_SWEET_BREEZE ||
-                    effect.effect == AppliedEffects.PERFUME_WARM_MEMORIES)
-                {
-                    effect.timeRemaining = 0;
-                } 
-            }
+            foreach(AppliedEffects.Effect perfume in AppliedEffects.PERFUMES)
+                RemoveEffect(perfume);
         }
 
         public void ClearEffects(Area area)
@@ -2867,8 +2854,12 @@ namespace Plateau.Entities
         public void TickDaily(World timeData, Area area, EntityPlayer player)
         {
             System.Diagnostics.Debug.WriteLine(area.GetName());
+
             //remove all normal food effects
             ClearEffects(area);
+
+            //clear the perfume
+            ClearPerfumeEffects();
 
             //remove wishboat if not summer
             if(timeData.GetSeason() != World.Season.SUMMER)

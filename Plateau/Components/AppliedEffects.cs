@@ -69,7 +69,9 @@ namespace Plateau.Components
         public static Effect DIZZY, BLESSED, BEWITCHED, WISHBOAT_HEALTH, WISHBOAT_LOVE, WISHBOAT_FORTUNE;
         public static Effect LUCK_I, LUCK_II, LUCK_III, LUCK_IV, LUCK_V, LUCK_VI;
         public static Effect PERFUME_AUTUMNS_KISS, PERFUME_BIZARRE_PERFUME, PERFUME_BLISSFUL_SKY, PERFUME_FLORAL_PERFUME, PERFUME_OCEAN_GUST, PERFUME_RED_ANGEL, PERFUME_SUMMERS_GIFT, PERFUME_SWEET_BREEZE, PERFUME_WARM_MEMORIES;
-        
+
+        public static Effect[] PERFUMES;
+
         public static void Initialize(ContentManager content)
         {
             Texture2D frame_i = content.Load<Texture2D>(Paths.INTERFACE_ICON_FRAME_I);
@@ -326,15 +328,17 @@ namespace Plateau.Components
             WISHBOAT_LOVE = new Effect("Wish for Love", "Your wish has come true!\nYour friendships will strengthen quicker!", icon_wishboat_love, frame_special_gold, none, false);
             WISHBOAT_FORTUNE = new Effect("Wish for Fortune", "Your wish has come true!\nYou'll be just a bit more lucky with anything you do.", icon_wishboat_fortune, frame_special_gold, none, false);
 
-            PERFUME_AUTUMNS_KISS = new Effect("Perfumed - Autumnal", "Your scent is reminiscent of wood and leaves.", icon_perfume_autumns_kiss, frame_special_pink, none);
-            PERFUME_BIZARRE_PERFUME = new Effect("Perfumed - Bizarre", "Your scent is reminiscent of... something.", icon_perfume_bizarre_perfume, frame_special_pink, none);
-            PERFUME_BLISSFUL_SKY = new Effect("Perfumed - Sky", "Your scent is reminiscent of drifting clouds.", icon_perfume_blissful_sky, frame_special_pink, none);
-            PERFUME_FLORAL_PERFUME = new Effect("Perfumed - Floral", "Your scent is reminiscent of soft flowers.", icon_perfume_floral_perfume, frame_special_pink, none);
-            PERFUME_OCEAN_GUST = new Effect("Perfumed - Nautical", "Your scent is reminiscent of a salty breeze.", icon_fishing_ocean, frame_special_pink, none);
-            PERFUME_RED_ANGEL = new Effect("Perfumed - Divine", "Your scent is reminiscent of sacred perfection.", icon_perfume_red_angel, frame_special_pink, none);
-            PERFUME_SUMMERS_GIFT = new Effect("Perfumed - Estival", "Your scent is reminiscent of summer wildflowers.", icon_perfume_summers_gift, frame_special_pink, none);
-            PERFUME_SWEET_BREEZE = new Effect("Perfumed - Sweet", "Your scent is reminiscent of sugar and candy.", icon_perfume_sweet_breeze, frame_special_pink, none);
-            PERFUME_WARM_MEMORIES = new Effect("Perfumed - Memorable", "Your scent is reminiscent of warmer times.", icon_perfume_warm_memories, frame_special_pink, none);
+            PERFUME_AUTUMNS_KISS = new Effect("Perfumed - Autumnal", "Your scent is reminiscent of wood and leaves.", icon_perfume_autumns_kiss, frame_special_pink, none, false);
+            PERFUME_BIZARRE_PERFUME = new Effect("Perfumed - Bizarre", "Your scent is reminiscent of... something.", icon_perfume_bizarre_perfume, frame_special_pink, none, false);
+            PERFUME_BLISSFUL_SKY = new Effect("Perfumed - Sky", "Your scent is reminiscent of drifting clouds.", icon_perfume_blissful_sky, frame_special_pink, none, false);
+            PERFUME_FLORAL_PERFUME = new Effect("Perfumed - Floral", "Your scent is reminiscent of soft flowers.", icon_perfume_floral_perfume, frame_special_pink, none, false);
+            PERFUME_OCEAN_GUST = new Effect("Perfumed - Nautical", "Your scent is reminiscent of a salty breeze.", icon_perfume_ocean_gust, frame_special_pink, none, false);
+            PERFUME_RED_ANGEL = new Effect("Perfumed - Divine", "Your scent is reminiscent of sacred perfection.", icon_perfume_red_angel, frame_special_pink, none, false);
+            PERFUME_SUMMERS_GIFT = new Effect("Perfumed - Estival", "Your scent is reminiscent of summer wildflowers.", icon_perfume_summers_gift, frame_special_pink, none, false);
+            PERFUME_SWEET_BREEZE = new Effect("Perfumed - Sweet", "Your scent is reminiscent of sugar and candy.", icon_perfume_sweet_breeze, frame_special_pink, none, false);
+            PERFUME_WARM_MEMORIES = new Effect("Perfumed - Memorable", "Your scent is reminiscent of warmer times.", icon_perfume_warm_memories, frame_special_pink, none, false);
+
+            PERFUMES = new Effect[] { PERFUME_AUTUMNS_KISS, PERFUME_BIZARRE_PERFUME, PERFUME_BLISSFUL_SKY, PERFUME_FLORAL_PERFUME, PERFUME_OCEAN_GUST, PERFUME_RED_ANGEL, PERFUME_SUMMERS_GIFT, PERFUME_SWEET_BREEZE, PERFUME_WARM_MEMORIES };
         }
     }
 }

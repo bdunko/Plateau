@@ -468,7 +468,6 @@ namespace Plateau.Components
 
         private static Vector2 APPLIED_EFFECT_ANCHOR = new Vector2(3, 3); //used to be 2, 16 with AREA_NAME
         private static float APPLIED_EFFECT_DELTA_X = 14.0f;
-        private List<RectangleF> effectRects;
         private List<EntityPlayer.TimedEffect> appliedEffects;
 
         private static Vector2 AREA_NAME_POSITION = new Vector2(9, 5);
@@ -504,7 +503,6 @@ namespace Plateau.Components
             this.areaName = "";
             this.zoneName = "";
             this.isHidden = false;
-            this.effectRects = new List<RectangleF>();
             this.currentNotification = null;
             this.selectedRecipeSlot = -1;
             this.numMaterialsOfRecipe = new int[4];
@@ -2964,34 +2962,6 @@ namespace Plateau.Components
             }
 
             appliedEffects = player.GetEffects();
-            effectRects.Clear();
-            float effectX = APPLIED_EFFECT_ANCHOR.X;
-            float effectY = APPLIED_EFFECT_ANCHOR.Y;
-            foreach(EntityPlayer.TimedEffect effect in appliedEffects)
-            {
-                RectangleF rect = new RectangleF(effectX, effectY, 12, 12);
-                effectRects.Add(rect);
-                if(rect.Contains(controller.GetMousePos()))
-                {
-                    tooltipName = effect.effect.name;
-                    string hoursLeft = ((int)effect.timeRemaining / 60).ToString();
-                    if (hoursLeft.Length == 1)
-                    {
-                        hoursLeft = "0" + hoursLeft;
-                    }
-                    string minutesLeft = ((int)effect.timeRemaining % 60).ToString();
-                    if(minutesLeft.Length == 1)
-                    {
-                        minutesLeft = "0" + minutesLeft;
-                    }
-                    tooltipDescription = effect.effect.description;
-                    if (((int)effect.timeRemaining / 60) <= 24)
-                    {
-                        tooltipDescription += "\nActive for:  " + hoursLeft + ":" + minutesLeft;
-                    }
-                }
-                effectX += APPLIED_EFFECT_DELTA_X;
-            }
 
             healthBars.Clear();
             foreach (IHaveHealthBar hbEntity in currentArea.GetHealthBarEntities())
@@ -5369,10 +5339,35 @@ namespace Plateau.Components
                 //draw the effect icons
                 for (int i = 0; i < appliedEffects.Count; i++)
                 {
-                    if (effectRects.Count == appliedEffects.Count)
+                    float effectX = APPLIED_EFFECT_ANCHOR.X;
+                    float effectY = APPLIED_EFFECT_ANCHOR.Y;
+                    foreach (EntityPlayer.TimedEffect effect in appliedEffects)
                     {
-                        EntityPlayer.TimedEffect effect = appliedEffects[i];
-                        effect.effect.DrawIcon(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, effectRects[i].TopLeft));
+                        RectangleF effectRect = new RectangleF(effectX, effectY, 12, 12);
+
+                        if (effectRect.Contains(controller.GetMousePos()))
+                        {
+                            tooltipName = effect.effect.name;
+                            string hoursLeft = ((int)effect.timeRemaining / 60).ToString();
+                            if (hoursLeft.Length == 1)
+                            {
+                                hoursLeft = "0" + hoursLeft;
+                            }
+                            string minutesLeft = ((int)effect.timeRemaining % 60).ToString();
+                            if (minutesLeft.Length == 1)
+                            {
+                                minutesLeft = "0" + minutesLeft;
+                            }
+                            tooltipDescription = effect.effect.description;
+                            if (((int)effect.timeRemaining / 60) <= 24)
+                            {
+                                tooltipDescription += "\nActive for:  " + hoursLeft + ":" + minutesLeft;
+                            }
+                        }
+
+                        effectX += APPLIED_EFFECT_DELTA_X;
+
+                        effect.effect.DrawIcon(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, effectRect.TopLeft));
                     }
                 }
 
