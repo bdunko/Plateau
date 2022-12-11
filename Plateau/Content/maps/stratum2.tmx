@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="336" height="256" tilewidth="8" tileheight="8" infinite="0" nextlayerid="79" nextobjectid="487">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="336" height="256" tilewidth="8" tileheight="8" infinite="0" nextlayerid="79" nextobjectid="488">
  <properties>
   <property name="darkLevel" value="0.6"/>
   <property name="name" value="Second Stratum"/>
@@ -3179,6 +3179,32 @@
    </properties>
   </object>
  </objectgroup>
+ <objectgroup id="6" name="waypoints">
+  <object id="1" x="888" y="1536">
+   <properties>
+    <property name="name" value="SPs2entrance"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2" x="1008" y="360">
+   <properties>
+    <property name="name" value="SPs2exit"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="485" x="1592" y="928">
+   <properties>
+    <property name="name" value="SPs2Candle"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="487" x="448" y="392">
+   <properties>
+    <property name="name" value="SPs2Bunk"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
  <objectgroup id="10" name="entity">
   <object id="8" x="1104" y="1440">
    <properties>
@@ -5663,26 +5689,6 @@
    <properties>
     <property name="entity" value="signpost_tech"/>
     <property name="text" value="TODO TEXT"/>
-   </properties>
-   <point/>
-  </object>
- </objectgroup>
- <objectgroup id="6" name="waypoints">
-  <object id="1" x="888" y="1536">
-   <properties>
-    <property name="name" value="SPs2entrance"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="2" x="1008" y="360">
-   <properties>
-    <property name="name" value="SPs2exit"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="485" x="1592" y="928">
-   <properties>
-    <property name="name" value="SPs2Candle"/>
    </properties>
    <point/>
   </object>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="432" height="309" tilewidth="8" tileheight="8" infinite="0" nextlayerid="53" nextobjectid="698">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="432" height="309" tilewidth="8" tileheight="8" infinite="0" nextlayerid="53" nextobjectid="700">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="Third Stratum"/>
@@ -4444,7 +4444,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="6" name="waypoints" visible="0">
+ <objectgroup id="6" name="waypoints">
   <object id="2" x="1488" y="1808">
    <properties>
     <property name="name" value="SPs3entrance"/>
@@ -4460,6 +4460,12 @@
   <object id="697" x="480" y="1600">
    <properties>
     <property name="name" value="SPs3Candle"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="699" x="1840" y="2312">
+   <properties>
+    <property name="name" value="SPs3Tent"/>
    </properties>
    <point/>
   </object>

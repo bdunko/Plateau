@@ -2853,8 +2853,6 @@ namespace Plateau.Entities
 
         public void TickDaily(World timeData, Area area, EntityPlayer player)
         {
-            System.Diagnostics.Debug.WriteLine(area.GetName());
-
             //remove all normal food effects
             ClearEffects(area);
 

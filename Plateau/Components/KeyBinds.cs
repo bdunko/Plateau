@@ -24,5 +24,6 @@ namespace Plateau.Components
         public static Keys CONSOLE = Keys.OemTilde;
         public static Keys EDIT_MODE = Keys.F;
         public static Keys CYCLE_INVENTORY = Keys.Tab;
+        public static Keys DROP_ITEM = Keys.Z;
     }
 }

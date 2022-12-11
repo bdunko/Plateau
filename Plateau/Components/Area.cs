@@ -734,7 +734,7 @@ namespace Plateau
             TiledMapObjectLayer entityLayer = (TiledMapObjectLayer)tiledMap.GetLayer("entity");
             foreach (TiledMapObject tiledObject in entityLayer.Objects)
             {
-                string entityType = tiledObject.Properties["entity"];
+                string entityType = tiledObject.Properties["entity"]; //error here usually means that a waypoint (or other thing) is in wrong layer (it is in entity layer instead of correct layer)
                 if (entityType.Equals("farmhouse"))
                 {
                     Vector2 tilePosition = tiledObject.Position / 8 - new Vector2(0, TEntityFarmhouse.HEIGHT);

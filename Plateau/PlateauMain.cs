@@ -315,7 +315,7 @@ namespace Plateau
 
                 if (currentState == PlateauGameState.NORMAL && (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || controller.IsKeyPressed(KeyBinds.ESCAPE) && player.GetCurrentDialogue() == null))
                 {
-                    ui.DropHeldItem(world); //throw currently held item out into world, if any
+                    ui.DropInventoryHeldItem(world); //throw currently held item out into world, if any
 
                     if (player.GetInterfaceState() == InterfaceState.NONE)
                     {

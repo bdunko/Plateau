@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="662" height="212" tilewidth="8" tileheight="8" infinite="0" nextlayerid="84" nextobjectid="381">
+<map version="1.4" tiledversion="1.4.2" orientation="orthogonal" renderorder="right-down" width="662" height="212" tilewidth="8" tileheight="8" infinite="0" nextlayerid="84" nextobjectid="384">
  <properties>
   <property name="darkLevel" value="1"/>
   <property name="name" value="First Stratum"/>
@@ -3092,8 +3092,14 @@
    </properties>
    <point/>
   </object>
+  <object id="383" x="1752" y="680">
+   <properties>
+    <property name="name" value="SPs1Tent"/>
+   </properties>
+   <point/>
+  </object>
  </objectgroup>
- <objectgroup id="10" name="entity">
+ <objectgroup id="10" name="entity" visible="0">
   <object id="6" x="4048" y="1424">
    <properties>
     <property name="entity" value="door"/>

@@ -3284,6 +3284,14 @@ namespace Plateau.Components
                     if (controller.IsKeyPressed(KeyBinds.CYCLE_INVENTORY))
                         player.CycleInventory();
 
+                    //if specifically in normal mode, toss 1 of held item
+                    if (interfaceState == InterfaceState.NONE && controller.IsKeyPressed(KeyBinds.DROP_ITEM))
+                    {
+                        if(controller.IsKeyDown(KeyBinds.SHIFT))
+                            DropHeldItemAll(world);
+                        else
+                            DropHeldItem(world);
+                    }
 
                     //adjust selectedhotbarposition according to mouse wheel movement
                     int newHotbarPosition = player.GetSelectedHotbarPosition() + controller.GetChangeInMouseWheel();
@@ -3297,14 +3305,9 @@ namespace Plateau.Components
                     for (int i = 0; i < HOTBAR_LENGTH; i++)
                         if (controller.IsKeyPressed(KeyBinds.HOTBAR_SELECT[i]))
                             player.SetSelectedHotbarPosition(i);
+
+
                 }
-
-                
-                
-
-
-
-
 
                 //clicking on a button in left sidebar
                 Vector2 mousePosition = controller.GetMousePos();
@@ -3762,7 +3765,7 @@ namespace Plateau.Components
                             {
                                 if(dropRectangle.Contains(mousePos) && inventoryHeldItem.GetItem() != ItemDict.NONE)
                                 {
-                                    DropHeldItem(world);
+                                    DropInventoryHeldItem(world);
                                 }
                             }
                         }
@@ -5632,7 +5635,7 @@ namespace Plateau.Components
             return interfaceState == InterfaceState.NONE;
         }
 
-        public void DropHeldItem(World world)
+        public void DropInventoryHeldItem(World world)
         {
             if(inventoryHeldItem.GetItem() != ItemDict.NONE)
             {
@@ -5642,6 +5645,21 @@ namespace Plateau.Components
                     world.GetCurrentArea().AddEntity(new EntityItem(inventoryHeldItem.GetItem(), position, new Vector2((player.GetDirection() == DirectionEnum.LEFT ? -1 : 1) * Util.RandInt(55, 63) / 100.0f, -2.3f))); ;
                 }
                 inventoryHeldItem = new ItemStack(ItemDict.NONE, 0);
+            }
+        }
+
+        private void DropHeldItemAll(World world)
+        {
+            while (heldItem.GetItem() != ItemDict.NONE)
+                DropHeldItem(world);
+        }
+        private void DropHeldItem(World world)
+        {
+            if (heldItem.GetItem() != ItemDict.NONE)
+            {
+                Vector2 position = player.GetCenteredPosition() + new Vector2(0, 4);
+                world.GetCurrentArea().AddEntity(new EntityItem(heldItem.GetItem(), position, new Vector2((player.GetDirection() == DirectionEnum.LEFT ? -1 : 1) * Util.RandInt(55, 63) / 100.0f, -2.3f))); ;
+                heldItem.Subtract(1);
             }
         }
     }

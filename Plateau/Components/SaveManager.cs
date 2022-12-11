@@ -162,26 +162,52 @@ namespace Plateau.Components
                 }
 
                 //now that flags are loaded, move player to their house
-                int houseUpgradeLevel = GameState.GetFlagValue(GameState.FLAG_HOUSE_UPGRADE_LEVEL);
-                switch (houseUpgradeLevel) //move player to their bed/house
+                //or to campsite, depending on spawn flag
+                int specialSpawnPosition = GameState.GetFlagValue(GameState.FLAG_SPAWN_LOCATION);
+
+                if(specialSpawnPosition == (int)GameState.SpawnEnum.HOME)
                 {
-                    case 0:
-                        world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.FARM]);
-                        world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseOutside");
-                        break;
-                    case 1:
-                        world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
-                        world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseCabinBed");
-                        break;
-                    case 2:
-                        world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
-                        world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseHouseBed");
-                        break;
-                    case 3:
-                    default:
-                        world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
-                        world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseMansionBed");
-                        break;
+                    int houseUpgradeLevel = GameState.GetFlagValue(GameState.FLAG_HOUSE_UPGRADE_LEVEL);
+                    switch (houseUpgradeLevel) //move player to their bed/house
+                    {
+                        case 0:
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.FARM]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseOutside");
+                            break;
+                        case 1:
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseCabinBed");
+                            break;
+                        case 2:
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseHouseBed");
+                            break;
+                        case 3:
+                        default:
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.INTERIOR]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPfarmhouseMansionBed");
+                            break;
+                    }
+                }
+                else if (specialSpawnPosition == (int)GameState.SpawnEnum.S1TENT)
+                {
+                    world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.S1]);
+                    world.GetCurrentArea().MoveToWaypoint(player, "SPs1Tent");
+                }
+                else if (specialSpawnPosition == (int)GameState.SpawnEnum.S2BUNK)
+                {
+                    world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.S2]);
+                    world.GetCurrentArea().MoveToWaypoint(player, "SPs2Bunk");
+                }
+                else if (specialSpawnPosition == (int)GameState.SpawnEnum.S3TENT)
+                {
+                    world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.S3]);
+                    world.GetCurrentArea().MoveToWaypoint(player, "SPs3Tent");
+                }
+                else if (specialSpawnPosition == (int)GameState.SpawnEnum.S4TENT)
+                {
+                    world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.S4]);
+                    world.GetCurrentArea().MoveToWaypoint(player, "SPs4Tent");
                 }
             }
         }

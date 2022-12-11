@@ -16,6 +16,16 @@ namespace Plateau.Entities
         protected Texture2D texture;
         public static DialogueNode SLEEP_PROMPT_DIALOGUE;
 
+        private static Dictionary<Area.AreaEnum, GameState.SpawnEnum> FLAG_VALUES = new Dictionary<Area.AreaEnum, GameState.SpawnEnum>() 
+        {
+            {Area.AreaEnum.INTERIOR, GameState.SpawnEnum.HOME},
+            {Area.AreaEnum.FARM, GameState.SpawnEnum.HOME},
+            {Area.AreaEnum.S1, GameState.SpawnEnum.S1TENT},
+            {Area.AreaEnum.S2, GameState.SpawnEnum.S2BUNK},
+            {Area.AreaEnum.S3, GameState.SpawnEnum.S3TENT},
+            {Area.AreaEnum.S4, GameState.SpawnEnum.S4TENT}
+        };
+
         public TEntitySleepable(Texture2D texture, Vector2 tilePosition, int tileWidth, int tileHeight, Vector2 drawAdjustment) : base(tilePosition, tileWidth, tileHeight, DrawLayer.NORMAL)
         {
             this.drawAdjustment = drawAdjustment;
@@ -25,6 +35,7 @@ namespace Plateau.Entities
             SLEEP_PROMPT_DIALOGUE.decisionUpText = "Yes";
             SLEEP_PROMPT_DIALOGUE.decisionUpNode = new DialogueNode("", DialogueNode.PORTRAIT_SYSTEM, (player, area, world) =>
             {
+                GameState.SetFlag(GameState.FLAG_SPAWN_LOCATION, (int)FLAG_VALUES[area.GetAreaEnum()]);
                 world.PlayCutscene(CutsceneManager.CUTSCENE_SLEEP);
             });
         }

@@ -128,6 +128,12 @@ namespace Plateau.Components
         public static string FLAG_SETTINGS_RESOLUTION_SCALE = "flagSettings_Scale";
 
         public static string FLAG_HOUSE_UPGRADE_LEVEL = "flag_houseUpgradeLevel"; //the current house upgrade; starts at 0
+        public static string FLAG_SPAWN_LOCATION = "flag_spawnLocation";
+        public enum SpawnEnum
+        {
+            HOME, S1TENT, S2BUNK, S3TENT, S4TENT
+        }
+
         public static string FLAG_CELLAR_UPGRADE_LEVEL = "flag_cellarUpgradeLevel"; //the cellar level, starts at 0 (locked), then gains 1 for each level unlocked to a max of 7
         public static string FLAG_MOUNTAIN_STRATUM_LEVEL = "flag_mountainStratumLevel"; //current maximum stratum unlocked, starts at 0 and maxes at 5
         public static string FLAG_NUM_SHRINES_FIRST_STAGE_COMPLETED = "flag_numShrinesFirstStageCompleted"; //number of shrines where first stage is complete
@@ -460,6 +466,7 @@ namespace Plateau.Components
             FLAGS[FLAG_CELLAR_UPGRADE_LEVEL] = 0;
             FLAGS[FLAG_NUM_SHRINES_FIRST_STAGE_COMPLETED] = 0;
             FLAGS[FLAG_NUM_SHRINES_FULLY_COMPLETED] = 0;
+            FLAGS[FLAG_SPAWN_LOCATION] = (int)SpawnEnum.HOME;
 
             LAND_ELEMENT_AREA = Area.AreaEnum.APEX.ToString();
             LAND_ELEMENT_X = 0;
