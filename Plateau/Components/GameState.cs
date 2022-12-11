@@ -133,6 +133,7 @@ namespace Plateau.Components
         public static string FLAG_NUM_SHRINES_FIRST_STAGE_COMPLETED = "flag_numShrinesFirstStageCompleted"; //number of shrines where first stage is complete
         public static string FLAG_NUM_SHRINES_FULLY_COMPLETED = "flag_numShrinesFullyCompleted"; //number of shrines where second stage is complete
 
+
         public static float LAND_ELEMENT_X = -1000;
         public static float LAND_ELEMENT_Y = -1000;
         public static string LAND_ELEMENT_AREA = Area.AreaEnum.APEX.ToString();

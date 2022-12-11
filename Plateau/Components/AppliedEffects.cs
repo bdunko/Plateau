@@ -16,20 +16,22 @@ namespace Plateau.Components
         public static float LENGTH_MEDIUM = 240.0f; // 4 hours
         public static float LENGTH_LONG = 360.0f; // 6 hours
         public static float LENGTH_VERY_LONG = 480.0f; //8 hours
-        public static float LENGTH_INFINITE = LENGTH_VERY_LONG * 10.0f;
+        public static float LENGTH_INFINITE = LENGTH_VERY_LONG * 1000.0f;
 
         public class Effect
         {
             public string name, description;
             private Texture2D icon, modifier, frame;
+            private bool removable;
 
-            public Effect(string name, string description, Texture2D icon, Texture2D frame, Texture2D modifier)
+            public Effect(string name, string description, Texture2D icon, Texture2D frame, Texture2D modifier, bool removable = true)
             {
                 this.name = name;
                 this.description = description;
                 this.icon = icon;
                 this.frame = frame;
                 this.modifier = modifier;
+                this.removable = removable;
             }
 
             public void DrawIcon(SpriteBatch sb, Vector2 position)
@@ -37,6 +39,11 @@ namespace Plateau.Components
                 sb.Draw(frame, position, Color.White);
                 sb.Draw(modifier, position, Color.White * 0.75f);
                 sb.Draw(icon, position, Color.White);
+            }
+
+            public bool CanRemove()
+            {
+                return removable;
             }
         }
 
@@ -315,15 +322,15 @@ namespace Plateau.Components
             //wishboat: growth - increases crop growth rate/quality
             //wishboat: love - increases points given when gifting
             //wishboat: health - increases damage dealt with all tools
-            WISHBOAT_HEALTH = new Effect("Wish for Health", "Your wish has come true!\nIncreases crop growth rate and health.\nIncreases aptitude with all tools.", icon_wishboat_health, frame_special_gold, none);
-            WISHBOAT_LOVE = new Effect("Wish for Love", "Your wish has come true!\nYour friendships will strengthen quicker!", icon_wishboat_love, frame_special_gold, none);
-            WISHBOAT_FORTUNE = new Effect("Wish for Fortune", "Your wish has come true!\nYou'll be just a bit more lucky with anything you do.", icon_wishboat_fortune, frame_special_gold, none);
+            WISHBOAT_HEALTH = new Effect("Wish for Health", "Your wish has come true!\nIncreases crop growth rate and health.\nIncreases aptitude with all tools.", icon_wishboat_health, frame_special_gold, none, false);
+            WISHBOAT_LOVE = new Effect("Wish for Love", "Your wish has come true!\nYour friendships will strengthen quicker!", icon_wishboat_love, frame_special_gold, none, false);
+            WISHBOAT_FORTUNE = new Effect("Wish for Fortune", "Your wish has come true!\nYou'll be just a bit more lucky with anything you do.", icon_wishboat_fortune, frame_special_gold, none, false);
 
             PERFUME_AUTUMNS_KISS = new Effect("Perfumed - Autumnal", "Your scent is reminiscent of wood and leaves.", icon_perfume_autumns_kiss, frame_special_pink, none);
             PERFUME_BIZARRE_PERFUME = new Effect("Perfumed - Bizarre", "Your scent is reminiscent of... something.", icon_perfume_bizarre_perfume, frame_special_pink, none);
             PERFUME_BLISSFUL_SKY = new Effect("Perfumed - Sky", "Your scent is reminiscent of drifting clouds.", icon_perfume_blissful_sky, frame_special_pink, none);
             PERFUME_FLORAL_PERFUME = new Effect("Perfumed - Floral", "Your scent is reminiscent of soft flowers.", icon_perfume_floral_perfume, frame_special_pink, none);
-            PERFUME_OCEAN_GUST = new Effect("Perfumed - Ocean", "Your scent is reminiscent of a salty breeze.", icon_fishing_ocean, frame_special_pink, none);
+            PERFUME_OCEAN_GUST = new Effect("Perfumed - Nautical", "Your scent is reminiscent of a salty breeze.", icon_fishing_ocean, frame_special_pink, none);
             PERFUME_RED_ANGEL = new Effect("Perfumed - Divine", "Your scent is reminiscent of sacred perfection.", icon_perfume_red_angel, frame_special_pink, none);
             PERFUME_SUMMERS_GIFT = new Effect("Perfumed - Estival", "Your scent is reminiscent of summer wildflowers.", icon_perfume_summers_gift, frame_special_pink, none);
             PERFUME_SWEET_BREEZE = new Effect("Perfumed - Sweet", "Your scent is reminiscent of sugar and candy.", icon_perfume_sweet_breeze, frame_special_pink, none);

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Plateau.Entities
 {
-    public class EntityPlayer : EntityCollidable
+    public class EntityPlayer : EntityCollidable, ITickDaily
     {
         public static int INVENTORY_SIZE = 50;
         public static int MAX_GOLD = 999999999;
@@ -379,15 +379,24 @@ namespace Plateau.Entities
                 effects.Add(new TimedEffect(toApply, length));
             }
 
-            for (int i = 0; i < 30; i++)
+            if (area != null)
             {
-                area.AddParticle(ParticleFactory.GenerateParticle(GetCenteredPosition() + new Vector2(Util.RandInt(-WIDTH/2 - 1, WIDTH/2 + 2), HEIGHT/2 + 2),
-                    ParticleBehavior.RUSH_UPWARD_STRONG, ParticleTextureStyle.ONEXONE,
-                    Util.PARTICLE_GOLDEN_WISP.color, ParticleFactory.DURATION_SHORT_FOOD));
-                area.AddParticle(ParticleFactory.GenerateParticle(GetCenteredPosition() + new Vector2(Util.RandInt(-WIDTH/2 - 1, WIDTH/2 + 2), HEIGHT/2 + 2),
-                    ParticleBehavior.RUSH_UPWARD_STRONG, ParticleTextureStyle.ONEXONE,
-                    Util.PARTICLE_YELLOW_WISP.color, ParticleFactory.DURATION_SHORT_FOOD));
+                for (int i = 0; i < 30; i++)
+                {
+                    area.AddParticle(ParticleFactory.GenerateParticle(GetCenteredPosition() + new Vector2(Util.RandInt(-WIDTH / 2 - 1, WIDTH / 2 + 2), HEIGHT / 2 + 2),
+                        ParticleBehavior.RUSH_UPWARD_STRONG, ParticleTextureStyle.ONEXONE,
+                        Util.PARTICLE_GOLDEN_WISP.color, ParticleFactory.DURATION_SHORT_FOOD));
+                    area.AddParticle(ParticleFactory.GenerateParticle(GetCenteredPosition() + new Vector2(Util.RandInt(-WIDTH / 2 - 1, WIDTH / 2 + 2), HEIGHT / 2 + 2),
+                        ParticleBehavior.RUSH_UPWARD_STRONG, ParticleTextureStyle.ONEXONE,
+                        Util.PARTICLE_YELLOW_WISP.color, ParticleFactory.DURATION_SHORT_FOOD));
+                }
             }
+        }
+
+        //Applies an effect, but without particle effects
+        private void ApplyEffect(AppliedEffects.Effect toApply, float length)
+        {
+            ApplyEffect(toApply, length, null);
         }
 
         public void ClearPerfumeEffects()
@@ -420,7 +429,16 @@ namespace Plateau.Entities
                     ParticleBehavior.RUSH_UPWARD_STRONG_REVERSED, ParticleTextureStyle.ONEXONE,
                     Util.PARTICLE_WHITE_WISP.color, ParticleFactory.DURATION_SHORT_FOOD));
             }
-            effects.Clear();
+
+            List<AppliedEffects.Effect> toRemove = new List<AppliedEffects.Effect>();
+            foreach(TimedEffect te in effects)
+            {
+                if(te.effect.CanRemove())
+                    toRemove.Add(te.effect);
+            }
+
+            foreach (AppliedEffects.Effect effect in toRemove)
+                RemoveEffect(effect);
         }
 
         public void ExtendEffects(float extendTime)
@@ -2042,6 +2060,11 @@ namespace Plateau.Entities
                         externalVelocityX = direction == DirectionEnum.LEFT ? -6 : 6;
                     }
 
+                    if (controller.IsKeyPressed(Keys.B))
+                    {
+                        ApplyEffect(AppliedEffects.WISHBOAT_FORTUNE, AppliedEffects.LENGTH_INFINITE, area);
+                    }
+
                     //if holding down when landing from ground pound, immediately goes into high speed roll
                     if (controller.IsKeyDown(KeyBinds.DOWN) && groundPoundLock)
                     {
@@ -2625,6 +2648,19 @@ namespace Plateau.Entities
             eyes = new ItemStack(ItemDict.GetItemByName(playerSave.TryGetData("eyes", ItemDict.CLOTHING_NONE.GetName())), 1);
 
             gold = Int32.Parse(playerSave.TryGetData("gold", "0"));
+
+            String wishboatStr = playerSave.TryGetData("wishboat", "NONE");
+            if(!wishboatStr.Equals("NONE"))
+            {
+                if (wishboatStr == AppliedEffects.WISHBOAT_FORTUNE.ToString())
+                    ApplyEffect(AppliedEffects.WISHBOAT_FORTUNE, AppliedEffects.LENGTH_INFINITE);
+                else if (wishboatStr == AppliedEffects.WISHBOAT_HEALTH.ToString())
+                    ApplyEffect(AppliedEffects.WISHBOAT_HEALTH, AppliedEffects.LENGTH_INFINITE);
+                else if (wishboatStr == AppliedEffects.WISHBOAT_LOVE.ToString())
+                    ApplyEffect(AppliedEffects.WISHBOAT_LOVE, AppliedEffects.LENGTH_INFINITE);
+                else
+                    throw new Exception("Invalid wishboat in save data?");
+            }    
         }
 
         public SaveState GenerateSave()
@@ -2657,6 +2693,16 @@ namespace Plateau.Entities
             playerSave.AddData("facialhair", facialhair.GetItem().GetName());
             playerSave.AddData("eyes", eyes.GetItem().GetName());
             playerSave.AddData("gold", gold.ToString());
+
+            //add wishboat data
+            if (HasEffect(AppliedEffects.WISHBOAT_FORTUNE))
+                playerSave.AddData("wishboat", AppliedEffects.WISHBOAT_FORTUNE.ToString());
+            else if (HasEffect(AppliedEffects.WISHBOAT_HEALTH))
+                playerSave.AddData("wishboat", AppliedEffects.WISHBOAT_HEALTH.ToString());
+            else if (HasEffect(AppliedEffects.WISHBOAT_LOVE))
+                playerSave.AddData("wishboat", AppliedEffects.WISHBOAT_LOVE.ToString());
+            else
+                playerSave.AddData("wishboat", "NONE");
 
             return playerSave;
         }
@@ -2816,6 +2862,24 @@ namespace Plateau.Entities
                 newInv[newIndex] = inventory[i];
             }
             inventory = newInv;
+        }
+
+        public void TickDaily(World timeData, Area area, EntityPlayer player)
+        {
+            System.Diagnostics.Debug.WriteLine(area.GetName());
+            //remove all normal food effects
+            ClearEffects(area);
+
+            //remove wishboat if not summer
+            if(timeData.GetSeason() != World.Season.SUMMER)
+            {
+                if (HasEffect(AppliedEffects.WISHBOAT_FORTUNE))
+                    RemoveEffect(AppliedEffects.WISHBOAT_FORTUNE);
+                else if (HasEffect(AppliedEffects.WISHBOAT_HEALTH))
+                    RemoveEffect(AppliedEffects.WISHBOAT_HEALTH);
+                else if (HasEffect(AppliedEffects.WISHBOAT_LOVE))
+                    RemoveEffect(AppliedEffects.WISHBOAT_LOVE);
+            }
         }
     }
 }

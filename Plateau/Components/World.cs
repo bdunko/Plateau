@@ -1174,6 +1174,8 @@ namespace Plateau.Components
                 areas[areaEnum].TickDay(this, player);
             }
 
+            player.TickDaily(this, GetCurrentArea(), player);
+
             PlateauMain.SAVE_MANAGER.SaveFile(player, this);
         }
 
