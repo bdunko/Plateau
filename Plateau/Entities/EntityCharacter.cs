@@ -666,13 +666,15 @@ namespace Plateau.Entities
                 else
                     character.timeSinceTalking += deltaTime;
 
+                //face towards player for a certain amount of time after talking
                 if (character.timeSinceTalking < TIME_AFTER_TALK_BEFORE_MOVEMENT)
                 {
                     character.FaceTowardsPlayer(character.talkingPlayer);
-                    return;
+                    return; //don't bother with anything else, just look towards player
                 }
 
-                if (character.fadeState == FadeState.FADE_OUT) //handle fade out before transitioning to new area
+                //handle fade out before transitioning to new area
+                if (character.fadeState == FadeState.FADE_OUT) 
                 {
                     character.velocityX = 0;
                     character.velocityY = 0;
@@ -696,7 +698,8 @@ namespace Plateau.Entities
                         character.fadeState = FadeState.FADE_IN;
                     }
                 }
-                else if (character.fadeState == FadeState.FADE_IN) //handle fade in when arriving at new area
+                //handle fade in when arriving at new area
+                else if (character.fadeState == FadeState.FADE_IN) 
                 {
                     character.velocityX = 0;
                     character.velocityY = 0;
@@ -707,14 +710,16 @@ namespace Plateau.Entities
                         character.fadeState = FadeState.NONE;
                     }
                 }
-                else if (waypoints.Count == 0) //if at destination, let event handle character
+                //if at destination, let event handle character (can be stand still, wander, etc, depending on event behavior)
+                else if (waypoints.Count == 0) 
                 {
                     if (currentEvent != null)
                     {
                         currentEvent.Update(deltaTime, character, area, waypoints);
                     }
                 }
-                else //otherwise, move towards destination
+                //otherwise, move towards destination
+                else
                 {
                     if (waypoints.Peek().movementType == MovementTypeWaypoint.MovementEnum.WALK) //WALK
                     {
@@ -740,23 +745,25 @@ namespace Plateau.Entities
                             character.TryJump();
                         }
                     }
-                    else if (waypoints.Peek().movementType == MovementTypeWaypoint.MovementEnum.WARP) //WARP
+                    else if (waypoints.Peek().movementType == MovementTypeWaypoint.MovementEnum.WARP) 
                     {
                         world.MoveCharacter(character, area, waypoints.Peek().waypoint.area);
                         character.SetPosition(waypoints.Peek().waypoint.position - new Vector2(0, 32f));
                     }
 
+                    //check if arrived at new waypoint in route
                     RectangleF destinationCheck = character.GetCollisionHitbox();
                     destinationCheck.Height += 10;
                     destinationCheck.X += 2;
                     destinationCheck.Width -= 4;
                     //Util.DrawDebugRect(destinationCheck, Color.Red);
                     //Util.DrawDebugPoint(waypoints.Peek().waypoint.position, Color.Green);
-                    
+
+                    //if arrived at next waypoint
                     if (destinationCheck.Contains(waypoints.Peek().waypoint.position))
                     {
-                        waypoints.Dequeue();
-                        if (waypoints.Count > 0 && area.CheckTransition(character.GetCollisionHitbox().Center, true) != null)
+                        waypoints.Dequeue(); //remove that waypoint
+                        if (waypoints.Count > 0 && area.CheckTransition(character.GetCollisionHitbox().Center, true) != null) //transition to a new area if more waypoints to go
                         {
                             character.fadeState = FadeState.FADE_OUT;
                         }
@@ -767,14 +774,14 @@ namespace Plateau.Entities
                         }
                     }
                 }
-            }
 
-            public void Update(World world, EntityCharacter character, Area currentArea)
-            {
+                //clear current event if it is no longer valid
                 if (currentEvent != null && !currentEvent.CheckActivation(world, character))
                 {
                     currentEvent = null;
                 }
+
+                //check for new events; if currentEvent is null, take any event with proper activation conditions, otherwise only take events of higher priority
                 foreach (Schedule.Event scEvent in events)
                 {
                     if (scEvent.CheckActivation(world, character) && (currentEvent == null || scEvent.GetPriority() > currentEvent.GetPriority()))
@@ -785,8 +792,8 @@ namespace Plateau.Entities
                         waypoints.Clear();
                         currentEvent = scEvent;
 
-                        waypoints = subzoneMap.FindPath(currentArea.GetSubareaAt(character.GetCollisionHitbox()),
-                            new Area.Waypoint(character.GetCollisionHitbox().Center, "CHAR", currentArea),
+                        waypoints = subzoneMap.FindPath(area.GetSubareaAt(character.GetCollisionHitbox()),
+                            new Area.Waypoint(character.GetCollisionHitbox().Center, "CHAR", area),
                             scEvent.GetArea().GetSubareaAt(new RectangleF(scEvent.GetWaypoint().position, new Size2(2, 2))),
                             scEvent.GetWaypoint());
 
@@ -1075,9 +1082,8 @@ namespace Plateau.Entities
                 timeSinceTalking = 0;
             }
 
-            schedule.Update(world, this, area);
-            clothingManager.Update(deltaTime, sprite);
             schedule.Update(deltaTime, area, this, world);
+            clothingManager.Update(deltaTime, sprite);
 
             velocityY += GRAVITY * deltaTime;
 

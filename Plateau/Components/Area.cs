@@ -1981,7 +1981,6 @@ namespace Plateau
             foreground = new LayeredBackground(content, cameraBoundingBox, foregroundParameters);
             background = new LayeredBackground(content, cameraBoundingBox, backgroundParameters);
 
-
             //debug output of collision layout
             /*for (int y = 0; y < baseLayer.Height; y++)
             {

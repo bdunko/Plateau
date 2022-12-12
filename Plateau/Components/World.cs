@@ -115,7 +115,7 @@ namespace Plateau.Components
         private Season currentSeason;
         //1 2 3 4 5 6 7 8 9 10 11 12 1 2 3 4 5 6 7 8 9 10 11 12
         private static float[] hourlyLight = { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f };
-        private static float[] hourlyDark = { 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 1f, 1f, 1f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.95f, 0.90f, 0.85f, 0.75f, 0.55f, 0.45f, 0.4f, 0.35f, 0.25f };
+        private static float[] hourlyDark = { 0.4f, 0.5f, 0.6f, 0.7f, 0.8f, 1f, 1f, 1f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.95f, 0.90f, 0.85f, 0.75f, 0.65f, 0.55f, 0.50f, 0.45f, 0.45f };
         private static float DAY_STARTING_TIME = 420;
         private static float DAY_ENDING_TIME = 1440;
         private static int DAYS_IN_SEASON = 7;
@@ -978,6 +978,8 @@ namespace Plateau.Components
             return new TimeData(currentSeason, GetDay(), GetHour(), GetMinute(), GetTimeOfDay());
         }
 
+        private bool firstFrameOfGame = false;
+
         public void Update(float deltaTime, GameTime gameTime, EntityPlayer player, GameplayInterface ui, Camera camera, bool cutscene)
         {
             if (!paused)
@@ -1002,7 +1004,6 @@ namespace Plateau.Components
                     {
                         player.SetPosition(transitionToPosition);
                     }
-                    
                     currentArea.RandomizeBackground(camera.GetBoundingBox());
                     transitionToArea = null;
                     transitionToSpawn = null;

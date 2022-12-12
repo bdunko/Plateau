@@ -598,6 +598,7 @@ namespace Plateau.Components
             {
                 firstFrame = !firstFrame;
                 lastFrameCameraBox = cameraBoundingBox;
+                Randomize(cameraBoundingBox); //needed, otherwise randomize is never called for the background of the very first area the player spawns into; causing odd behavior (such as no stars when sleeping)
             }
 
             Vector2 cameraMovementSinceLastFrame = new Vector2(cameraBoundingBox.X - lastFrameCameraBox.X, cameraBoundingBox.Y - lastFrameCameraBox.Y);
