@@ -18,6 +18,8 @@ namespace Plateau.Entities
         private float velocityY;
         private float velocityX;
         private static float GRAVITY = 8;
+        private static float WATER_FLOAT_VELOCITY_Y = -10.0f; //speed at which objects float up in water
+        private static float MAXIMUM_WATER_UPWARD_VELOCITY = -2.0f;
         private static float FRICTION_X_AIRBORNE = 0.6f;
         private static float FRICTION_X_GROUNDED = 1.5f;
         private float timeElapsed;
@@ -120,10 +122,30 @@ namespace Plateau.Entities
                 firstUpdate = false;
             }
 
+            RectangleF collisionHitbox = new RectangleF(position.X + 6, position.Y + 11, 6, 5);
+
             timeElapsed += deltaTime;
-            velocityY += GRAVITY * deltaTime;
+
             velocityX = Util.AdjustTowards(velocityX, 0, (grounded ? FRICTION_X_GROUNDED : FRICTION_X_AIRBORNE) * deltaTime);
 
+            RectangleF waterCollisionHitbox = new RectangleF(position.X + 6, position.Y + 6, 6, 5);
+            if (CollisionHelper.CheckSwimmingCollision(waterCollisionHitbox, area)) //if in water, apply gravity for water and buoyancy
+            {
+                velocityY += GRAVITY/4 * deltaTime;
+                velocityY += WATER_FLOAT_VELOCITY_Y * deltaTime;
+            }
+            else //apply gravity normally
+            {
+                velocityY += GRAVITY * deltaTime;
+            }
+
+            //prevents flying high out of water on way up
+            if (CollisionHelper.CheckTopWaterCollision(waterCollisionHitbox, area) && velocityY < MAXIMUM_WATER_UPWARD_VELOCITY)
+                velocityY = MAXIMUM_WATER_UPWARD_VELOCITY;
+
+            //converges back towards no/little movement
+            if (CollisionHelper.CheckTopWaterCollision(waterCollisionHitbox, area) && Math.Abs(velocityY) <= 1)
+                velocityY *= 0.9f;
 
             //calculate collisions
             float stepX = velocityX / COLLISION_STEPS;
@@ -133,7 +155,7 @@ namespace Plateau.Entities
             {
                 if (stepX != 0) //move X
                 {
-                    bool xCollision = CollisionHelper.CheckCollision(new RectangleF(position.X + 6 + stepX, position.Y + 11, 6, 5), area, stepY >= 0);
+                    bool xCollision = CollisionHelper.CheckCollision(new RectangleF(collisionHitbox.X + stepX, collisionHitbox.Y, collisionHitbox.Width, collisionHitbox.Height), area, stepY >= 0);
                     
                     if (xCollision) //if next movement = collision
                     {
@@ -146,7 +168,7 @@ namespace Plateau.Entities
                 }
                 if (stepY != 0) //move Y
                 {
-                    bool yCollision = CollisionHelper.CheckCollision(new RectangleF(position.X + 6, position.Y + 11 + stepY, 6, 5), area, stepY >= 0);
+                    bool yCollision = CollisionHelper.CheckCollision(new RectangleF(collisionHitbox.X, collisionHitbox.Y + stepY, collisionHitbox.Width, collisionHitbox.Height), area, stepY >= 0);
                     if (yCollision)
                     {
                         stepY = 0;

@@ -265,6 +265,12 @@ namespace Plateau.Components
                             world.GetCurrentArea().MoveToWaypoint(player, "SPcellarLadder");
                             didLastSucceed = true;
                         }
+                        else if (areaName == "dock" || areaName == "docks")
+                        {
+                            world.ChangeArea(world.GetAreaDict()[Area.AreaEnum.BEACH]);
+                            world.GetCurrentArea().MoveToWaypoint(player, "SPdock");
+                            didLastSucceed = true;
+                        }
                         else
                         {
                             didLastSucceed = false;

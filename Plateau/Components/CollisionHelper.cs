@@ -35,6 +35,23 @@ namespace Plateau.Components
             return false;
         }
 
+        public static bool CheckTopWaterCollision(RectangleF hitbox, Area area)
+        {
+            int waterCheckTileX = (int)(hitbox.Center.X / 8);
+            int waterCheckTileY = (int)((hitbox.Bottom - 1) / 8);
+            return area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.TOP_WATER ||
+                area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY - 1) == Area.CollisionTypeEnum.TOP_WATER;
+        }
+
+        public static bool CheckSwimmingCollision(RectangleF hitbox, Area area)
+        {
+            int waterCheckTileX = (int)(hitbox.Center.X / 8);
+            int waterCheckTileY = (int)((hitbox.Bottom - 1) / 8);
+            return area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.WATER ||
+                area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.TOP_WATER ||
+                area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.DEEP_WATER;
+        }
+
         public static bool CheckCollision(RectangleF hitbox, Area area, bool falling)
         {
             return CheckCollision(hitbox, area, falling, null);

@@ -1073,6 +1073,15 @@ namespace Plateau.Entities
         {
             return new RectangleF((position.X + OFFSET_X) - (WIDTH / 2), position.Y + OFFSET_Y + 1, WIDTH * 2, HEIGHT - 1);
         }
+        private bool CheckSwimmingCollision(Area area)
+        {
+            RectangleF pHitbox = GetCollisionRectangle();
+            int waterCheckTileX = (int)(pHitbox.Center.X / 8);
+            int waterCheckTileY = (int)((pHitbox.Bottom - 1) / 8);
+            return area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.WATER ||
+                area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.TOP_WATER ||
+                area.GetCollisionTypeAt(waterCheckTileX, waterCheckTileY) == Area.CollisionTypeEnum.DEEP_WATER;
+        }
 
         public override void Update(float deltaTime, Area area)
         {
