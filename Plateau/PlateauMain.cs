@@ -730,7 +730,7 @@ namespace Plateau
                 spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp);
                 lightsShader.Parameters["lightMask"].SetValue(lightsTarget);
                 lightsShader.Parameters["darknessLevel"].SetValue(world.GetDarkLevel() * world.GetCurrentArea().GetDarkLevel(player.GetCenteredPosition()));
-                if (currentState != PlateauGameState.CUTSCENE || currentCutscene.background == CutsceneManager.CutsceneBackground.WORLD ||
+                if (currentState != PlateauGameState.CUTSCENE || (currentCutscene.background == CutsceneManager.CutsceneBackground.WORLD || currentCutscene.background == CutsceneManager.CutsceneBackground.SKY) ||
                     (cutsceneTransitionDone == false && currentCutscene.IsComplete() == false) || (cutsceneTransitionDone == true && currentCutscene.IsComplete() == true))
                 {
                     lightsShader.CurrentTechnique.Passes[0].Apply();
