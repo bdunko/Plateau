@@ -144,7 +144,7 @@ namespace Plateau.Entities
                 velocityY = MAXIMUM_WATER_UPWARD_VELOCITY;
 
             //converges back towards no/little movement
-            if (CollisionHelper.CheckTopWaterCollision(waterCollisionHitbox, area) && Math.Abs(velocityY) <= 1)
+            if (CollisionHelper.CheckTopWaterCollision(waterCollisionHitbox, area) && Math.Abs(velocityY) <= 1 && Math.Abs(velocityY) >= 0.5f)
                 velocityY *= 0.9f;
 
             //calculate collisions

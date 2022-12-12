@@ -1119,12 +1119,12 @@ namespace Plateau.Entities
 
                 for (int i = 0; i < 6; i++)
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(Util.RandInt(0, WIDTH), gravityState == GravityState.REVERSED ? 0 : HEIGHT),
+                    area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(Util.RandInt(1, WIDTH-1), gravityState == GravityState.REVERSED ? 0 : HEIGHT),
                         gravityState == GravityState.REVERSED ? ParticleBehavior.RUSH_UPWARD_STRONG_REVERSED : ParticleBehavior.RUSH_UPWARD_STRONG, ParticleTextureStyle.CHUNK, Color.White, ParticleFactory.DURATION_SHORT));
                 }
                 for (int i = 0; i < 2; i++)
                 {
-                    area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(Util.RandInt(0, WIDTH), gravityState == GravityState.REVERSED ? 0 : HEIGHT),
+                    area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(Util.RandInt(1, WIDTH-1), gravityState == GravityState.REVERSED ? 0 : HEIGHT),
                         gravityState == GravityState.REVERSED ? ParticleBehavior.RUSH_UPWARD_STRONG_REVERSED : ParticleBehavior.RUSH_UPWARD_STRONG, ParticleTextureStyle.CHUNK, Util.PARTICLE_BLUE_RISER.color, ParticleFactory.DURATION_SHORT));
                 }
 
@@ -1136,12 +1136,12 @@ namespace Plateau.Entities
                 {
                     for (int i = 0; i < 3; i++)
                     {
-                        area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(Util.RandInt(0, WIDTH), gravityState == GravityState.REVERSED ? 0 : HEIGHT),
+                        area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(Util.RandInt(1, WIDTH-1), gravityState == GravityState.REVERSED ? 0 : HEIGHT),
                             gravityState == GravityState.REVERSED ? ParticleBehavior.RUSH_UPWARD_REVERSED : ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.SMALL, Color.White, ParticleFactory.DURATION_SHORT));
                     }
                     for (int i = 0; i < 1; i++)
                     {
-                        area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(Util.RandInt(0, WIDTH), gravityState == GravityState.REVERSED ? 0 : HEIGHT    ),
+                        area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(Util.RandInt(1, WIDTH-1), gravityState == GravityState.REVERSED ? 0 : HEIGHT    ),
                             gravityState == GravityState.REVERSED ? ParticleBehavior.RUSH_UPWARD_REVERSED : ParticleBehavior.RUSH_UPWARD, ParticleTextureStyle.SMALL, Util.PARTICLE_BLUE_RISER.color, ParticleFactory.DURATION_SHORT));
                     }
                 }
@@ -2358,10 +2358,10 @@ namespace Plateau.Entities
                         area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(direction == DirectionEnum.LEFT ? WIDTH + 3 : -1, gravityState == GravityState.REVERSED ? 3.5f : HEIGHT - 3.5f), ParticleBehavior.ROTATE_STATIONARY, ParticleTextureStyle.SMALL, Color.White, ParticleFactory.DURATION_SHORT));
                     }
                 }
-                if ((externalVelocityX > 0 && inputVelocityX > 0) || (externalVelocityX < 0 && inputVelocityX < 0))
+                if ((externalVelocityX > 0) || (externalVelocityX < 0))
                 {
                     //walljump particles
-                    area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(direction == DirectionEnum.LEFT ? WIDTH + 5 : -3, (HEIGHT / 2) + (rolling ? 9 : 3)), ParticleBehavior.ROTATE_STATIONARY,
+                    area.AddParticle(ParticleFactory.GenerateParticle(GetAdjustedPosition() + new Vector2(externalVelocityX < 0 ? WIDTH + 5 : -3, (HEIGHT / 2) + (rolling ? 9 : 3)), ParticleBehavior.ROTATE_STATIONARY,
                         ParticleTextureStyle.CHUNK, Color.White, ParticleFactory.DURATION_SHORT));
                 }
 
