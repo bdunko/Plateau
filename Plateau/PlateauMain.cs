@@ -123,7 +123,7 @@ namespace Plateau
                 return false;
             }
 
-            if(GameState.ContainsFlag(GameState.FLAG_SETTINGS_WINDOWED) && GameState.GetFlagValue(GameState.FLAG_SETTINGS_WINDOWED) == 1)
+            if(Config.WINDOWED)
             {
                 return true;
             }
@@ -170,7 +170,7 @@ namespace Plateau
 
         public static void UpdateWindowed()
         {
-            if(GameState.GetFlagValue(GameState.FLAG_SETTINGS_WINDOWED) == 1)
+            if(Config.WINDOWED)
             {
                 WINDOW.Position = new Point(0, 10);
                 WINDOW.IsBorderless = false;
@@ -195,7 +195,7 @@ namespace Plateau
             FONT.Spacing = newResolution.font_spacing;
             FONT.LineSpacing = newResolution.font_line_spacing;
 
-            if (GameState.ContainsFlag(GameState.FLAG_SETTINGS_WINDOWED) && GameState.GetFlagValue(GameState.FLAG_SETTINGS_WINDOWED) == 1)
+            if (Config.WINDOWED)
             {
                 GRAPHICS.PreferredBackBufferWidth = newResolution.resolution_width;
                 GRAPHICS.PreferredBackBufferHeight = newResolution.resolution_height;
@@ -227,6 +227,7 @@ namespace Plateau
             WINDOW.Title = "Plateau";
             WINDOW.Position = new Point(0, 0);
             WINDOW.IsBorderless = true;
+            WINDOW.AllowAltF4 = false;
 
             SCREEN_RESOLUTION_WIDTH = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             SCREEN_RESOLUTION_HEIGHT = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;
@@ -252,11 +253,10 @@ namespace Plateau
 
             FONT = Content.Load<SpriteFont>(Paths.FONT);
 
+            //on first load, set resolution to smallest, then increase until correct size
             ChangeResolution(RESOLUTIONS[0]);
             while(CanResolutionIncrease())
-            {
                 IncreaseResolution();
-            }
 
             SoundSystem.Initialize(Content);
             DialogueNode.LoadPortraits();
@@ -266,7 +266,14 @@ namespace Plateau
             ItemDict.LoadContent(Content);
 
             GameState.Initialize();
-            
+
+            //load config and update windows/resolution, if they were loaded (which is true all but first run)
+            SaveManager.LoadConfig();
+            UpdateWindowed();
+            for (int i = 0; i < RESOLUTIONS.Length; i++)
+                if (RESOLUTIONS[i].scale == Config.RESOLUTION_SCALE)
+                    ChangeResolution(RESOLUTIONS[i]);
+
             ui.LoadContent(Content);
             world = new World(ui);
             player = new EntityPlayer(world, controller);
@@ -438,14 +445,6 @@ namespace Plateau
                             SAVE_MANAGER.LoadFile(player, world);
                             ui.Update(0, player, camera.GetBoundingBox(), world.GetCurrentArea(), world.GetTimeData(), world); //update after loading file so hotbar shows correctly on fadein
                             currentState = PlateauGameState.NORMAL;
-                            UpdateWindowed();
-                            for (int i = 0; i < RESOLUTIONS.Length; i++)
-                            {
-                                if (RESOLUTIONS[i].scale == GameState.GetFlagValue(GameState.FLAG_SETTINGS_RESOLUTION_SCALE))
-                                {
-                                    ChangeResolution(RESOLUTIONS[i]);
-                                }
-                            }
                             debugConsole = new DebugConsole(world, SAVE_MANAGER, player, camera);
                             ui.Unhide();
                             ui.TransitionFadeIn();

@@ -119,14 +119,6 @@ namespace Plateau.Components
         }
 
         //public static string FLAG_....
-        public static string FLAG_SETTINGS_HIDE_CONTROLS = "flagSettings_HideControls";
-        public static string FLAG_SETTINGS_HIDE_GRID = "flagSettings_HideGrid";
-        public static string FLAG_SETTINGS_HIDE_RETICLE = "flagSettings_HideReticle";
-        public static string FLAG_SETTINGS_WINDOWED = "flagSettings_Windowed";
-        public static string FLAG_SETTINGS_SFX_VOLUME = "flagSettings_SFX";
-        public static string FLAG_SETTINGS_MUSIC_VOLUME = "flagSettings_Music";
-        public static string FLAG_SETTINGS_RESOLUTION_SCALE = "flagSettings_Scale";
-
         public static string FLAG_HOUSE_UPGRADE_LEVEL = "flag_houseUpgradeLevel"; //the current house upgrade; starts at 0
         public static string FLAG_SPAWN_LOCATION = "flag_spawnLocation";
         public enum SpawnEnum
@@ -138,7 +130,6 @@ namespace Plateau.Components
         public static string FLAG_MOUNTAIN_STRATUM_LEVEL = "flag_mountainStratumLevel"; //current maximum stratum unlocked, starts at 0 and maxes at 5
         public static string FLAG_NUM_SHRINES_FIRST_STAGE_COMPLETED = "flag_numShrinesFirstStageCompleted"; //number of shrines where first stage is complete
         public static string FLAG_NUM_SHRINES_FULLY_COMPLETED = "flag_numShrinesFullyCompleted"; //number of shrines where second stage is complete
-
 
         public static float LAND_ELEMENT_X = -1000;
         public static float LAND_ELEMENT_Y = -1000;
@@ -451,15 +442,6 @@ namespace Plateau.Components
             STATISTICS[STAT_ITEMS_CRAFTED] = 0;
             STATISTICS[STAT_TIMES_COOKED] = 0;
             STATISTICS[STAT_CHESTS_OPENED] = 0;
-
-            //FURNITURE_RECIPES.Add(new Recipe(new ItemStack(ItemDict., 1), new ItemStack(ItemDict.,), new ItemStack(ItemDict.,), new ItemStack(ItemDict.,), new ItemStack(ItemDict.,)));
-            FLAGS[FLAG_SETTINGS_HIDE_CONTROLS] = 0;
-            FLAGS[FLAG_SETTINGS_HIDE_GRID] = 0;
-            FLAGS[FLAG_SETTINGS_HIDE_RETICLE] = 0;
-            FLAGS[FLAG_SETTINGS_WINDOWED] = 0;
-            FLAGS[FLAG_SETTINGS_SFX_VOLUME] = 5;
-            FLAGS[FLAG_SETTINGS_MUSIC_VOLUME] = 5;
-            FLAGS[FLAG_SETTINGS_RESOLUTION_SCALE] = PlateauMain.CURRENT_RESOLUTION.scale;
 
             FLAGS[FLAG_HOUSE_UPGRADE_LEVEL] = 0;
             FLAGS[FLAG_MOUNTAIN_STRATUM_LEVEL] = 0;

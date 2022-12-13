@@ -15,14 +15,13 @@ namespace Plateau.Components
         public static string FILE_NAME_1 = "save1.txt";
         public static string FILE_NAME_2 = "save2.txt";
         public static string FILE_NAME_3 = "save3.txt";
+        private static string CONFIG_FILE_NAME = "config.txt";
 
-        private List<SaveState> saveStates;
         private string fileName;
 
         public SaveManager(string fileName)
         {
             this.fileName = fileName;
-            saveStates = new List<SaveState>();
         }
 
         public void LoadFile(EntityPlayer player, World world)
@@ -234,7 +233,8 @@ namespace Plateau.Components
         }
 
         public void SaveFile(EntityPlayer player, World world)
-        {
+        {                   
+            List<SaveState> saveStates = new List<SaveState>();
             saveStates.Add(player.GenerateSave());
             foreach(Area.AreaEnum areaEnum in world.GetAreaDict().Keys)
             {
@@ -256,6 +256,37 @@ namespace Plateau.Components
             }
 
             saveStates.Clear();
+
+            //TEMP: SAVE CONFIG WHEN SAVING FILE
+            SaveConfig();
+        }
+
+        public static void LoadConfig()
+        {
+            List<SaveState> loadedStates = new List<SaveState>();
+            string line = "";
+            using (StreamReader sr = new StreamReader(CONFIG_FILE_NAME))
+            {
+                while ((line = sr.ReadLine()) != null)
+                {
+                    loadedStates.Add(new SaveState(line));
+                }
+            }
+
+            //if config exists, load it
+            if(loadedStates.Count != 0)
+            {
+                System.Diagnostics.Debug.Assert(loadedStates.Count == 1);
+                System.Diagnostics.Debug.Assert(loadedStates[0].GetIdentifier() == SaveState.Identifier.CONFIG);
+                Config.LoadSave(loadedStates[0]);
+            }
+        }
+        public static void SaveConfig()
+        {
+            using (StreamWriter sw = new StreamWriter(CONFIG_FILE_NAME))
+            {
+                sw.WriteLine(Config.GenerateSave().ToString());
+            }
         }
     }
 }

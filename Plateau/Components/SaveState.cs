@@ -10,7 +10,7 @@ namespace Plateau.Components
     {
         public enum Identifier
         {
-            PLAYER, PLACEABLE, AREA, WORLD, GAMESTATE, BUILDING_BLOCK, WALL_ENTITY, VENDORENTITY, SHIPPING_BIN, CUTSCENES, CHARACTER, SOULCHEST
+            PLAYER, PLACEABLE, AREA, WORLD, GAMESTATE, BUILDING_BLOCK, WALL_ENTITY, VENDORENTITY, SHIPPING_BIN, CUTSCENES, CHARACTER, SOULCHEST, CONFIG
         }
 
         private Identifier StringToIdentifier(string str)

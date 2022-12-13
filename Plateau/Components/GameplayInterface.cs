@@ -4144,7 +4144,7 @@ namespace Plateau.Components
                             if(PlateauMain.CanResolutionIncrease())
                             {
                                 PlateauMain.IncreaseResolution();
-                                GameState.SetFlag(GameState.FLAG_SETTINGS_RESOLUTION_SCALE, PlateauMain.CURRENT_RESOLUTION.scale);
+                                Config.RESOLUTION_SCALE = PlateauMain.CURRENT_RESOLUTION.scale;
                             }
                             //INCREASE RES
                         } else if (settingsResolutionRectangles[1].Contains(mousePosition))
@@ -4153,7 +4153,7 @@ namespace Plateau.Components
                             if (PlateauMain.CanResolutionDecrease())
                             {
                                 PlateauMain.DecreaseResolution();
-                                GameState.SetFlag(GameState.FLAG_SETTINGS_RESOLUTION_SCALE, PlateauMain.CURRENT_RESOLUTION.scale);
+                                Config.RESOLUTION_SCALE = PlateauMain.CURRENT_RESOLUTION.scale;
                             }
                         }
 
@@ -4162,11 +4162,11 @@ namespace Plateau.Components
                         {
                             if(settingsSFXRectangles[i].Contains(mousePosition))
                             {
-                                if (GameState.GetFlagValue(GameState.FLAG_SETTINGS_SFX_VOLUME) == i + 1)
+                                if (Config.SFX_VOLUME == i + 1)
                                 {
-                                    GameState.SetFlag(GameState.FLAG_SETTINGS_SFX_VOLUME, 0);
+                                    Config.SFX_VOLUME = 0;
                                 } else {
-                                    GameState.SetFlag(GameState.FLAG_SETTINGS_SFX_VOLUME, i+1);
+                                    Config.SFX_VOLUME = i + 1;
                                 }
                             }
                         }
@@ -4175,13 +4175,13 @@ namespace Plateau.Components
                         {
                             if (settingsMusicRectangles[i].Contains(mousePosition))
                             {
-                                if (GameState.GetFlagValue(GameState.FLAG_SETTINGS_MUSIC_VOLUME) == i + 1)
+                                if (Config.MUSIC_VOLUME == i + 1)
                                 {
-                                    GameState.SetFlag(GameState.FLAG_SETTINGS_MUSIC_VOLUME, 0);
+                                    Config.MUSIC_VOLUME = 0;
                                 }
                                 else
                                 {
-                                    GameState.SetFlag(GameState.FLAG_SETTINGS_MUSIC_VOLUME, i + 1);
+                                    Config.MUSIC_VOLUME = i + 1;
                                 }
                             }
                         }
@@ -4189,19 +4189,19 @@ namespace Plateau.Components
                         //OTHER
                         if (settingsOtherRectangles[0].Contains(mousePosition))
                         {
-                            GameState.FlipFlag(GameState.FLAG_SETTINGS_HIDE_CONTROLS);
+                            Config.HIDE_CONTROLS = !Config.HIDE_CONTROLS;
                         }
                         else if (settingsOtherRectangles[1].Contains(mousePosition))
                         {
-                            GameState.FlipFlag(GameState.FLAG_SETTINGS_HIDE_GRID);
+                            Config.HIDE_GRID = !Config.HIDE_GRID;
                         }
                         else if (settingsOtherRectangles[2].Contains(mousePosition))
                         {
-                            GameState.FlipFlag(GameState.FLAG_SETTINGS_HIDE_RETICLE);
+                            Config.HIDE_RETICLE = !Config.HIDE_RETICLE;
                         }
                         else if (settingsOtherRectangles[3].Contains(mousePosition))
                         {
-                            GameState.FlipFlag(GameState.FLAG_SETTINGS_WINDOWED);
+                            Config.WINDOWED = !Config.WINDOWED;
                             PlateauMain.UpdateWindowed();
                         } 
                     }
@@ -4597,13 +4597,13 @@ namespace Plateau.Components
         public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, float layerDepth)
         {
 
-            if(editMode && !GameState.CheckFlag(GameState.FLAG_SETTINGS_HIDE_GRID))
+            if(editMode && !Config.HIDE_GRID)
             {
                 sb.Draw(grid, gridLocation, Color.White * GRID_OPACITY);
             }
 
             //draw reticle
-            if (!GameState.CheckFlag(GameState.FLAG_SETTINGS_HIDE_RETICLE) && drawReticle && !isHidden)
+            if (!Config.HIDE_RETICLE && drawReticle && !isHidden)
             {
                 sb.Draw(reticle, targetTile * new Vector2(8, 8), Color.White);
             }
@@ -4888,25 +4888,24 @@ namespace Plateau.Components
                     tooltipName = "Switches the game to windowed mode.";
                 }
 
-                if (GameState.CheckFlag(GameState.FLAG_SETTINGS_HIDE_CONTROLS))
+                if (Config.HIDE_CONTROLS)
                 {
                     sb.Draw(checkmark, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, settingsOtherRectangles[0].TopLeft) + new Vector2(1, 1), Color.White);
                 }
-                if (GameState.CheckFlag(GameState.FLAG_SETTINGS_HIDE_GRID))
+                if (Config.HIDE_GRID)
                 {
                     sb.Draw(checkmark, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, settingsOtherRectangles[1].TopLeft) + new Vector2(1, 1), Color.White);
                 }
-                if (GameState.CheckFlag(GameState.FLAG_SETTINGS_HIDE_RETICLE))
+                if (Config.HIDE_RETICLE)
                 {
                     sb.Draw(checkmark, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, settingsOtherRectangles[2].TopLeft) + new Vector2(1, 1), Color.White);
                 }
-                if (GameState.CheckFlag(GameState.FLAG_SETTINGS_WINDOWED))
+                if (Config.WINDOWED)
                 {
                     sb.Draw(checkmark, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, settingsOtherRectangles[3].TopLeft) + new Vector2(1, 1), Color.White);
                 }
 
-                //SKIPPPER
-                int sfxVolume = GameState.GetFlagValue(GameState.FLAG_SETTINGS_SFX_VOLUME);
+                int sfxVolume = Config.SFX_VOLUME;
                 for (int i = 1; i < settingsSFXRectangles.Length + 1; i++)
                 {
                     if (sfxVolume >= i)
@@ -4935,7 +4934,7 @@ namespace Plateau.Components
                     }
                 }
 
-                int musicVolume = GameState.GetFlagValue(GameState.FLAG_SETTINGS_MUSIC_VOLUME);
+                int musicVolume = Config.MUSIC_VOLUME;
                 for (int i = 1; i < settingsMusicRectangles.Length + 1; i++)
                 {
                     if (musicVolume >= i)
@@ -5190,7 +5189,7 @@ namespace Plateau.Components
             }
 
             //draw controls
-            if (!GameState.CheckFlag(GameState.FLAG_SETTINGS_HIDE_CONTROLS))
+            if (!Config.HIDE_CONTROLS)
             {
                 if (!isHidden || currentDialogue != null)
                 {
@@ -5252,7 +5251,7 @@ namespace Plateau.Components
             {
                 if (!isHidden)
                 {
-                    if (!GameState.CheckFlag(GameState.FLAG_SETTINGS_HIDE_CONTROLS))
+                    if (!Config.HIDE_CONTROLS)
                     {
                         sb.Draw(keyControl, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
                         if (isSDown)
