@@ -1,1 +1,1 @@
-CONFIG{[HideControls,True][HideGrid,False][HideReticle,False][Windowed,True][SFXVolume,2][MusicVolume,9][ResolutionScale,5]}
+CONFIG{[HideControls,False][HideGrid,False][HideReticle,False][Windowed,False][SFXVolume,5][MusicVolume,5][ResolutionScale,6]}

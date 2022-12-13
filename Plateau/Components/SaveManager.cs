@@ -257,7 +257,7 @@ namespace Plateau.Components
 
             saveStates.Clear();
 
-            //TEMP: SAVE CONFIG WHEN SAVING FILE
+            //extra safety config save; not necessary
             SaveConfig();
         }
 

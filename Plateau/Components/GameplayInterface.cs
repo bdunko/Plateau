@@ -4145,6 +4145,7 @@ namespace Plateau.Components
                             {
                                 PlateauMain.IncreaseResolution();
                                 Config.RESOLUTION_SCALE = PlateauMain.CURRENT_RESOLUTION.scale;
+                                SaveManager.SaveConfig();
                             }
                             //INCREASE RES
                         } else if (settingsResolutionRectangles[1].Contains(mousePosition))
@@ -4154,6 +4155,7 @@ namespace Plateau.Components
                             {
                                 PlateauMain.DecreaseResolution();
                                 Config.RESOLUTION_SCALE = PlateauMain.CURRENT_RESOLUTION.scale;
+                                SaveManager.SaveConfig();
                             }
                         }
 
@@ -4165,8 +4167,10 @@ namespace Plateau.Components
                                 if (Config.SFX_VOLUME == i + 1)
                                 {
                                     Config.SFX_VOLUME = 0;
+                                    SaveManager.SaveConfig();
                                 } else {
                                     Config.SFX_VOLUME = i + 1;
+                                    SaveManager.SaveConfig();
                                 }
                             }
                         }
@@ -4178,10 +4182,12 @@ namespace Plateau.Components
                                 if (Config.MUSIC_VOLUME == i + 1)
                                 {
                                     Config.MUSIC_VOLUME = 0;
+                                    SaveManager.SaveConfig();
                                 }
                                 else
                                 {
                                     Config.MUSIC_VOLUME = i + 1;
+                                    SaveManager.SaveConfig();
                                 }
                             }
                         }
@@ -4190,18 +4196,22 @@ namespace Plateau.Components
                         if (settingsOtherRectangles[0].Contains(mousePosition))
                         {
                             Config.HIDE_CONTROLS = !Config.HIDE_CONTROLS;
+                            SaveManager.SaveConfig();
                         }
                         else if (settingsOtherRectangles[1].Contains(mousePosition))
                         {
                             Config.HIDE_GRID = !Config.HIDE_GRID;
+                            SaveManager.SaveConfig();
                         }
                         else if (settingsOtherRectangles[2].Contains(mousePosition))
                         {
                             Config.HIDE_RETICLE = !Config.HIDE_RETICLE;
+                            SaveManager.SaveConfig();
                         }
                         else if (settingsOtherRectangles[3].Contains(mousePosition))
                         {
                             Config.WINDOWED = !Config.WINDOWED;
+                            SaveManager.SaveConfig();
                             PlateauMain.UpdateWindowed();
                         } 
                     }
