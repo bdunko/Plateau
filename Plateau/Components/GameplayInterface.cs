@@ -3327,34 +3327,33 @@ namespace Plateau.Components
                     }
 
                     //clicking on a button in left sidebar
-                    if ((controller.GetMouseLeftPress() || controller.GetMouseRightPress()) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
+                    if ((controller.GetMouseLeftPress() || controller.GetMouseRightPress()) && currentDialogue == null)
                     {
                         if (menuButtons[0].Contains(mousePosition))
                         {
-                            if (inventoryHeldItem.GetItem() == ItemDict.NONE)
+                            DropInventoryHeldItem(world); //throw currently held item out into world, if any
+                            if (player.GetInterfaceState() == InterfaceState.INVENTORY)
                             {
-                                if (player.GetInterfaceState() == InterfaceState.INVENTORY)
-                                {
-                                    player.SetInterfaceState(InterfaceState.NONE);
-                                    player.Unpause();
-                                    world.Unpause();
-                                }
-                                else
-                                {
-                                    player.SetInterfaceState(InterfaceState.INVENTORY);
-                                    player.Pause();
-                                    world.Pause();
-                                }
-                                if (!player.IsRolling())
-                                {
-                                    player.SetToDefaultPose();
-                                }
-                                player.IgnoreMouseInputThisFrame();
-                                SoundSystem.PlayFX(SoundSystem.Sound.FX_TEST); //TODO: remove
+                                player.SetInterfaceState(InterfaceState.NONE);
+                                player.Unpause();
+                                world.Unpause();
                             }
+                            else
+                            {
+                                player.SetInterfaceState(InterfaceState.INVENTORY);
+                                player.Pause();
+                                world.Pause();
+                            }
+                            if (!player.IsRolling())
+                            {
+                                player.SetToDefaultPose();
+                            }
+                            player.IgnoreMouseInputThisFrame();
+                            SoundSystem.PlayFX(SoundSystem.Sound.FX_TEST); //TODO: remove
                         }
                         else if (menuButtons[1].Contains(mousePosition))
                         {
+                            DropInventoryHeldItem(world); //throw currently held item out into world, if any
                             if (interfaceState == InterfaceState.SCRAPBOOK)
                             {
                                 player.SetInterfaceState(InterfaceState.NONE);
@@ -3369,6 +3368,7 @@ namespace Plateau.Components
                         }
                         else if (menuButtons[2].Contains(mousePosition))
                         {
+                            DropInventoryHeldItem(world); //throw currently held item out into world, if any
                             if (interfaceState == InterfaceState.CRAFTING)
                             {
                                 player.SetInterfaceState(InterfaceState.NONE);
@@ -3385,6 +3385,7 @@ namespace Plateau.Components
                         }
                         else if (menuButtons[3].Contains(mousePosition))
                         {
+                            DropInventoryHeldItem(world); //throw currently held item out into world, if any
                             if (interfaceState == InterfaceState.SETTINGS)
                             {
                                 player.SetInterfaceState(InterfaceState.NONE);
@@ -3606,8 +3607,9 @@ namespace Plateau.Components
                     }
 
 
-                    if (controller.IsKeyPressed(KeyBinds.CRAFTING) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
+                    if (controller.IsKeyPressed(KeyBinds.CRAFTING) && currentDialogue == null)
                     {
+                        DropInventoryHeldItem(world); //throw currently held item out into world, if any
                         if (interfaceState == InterfaceState.CRAFTING)
                         {
                             player.SetInterfaceState(InterfaceState.NONE);
@@ -3627,8 +3629,9 @@ namespace Plateau.Components
                         player.ToggleEditMode();
                     }
 
-                    if (controller.IsKeyPressed(KeyBinds.OPEN_SCRAPBOOK) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
+                    if (controller.IsKeyPressed(KeyBinds.OPEN_SCRAPBOOK) && currentDialogue == null)
                     {
+                        DropInventoryHeldItem(world); //throw currently held item out into world, if any
                         if (interfaceState == InterfaceState.SCRAPBOOK)
                         {
                             player.SetInterfaceState(InterfaceState.NONE);
@@ -3641,8 +3644,9 @@ namespace Plateau.Components
                         }
                     }
 
-                    if (controller.IsKeyPressed(KeyBinds.OPEN_INVENTORY) && inventoryHeldItem.GetItem() == ItemDict.NONE && currentDialogue == null)
+                    if (controller.IsKeyPressed(KeyBinds.OPEN_INVENTORY) && currentDialogue == null)
                     {
+                        DropInventoryHeldItem(world); //throw currently held item out into world, if any
                         if (player.GetInterfaceState() == InterfaceState.INVENTORY || player.GetInterfaceState() == InterfaceState.CHEST)
                         {
                             player.SetInterfaceState(InterfaceState.NONE);
@@ -3661,8 +3665,9 @@ namespace Plateau.Components
                         }
                     }
 
-                    if (controller.IsKeyPressed(KeyBinds.SETTINGS) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
+                    if (controller.IsKeyPressed(KeyBinds.SETTINGS) && currentDialogue == null)
                     {
+                        DropInventoryHeldItem(world); //throw currently held item out into world, if any
                         if (interfaceState == InterfaceState.SETTINGS)
                         {
                             player.SetInterfaceState(InterfaceState.NONE);
@@ -4161,6 +4166,7 @@ namespace Plateau.Components
                             {
                                 PlateauMain.IncreaseResolution();
                                 Config.RESOLUTION_SCALE = PlateauMain.CURRENT_RESOLUTION.scale;
+                                SaveManager.SaveConfig();
                             }
                             //INCREASE RES
                         } else if (settingsResolutionRectangles[1].Contains(mousePosition))
@@ -4170,6 +4176,7 @@ namespace Plateau.Components
                             {
                                 PlateauMain.DecreaseResolution();
                                 Config.RESOLUTION_SCALE = PlateauMain.CURRENT_RESOLUTION.scale;
+                                SaveManager.SaveConfig();
                             }
                         }
 
@@ -4181,8 +4188,10 @@ namespace Plateau.Components
                                 if (Config.SFX_VOLUME == i + 1)
                                 {
                                     Config.SFX_VOLUME = 0;
+                                    SaveManager.SaveConfig();
                                 } else {
                                     Config.SFX_VOLUME = i + 1;
+                                    SaveManager.SaveConfig();
                                 }
                             }
                         }
@@ -4194,10 +4203,12 @@ namespace Plateau.Components
                                 if (Config.MUSIC_VOLUME == i + 1)
                                 {
                                     Config.MUSIC_VOLUME = 0;
+                                    SaveManager.SaveConfig();
                                 }
                                 else
                                 {
                                     Config.MUSIC_VOLUME = i + 1;
+                                    SaveManager.SaveConfig();
                                 }
                             }
                         }
@@ -4206,18 +4217,22 @@ namespace Plateau.Components
                         if (settingsOtherRectangles[0].Contains(mousePosition))
                         {
                             Config.HIDE_CONTROLS = !Config.HIDE_CONTROLS;
+                            SaveManager.SaveConfig();
                         }
                         else if (settingsOtherRectangles[1].Contains(mousePosition))
                         {
                             Config.HIDE_GRID = !Config.HIDE_GRID;
+                            SaveManager.SaveConfig();
                         }
                         else if (settingsOtherRectangles[2].Contains(mousePosition))
                         {
                             Config.HIDE_RETICLE = !Config.HIDE_RETICLE;
+                            SaveManager.SaveConfig();
                         }
                         else if (settingsOtherRectangles[3].Contains(mousePosition))
                         {
                             Config.WINDOWED = !Config.WINDOWED;
+                            SaveManager.SaveConfig();
                             PlateauMain.UpdateWindowed();
                         } 
                     }
