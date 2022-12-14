@@ -2982,31 +2982,39 @@ namespace Plateau.Components
             isMouseOverScrapbookMC = false;
             isMouseOverSettingsMC = false;
             isMouseOverEditModeMC = false;
-            if (menuButtons[0].Contains(controller.GetMousePos()))
+
+            if (!isHidden)
             {
-                isMouseOverInventoryMC = true;
-                tooltipName = "Inventory";
-                player.IgnoreMouseInputThisFrame();
-            } else if (menuButtons[1].Contains(controller.GetMousePos()))
-            {
-                isMouseOverScrapbookMC = true;
-                tooltipName = "Scrapbook";
-                player.IgnoreMouseInputThisFrame();
-            } else if (menuButtons[2].Contains(controller.GetMousePos()))
-            {
-                isMouseOverCraftingMC = true;
-                tooltipName = "Crafting";
-                player.IgnoreMouseInputThisFrame();
-            } else if (menuButtons[3].Contains(controller.GetMousePos()))
-            {
-                isMouseOverSettingsMC = true;
-                tooltipName = "Settings";
-                player.IgnoreMouseInputThisFrame();
-            } else if (menuButtons[4].Contains(controller.GetMousePos()))
-            {
-                isMouseOverEditModeMC = true;
-                tooltipName = "Toggle Edit Mode";
-                player.IgnoreMouseInputThisFrame();
+                if (menuButtons[0].Contains(controller.GetMousePos()))
+                {
+                    isMouseOverInventoryMC = true;
+                    tooltipName = "Inventory";
+                    player.IgnoreMouseInputThisFrame();
+                }
+                else if (menuButtons[1].Contains(controller.GetMousePos()))
+                {
+                    isMouseOverScrapbookMC = true;
+                    tooltipName = "Scrapbook";
+                    player.IgnoreMouseInputThisFrame();
+                }
+                else if (menuButtons[2].Contains(controller.GetMousePos()))
+                {
+                    isMouseOverCraftingMC = true;
+                    tooltipName = "Crafting";
+                    player.IgnoreMouseInputThisFrame();
+                }
+                else if (menuButtons[3].Contains(controller.GetMousePos()))
+                {
+                    isMouseOverSettingsMC = true;
+                    tooltipName = "Settings";
+                    player.IgnoreMouseInputThisFrame();
+                }
+                else if (menuButtons[4].Contains(controller.GetMousePos()))
+                {
+                    isMouseOverEditModeMC = true;
+                    tooltipName = "Toggle Edit Mode";
+                    player.IgnoreMouseInputThisFrame();
+                }
             }
 
             dialogueBox.Update(deltaTime);
@@ -3084,7 +3092,8 @@ namespace Plateau.Components
                 }
 
                 interfaceState = player.GetInterfaceState();
-                if(interfaceState == InterfaceState.CHEST)
+
+                if (interfaceState == InterfaceState.CHEST)
                 {
                     world.Pause();
                 }
@@ -3278,47 +3287,75 @@ namespace Plateau.Components
                     menuButtons[i] = new RectangleF(MENU_CONTROL_POSITION + new Vector2(0, i * MENU_DELTA_Y), MENU_BUTTON_SIZE);
                 }
 
-                //inventory manipulations - mouse wheel, num keys, and tab to cycle
-                if(currentDialogue == null && !player.GetUseTool() && (interfaceState == InterfaceState.INVENTORY || interfaceState == InterfaceState.CHEST || interfaceState == InterfaceState.CRAFTING || interfaceState == InterfaceState.SCRAPBOOK || interfaceState == InterfaceState.NONE || interfaceState == InterfaceState.SETTINGS))
-                {
-                    //cycling inventory
-                    if (controller.IsKeyPressed(KeyBinds.CYCLE_INVENTORY))
-                        player.CycleInventory();
+                Vector2 mousePosition = controller.GetMousePos();
 
-                    //if specifically in normal, chest, or inv mode, toss 1 of held item
-                    if ((interfaceState == InterfaceState.NONE || interfaceState == InterfaceState.CHEST || interfaceState == InterfaceState.INVENTORY) && controller.IsKeyPressed(KeyBinds.DROP_ITEM))
+
+               
+                //if not hidden, accept key presses to open interfaces
+                if (!isHidden)
+                {
+                    //inventory manipulations - mouse wheel, num keys, and tab to cycle
+                    if (currentDialogue == null && !player.GetUseTool() && (interfaceState == InterfaceState.INVENTORY || interfaceState == InterfaceState.CHEST || interfaceState == InterfaceState.CRAFTING || interfaceState == InterfaceState.SCRAPBOOK || interfaceState == InterfaceState.NONE || interfaceState == InterfaceState.SETTINGS))
                     {
-                        if(controller.IsKeyDown(KeyBinds.SHIFT))
-                            DropHeldItemAll(world);
-                        else
-                            DropHeldItem(world);
+                        //cycling inventory
+                        if (controller.IsKeyPressed(KeyBinds.CYCLE_INVENTORY))
+                            player.CycleInventory();
+
+                        //if specifically in normal, chest, or inv mode, toss 1 of held item
+                        if ((interfaceState == InterfaceState.NONE || interfaceState == InterfaceState.CHEST || interfaceState == InterfaceState.INVENTORY) && controller.IsKeyPressed(KeyBinds.DROP_ITEM))
+                        {
+                            if (controller.IsKeyDown(KeyBinds.SHIFT))
+                                DropHeldItemAll(world);
+                            else
+                                DropHeldItem(world);
+                        }
+
+                        //adjust selectedhotbarposition according to mouse wheel movement
+                        int newHotbarPosition = player.GetSelectedHotbarPosition() + controller.GetChangeInMouseWheel();
+                        if (newHotbarPosition >= HOTBAR_LENGTH)
+                            newHotbarPosition = 0;
+                        else if (newHotbarPosition < 0)
+                            newHotbarPosition = HOTBAR_LENGTH - 1;
+                        player.SetSelectedHotbarPosition(newHotbarPosition);
+
+                        //adjust selectedhotbarposition if any of the 1-9 keys are pressed down
+                        for (int i = 0; i < HOTBAR_LENGTH; i++)
+                            if (controller.IsKeyPressed(KeyBinds.HOTBAR_SELECT[i]))
+                                player.SetSelectedHotbarPosition(i);
+
+
                     }
 
-                    //adjust selectedhotbarposition according to mouse wheel movement
-                    int newHotbarPosition = player.GetSelectedHotbarPosition() + controller.GetChangeInMouseWheel();
-                    if (newHotbarPosition >= HOTBAR_LENGTH)
-                        newHotbarPosition = 0;
-                    else if (newHotbarPosition < 0)
-                        newHotbarPosition = HOTBAR_LENGTH - 1;
-                    player.SetSelectedHotbarPosition(newHotbarPosition);
-
-                    //adjust selectedhotbarposition if any of the 1-9 keys are pressed down
-                    for (int i = 0; i < HOTBAR_LENGTH; i++)
-                        if (controller.IsKeyPressed(KeyBinds.HOTBAR_SELECT[i]))
-                            player.SetSelectedHotbarPosition(i);
-
-
-                }
-
-                //clicking on a button in left sidebar
-                Vector2 mousePosition = controller.GetMousePos();
-                if ((controller.GetMouseLeftPress() || controller.GetMouseRightPress()) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
-                {
-                    if (menuButtons[0].Contains(mousePosition))
+                    //clicking on a button in left sidebar
+                    if ((controller.GetMouseLeftPress() || controller.GetMouseRightPress()) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
                     {
-                        if (inventoryHeldItem.GetItem() == ItemDict.NONE)
+                        if (menuButtons[0].Contains(mousePosition))
                         {
-                            if (player.GetInterfaceState() == InterfaceState.INVENTORY)
+                            if (inventoryHeldItem.GetItem() == ItemDict.NONE)
+                            {
+                                if (player.GetInterfaceState() == InterfaceState.INVENTORY)
+                                {
+                                    player.SetInterfaceState(InterfaceState.NONE);
+                                    player.Unpause();
+                                    world.Unpause();
+                                }
+                                else
+                                {
+                                    player.SetInterfaceState(InterfaceState.INVENTORY);
+                                    player.Pause();
+                                    world.Pause();
+                                }
+                                if (!player.IsRolling())
+                                {
+                                    player.SetToDefaultPose();
+                                }
+                                player.IgnoreMouseInputThisFrame();
+                                SoundSystem.PlayFX(SoundSystem.Sound.FX_TEST); //TODO: remove
+                            }
+                        }
+                        else if (menuButtons[1].Contains(mousePosition))
+                        {
+                            if (interfaceState == InterfaceState.SCRAPBOOK)
                             {
                                 player.SetInterfaceState(InterfaceState.NONE);
                                 player.Unpause();
@@ -3326,33 +3363,250 @@ namespace Plateau.Components
                             }
                             else
                             {
-                                player.SetInterfaceState(InterfaceState.INVENTORY);
+                                OpenScrapbook(player, timeData, world);
+                            }
+                            player.IgnoreMouseInputThisFrame();
+                        }
+                        else if (menuButtons[2].Contains(mousePosition))
+                        {
+                            if (interfaceState == InterfaceState.CRAFTING)
+                            {
+                                player.SetInterfaceState(InterfaceState.NONE);
+                                player.Unpause();
+                                world.Unpause();
+                            }
+                            else
+                            {
+                                player.SetInterfaceState(InterfaceState.CRAFTING);
                                 player.Pause();
                                 world.Pause();
                             }
-                            if (!player.IsRolling())
+                            player.IgnoreMouseInputThisFrame();
+                        }
+                        else if (menuButtons[3].Contains(mousePosition))
+                        {
+                            if (interfaceState == InterfaceState.SETTINGS)
                             {
-                                player.SetToDefaultPose();
+                                player.SetInterfaceState(InterfaceState.NONE);
+                                player.Unpause();
+                                world.Unpause();
+                            }
+                            else
+                            {
+                                player.SetInterfaceState(InterfaceState.SETTINGS);
+                                player.Pause();
+                                world.Pause();
                             }
                             player.IgnoreMouseInputThisFrame();
-                            SoundSystem.PlayFX(SoundSystem.Sound.FX_TEST); //TODO: remove
+                        }
+                        else if (menuButtons[4].Contains(mousePosition))
+                        {
+                            player.ToggleEditMode();
+                            player.IgnoreMouseInputThisFrame();
                         }
                     }
-                    else if (menuButtons[1].Contains(mousePosition))
+
+                    //place down a placeable
+                    if (player.IsEditMode() && interfaceState == InterfaceState.NONE)
                     {
-                        if (interfaceState == InterfaceState.SCRAPBOOK)
+                        if (controller.GetMouseLeftDown() && player.GetHeldItem().GetItem() is PlaceableItem)
                         {
-                            player.SetInterfaceState(InterfaceState.NONE);
-                            player.Unpause();
-                            world.Unpause();
+                            PlaceableItem item = (PlaceableItem)player.GetHeldItem().GetItem();
+                            Vector2 mouseLocation = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, controller.GetMousePos());
+                            Vector2 tile = new Vector2((int)(mouseLocation.X / 8), (int)(mouseLocation.Y / 8) - (item.GetPlaceableHeight() - 1));
+
+                            if (item.GetPlacementType() == PlaceableItem.PlacementType.NORMAL)
+                            {
+                                bool isPlaceableLocationValid = currentArea.IsTileEntityPlacementValid((int)tile.X, (int)tile.Y, item.GetPlaceableWidth(), item.GetPlaceableHeight());
+
+                                if (isPlaceableLocationValid)
+                                {
+                                    Vector2 placementLocation = new Vector2(tile.X * 8, tile.Y * 8);
+                                    TileEntity toPlace = (TileEntity)EntityFactory.GetEntity(EntityType.USE_ITEM, item, tile, currentArea);
+                                    currentArea.AddTileEntity(toPlace);
+                                    player.GetHeldItem().Subtract(1);
+                                    player.IgnoreMouseInputThisFrame();
+                                    showPlaceableTexture = false;
+                                    lastPlacedTile = tile;
+                                }
+                                else
+                                {
+                                    if (showPlaceableTexture)
+                                    {
+                                        player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
+                                    }
+                                }
+                            }
+                            else if (item.GetPlacementType() == PlaceableItem.PlacementType.WALL)
+                            {
+                                bool isWallLocationValid = currentArea.IsWallEntityPlacementValid((int)tile.X, (int)tile.Y, item.GetPlaceableWidth(), item.GetPlaceableHeight());
+
+                                if (isWallLocationValid)
+                                {
+                                    Vector2 placementLocation = new Vector2(tile.X * 8, tile.Y * 8);
+                                    TileEntity toPlace = (TileEntity)EntityFactory.GetEntity(EntityType.USE_ITEM, item, tile, currentArea);
+                                    currentArea.AddWallEntity(toPlace);
+                                    player.GetHeldItem().Subtract(1);
+                                    player.IgnoreMouseInputThisFrame();
+                                    showPlaceableTexture = false;
+                                    lastPlacedTile = tile;
+                                }
+                                else
+                                {
+                                    if (showPlaceableTexture)
+                                    {
+                                        player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
+                                    }
+                                }
+                            }
+                            else if (item.GetPlacementType() == PlaceableItem.PlacementType.CEILING)
+                            {
+
+                            }
+                            else if (item.GetPlacementType() == PlaceableItem.PlacementType.WALLPAPER)
+                            {
+                                bool isWallpaperLocationValid = currentArea.IsWallpaperPlacementValid((int)tile.X, (int)tile.Y, item.GetPlaceableWidth(), item.GetPlaceableHeight());
+                                if (isWallpaperLocationValid)
+                                {
+                                    Vector2 placementLocation = new Vector2(tile.X * 8, tile.Y * 8);
+                                    PEntityWallpaper toPlace = (PEntityWallpaper)EntityFactory.GetEntity(EntityType.USE_ITEM, item, tile, currentArea);
+                                    currentArea.AddWallpaperEntity(toPlace);
+                                    player.GetHeldItem().Subtract(1);
+                                    player.IgnoreMouseInputThisFrame();
+                                    showPlaceableTexture = false;
+                                    lastPlacedTile = tile;
+                                }
+                                else
+                                {
+                                    if (showPlaceableTexture)
+                                    {
+                                        Area.Subarea.NameEnum subarea = currentArea.GetSubareaAt(player.GetCollisionRectangle());
+                                        if (subarea != Area.Subarea.NameEnum.FARMHOUSECABIN && subarea != Area.Subarea.NameEnum.FARMHOUSEHOUSE &&
+                                            subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONLOWER && subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONUPPER &&
+                                            subarea != Area.Subarea.NameEnum.FARMHOUSECELLAR)
+                                            player.AddNotification(new EntityPlayer.Notification("I can only place Wallpaper in my house.", Color.Red));
+                                        else
+                                            player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
+                                    }
+                                }
+                            }
+                            else if (item.GetPlacementType() == PlaceableItem.PlacementType.FLOOR)
+                            {
+                                bool isFloorPlacementValid = currentArea.IsFloorEntityPlacementValid((int)tile.X, (int)tile.Y, item.GetPlaceableWidth());
+                                if (isFloorPlacementValid)
+                                {
+                                    Vector2 placementLocation = new Vector2(tile.X * 8, tile.Y * 8);
+                                    TileEntity toPlace = (TileEntity)EntityFactory.GetEntity(EntityType.USE_ITEM, item, tile, currentArea);
+                                    currentArea.AddTileEntity(toPlace);
+                                    player.GetHeldItem().Subtract(1);
+                                    player.IgnoreMouseInputThisFrame();
+                                    showPlaceableTexture = false;
+                                    lastPlacedTile = tile;
+                                }
+                                else
+                                {
+                                    if (showPlaceableTexture)
+                                    {
+                                        player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
+                                    }
+                                }
+                            }
+                        }
+                        else if (controller.GetMouseLeftDown() && player.GetHeldItem().GetItem() is BuildingBlockItem)
+                        {
+                            if (currentArea.GetAreaEnum() != Area.AreaEnum.FARM)
+                            {
+                                player.AddNotification(new EntityPlayer.Notification("I can only place scaffolding on my farm.", Color.Red));
+                            }
+                            else
+                            {
+                                BuildingBlockItem item = (BuildingBlockItem)player.GetHeldItem().GetItem();
+                                Vector2 mouseLocation = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, controller.GetMousePos());
+                                Vector2 tile = new Vector2((int)(mouseLocation.X / 8), (int)(mouseLocation.Y / 8));
+                                bool isBBLocationValid = currentArea.IsBuildingBlockPlacementValid((int)tile.X, (int)tile.Y, item.GetBlockType() == BlockType.BLOCK);
+                                if (item.GetBlockType() == BlockType.BLOCK && player.GetCollisionRectangle().Intersects(new RectangleF(tile * new Vector2(8, 8), new Vector2(8, 4))))
+                                {
+                                    isBBLocationValid = false;
+                                }
+
+                                if (isBBLocationValid)
+                                {
+                                    BuildingBlock toPlace = new BuildingBlock(item, tile, item.GetPlacedTexture(), item.GetBlockType());
+                                    currentArea.AddBuildingBlock(toPlace);
+                                    player.GetHeldItem().Subtract(1);
+                                    player.IgnoreMouseInputThisFrame();
+                                    showPlaceableTexture = false;
+                                    lastPlacedTile = tile;
+                                }
+                                else
+                                {
+                                    //also doesn't give message when attempting to place scaffolding over scaffolding
+                                    if (showPlaceableTexture && currentArea.GetBuildingBlockAt((int)tile.X, (int)tile.Y) == null)
+                                    {
+                                        player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
+                                    }
+                                }
+                            }
+                        }
+                        else if (controller.GetMouseRightDown()) //remove placeable
+                        {
+
+                            //TODODOREMOVE
+                            Vector2 location = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, controller.GetMousePos());
+                            Vector2 tile = new Vector2((int)(location.X / 8), (int)(location.Y / 8));
+
+                            //first, attempt to remove placeable (floor or wall).
+                            //if successful, ONLY remove placeables (floor or wall) until mouse lifted
+                            if (removalMode == RemovalMode.ANY || removalMode == RemovalMode.PLACEABLE)
+                            {
+                                //try ground placeable
+                                Item itemForm = currentArea.GetTileEntityItemForm((int)tile.X, (int)tile.Y);
+                                if (itemForm != ItemDict.NONE)
+                                {
+                                    currentArea.RemoveTileEntity(player, (int)tile.X, (int)tile.Y, world);
+                                    player.IgnoreMouseInputThisFrame();
+                                    removalMode = RemovalMode.PLACEABLE;
+                                }
+
+                                //try wall placeable
+                                itemForm = currentArea.GetWallEntityItemForm((int)tile.X, (int)tile.Y);
+                                if (itemForm != ItemDict.NONE)
+                                {
+                                    currentArea.RemoveWallEntity(player, (int)tile.X, (int)tile.Y, world);
+                                    player.IgnoreMouseInputThisFrame();
+                                    removalMode = RemovalMode.PLACEABLE;
+                                }
+                            }
+
+                            //if we haven't removed a placeable, try to removal wallpaper or scaffolding
+                            //if successful, ONLY remove wallpaper or scaffolidng until mouse lifted
+                            if (removalMode == RemovalMode.ANY || removalMode == RemovalMode.SCAFFOLDING_AND_WALLPAPER)
+                            {
+                                Item itemForm = currentArea.GetBuildingBlockItemForm((int)tile.X, (int)tile.Y);
+                                if (itemForm != ItemDict.NONE)
+                                {
+                                    currentArea.RemoveBuildingBlock((int)tile.X, (int)tile.Y, player, world);
+                                    player.IgnoreMouseInputThisFrame();
+                                    removalMode = RemovalMode.SCAFFOLDING_AND_WALLPAPER;
+                                }
+
+                                itemForm = currentArea.GetWallpaperItemForm((int)tile.X, (int)tile.Y);
+                                if (itemForm != ItemDict.NONE)
+                                {
+                                    currentArea.RemoveWallpaperEntity(player, (int)tile.X, (int)tile.Y, world);
+                                    player.IgnoreMouseInputThisFrame();
+                                    removalMode = RemovalMode.SCAFFOLDING_AND_WALLPAPER;
+                                }
+                            }
                         }
                         else
                         {
-                            OpenScrapbook(player, timeData, world);
+                            removalMode = RemovalMode.ANY;
                         }
-                        player.IgnoreMouseInputThisFrame();
                     }
-                    else if (menuButtons[2].Contains(mousePosition))
+
+
+                    if (controller.IsKeyPressed(KeyBinds.CRAFTING) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
                     {
                         if (interfaceState == InterfaceState.CRAFTING)
                         {
@@ -3366,9 +3620,48 @@ namespace Plateau.Components
                             player.Pause();
                             world.Pause();
                         }
-                        player.IgnoreMouseInputThisFrame();
                     }
-                    else if (menuButtons[3].Contains(mousePosition))
+
+                    if (controller.IsKeyPressed(KeyBinds.EDIT_MODE) && currentDialogue == null && interfaceState == InterfaceState.NONE)
+                    {
+                        player.ToggleEditMode();
+                    }
+
+                    if (controller.IsKeyPressed(KeyBinds.OPEN_SCRAPBOOK) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
+                    {
+                        if (interfaceState == InterfaceState.SCRAPBOOK)
+                        {
+                            player.SetInterfaceState(InterfaceState.NONE);
+                            player.Unpause();
+                            world.Unpause();
+                        }
+                        else
+                        {
+                            OpenScrapbook(player, timeData, world);
+                        }
+                    }
+
+                    if (controller.IsKeyPressed(KeyBinds.OPEN_INVENTORY) && inventoryHeldItem.GetItem() == ItemDict.NONE && currentDialogue == null)
+                    {
+                        if (player.GetInterfaceState() == InterfaceState.INVENTORY || player.GetInterfaceState() == InterfaceState.CHEST)
+                        {
+                            player.SetInterfaceState(InterfaceState.NONE);
+                            player.Unpause();
+                            world.Unpause();
+                        }
+                        else
+                        {
+                            player.SetInterfaceState(InterfaceState.INVENTORY);
+                            player.Pause();
+                            world.Pause();
+                        }
+                        if (!player.IsRolling())
+                        {
+                            player.SetToDefaultPose();
+                        }
+                    }
+
+                    if (controller.IsKeyPressed(KeyBinds.SETTINGS) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
                     {
                         if (interfaceState == InterfaceState.SETTINGS)
                         {
@@ -3382,263 +3675,6 @@ namespace Plateau.Components
                             player.Pause();
                             world.Pause();
                         }
-                        player.IgnoreMouseInputThisFrame();
-                    }
-                    else if (menuButtons[4].Contains(mousePosition))
-                    {
-                        player.ToggleEditMode();
-                        player.IgnoreMouseInputThisFrame();
-                    }
-                }
-
-                //place down a placeable
-                if (player.IsEditMode() && interfaceState == InterfaceState.NONE)
-                {
-                    if (controller.GetMouseLeftDown() && player.GetHeldItem().GetItem() is PlaceableItem)
-                    {
-                        PlaceableItem item = (PlaceableItem)player.GetHeldItem().GetItem();
-                        Vector2 mouseLocation = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, controller.GetMousePos());
-                        Vector2 tile = new Vector2((int)(mouseLocation.X / 8), (int)(mouseLocation.Y / 8) - (item.GetPlaceableHeight() - 1));
-
-                        if (item.GetPlacementType() == PlaceableItem.PlacementType.NORMAL)
-                        {
-                            bool isPlaceableLocationValid = currentArea.IsTileEntityPlacementValid((int)tile.X, (int)tile.Y, item.GetPlaceableWidth(), item.GetPlaceableHeight());
-
-                            if (isPlaceableLocationValid)
-                            {
-                                Vector2 placementLocation = new Vector2(tile.X * 8, tile.Y * 8);
-                                TileEntity toPlace = (TileEntity)EntityFactory.GetEntity(EntityType.USE_ITEM, item, tile, currentArea);
-                                currentArea.AddTileEntity(toPlace);
-                                player.GetHeldItem().Subtract(1);
-                                player.IgnoreMouseInputThisFrame();
-                                showPlaceableTexture = false;
-                                lastPlacedTile = tile;
-                            }
-                            else
-                            {
-                                if (showPlaceableTexture)
-                                {
-                                    player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
-                                }
-                            }
-                        }
-                        else if (item.GetPlacementType() == PlaceableItem.PlacementType.WALL)
-                        {
-                            bool isWallLocationValid = currentArea.IsWallEntityPlacementValid((int)tile.X, (int)tile.Y, item.GetPlaceableWidth(), item.GetPlaceableHeight());
-
-                            if (isWallLocationValid)
-                            {
-                                Vector2 placementLocation = new Vector2(tile.X * 8, tile.Y * 8);
-                                TileEntity toPlace = (TileEntity)EntityFactory.GetEntity(EntityType.USE_ITEM, item, tile, currentArea);
-                                currentArea.AddWallEntity(toPlace);
-                                player.GetHeldItem().Subtract(1);
-                                player.IgnoreMouseInputThisFrame();
-                                showPlaceableTexture = false;
-                                lastPlacedTile = tile;
-                            }
-                            else
-                            {
-                                if (showPlaceableTexture)
-                                {
-                                    player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
-                                }
-                            }
-                        }
-                        else if (item.GetPlacementType() == PlaceableItem.PlacementType.CEILING)
-                        {
-
-                        }
-                        else if (item.GetPlacementType() == PlaceableItem.PlacementType.WALLPAPER)
-                        {
-                            bool isWallpaperLocationValid = currentArea.IsWallpaperPlacementValid((int)tile.X, (int)tile.Y, item.GetPlaceableWidth(), item.GetPlaceableHeight());
-                            if (isWallpaperLocationValid)
-                            {
-                                Vector2 placementLocation = new Vector2(tile.X * 8, tile.Y * 8);
-                                PEntityWallpaper toPlace = (PEntityWallpaper)EntityFactory.GetEntity(EntityType.USE_ITEM, item, tile, currentArea);
-                                currentArea.AddWallpaperEntity(toPlace);
-                                player.GetHeldItem().Subtract(1);
-                                player.IgnoreMouseInputThisFrame();
-                                showPlaceableTexture = false;
-                                lastPlacedTile = tile;
-                            }
-                            else
-                            {
-                                if (showPlaceableTexture)
-                                {
-                                    Area.Subarea.NameEnum subarea = currentArea.GetSubareaAt(player.GetCollisionRectangle());
-                                    if (subarea != Area.Subarea.NameEnum.FARMHOUSECABIN && subarea != Area.Subarea.NameEnum.FARMHOUSEHOUSE &&
-                                        subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONLOWER && subarea != Area.Subarea.NameEnum.FARMHOUSEMANSIONUPPER &&
-                                        subarea != Area.Subarea.NameEnum.FARMHOUSECELLAR)
-                                        player.AddNotification(new EntityPlayer.Notification("I can only place Wallpaper in my house.", Color.Red));
-                                    else
-                                        player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
-                                }
-                            }
-                        }
-                        else if (item.GetPlacementType() == PlaceableItem.PlacementType.FLOOR)
-                        {
-                            bool isFloorPlacementValid = currentArea.IsFloorEntityPlacementValid((int)tile.X, (int)tile.Y, item.GetPlaceableWidth());
-                            if (isFloorPlacementValid)
-                            {
-                                Vector2 placementLocation = new Vector2(tile.X * 8, tile.Y * 8);
-                                TileEntity toPlace = (TileEntity)EntityFactory.GetEntity(EntityType.USE_ITEM, item, tile, currentArea);
-                                currentArea.AddTileEntity(toPlace);
-                                player.GetHeldItem().Subtract(1);
-                                player.IgnoreMouseInputThisFrame();
-                                showPlaceableTexture = false;
-                                lastPlacedTile = tile;
-                            }
-                            else
-                            {
-                                if (showPlaceableTexture)
-                                {
-                                    player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
-                                }
-                            }
-                        }
-                    }
-                    else if (controller.GetMouseLeftDown() && player.GetHeldItem().GetItem() is BuildingBlockItem)
-                    {
-                        if (currentArea.GetAreaEnum() != Area.AreaEnum.FARM)
-                        {
-                            player.AddNotification(new EntityPlayer.Notification("I can only place scaffolding on my farm.", Color.Red));
-                        }
-                        else
-                        {
-                            BuildingBlockItem item = (BuildingBlockItem)player.GetHeldItem().GetItem();
-                            Vector2 mouseLocation = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, controller.GetMousePos());
-                            Vector2 tile = new Vector2((int)(mouseLocation.X / 8), (int)(mouseLocation.Y / 8));
-                            bool isBBLocationValid = currentArea.IsBuildingBlockPlacementValid((int)tile.X, (int)tile.Y, item.GetBlockType() == BlockType.BLOCK);
-                            if (item.GetBlockType() == BlockType.BLOCK && player.GetCollisionRectangle().Intersects(new RectangleF(tile * new Vector2(8, 8), new Vector2(8, 4))))
-                            {
-                                isBBLocationValid = false;
-                            }
-
-                            if (isBBLocationValid)
-                            {
-                                BuildingBlock toPlace = new BuildingBlock(item, tile, item.GetPlacedTexture(), item.GetBlockType());
-                                currentArea.AddBuildingBlock(toPlace);
-                                player.GetHeldItem().Subtract(1);
-                                player.IgnoreMouseInputThisFrame();
-                                showPlaceableTexture = false;
-                                lastPlacedTile = tile;
-                            }
-                            else
-                            {
-                                //also doesn't give message when attempting to place scaffolding over scaffolding
-                                if (showPlaceableTexture && currentArea.GetBuildingBlockAt((int)tile.X, (int)tile.Y) == null)
-                                {
-                                    player.AddNotification(new EntityPlayer.Notification("This can\'t be placed here.", Color.Red));
-                                }
-                            }
-                        }
-                    }
-                    else if (controller.GetMouseRightDown()) //remove placeable
-                    {
-                        
-                        //TODODOREMOVE
-                        Vector2 location = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, controller.GetMousePos());
-                        Vector2 tile = new Vector2((int)(location.X / 8), (int)(location.Y / 8));
-
-                        //first, attempt to remove placeable (floor or wall).
-                        //if successful, ONLY remove placeables (floor or wall) until mouse lifted
-                        if(removalMode == RemovalMode.ANY || removalMode == RemovalMode.PLACEABLE)
-                        {
-                            //try ground placeable
-                            Item itemForm = currentArea.GetTileEntityItemForm((int)tile.X, (int)tile.Y);
-                            if (itemForm != ItemDict.NONE)
-                            {
-                                currentArea.RemoveTileEntity(player, (int)tile.X, (int)tile.Y, world);
-                                player.IgnoreMouseInputThisFrame();
-                                removalMode = RemovalMode.PLACEABLE;
-                            }
-
-                            //try wall placeable
-                            itemForm = currentArea.GetWallEntityItemForm((int)tile.X, (int)tile.Y);
-                            if (itemForm != ItemDict.NONE)
-                            {
-                                currentArea.RemoveWallEntity(player, (int)tile.X, (int)tile.Y, world);
-                                player.IgnoreMouseInputThisFrame();
-                                removalMode = RemovalMode.PLACEABLE;
-                            }
-                        }
-
-                        //if we haven't removed a placeable, try to removal wallpaper or scaffolding
-                        //if successful, ONLY remove wallpaper or scaffolidng until mouse lifted
-                        if(removalMode == RemovalMode.ANY || removalMode == RemovalMode.SCAFFOLDING_AND_WALLPAPER)
-                        {
-                            Item itemForm = currentArea.GetBuildingBlockItemForm((int)tile.X, (int)tile.Y);
-                            if (itemForm != ItemDict.NONE)
-                            {
-                                currentArea.RemoveBuildingBlock((int)tile.X, (int)tile.Y, player, world);
-                                player.IgnoreMouseInputThisFrame();
-                                removalMode = RemovalMode.SCAFFOLDING_AND_WALLPAPER;
-                            }
-
-                            itemForm = currentArea.GetWallpaperItemForm((int)tile.X, (int)tile.Y);
-                            if (itemForm != ItemDict.NONE)
-                            {
-                                currentArea.RemoveWallpaperEntity(player, (int)tile.X, (int)tile.Y, world);
-                                player.IgnoreMouseInputThisFrame();
-                                removalMode = RemovalMode.SCAFFOLDING_AND_WALLPAPER;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        removalMode = RemovalMode.ANY;
-                    }
-                }
-                
-
-                if (controller.IsKeyPressed(KeyBinds.CRAFTING) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
-                {
-                    if (interfaceState == InterfaceState.CRAFTING)
-                    {
-                        player.SetInterfaceState(InterfaceState.NONE);
-                        player.Unpause();
-                        world.Unpause();
-                    }
-                    else
-                    {
-                        player.SetInterfaceState(InterfaceState.CRAFTING);
-                        player.Pause();
-                        world.Pause();
-                    }
-                }
-
-                if (controller.IsKeyPressed(KeyBinds.EDIT_MODE) && currentDialogue == null && interfaceState == InterfaceState.NONE)
-                {
-                    player.ToggleEditMode();
-                }
-
-                if (controller.IsKeyPressed(KeyBinds.OPEN_SCRAPBOOK) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
-                {
-                    if (interfaceState == InterfaceState.SCRAPBOOK)
-                    {
-                        player.SetInterfaceState(InterfaceState.NONE);
-                        player.Unpause();
-                        world.Unpause();
-                    }
-                    else
-                    {
-                        OpenScrapbook(player, timeData, world);
-                    }
-                }
-
-                if (controller.IsKeyPressed(KeyBinds.SETTINGS) && currentDialogue == null && inventoryHeldItem.GetItem() == ItemDict.NONE)
-                {
-                    if (interfaceState == InterfaceState.SETTINGS)
-                    {
-                        player.SetInterfaceState(InterfaceState.NONE);
-                        player.Unpause();
-                        world.Unpause();
-                    }
-                    else
-                    {
-                        player.SetInterfaceState(InterfaceState.SETTINGS);
-                        player.Pause();
-                        world.Pause();
                     }
                 }
 
@@ -3656,26 +3692,6 @@ namespace Plateau.Components
                 gridLocation = currentArea.GetPositionOfTile((int)(cameraBoundingBox.Left / 8), (int)(cameraBoundingBox.Top / 8));
                 gridLocation.X -= 0.5f;
                 gridLocation.Y -= 0.5f;
-
-                if (controller.IsKeyPressed(KeyBinds.OPEN_INVENTORY) && inventoryHeldItem.GetItem() == ItemDict.NONE && currentDialogue == null)
-                {
-                    if (player.GetInterfaceState() == InterfaceState.INVENTORY || player.GetInterfaceState() == InterfaceState.CHEST)
-                    {
-                        player.SetInterfaceState(InterfaceState.NONE);
-                        player.Unpause();
-                        world.Unpause();
-                    }
-                    else
-                    {
-                        player.SetInterfaceState(InterfaceState.INVENTORY);
-                        player.Pause();
-                        world.Pause();
-                    }
-                    if (!player.IsRolling())
-                    {
-                        player.SetToDefaultPose();
-                    }
-                }
 
                 if (player.GetInterfaceState() == InterfaceState.INVENTORY || player.GetInterfaceState() == InterfaceState.CHEST)
                 {
@@ -4205,7 +4221,8 @@ namespace Plateau.Components
                             PlateauMain.UpdateWindowed();
                         } 
                     }
-                } else if (interfaceState == InterfaceState.CRAFTING) //workbench
+                } 
+                else if (interfaceState == InterfaceState.CRAFTING) //workbench
                 {
                     if (selectedRecipe != null)
                     {
@@ -4596,7 +4613,7 @@ namespace Plateau.Components
 
         public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, float layerDepth)
         {
-
+            //draw grid
             if(editMode && !Config.HIDE_GRID)
             {
                 sb.Draw(grid, gridLocation, Color.White * GRID_OPACITY);
@@ -4608,7 +4625,8 @@ namespace Plateau.Components
                 sb.Draw(reticle, targetTile * new Vector2(8, 8), Color.White);
             }
 
-            if(targetEntity != null && targetEntity is IHaveHoveringInterface)
+            //draw hovering interface
+            if (targetEntity != null && targetEntity is IHaveHoveringInterface)
             {
                 currentHoveringInterface = ((IHaveHoveringInterface)targetEntity).GetHoveringInterface(player);
                 if (currentHoveringInterface != null)
@@ -4620,7 +4638,8 @@ namespace Plateau.Components
                     hoveringInterfacePosition.X += targetSize.Width / 2;
                     hoveringInterfacePosition.X -= hoveringSize.X / 2;
                     hoveringInterfacePosition.Y -= hoveringSize.Y;
-                } else
+                }
+                else
                 {
                     hoveringInterfaceOpacity = 0;
                 }
@@ -4630,11 +4649,13 @@ namespace Plateau.Components
                 currentHoveringInterface.Draw(sb, hoveringInterfacePosition, hoveringInterfaceOpacity, cameraBoundingBox);
             }
 
+            //draw healthbars
             foreach (HealthBar healthBar in healthBars)
             {
                 healthBar.Draw(sb, layerDepth);
             }
 
+            //draw collected tooltips
             if (interfaceState == InterfaceState.NONE)
             {
                 if (!isHidden)
@@ -4864,7 +4885,8 @@ namespace Plateau.Components
             }
             else if (interfaceState == InterfaceState.SETTINGS)
             {
-                sb.Draw(black_background, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, BACKGROUND_BLACK_OFFSET), Color.White * BLACK_BACKGROUND_OPACITY);
+                if(!isHidden) //when showing on main menu, don't black out background
+                    sb.Draw(black_background, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, BACKGROUND_BLACK_OFFSET), Color.White * BLACK_BACKGROUND_OPACITY);
                 sb.Draw(settings, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_POSITION), Color.White);
 
                 if (settingsOtherRectangles[0].Contains(controller.GetMousePos()))
@@ -5536,7 +5558,8 @@ namespace Plateau.Components
                         sb.Draw(numbers[inventoryHeldItem.GetQuantity() / 10], Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, itemQuantityPosition), Color.White);
                     }
                 }
-            } else
+            } 
+            else
             {
                 if (isHoldingPlaceable)
                 {
@@ -5665,6 +5688,10 @@ namespace Plateau.Components
                 world.GetCurrentArea().AddEntity(new EntityItem(heldItem.GetItem(), position, new Vector2((player.GetDirection() == DirectionEnum.LEFT ? -1 : 1) * Util.RandInt(55, 63) / 100.0f, -2.3f))); ;
                 heldItem.Subtract(1);
             }
+        }
+        public void SetState(InterfaceState state)
+        {
+            interfaceState = state;
         }
     }
 

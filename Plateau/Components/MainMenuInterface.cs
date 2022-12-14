@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.Extended;
+using Plateau.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Plateau.Components
     public class MainMenuInterface
     {
         public enum MainMenuState {
-            NONE, CLICKED_SAVE_1, CLICKED_SAVE_2, CLICKED_SAVE_3
+            NONE, CLICKED_SAVE_1, CLICKED_SAVE_2, CLICKED_SAVE_3, SETTINGS
         }
         private static Rectangle[] buttons = { new Rectangle(56-2, 140-2, 54+4, 35+4), new Rectangle(133-2, 140-2, 54+4, 35+4), new Rectangle(210-2, 140-2, 54+4, 35+4), new Rectangle(299-1, 159-1, 16+1, 16+1) };
         private static int NEW_SAVE_X_OFFSET = 5;
@@ -28,6 +29,7 @@ namespace Plateau.Components
         private World.TimeData fakeTimeData;
         private World.Weather fakeWeather;
         private bool hoveringSave1, hoveringSave2, hoveringSave3, hoveringSettings;
+        private bool settingsOpen;
 
         public MainMenuInterface(Controller controller, bool file1Exists, bool file2Exists, bool file3Exists)
         {
@@ -36,6 +38,7 @@ namespace Plateau.Components
             this.file1Exists = file1Exists;
             this.file2Exists = file2Exists;
             this.file3Exists = file3Exists;
+            this.settingsOpen = false;
 
             World.Season systemSeason = World.Season.NONE;
             switch (DateTime.Now.Month)
@@ -74,7 +77,7 @@ namespace Plateau.Components
             } 
         }
 
-        public void Update(float deltaTime, RectangleF cameraBoundingBox)
+        public void Update(float deltaTime, RectangleF cameraBoundingBox, EntityPlayer player)
         {
             //state = MainMenuState.CLICKED_SAVE_1; //SKIP
             background.Update(deltaTime, cameraBoundingBox, fakeTimeData, fakeWeather, fakeTimeData.season);
@@ -113,6 +116,21 @@ namespace Plateau.Components
                             break;
                         case 3:
                             hoveringSettings = true;
+                            if(controller.GetMouseLeftPress())
+                            {
+                                settingsOpen = !settingsOpen;
+                                if (settingsOpen)
+                                {
+                                    player.SetInterfaceState(InterfaceState.SETTINGS);
+                                    state = MainMenuState.SETTINGS;
+                                }
+                                else
+                                {
+                                    player.SetInterfaceState(InterfaceState.NONE);
+                                    state = MainMenuState.NONE;
+                                }
+                                    
+                            }
                             break;
                     }
                 }
@@ -133,21 +151,25 @@ namespace Plateau.Components
         public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox)
         {
             background.Draw(sb, cameraBoundingBox, 1.0f, 1.0f);
-            sb.Draw(logo, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, LOGO_POSITION), Color.White);
-            sb.Draw(hoveringSave1 ? saveSlotEnlarge : saveSlot, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[0].X, buttons[0].Y)), Color.White);
-            sb.Draw(hoveringSave2 ? saveSlotEnlarge : saveSlot, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[1].X, buttons[1].Y)), Color.White);
-            sb.Draw(hoveringSave3 ? saveSlotEnlarge : saveSlot, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[2].X, buttons[2].Y)), Color.White);
-            if(!file1Exists)
+
+            if (state != MainMenuState.SETTINGS)
             {
-                sb.Draw(newSaveIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[0].X + NEW_SAVE_X_OFFSET, buttons[0].Y + NEW_SAVE_Y_OFFSET)), Color.White);
-            }
-            if (!file2Exists)
-            {
-                sb.Draw(newSaveIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[1].X + NEW_SAVE_X_OFFSET, buttons[1].Y + NEW_SAVE_Y_OFFSET)), Color.White);
-            }
-            if (!file3Exists)
-            {
-                sb.Draw(newSaveIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[2].X + NEW_SAVE_X_OFFSET, buttons[2].Y + NEW_SAVE_Y_OFFSET)), Color.White);
+                sb.Draw(logo, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, LOGO_POSITION), Color.White);
+                sb.Draw(hoveringSave1 ? saveSlotEnlarge : saveSlot, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[0].X, buttons[0].Y)), Color.White);
+                sb.Draw(hoveringSave2 ? saveSlotEnlarge : saveSlot, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[1].X, buttons[1].Y)), Color.White);
+                sb.Draw(hoveringSave3 ? saveSlotEnlarge : saveSlot, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[2].X, buttons[2].Y)), Color.White);
+                if (!file1Exists)
+                {
+                    sb.Draw(newSaveIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[0].X + NEW_SAVE_X_OFFSET, buttons[0].Y + NEW_SAVE_Y_OFFSET)), Color.White);
+                }
+                if (!file2Exists)
+                {
+                    sb.Draw(newSaveIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[1].X + NEW_SAVE_X_OFFSET, buttons[1].Y + NEW_SAVE_Y_OFFSET)), Color.White);
+                }
+                if (!file3Exists)
+                {
+                    sb.Draw(newSaveIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[2].X + NEW_SAVE_X_OFFSET, buttons[2].Y + NEW_SAVE_Y_OFFSET)), Color.White);
+                }
             }
             sb.Draw(hoveringSettings ? settingsIconEnlarge : settingsIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(buttons[3].X, buttons[3].Y)), Color.White);
             //sb.Draw(mouseCursor, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, controller.GetMousePos()), Color.White);

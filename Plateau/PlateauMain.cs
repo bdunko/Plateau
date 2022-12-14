@@ -411,10 +411,10 @@ namespace Plateau
                 }
                 else if (currentState == PlateauGameState.MAINMENU)
                 {
-                    mmi.Update(deltaTime, camera.GetBoundingBox());
-                    if (mmi.GetState() != MainMenuInterface.MainMenuState.NONE)
+                    mmi.Update(deltaTime, camera.GetBoundingBox(), player);
+                    ui.Update(deltaTime, player, camera.GetBoundingBox(), world.GetCurrentArea(), world.GetTimeData(), world); //update the interface
+                    if (mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_1 || mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_2 || mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_3)
                     {
-                        ui.Update(deltaTime, player, camera.GetBoundingBox(), world.GetCurrentArea(), world.GetTimeData(), world); //update the interface
                         if (!mainMenuTransitionStarted)
                         {
                             //start the transition by fading to block
@@ -566,12 +566,21 @@ namespace Plateau
         {
             if (currentState == PlateauGameState.MAINMENU)
             {
-                ui.Hide();
+                ui.Hide(); 
                 GRAPHICS.GraphicsDevice.SetRenderTarget(mainTarget);
                 GRAPHICS.GraphicsDevice.Clear(Color.CadetBlue);
                 spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend);
                 mmi.Draw(spriteBatch, camera.GetBoundingBox());
-                ui.Draw(spriteBatch, camera.GetBoundingBox(), 0.99f);
+                ui.Draw(spriteBatch, camera.GetBoundingBox(), 0.99f); //necessary for transitions to appear correctly
+                spriteBatch.End();
+
+                //draw tooltip & queued strings
+                spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.LinearClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
+                ui.DrawStrings(spriteBatch);
+                spriteBatch.End();
+
+                spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
+                ui.DrawTooltip(spriteBatch, camera.GetBoundingBox());
                 spriteBatch.End();
 
                 GRAPHICS.GraphicsDevice.SetRenderTarget(null);
