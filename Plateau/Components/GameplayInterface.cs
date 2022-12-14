@@ -3304,10 +3304,21 @@ namespace Plateau.Components
                         //if specifically in normal, chest, or inv mode, toss 1 of held item
                         if ((interfaceState == InterfaceState.NONE || interfaceState == InterfaceState.CHEST || interfaceState == InterfaceState.INVENTORY) && controller.IsKeyPressed(KeyBinds.DROP_ITEM))
                         {
-                            if (controller.IsKeyDown(KeyBinds.SHIFT))
-                                DropHeldItemAll(world);
+                            if(inventoryHeldItem.GetItem () != ItemDict.NONE)
+                            {
+                                if (controller.IsKeyDown(KeyBinds.SHIFT))
+                                    DropInventoryHeldItemAll(world);
+                                else
+                                    DropInventoryHeldItem(world);
+                            }
                             else
-                                DropHeldItem(world);
+                            {
+                                if (controller.IsKeyDown(KeyBinds.SHIFT))
+                                    DropHeldItemAll(world);
+                                else
+                                    DropHeldItem(world);
+                            }
+
                         }
 
                         //adjust selectedhotbarposition according to mouse wheel movement
@@ -3331,7 +3342,7 @@ namespace Plateau.Components
                     {
                         if (menuButtons[0].Contains(mousePosition))
                         {
-                            DropInventoryHeldItem(world); //throw currently held item out into world, if any
+                            DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
                             if (player.GetInterfaceState() == InterfaceState.INVENTORY)
                             {
                                 player.SetInterfaceState(InterfaceState.NONE);
@@ -3353,7 +3364,7 @@ namespace Plateau.Components
                         }
                         else if (menuButtons[1].Contains(mousePosition))
                         {
-                            DropInventoryHeldItem(world); //throw currently held item out into world, if any
+                            DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
                             if (interfaceState == InterfaceState.SCRAPBOOK)
                             {
                                 player.SetInterfaceState(InterfaceState.NONE);
@@ -3368,7 +3379,7 @@ namespace Plateau.Components
                         }
                         else if (menuButtons[2].Contains(mousePosition))
                         {
-                            DropInventoryHeldItem(world); //throw currently held item out into world, if any
+                            DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
                             if (interfaceState == InterfaceState.CRAFTING)
                             {
                                 player.SetInterfaceState(InterfaceState.NONE);
@@ -3385,7 +3396,7 @@ namespace Plateau.Components
                         }
                         else if (menuButtons[3].Contains(mousePosition))
                         {
-                            DropInventoryHeldItem(world); //throw currently held item out into world, if any
+                            DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
                             if (interfaceState == InterfaceState.SETTINGS)
                             {
                                 player.SetInterfaceState(InterfaceState.NONE);
@@ -3609,7 +3620,7 @@ namespace Plateau.Components
 
                     if (controller.IsKeyPressed(KeyBinds.CRAFTING) && currentDialogue == null)
                     {
-                        DropInventoryHeldItem(world); //throw currently held item out into world, if any
+                        DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
                         if (interfaceState == InterfaceState.CRAFTING)
                         {
                             player.SetInterfaceState(InterfaceState.NONE);
@@ -3631,7 +3642,7 @@ namespace Plateau.Components
 
                     if (controller.IsKeyPressed(KeyBinds.OPEN_SCRAPBOOK) && currentDialogue == null)
                     {
-                        DropInventoryHeldItem(world); //throw currently held item out into world, if any
+                        DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
                         if (interfaceState == InterfaceState.SCRAPBOOK)
                         {
                             player.SetInterfaceState(InterfaceState.NONE);
@@ -3646,7 +3657,7 @@ namespace Plateau.Components
 
                     if (controller.IsKeyPressed(KeyBinds.OPEN_INVENTORY) && currentDialogue == null)
                     {
-                        DropInventoryHeldItem(world); //throw currently held item out into world, if any
+                        DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
                         if (player.GetInterfaceState() == InterfaceState.INVENTORY || player.GetInterfaceState() == InterfaceState.CHEST)
                         {
                             player.SetInterfaceState(InterfaceState.NONE);
@@ -3667,7 +3678,7 @@ namespace Plateau.Components
 
                     if (controller.IsKeyPressed(KeyBinds.SETTINGS) && currentDialogue == null)
                     {
-                        DropInventoryHeldItem(world); //throw currently held item out into world, if any
+                        DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
                         if (interfaceState == InterfaceState.SETTINGS)
                         {
                             player.SetInterfaceState(InterfaceState.NONE);
@@ -3787,7 +3798,7 @@ namespace Plateau.Components
                             {
                                 if(dropRectangle.Contains(mousePos) && inventoryHeldItem.GetItem() != ItemDict.NONE)
                                 {
-                                    DropInventoryHeldItem(world);
+                                    DropInventoryHeldItemAll(world);
                                 }
                             }
                         }
@@ -5677,17 +5688,22 @@ namespace Plateau.Components
             return interfaceState == InterfaceState.NONE;
         }
 
-        public void DropInventoryHeldItem(World world)
+        //Drops ONE of inventory held item
+        private void DropInventoryHeldItem(World world)
         {
-            if(inventoryHeldItem.GetItem() != ItemDict.NONE)
+            if (inventoryHeldItem.GetItem() != ItemDict.NONE)
             {
-                for (int i = 0; i < inventoryHeldItem.GetQuantity(); i++)
-                {
-                    Vector2 position = player.GetCenteredPosition() + new Vector2(0, 4);
-                    world.GetCurrentArea().AddEntity(new EntityItem(inventoryHeldItem.GetItem(), position, new Vector2((player.GetDirection() == DirectionEnum.LEFT ? -1 : 1) * Util.RandInt(55, 63) / 100.0f, -2.3f))); ;
-                }
-                inventoryHeldItem = new ItemStack(ItemDict.NONE, 0);
+                Vector2 position = player.GetCenteredPosition() + new Vector2(0, 4);
+                world.GetCurrentArea().AddEntity(new EntityItem(inventoryHeldItem.GetItem(), position, new Vector2((player.GetDirection() == DirectionEnum.LEFT ? -1 : 1) * Util.RandInt(55, 63) / 100.0f, -2.3f))); ;
+                inventoryHeldItem.Subtract(1);
             }
+        }
+
+        //Drop ALL of inventory held item
+        public void DropInventoryHeldItemAll(World world)
+        {
+            while (inventoryHeldItem.GetItem() != ItemDict.NONE)
+                DropInventoryHeldItem(world);
         }
 
         private void DropHeldItemAll(World world)
