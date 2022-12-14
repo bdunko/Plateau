@@ -194,10 +194,13 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls_w_down.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_logo.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_newgame.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_quit.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_quit_enlarge.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_saveslot.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_saveslot_enlarge.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_settings.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_settings_enlarge.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_settings_selected.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/menu_controls.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/menu_controls_crafting_depressed.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/menu_controls_crafting_enlarge.png</File>
@@ -2828,6 +2831,9 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -2289,6 +2289,30 @@
 /processorParam:TextureFormat=Color
 /build:interface/mainmenu_newgame.png
 
+#begin interface/mainmenu_quit.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/mainmenu_quit.png
+
+#begin interface/mainmenu_quit_enlarge.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/mainmenu_quit_enlarge.png
+
 #begin interface/mainmenu_saveslot.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2336,6 +2360,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:interface/mainmenu_settings_enlarge.png
+
+#begin interface/mainmenu_settings_selected.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/mainmenu_settings_selected.png
 
 #begin interface/menu_controls.png
 /importer:TextureImporter

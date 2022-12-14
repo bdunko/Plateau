@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/placeables/wallpaper_horizontal_greyscale_top.png</SourceFile>
-  <SourceTime>2022-11-28T22:47:18.8340978-05:00</SourceTime>
+  <SourceTime>2022-12-04T23:47:02.5657323-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/placeables/wallpaper_horizontal_greyscale_top.xnb</DestFile>
-  <DestTime>2022-12-01T20:00:18.8610928-05:00</DestTime>
+  <DestTime>2022-12-13T22:05:59.7276792-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

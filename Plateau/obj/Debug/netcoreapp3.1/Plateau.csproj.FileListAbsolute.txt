@@ -5836,3 +5836,6 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\crafti
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\crafting_pieces\furniture_tab_hover.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\crafting_pieces\machine_tab_hover.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\crafting_pieces\scaffolding_tab_hover.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\mainmenu_quit.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\mainmenu_quit_enlarge.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\mainmenu_settings_selected.xnb

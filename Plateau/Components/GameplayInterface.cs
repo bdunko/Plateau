@@ -315,7 +315,7 @@ namespace Plateau.Components
 
         private static Vector2 EDIT_MODE_NOTIFICATION_TEXT = new Vector2(33, 133);
 
-        private static Vector2 MENU_BUTTON_SIZE = new Vector2(11, 11);
+        private static Vector2 MENU_BUTTON_SIZE = new Vector2(13, 13);
         private static int MENU_DELTA_Y = 13;
         private RectangleF[] menuButtons;
 
@@ -5719,10 +5719,6 @@ namespace Plateau.Components
                 world.GetCurrentArea().AddEntity(new EntityItem(heldItem.GetItem(), position, new Vector2((player.GetDirection() == DirectionEnum.LEFT ? -1 : 1) * Util.RandInt(55, 63) / 100.0f, -2.3f))); ;
                 heldItem.Subtract(1);
             }
-        }
-        public void SetState(InterfaceState state)
-        {
-            interfaceState = state;
         }
     }
 

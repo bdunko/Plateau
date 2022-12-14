@@ -94,11 +94,14 @@ namespace Plateau.Components
         public static string MAP_APEX = "maps/apex";
 
         //interface
-        public static string INTERFACE_MAINMENU_SAVESLOT_ENLARGE = "interface/mainmenu_saveslot_enlarge";
-        public static string INTERFACE_MAINMENU_SETTINGS_ENLARGE = "interface/mainmenu_settings_enlarge";
         public static string INTERFACE_MAINMENU_NEWGAME = "interface/mainmenu_newgame";
-        public static string INTERFACE_MAINMENU_SETTINGS = "interface/mainmenu_settings";
         public static string INTERFACE_MAINMENU_SAVESLOT = "interface/mainmenu_saveslot";
+        public static string INTERFACE_MAINMENU_SAVESLOT_ENLARGE = "interface/mainmenu_saveslot_enlarge";
+        public static string INTERFACE_MAINMENU_SETTINGS = "interface/mainmenu_settings";
+        public static string INTERFACE_MAINMENU_SETTINGS_ENLARGE = "interface/mainmenu_settings_enlarge";
+        public static string INTERFACE_MAINMENU_SETTINGS_SELECTED = "interface/mainmenu_settings_selected";
+        public static string INTERFACE_MAINMENU_QUIT = "interface/mainmenu_quit";
+        public static string INTERFACE_MAINMENU_QUIT_ENLARGE = "interface/mainmenu_quit_enlarge";
         public static string INTERFACE_MAINMENU_LOGO = "interface/mainmenu_logo";
         public static string INTERFACE_ITEM_BOX = "interface/item_box";
         public static string INTERFACE_HOVERING_ITEM_BOX = "interface/hovering_item_box";
