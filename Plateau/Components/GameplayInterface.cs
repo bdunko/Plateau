@@ -384,7 +384,10 @@ namespace Plateau.Components
         private static Vector2 EXIT_PROMPT_POSITION = new Vector2(130, 13);
         private RectangleF exitPromptButton;
 
-        private Texture2D settings, checkmark, checkmark_hover, resolutionup_enlarge, resolutionup_disabled, resolutiondown_enlarge, resolutiondown_disabled, sound_segment_end, sound_segment, sound_segment_farleft, sound_segment_end_farright, sound_segment_end_farleft;
+        private Texture2D settings, checkmark, checkmark_hover, 
+            resolutionup_enlarge, resolutionup_disabled, resolutiondown_enlarge, resolutiondown_disabled, 
+            sound_segment_end, sound_segment, sound_segment_farleft, sound_segment_end_farright, sound_segment_end_farleft,
+            hotkey_active, hotkey_hover, hotkey_overlap, hotkey_lrud_active, hotkey_lrud_hover, hotkey_lrud_overlap;
         private static Vector2 SETTINGS_POSITION = new Vector2(63, 16);
         private static Vector2 SETTINGS_RESOLUTION_TEXT_POSITION = SETTINGS_POSITION + new Vector2(40, 38);
         private static RectangleF SETTINGS_KEYBIND_LEFT_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(116, 16), new Vector2(18, 10));
@@ -722,6 +725,13 @@ namespace Plateau.Components
             sound_segment_end_farleft = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_SOUND_SEGMENT_END_FARLEFT);
             sound_segment_end_farright = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_SOUND_SEGMENT_END_FARRIGHT);
             sound_segment_farleft = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_SOUND_SEGMENT_FARLEFT);
+            hotkey_active = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_HOTKEY_ACTIVE);
+            hotkey_hover = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_HOTKEY_HOVER);
+            hotkey_overlap = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_HOTKEY_OVERLAP);
+            hotkey_lrud_active = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_HOTKEY_LRUD_ACTIVE);
+            hotkey_lrud_hover = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_HOTKEY_LRUD_HOVER);
+            hotkey_lrud_overlap = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_HOTKEY_LRUD_OVERLAP);
+
 
             settingsOtherRectangles = new RectangleF[4];
             settingsOtherRectangles[0] = new RectangleF(SETTINGS_POSITION + new Vector2(6, 84), new Vector2(8, 8)); //HIDE CONTROLS
@@ -3307,8 +3317,6 @@ namespace Plateau.Components
                 }
 
                 Vector2 mousePosition = controller.GetMousePos();
-
-
                
                 //if not hidden, accept key presses to open interfaces
                 if (!isHidden)
@@ -5196,43 +5204,112 @@ namespace Plateau.Components
                 Vector2 leftKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.LEFT)) * PlateauMain.FONT_SCALE;
                 Vector2 leftKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_LEFT_POSITION.Center - new Vector2(leftKeybindTextLen.X / 2 - 0.5f, leftKeybindTextLen.Y / 2 - 0.25f));
                 QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.LEFT), leftKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.LEFT)
+                    sb.Draw(hotkey_lrud_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_LEFT_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if(SETTINGS_KEYBIND_LEFT_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_lrud_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_LEFT_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if(KeyBinds.HasOverlap(KeyBinds.LEFT))
+                    sb.Draw(hotkey_lrud_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_LEFT_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+
                 Vector2 rightKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.RIGHT)) * PlateauMain.FONT_SCALE;
                 Vector2 rightKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_RIGHT_POSITION.Center - new Vector2(rightKeybindTextLen.X / 2 - 0.5f, rightKeybindTextLen.Y / 2 - 0.25f));
-                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.RIGHT), rightKeybindTextPos, Color.Black));                
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.RIGHT), rightKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.RIGHT)
+                    sb.Draw(hotkey_lrud_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_RIGHT_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if (SETTINGS_KEYBIND_RIGHT_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_lrud_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_RIGHT_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if (KeyBinds.HasOverlap(KeyBinds.RIGHT))
+                    sb.Draw(hotkey_lrud_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_RIGHT_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+
                 Vector2 upKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.UP)) * PlateauMain.FONT_SCALE;
                 Vector2 upKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_UP_POSITION.Center - new Vector2(upKeybindTextLen.X / 2 - 0.5f, upKeybindTextLen.Y / 2 - 0.25f));
                 QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.UP), upKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.UP)
+                    sb.Draw(hotkey_lrud_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_UP_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if (SETTINGS_KEYBIND_UP_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_lrud_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_UP_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if (KeyBinds.HasOverlap(KeyBinds.UP))
+                    sb.Draw(hotkey_lrud_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_UP_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+
                 Vector2 downKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.DOWN)) * PlateauMain.FONT_SCALE;
                 Vector2 downKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_DOWN_POSITION.Center - new Vector2(downKeybindTextLen.X / 2 - 0.5f, downKeybindTextLen.Y / 2 - 0.25f));
                 QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.DOWN), downKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.DOWN)
+                    sb.Draw(hotkey_lrud_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_DOWN_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if (SETTINGS_KEYBIND_DOWN_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_lrud_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_DOWN_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if (KeyBinds.HasOverlap(KeyBinds.DOWN))
+                    sb.Draw(hotkey_lrud_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_DOWN_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
 
                 Vector2 inventoryKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.INVENTORY)) * PlateauMain.FONT_SCALE;
                 Vector2 inventoryKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_INVENTORY_POSITION.Center - new Vector2(inventoryKeybindTextLen.X / 2 - 0.5f, inventoryKeybindTextLen.Y / 2 - 0.25f));
                 QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.INVENTORY), inventoryKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.INVENTORY)
+                    sb.Draw(hotkey_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_INVENTORY_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if (SETTINGS_KEYBIND_INVENTORY_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_INVENTORY_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if (KeyBinds.HasOverlap(KeyBinds.INVENTORY))
+                    sb.Draw(hotkey_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_INVENTORY_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
 
                 Vector2 scrapbookKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.SCRAPBOOK)) * PlateauMain.FONT_SCALE;
                 Vector2 scrapbookKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_SCRAPBOOK_POSITION.Center - new Vector2(scrapbookKeybindTextLen.X / 2 - 0.5f, scrapbookKeybindTextLen.Y / 2 - 0.25f));
                 QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.SCRAPBOOK), scrapbookKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.SCRAPBOOK)
+                    sb.Draw(hotkey_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_SCRAPBOOK_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if (SETTINGS_KEYBIND_SCRAPBOOK_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_SCRAPBOOK_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if (KeyBinds.HasOverlap(KeyBinds.SCRAPBOOK))
+                    sb.Draw(hotkey_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_SCRAPBOOK_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
 
                 Vector2 craftingKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.CRAFTING)) * PlateauMain.FONT_SCALE;
                 Vector2 craftingKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_CRAFTING_POSITION.Center - new Vector2(craftingKeybindTextLen.X / 2 - 0.5f, craftingKeybindTextLen.Y / 2 - 0.25f));
                 QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.CRAFTING), craftingKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.CRAFTING)
+                    sb.Draw(hotkey_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_CRAFTING_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if (SETTINGS_KEYBIND_CRAFTING_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_CRAFTING_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if (KeyBinds.HasOverlap(KeyBinds.CRAFTING))
+                    sb.Draw(hotkey_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_CRAFTING_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
 
                 Vector2 settingsKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.SETTINGS)) * PlateauMain.FONT_SCALE;
                 Vector2 settingsKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_SETTINGS_POSITION.Center - new Vector2(settingsKeybindTextLen.X / 2 - 0.5f, settingsKeybindTextLen.Y / 2 - 0.25f));
                 QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.SETTINGS), settingsKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.SETTINGS)
+                    sb.Draw(hotkey_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_SETTINGS_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if (SETTINGS_KEYBIND_SETTINGS_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_SETTINGS_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if (KeyBinds.HasOverlap(KeyBinds.SETTINGS))
+                    sb.Draw(hotkey_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_SETTINGS_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
 
                 Vector2 editmodeKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.EDITMODE)) * PlateauMain.FONT_SCALE;
                 Vector2 editmodeKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_EDITMODE_POSITION.Center - new Vector2(editmodeKeybindTextLen.X / 2 - 0.5f, editmodeKeybindTextLen.Y / 2 - 0.25f));
                 QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.EDITMODE), editmodeKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.EDITMODE)
+                    sb.Draw(hotkey_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_EDITMODE_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if (SETTINGS_KEYBIND_EDITMODE_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_EDITMODE_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if (KeyBinds.HasOverlap(KeyBinds.EDITMODE))
+                    sb.Draw(hotkey_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_EDITMODE_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
 
                 Vector2 cycleKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.CYCLE_HOTBAR)) * PlateauMain.FONT_SCALE;
                 Vector2 cycleKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_CYCLE_HOTBAR_POSITION.Center - new Vector2(cycleKeybindTextLen.X / 2 - 0.5f, cycleKeybindTextLen.Y / 2 - 0.25f));
                 QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.CYCLE_HOTBAR), cycleKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.CYCLE_HOTBAR)
+                    sb.Draw(hotkey_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_CYCLE_HOTBAR_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if (SETTINGS_KEYBIND_CYCLE_HOTBAR_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_CYCLE_HOTBAR_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if (KeyBinds.HasOverlap(KeyBinds.CYCLE_HOTBAR))
+                    sb.Draw(hotkey_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_CYCLE_HOTBAR_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
 
                 Vector2 discardKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.DISCARD_ITEM)) * PlateauMain.FONT_SCALE;
                 Vector2 discardKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_DISCARD_ITEM_POSITION.Center - new Vector2(discardKeybindTextLen.X / 2 - 0.5f, discardKeybindTextLen.Y / 2 - 0.25f));
                 QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.DISCARD_ITEM), discardKeybindTextPos, Color.Black));
+                if (currentRebind == Rebinds.DISCARD_ITEM)
+                    sb.Draw(hotkey_active, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_DISCARD_ITEM_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                else if (SETTINGS_KEYBIND_DISCARD_ITEM_POSITION.Contains(controller.GetMousePos()))
+                    sb.Draw(hotkey_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_DISCARD_ITEM_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
+                if (KeyBinds.HasOverlap(KeyBinds.DISCARD_ITEM))
+                    sb.Draw(hotkey_overlap, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_DISCARD_ITEM_POSITION.TopLeft) - new Vector2(0, 1), Color.White);
             }
             else if (interfaceState == InterfaceState.CRAFTING)
             {

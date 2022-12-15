@@ -246,6 +246,12 @@ namespace Plateau.Components
         public static string INTERFACE_SETTINGS_SOUND_SEGMENT_END_FARLEFT = "interface/settings_sound_segment_end_farleft";
         public static string INTERFACE_SETTINGS_SOUND_SEGMENT_END_FARRIGHT = "interface/settings_sound_segment_end_farright";
         public static string INTERFACE_SETTINGS_SOUND_SEGMENT_FARLEFT = "interface/settings_sound_segment_farleft";
+        public static string INTERFACE_SETTINGS_HOTKEY_ACTIVE = "interface/settings_hotkey_active";
+        public static string INTERFACE_SETTINGS_HOTKEY_HOVER = "interface/settings_hotkey_hover";
+        public static string INTERFACE_SETTINGS_HOTKEY_OVERLAP = "interface/settings_hotkey_overlap";
+        public static string INTERFACE_SETTINGS_HOTKEY_LRUD_ACTIVE = "interface/settings_hotkey_lrud_active";
+        public static string INTERFACE_SETTINGS_HOTKEY_LRUD_HOVER = "interface/settings_hotkey_lrud_hover";
+        public static string INTERFACE_SETTINGS_HOTKEY_LRUD_OVERLAP = "interface/settings_hotkey_lrud_overlap";
         public static string INTERFACE_CHECKMARK = "interface/checkmark";
         public static string INTERFACE_CHECKMARK_HOVER = "interface/checkmark_hover";
 

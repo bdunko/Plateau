@@ -5839,3 +5839,9 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\crafti
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\mainmenu_quit.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\mainmenu_quit_enlarge.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\mainmenu_settings_selected.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\settings_hotkey_active.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\settings_hotkey_hover.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\settings_hotkey_lrud_active.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\settings_hotkey_lrud_hover.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\settings_hotkey_lrud_overlap.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\settings_hotkey_overlap.xnb

@@ -378,6 +378,12 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/scrapbook_pieces/tab9hover.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/scrapbook_pieces/tab9hoveractive.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkey_active.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkey_hover.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkey_lrud_active.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkey_lrud_hover.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkey_lrud_overlap.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkey_overlap.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_sound_segment.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_sound_segment_end.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_sound_segment_end_farleft.png</File>
@@ -2831,6 +2837,12 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

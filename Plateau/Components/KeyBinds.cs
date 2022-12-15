@@ -29,5 +29,20 @@ namespace Plateau.Components
         public static Keys[] HOTBAR_SELECT = { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.D7, Keys.D8, Keys.D9, Keys.D0 };
 
         public static Keys CONSOLE = Keys.OemTilde;
+
+        public static bool HasOverlap(Keys key)
+        {
+            List<Keys> allKeys = new List<Keys>() { LEFT, RIGHT, UP, DOWN, INVENTORY, SCRAPBOOK, CRAFTING, SETTINGS, EDITMODE, CYCLE_HOTBAR, DISCARD_ITEM, ESCAPE, ENTER, SHIFT, CONSOLE };
+            foreach (Keys k in HOTBAR_SELECT)
+                allKeys.Add(k);
+
+            int instances = 0;
+
+            foreach (Keys k in allKeys)
+                if (key == k)
+                    instances++;
+
+            return instances > 1;
+        }
     }
 }
