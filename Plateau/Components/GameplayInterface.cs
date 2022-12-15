@@ -5987,6 +5987,12 @@ namespace Plateau.Components
                 heldItem.Subtract(1);
             }
         }
+
+        public void SetTooltip(String tooltip, String description="")
+        {
+            tooltipName = tooltip;
+            tooltipDescription = description;
+        }
     }
 
 }

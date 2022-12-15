@@ -15,11 +15,11 @@ namespace Plateau.Components
         private static Rectangle[] SAVE_BUTTONS = { new Rectangle(54, 138, 58, 39), new Rectangle(131, 138, 58, 39), new Rectangle(208, 138, 58, 39)};
         private static Rectangle SETTINGS_BUTTON = new Rectangle(298, 158, 18, 18);
         private static Rectangle QUIT_BUTTON = new Rectangle(298, 4, 18, 18);
+        private static Rectangle LOGO_RECT = new Rectangle(new Point(88, 10), new Size(144, 36));
 
         private static int NEW_SAVE_X_OFFSET = 5;
         private static int NEW_SAVE_Y_OFFSET = 13;
         bool file1Exists, file2Exists, file3Exists;
-        private static Vector2 LOGO_POSITION = new Vector2(88, 10);
 
         private LayeredBackground background;
         private Texture2D logo, saveSlot, settingsIcon, newSaveIcon, saveSlotEnlarge;
@@ -78,7 +78,7 @@ namespace Plateau.Components
             } 
         }
 
-        public void Update(float deltaTime, RectangleF cameraBoundingBox, EntityPlayer player)
+        public void Update(float deltaTime, RectangleF cameraBoundingBox, EntityPlayer player, GameplayInterface ui)
         {
             //state = MainMenuState.CLICKED_SAVE_1; //SKIP
             background.Update(deltaTime, cameraBoundingBox, fakeTimeData, fakeWeather, fakeTimeData.season);
@@ -121,6 +121,7 @@ namespace Plateau.Components
 
                 if(SETTINGS_BUTTON.Contains(mousePosition))
                 {
+                    ui.SetTooltip("Settings");
                     hoveringSettings = true;
                     if (controller.GetMouseLeftPress())
                     {
@@ -146,6 +147,11 @@ namespace Plateau.Components
                         player.SetInterfaceState(InterfaceState.EXIT_CONFIRMED);
                     }
                 }
+
+                if(LOGO_RECT.Contains(mousePosition))
+                {
+                    ui.SetTooltip("Plateau V1.0.0", "By Ben");
+                }
             }
         }
 
@@ -169,7 +175,7 @@ namespace Plateau.Components
 
             if (state != MainMenuState.SETTINGS)
             {
-                sb.Draw(logo, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, LOGO_POSITION), Color.White);
+                sb.Draw(logo, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(LOGO_RECT.X, LOGO_RECT.Y)), Color.White);
                 sb.Draw(hoveringSave1 ? saveSlotEnlarge : saveSlot, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(SAVE_BUTTONS[0].X, SAVE_BUTTONS[0].Y)), Color.White);
                 sb.Draw(hoveringSave2 ? saveSlotEnlarge : saveSlot, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(SAVE_BUTTONS[1].X, SAVE_BUTTONS[1].Y)), Color.White);
                 sb.Draw(hoveringSave3 ? saveSlotEnlarge : saveSlot, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(SAVE_BUTTONS[2].X, SAVE_BUTTONS[2].Y)), Color.White);

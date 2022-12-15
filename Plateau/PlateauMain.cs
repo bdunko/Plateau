@@ -412,8 +412,8 @@ namespace Plateau
                 }
                 else if (currentState == PlateauGameState.MAINMENU)
                 {
-                    mmi.Update(deltaTime, camera.GetBoundingBox(), player);
                     ui.Update(deltaTime, player, camera.GetBoundingBox(), world.GetCurrentArea(), world.GetTimeData(), world); //update the interface
+                    mmi.Update(deltaTime, camera.GetBoundingBox(), player, ui);
                     if (mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_1 || mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_2 || mmi.GetState() == MainMenuInterface.MainMenuState.CLICKED_SAVE_3)
                     {
                         if (!mainMenuTransitionStarted)
