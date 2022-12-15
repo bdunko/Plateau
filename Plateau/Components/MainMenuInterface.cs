@@ -155,6 +155,13 @@ namespace Plateau.Components
             }
         }
 
+        public void CloseSettings()
+        {
+            System.Diagnostics.Debug.Assert(state == MainMenuState.SETTINGS && settingsOpen == true);
+            state = MainMenuState.NONE;
+            settingsOpen = false;
+        }
+
         public void LoadContent(ContentManager content, RectangleF cameraBoundingBox)
         {
             background = new LayeredBackground(content, cameraBoundingBox, new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true));

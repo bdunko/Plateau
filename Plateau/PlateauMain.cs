@@ -320,23 +320,40 @@ namespace Plateau
                     Exit();
                 }
 
-                if (currentState == PlateauGameState.NORMAL && (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || controller.IsKeyPressed(KeyBinds.ESCAPE) && player.GetCurrentDialogue() == null))
+                //pressing escape/back
+                if(GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || controller.IsKeyPressed(KeyBinds.ESCAPE))
                 {
-                    ui.DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
+                    if (currentState == PlateauGameState.NORMAL && player.GetCurrentDialogue() == null)
+                    {
+                        ui.DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
 
-                    if (player.GetInterfaceState() == InterfaceState.NONE)
-                    {
-                        player.SetInterfaceState(InterfaceState.EXIT);
-                        player.Pause();
-                        world.Pause();
+                        if (player.GetInterfaceState() == InterfaceState.NONE)
+                        {
+                            player.SetInterfaceState(InterfaceState.EXIT);
+                            player.Pause();
+                            world.Pause();
+                        }
+                        else
+                        {
+                            player.SetInterfaceState(InterfaceState.NONE);
+                            player.Unpause();
+                            world.Unpause();
+                        }
                     }
-                    else
+                    else if (currentState == PlateauGameState.MAINMENU)
                     {
-                        player.SetInterfaceState(InterfaceState.NONE);
-                        player.Unpause();
-                        world.Unpause();
+                        if(player.GetInterfaceState() == InterfaceState.SETTINGS)
+                        {
+                            player.SetInterfaceState(InterfaceState.NONE);
+                            mmi.CloseSettings();
+                        }
+                        else if (player.GetInterfaceState() == InterfaceState.NONE)
+                        {
+                            Exit();
+                        }
                     }
                 }
+
                 controller.Update(); //read in inputs from mouse/keyboard
 
                 if (currentState == PlateauGameState.CUTSCENE)
