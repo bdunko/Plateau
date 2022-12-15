@@ -392,10 +392,11 @@ namespace Plateau
                 }
                 else if (currentState == PlateauGameState.DEBUG)
                 {
-                    controller.ActivateStringInput();
+                    controller.ActivateStringInput(true);
                     if (controller.IsKeyPressed(KeyBinds.ESCAPE) || controller.IsKeyPressed(KeyBinds.CONSOLE))
                     {
                         currentState = PlateauGameState.NORMAL;
+                        controller.DeactivateStringInput();
                     }
                     if (controller.IsKeyPressed(KeyBinds.ENTER))
                     {
@@ -478,7 +479,6 @@ namespace Plateau
                     if (controller.IsKeyPressed(KeyBinds.CONSOLE))
                     {
                         currentState = PlateauGameState.DEBUG;
-                        controller.ClearStringInput();
                     }
 
                     if (world.IsDayOver())

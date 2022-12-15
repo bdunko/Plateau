@@ -186,7 +186,8 @@ namespace Plateau.Components
                     sb.Draw(newSaveIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(SAVE_BUTTONS[2].X + NEW_SAVE_X_OFFSET, SAVE_BUTTONS[2].Y + NEW_SAVE_Y_OFFSET)), Color.White);
                 }
             }
-            sb.Draw(state == MainMenuState.SETTINGS ? settingsIconSelected : hoveringSettings ? settingsIconEnlarge : settingsIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(SETTINGS_BUTTON.X, SETTINGS_BUTTON.Y)), Color.White);
+            //sb.Draw(state == MainMenuState.SETTINGS ? settingsIconSelected : hoveringSettings ? settingsIconEnlarge : settingsIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(SETTINGS_BUTTON.X, SETTINGS_BUTTON.Y)), Color.White);
+            sb.Draw(hoveringSettings ? settingsIconEnlarge : settingsIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(SETTINGS_BUTTON.X, SETTINGS_BUTTON.Y)), Color.White);
             sb.Draw(hoveringQuit ? quitIconEnlarge : quitIcon, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(QUIT_BUTTON.X, QUIT_BUTTON.Y)), Color.White);
             //sb.Draw(mouseCursor, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, controller.GetMousePos()), Color.White);
         }

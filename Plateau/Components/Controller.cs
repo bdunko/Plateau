@@ -41,13 +41,14 @@ namespace Plateau.Components
             return textInputHandler.IsActive();
         }
 
-        public void ActivateStringInput()
+        public void ActivateStringInput(bool acceptArrowKeys)
         {
-            textInputHandler.Activate();
+            textInputHandler.Activate(acceptArrowKeys);
         }
 
         public void DeactivateStringInput()
         {
+            ClearStringInput();
             textInputHandler.Deactivate();
         }
 
@@ -68,22 +69,31 @@ namespace Plateau.Components
         //Is Key down this frame
         public bool IsKeyDown(Keys key)
         {
+            if (textInputHandler.IsActive() && key != KeyBinds.ENTER && key != KeyBinds.CONSOLE)
+                return false;
             return kStates.ElementAt(QUEUE_SIZE-1).IsKeyDown(key);
         }
 
         //Key released this frame, was down last frame
         public bool IsKeyPressed(Keys key)
         {
+            if (textInputHandler.IsActive() && key != KeyBinds.ENTER && key != KeyBinds.CONSOLE)
+                return false;
             return (kStates.ElementAt(QUEUE_SIZE-2).IsKeyUp(key) && kStates.ElementAt(QUEUE_SIZE-1).IsKeyDown(key));
         }
 
         public bool IsKeyUp(Keys key)
         {
+            if (textInputHandler.IsActive() && key != KeyBinds.ENTER && key != KeyBinds.CONSOLE)
+                return true;
             return kStates.ElementAt(QUEUE_SIZE-1).IsKeyUp(key);
         }
 
         public bool IsKeyDoublePressed(Keys key)
         {
+            if (textInputHandler.IsActive() && key != KeyBinds.ENTER && key != KeyBinds.CONSOLE)
+                return false;
+
             int flags = 0;
             for(int i = 0; i < QUEUE_SIZE; i++)
             {
@@ -113,21 +123,33 @@ namespace Plateau.Components
 
         public bool GetMouseLeftPress()
         {
+            if (textInputHandler.IsActive())
+                return false;
+
             return (mStates.ElementAt(QUEUE_SIZE - 2).LeftButton == ButtonState.Pressed && mStates.ElementAt(QUEUE_SIZE - 1).LeftButton == ButtonState.Released);
         }
 
         public bool GetMouseLeftDown()
         {
+            if (textInputHandler.IsActive())
+                return false;
+
             return mStates.ElementAt(QUEUE_SIZE - 1).LeftButton == ButtonState.Pressed;
         }
 
         public bool GetMouseRightPress()
         {
+            if (textInputHandler.IsActive())
+                return false;
+
             return (mStates.ElementAt(QUEUE_SIZE - 2).RightButton == ButtonState.Pressed && mStates.ElementAt(QUEUE_SIZE - 1).RightButton == ButtonState.Released);
         }
 
         public bool GetMouseRightDown()
         {
+            if (textInputHandler.IsActive())
+                return false;
+
             return mStates.ElementAt(QUEUE_SIZE - 1).RightButton == ButtonState.Pressed;
         }
 

@@ -1,1 +1,1 @@
-CONFIG{[HideControls,False][HideGrid,False][HideReticle,False][Windowed,True][SFXVolume,5][MusicVolume,5][ResolutionScale,4]}
+CONFIG{[ResolutionScale,4][Windowed,True][SFXVolume,5][MusicVolume,5][HideControls,False][HideGrid,False][HideReticle,False][KeyBindLeft,Tab][KeyBindRight,Tab][KeyBindUp,Tab][KeyBindDown,Tab][KeyBindInventory,Tab][KeyBindScrapbook,Tab][KeyBindCrafting,Tab][KeyBindSettings,Tab][KeyBindEditmode,Tab][KeyBindCycleHotbar,Tab][KeyBindDiscardItem,Tab]}

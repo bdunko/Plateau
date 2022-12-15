@@ -11,22 +11,27 @@ namespace Plateau.Components
     {
         private bool isActive;
         private string input;
+        private bool acceptSpecialKeys;
 
         public TextInputHandler()
         {
             isActive = false;
             input = "";
             previous = new Keys[0];
+            acceptSpecialKeys = false;
         }
 
-        public void Activate()
+        //Activates this text input handler; and sets if special keys (arrow keys and tab) are accepted
+        public void Activate(bool acceptSpecialKeys)
         {
             isActive = true;
+            this.acceptSpecialKeys = acceptSpecialKeys;
         }
 
         public void Deactivate()
         {
             isActive = false;
+            acceptSpecialKeys = false;
         }
 
         private Keys[] previous;
@@ -44,7 +49,7 @@ namespace Plateau.Components
                 foreach (Keys key in current)
                 {
                     if (key == Keys.LeftAlt || key == Keys.LeftControl || key == Keys.LeftShift || key == Keys.RightAlt || key == Keys.RightControl || key == Keys.LeftShift
-                        || key == Keys.OemTilde || key == Keys.Enter || key == Keys.Tab || key == Keys.CapsLock)
+                        || key == Keys.OemTilde || key == Keys.Enter || key == Keys.CapsLock)
                     {
                         continue;
                     } 
@@ -123,12 +128,16 @@ namespace Plateau.Components
                         {
                             input += (IsShiftDown(current) ? "}" : "]");
                         }
+                        else if (acceptSpecialKeys && keyValue == Keys.Left.ToString() || keyValue == Keys.Right.ToString() || keyValue == Keys.Up.ToString() || keyValue == Keys.Down.ToString() || keyValue == Keys.Tab.ToString())
+                        {
+                            input += keyValue;
+                        }
                         else //all other cases like letters...
                         {
                             keyValue = (!IsShiftDown(current) ? keyValue.ToLower() : keyValue);
                             if (keyValue.Length == 1) {
                                 input += keyValue;
-                            }
+                            } 
                         }
                     }
                 }

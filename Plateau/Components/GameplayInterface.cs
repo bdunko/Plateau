@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using Plateau.Entities;
 using Plateau.Items;
@@ -374,7 +375,7 @@ namespace Plateau.Components
 
         private static string SCRAPBOOK_CALENDAR_CURRENT_DAY = "calendarCurrentDay";
 
-        private int selectedHotbarPosition;
+        private int selectedHotbarPosition; 
 
         private DialogueNode currentDialogue = null;
 
@@ -384,8 +385,26 @@ namespace Plateau.Components
         private RectangleF exitPromptButton;
 
         private Texture2D settings, checkmark, checkmark_hover, resolutionup_enlarge, resolutionup_disabled, resolutiondown_enlarge, resolutiondown_disabled, sound_segment_end, sound_segment, sound_segment_farleft, sound_segment_end_farright, sound_segment_end_farleft;
-        private static Vector2 SETTINGS_POSITION = new Vector2(130, 15);
+        private static Vector2 SETTINGS_POSITION = new Vector2(63, 16);
         private static Vector2 SETTINGS_RESOLUTION_TEXT_POSITION = SETTINGS_POSITION + new Vector2(40, 38);
+        private static RectangleF SETTINGS_KEYBIND_LEFT_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(116, 16), new Vector2(18, 10));
+        private static RectangleF SETTINGS_KEYBIND_RIGHT_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(116, 27), new Vector2(18, 10));
+        private static RectangleF SETTINGS_KEYBIND_UP_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(165, 16), new Vector2(18, 10));
+        private static RectangleF SETTINGS_KEYBIND_DOWN_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(165, 27), new Vector2(18, 10));
+        private static RectangleF SETTINGS_KEYBIND_INVENTORY_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(153, 43), new Vector2(30, 10));
+        private static RectangleF SETTINGS_KEYBIND_SCRAPBOOK_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(153, 54), new Vector2(30, 10));
+        private static RectangleF SETTINGS_KEYBIND_CRAFTING_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(153, 65), new Vector2(30, 10));
+        private static RectangleF SETTINGS_KEYBIND_SETTINGS_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(153, 76), new Vector2(30, 10));
+        private static RectangleF SETTINGS_KEYBIND_EDITMODE_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(153, 87), new Vector2(30, 10));
+        private static RectangleF SETTINGS_KEYBIND_CYCLE_HOTBAR_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(153, 101), new Vector2(30, 10));
+        private static RectangleF SETTINGS_KEYBIND_DISCARD_ITEM_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(153, 112), new Vector2(30, 10));
+        private enum Rebinds
+        {
+            LEFT, RIGHT, UP, DOWN, INVENTORY, SCRAPBOOK, CRAFTING, SETTINGS, EDITMODE, CYCLE_HOTBAR, DISCARD_ITEM, NONE
+        }
+        private Rebinds currentRebind = Rebinds.NONE;
+
+
         private RectangleF[] settingsOtherRectangles;
         private RectangleF[] settingsResolutionRectangles;
         private RectangleF[] settingsSFXRectangles;
@@ -3298,11 +3317,11 @@ namespace Plateau.Components
                     if (currentDialogue == null && !player.GetUseTool() && (interfaceState == InterfaceState.INVENTORY || interfaceState == InterfaceState.CHEST || interfaceState == InterfaceState.CRAFTING || interfaceState == InterfaceState.SCRAPBOOK || interfaceState == InterfaceState.NONE || interfaceState == InterfaceState.SETTINGS))
                     {
                         //cycling inventory
-                        if (controller.IsKeyPressed(KeyBinds.CYCLE_INVENTORY))
+                        if (controller.IsKeyPressed(KeyBinds.CYCLE_HOTBAR))
                             player.CycleInventory();
 
                         //if specifically in normal, chest, or inv mode, toss 1 of held item
-                        if ((interfaceState == InterfaceState.NONE || interfaceState == InterfaceState.CHEST || interfaceState == InterfaceState.INVENTORY) && controller.IsKeyPressed(KeyBinds.DROP_ITEM))
+                        if ((interfaceState == InterfaceState.NONE || interfaceState == InterfaceState.CHEST || interfaceState == InterfaceState.INVENTORY) && controller.IsKeyPressed(KeyBinds.DISCARD_ITEM))
                         {
                             if(inventoryHeldItem.GetItem () != ItemDict.NONE)
                             {
@@ -3635,12 +3654,12 @@ namespace Plateau.Components
                         }
                     }
 
-                    if (controller.IsKeyPressed(KeyBinds.EDIT_MODE) && currentDialogue == null && interfaceState == InterfaceState.NONE)
+                    if (controller.IsKeyPressed(KeyBinds.EDITMODE) && currentDialogue == null && interfaceState == InterfaceState.NONE)
                     {
                         player.ToggleEditMode();
                     }
 
-                    if (controller.IsKeyPressed(KeyBinds.OPEN_SCRAPBOOK) && currentDialogue == null)
+                    if (controller.IsKeyPressed(KeyBinds.SCRAPBOOK) && currentDialogue == null)
                     {
                         DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
                         if (interfaceState == InterfaceState.SCRAPBOOK)
@@ -3655,7 +3674,7 @@ namespace Plateau.Components
                         }
                     }
 
-                    if (controller.IsKeyPressed(KeyBinds.OPEN_INVENTORY) && currentDialogue == null)
+                    if (controller.IsKeyPressed(KeyBinds.INVENTORY) && currentDialogue == null)
                     {
                         DropInventoryHeldItemAll(world); //throw currently held item out into world, if any
                         if (player.GetInterfaceState() == InterfaceState.INVENTORY || player.GetInterfaceState() == InterfaceState.CHEST)
@@ -4168,6 +4187,69 @@ namespace Plateau.Components
                 }
                 else if (interfaceState == InterfaceState.SETTINGS)
                 {
+                    //if key rebind is started, check for input from controller and process
+                    if(currentRebind != Rebinds.NONE && controller.GetStringInput().Length != 0)
+                    {
+                        //preprocess input
+                        String input = controller.GetStringInput();
+                        System.Diagnostics.Debug.WriteLine(input);
+                        if (input != Keys.Left.ToString() && input != Keys.Right.ToString() && input != Keys.Up.ToString() && input != Keys.Down.ToString() && input != Keys.Tab.ToString())
+                            input = input.Substring(0, 1).ToUpper();
+
+                        //attempt to parse into key
+                        Keys newHotkey = Keys.None;
+                        if (Enum.TryParse(input, out newHotkey) && Util.IsValidHotkey(newHotkey))
+                        {
+                            //if successful, overwrite the hotkey and deactivate input
+                            switch(currentRebind)
+                            {
+                                case Rebinds.LEFT:
+                                    KeyBinds.LEFT = newHotkey;
+                                    break;
+                                case Rebinds.RIGHT:
+                                    KeyBinds.RIGHT = newHotkey;
+                                    break;
+                                case Rebinds.UP:
+                                    KeyBinds.UP = newHotkey;
+                                    break;
+                                case Rebinds.DOWN:
+                                    KeyBinds.DOWN = newHotkey;
+                                    break;
+                                case Rebinds.INVENTORY:
+                                    KeyBinds.INVENTORY = newHotkey;
+                                    break;
+                                case Rebinds.SCRAPBOOK:
+                                    KeyBinds.SCRAPBOOK = newHotkey;
+                                    break;
+                                case Rebinds.CRAFTING:
+                                    KeyBinds.CRAFTING = newHotkey;
+                                    break;
+                                case Rebinds.SETTINGS:
+                                    KeyBinds.SETTINGS = newHotkey;
+                                    break;
+                                case Rebinds.EDITMODE:
+                                    KeyBinds.EDITMODE = newHotkey;
+                                    break;
+                                case Rebinds.CYCLE_HOTBAR:
+                                    KeyBinds.CYCLE_HOTBAR = newHotkey;
+                                    break;
+                                case Rebinds.DISCARD_ITEM:
+                                    KeyBinds.DISCARD_ITEM = newHotkey;
+                                    break;
+                                default:
+                                    throw new Exception();
+                            }
+                            currentRebind = Rebinds.NONE;
+                            controller.DeactivateStringInput();
+                            SaveManager.SaveConfig();
+                        }
+                        else
+                        {
+                            //otherwise clear the input and wait for another key
+                            controller.ClearStringInput();
+                        }
+                    }
+
                     if (controller.GetMouseLeftPress() || controller.GetMouseRightPress())
                     {
                         //RESO
@@ -4246,6 +4328,74 @@ namespace Plateau.Components
                             SaveManager.SaveConfig();
                             PlateauMain.UpdateWindowed();
                         } 
+
+                        //initiate hotkey rebind
+                        if(SETTINGS_KEYBIND_LEFT_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.LEFT = Keys.None;
+                            currentRebind = Rebinds.LEFT;
+                            controller.ActivateStringInput(true);
+                        }
+                        else if(SETTINGS_KEYBIND_RIGHT_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.RIGHT = Keys.None;
+                            currentRebind = Rebinds.RIGHT;
+                            controller.ActivateStringInput(true);
+                        }
+                        else if (SETTINGS_KEYBIND_UP_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.UP = Keys.None;
+                            currentRebind = Rebinds.UP;
+                            controller.ActivateStringInput(true);
+                        }
+                        else if (SETTINGS_KEYBIND_DOWN_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.DOWN = Keys.None;
+                            currentRebind = Rebinds.DOWN;
+                            controller.ActivateStringInput(true);
+                        }
+                        else if (SETTINGS_KEYBIND_INVENTORY_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.INVENTORY = Keys.None;
+                            currentRebind = Rebinds.INVENTORY;
+                            controller.ActivateStringInput(true);
+                        }
+                        else if (SETTINGS_KEYBIND_SCRAPBOOK_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.SCRAPBOOK = Keys.None;
+                            currentRebind = Rebinds.SCRAPBOOK;
+                            controller.ActivateStringInput(true);
+                        }
+                        else if (SETTINGS_KEYBIND_CRAFTING_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.CRAFTING = Keys.None;
+                            currentRebind = Rebinds.CRAFTING;
+                            controller.ActivateStringInput(true);
+                        }
+                        else if (SETTINGS_KEYBIND_SETTINGS_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.SETTINGS = Keys.None;
+                            currentRebind = Rebinds.SETTINGS;
+                            controller.ActivateStringInput(true);
+                        }
+                        else if (SETTINGS_KEYBIND_EDITMODE_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.EDITMODE = Keys.None;
+                            currentRebind = Rebinds.EDITMODE;
+                            controller.ActivateStringInput(true);
+                        }
+                        else if (SETTINGS_KEYBIND_CYCLE_HOTBAR_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.CYCLE_HOTBAR = Keys.None;
+                            currentRebind = Rebinds.CYCLE_HOTBAR;
+                            controller.ActivateStringInput(true);
+                        }
+                        else if (SETTINGS_KEYBIND_DISCARD_ITEM_POSITION.Contains(mousePosition))
+                        {
+                            KeyBinds.DISCARD_ITEM = Keys.None;
+                            currentRebind = Rebinds.DISCARD_ITEM;
+                            controller.ActivateStringInput(true);
+                        }
                     }
                 } 
                 else if (interfaceState == InterfaceState.CRAFTING) //workbench
@@ -5040,9 +5190,49 @@ namespace Plateau.Components
 
 
                 Vector2 resolutionTextLen = PlateauMain.FONT.MeasureString(PlateauMain.CURRENT_RESOLUTION.ToString()) * PlateauMain.FONT_SCALE;
-                Vector2 resolutionTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_RESOLUTION_TEXT_POSITION - new Vector2(resolutionTextLen.X / 2, resolutionTextLen.Y));
+                Vector2 resolutionTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_RESOLUTION_TEXT_POSITION - new Vector2(resolutionTextLen.X/2, resolutionTextLen.Y));
                 QUEUED_STRINGS.Add(new QueuedString(PlateauMain.CURRENT_RESOLUTION.ToString(), resolutionTextPos, Color.Black));
 
+                Vector2 leftKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.LEFT)) * PlateauMain.FONT_SCALE;
+                Vector2 leftKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_LEFT_POSITION.Center - new Vector2(leftKeybindTextLen.X / 2 - 0.5f, leftKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.LEFT), leftKeybindTextPos, Color.Black));
+                Vector2 rightKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.RIGHT)) * PlateauMain.FONT_SCALE;
+                Vector2 rightKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_RIGHT_POSITION.Center - new Vector2(rightKeybindTextLen.X / 2 - 0.5f, rightKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.RIGHT), rightKeybindTextPos, Color.Black));                
+                Vector2 upKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.UP)) * PlateauMain.FONT_SCALE;
+                Vector2 upKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_UP_POSITION.Center - new Vector2(upKeybindTextLen.X / 2 - 0.5f, upKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.UP), upKeybindTextPos, Color.Black));
+                Vector2 downKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.DOWN)) * PlateauMain.FONT_SCALE;
+                Vector2 downKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_DOWN_POSITION.Center - new Vector2(downKeybindTextLen.X / 2 - 0.5f, downKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.DOWN), downKeybindTextPos, Color.Black));
+
+                Vector2 inventoryKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.INVENTORY)) * PlateauMain.FONT_SCALE;
+                Vector2 inventoryKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_INVENTORY_POSITION.Center - new Vector2(inventoryKeybindTextLen.X / 2 - 0.5f, inventoryKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.INVENTORY), inventoryKeybindTextPos, Color.Black));
+
+                Vector2 scrapbookKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.SCRAPBOOK)) * PlateauMain.FONT_SCALE;
+                Vector2 scrapbookKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_SCRAPBOOK_POSITION.Center - new Vector2(scrapbookKeybindTextLen.X / 2 - 0.5f, scrapbookKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.SCRAPBOOK), scrapbookKeybindTextPos, Color.Black));
+
+                Vector2 craftingKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.CRAFTING)) * PlateauMain.FONT_SCALE;
+                Vector2 craftingKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_CRAFTING_POSITION.Center - new Vector2(craftingKeybindTextLen.X / 2 - 0.5f, craftingKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.CRAFTING), craftingKeybindTextPos, Color.Black));
+
+                Vector2 settingsKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.SETTINGS)) * PlateauMain.FONT_SCALE;
+                Vector2 settingsKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_SETTINGS_POSITION.Center - new Vector2(settingsKeybindTextLen.X / 2 - 0.5f, settingsKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.SETTINGS), settingsKeybindTextPos, Color.Black));
+
+                Vector2 editmodeKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.EDITMODE)) * PlateauMain.FONT_SCALE;
+                Vector2 editmodeKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_EDITMODE_POSITION.Center - new Vector2(editmodeKeybindTextLen.X / 2 - 0.5f, editmodeKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.EDITMODE), editmodeKeybindTextPos, Color.Black));
+
+                Vector2 cycleKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.CYCLE_HOTBAR)) * PlateauMain.FONT_SCALE;
+                Vector2 cycleKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_CYCLE_HOTBAR_POSITION.Center - new Vector2(cycleKeybindTextLen.X / 2 - 0.5f, cycleKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.CYCLE_HOTBAR), cycleKeybindTextPos, Color.Black));
+
+                Vector2 discardKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.DISCARD_ITEM)) * PlateauMain.FONT_SCALE;
+                Vector2 discardKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_DISCARD_ITEM_POSITION.Center - new Vector2(discardKeybindTextLen.X / 2 - 0.5f, discardKeybindTextLen.Y / 2 - 0.25f));
+                QUEUED_STRINGS.Add(new QueuedString(Util.KeyToString(KeyBinds.DISCARD_ITEM), discardKeybindTextPos, Color.Black));
             }
             else if (interfaceState == InterfaceState.CRAFTING)
             {
@@ -5512,21 +5702,21 @@ namespace Plateau.Components
 
                 if (interfaceState == InterfaceState.INVENTORY)
                 {
-                    QUEUED_STRINGS.Add(new QueuedString("Bag: " + KeyBinds.OPEN_INVENTORY.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_BAG_HOTKEY_POSITION), Color.White));
-                    QUEUED_STRINGS.Add(new QueuedString("Scrapbook: " + KeyBinds.OPEN_SCRAPBOOK.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_SCRAPBOOK_HOTKEY_POSITION), Color.White));
-                    QUEUED_STRINGS.Add(new QueuedString("Crafting: " + KeyBinds.CRAFTING.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_CRAFTING_HOTKEY_POSITION), Color.White));
-                    QUEUED_STRINGS.Add(new QueuedString("Settings: " + KeyBinds.SETTINGS.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_SETTINGS_HOTKEY_POSITION), Color.White));
-                    QUEUED_STRINGS.Add(new QueuedString("Editmode: " + KeyBinds.EDIT_MODE.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_EDITMODE_HOTKEY_POSITION), Color.White));
-                    QUEUED_STRINGS.Add(new QueuedString("Cycle: " + KeyBinds.CYCLE_INVENTORY.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_CYCLE_INVENTORY_HOTKEY_POSITION), Color.White));
+                    QUEUED_STRINGS.Add(new QueuedString("Inventory: " + Util.KeyToString(KeyBinds.INVENTORY), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_BAG_HOTKEY_POSITION), Color.White));
+                    QUEUED_STRINGS.Add(new QueuedString("Scrapbook: " + Util.KeyToString(KeyBinds.SCRAPBOOK), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_SCRAPBOOK_HOTKEY_POSITION), Color.White));
+                    QUEUED_STRINGS.Add(new QueuedString("Crafting: " + Util.KeyToString(KeyBinds.CRAFTING), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_CRAFTING_HOTKEY_POSITION), Color.White));
+                    QUEUED_STRINGS.Add(new QueuedString("Settings: " + Util.KeyToString(KeyBinds.SETTINGS), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_SETTINGS_HOTKEY_POSITION), Color.White));
+                    QUEUED_STRINGS.Add(new QueuedString("Editmode: " + Util.KeyToString(KeyBinds.EDITMODE), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_EDITMODE_HOTKEY_POSITION), Color.White));
+                    QUEUED_STRINGS.Add(new QueuedString("Cycle: " + Util.KeyToString(KeyBinds.CYCLE_HOTBAR), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_CYCLE_INVENTORY_HOTKEY_POSITION), Color.White));
                     if(controller.IsKeyDown(KeyBinds.SHIFT))
-                        QUEUED_STRINGS.Add(new QueuedString("All: " + KeyBinds.DROP_ITEM.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_DROP_HOTKEY_POSITION), Color.White));
+                        QUEUED_STRINGS.Add(new QueuedString("All: " + Util.KeyToString(KeyBinds.DISCARD_ITEM), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_DROP_HOTKEY_POSITION), Color.White));
                     else
-                        QUEUED_STRINGS.Add(new QueuedString("Drop: " + KeyBinds.DROP_ITEM.ToString(), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_DROP_HOTKEY_POSITION), Color.White));
+                        QUEUED_STRINGS.Add(new QueuedString("Drop: " + Util.KeyToString(KeyBinds.DISCARD_ITEM), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_DROP_HOTKEY_POSITION), Color.White));
                 }
 
                 if(editMode && interfaceState == InterfaceState.NONE)
                 {
-                    string notification = "You are in Edit Mode.\nPress " + KeyBinds.EDIT_MODE.ToString() + " to exit.";
+                    string notification = "You are in Edit Mode.\nPress " + Util.KeyToString(KeyBinds.EDITMODE) + " to exit.";
                     Vector2 notificationSize = PlateauMain.FONT.MeasureString(notification) * PlateauMain.FONT_SCALE;
                     Vector2 notificationPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, EDIT_MODE_NOTIFICATION_TEXT) - (0.5f * notificationSize);
                     WHITE_9SLICE.DrawString(sb, notification, notificationPos, cameraBoundingBox, Color.CornflowerBlue, Util.UI_BLACK_9SLICE.color);

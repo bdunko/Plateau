@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MonoGame.Extended;
 using Plateau.Entities;
 using Plateau.Items;
@@ -776,6 +777,47 @@ namespace Plateau.Components
             }
 
             return wrapped;
+        }
+
+        public static String KeyToString(Keys key)
+        {
+            if (key == Keys.Space)
+                return " ";
+            if (key == Keys.OemBackslash)
+                return "\\";
+            if (key == Keys.OemComma)
+                return ",";
+            if (key == Keys.OemMinus)
+                return "-";
+            if (key == Keys.OemPeriod)
+                return ".";
+            if (key == Keys.OemPipe)
+                return "|";
+            if (key == Keys.OemPlus)
+                return "+";
+            if (key == Keys.OemQuestion)
+                return "?";
+            if (key == Keys.None)
+                return "_";
+            if (key == Keys.OemSemicolon)
+                return ";";
+            if (key == Keys.OemTilde)
+                return "~";
+            if (key == Keys.Divide)
+                return "/";
+            if (key == Keys.Multiply)
+                return "*";
+            return key.ToString();
+        }
+
+        public static bool IsValidHotkey(Keys key)
+        {
+            return key == Keys.A || key == Keys.B || key == Keys.C || key == Keys.D || key == Keys.E || key == Keys.F || key == Keys.G
+                || key == Keys.H || key == Keys.I || key == Keys.J || key == Keys.K || key == Keys.L || key == Keys.M || key == Keys.N
+                || key == Keys.O || key == Keys.P || key == Keys.Q || key == Keys.R || key == Keys.S || key == Keys.T || key == Keys.U
+                || key == Keys.V || key == Keys.W || key == Keys.X || key == Keys.Y || key == Keys.Z
+                || key == Keys.Left || key == Keys.Right || key == Keys.Up || key == Keys.Down
+                || key == Keys.Tab;
         }
 
         public static List<string> WrapStringReturnLines(string str, int maxLen)
