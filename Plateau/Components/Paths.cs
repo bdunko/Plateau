@@ -161,6 +161,11 @@ namespace Plateau.Components
         public static string INTERFACE_KEY_CONTROLS_A_DOWN = "interface/key_controls_a_down";
         public static string INTERFACE_KEY_CONTROLS_S_DOWN = "interface/key_controls_s_down";
         public static string INTERFACE_KEY_CONTROLS_D_DOWN = "interface/key_controls_d_down";
+        public static string INTERFACE_KEY_CONTROLS_ARROWS = "interface/key_controls_arrows";
+        public static string INTERFACE_KEY_CONTROLS_LEFT_DOWN = "interface/key_controls_left_down";
+        public static string INTERFACE_KEY_CONTROLS_RIGHT_DOWN = "interface/key_controls_right_down";
+        public static string INTERFACE_KEY_CONTROLS_UP_DOWN = "interface/key_controls_up_down";
+        public static string INTERFACE_KEY_CONTROLS_DOWN_DOWN = "interface/key_controls_down_down";
         public static string INTERFACE_MENU_CONTROLS = "interface/menu_controls";
         public static string INTERFACE_SHIFT_ON_PRESSED = "interface/shift_on_pressed";
         public static string INTERFACE_SHIFT_ON_UNPRESSED = "interface/shift_on_unpressed";

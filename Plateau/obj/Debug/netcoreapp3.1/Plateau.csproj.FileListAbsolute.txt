@@ -5901,3 +5901,8 @@ D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\water_sw
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\water_swamp_transition.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\sprites\water_swamp.xnb
 D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\settings_hotkeyreset_hover.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\key_controls_arrows.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\key_controls_down_down.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\key_controls_left_down.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\key_controls_right_down.xnb
+D:\Code\Plateau\Plateau\Plateau\bin\Debug\netcoreapp3.1\Content\interface\key_controls_up_down.xnb

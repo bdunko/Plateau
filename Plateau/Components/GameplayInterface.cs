@@ -225,8 +225,9 @@ namespace Plateau.Components
         private Texture2D[] seasonText;
         private Texture2D[] dayText;
         private Texture2D dateTimePanel;
-        private Texture2D mouseControl, keyControl, menuControl, shiftOnUnpressed, shiftOnPressed, shiftOffUnpressed, shiftOffPressed, escPressed, escUnpressed;
-        private Texture2D keyControlWDown, keyControlADown, keyControlSDown, keyControlDDown;
+        private Texture2D mouseControl, keyControl, keyControlArrows, menuControl, shiftOnUnpressed, shiftOnPressed, shiftOffUnpressed, shiftOffPressed, escPressed, escUnpressed;
+        private Texture2D keyControlWDown, keyControlADown, keyControlSDown, keyControlDDown,
+            keyControlUpDown, keyControlLeftDown, keyControlRightDown, keyControlDownDown;
         private bool isWDown, isADown, isSDown, isDDown;
         private bool isHoldingPlaceable = false;
         private bool isPlaceableLocationValid = false;
@@ -659,6 +660,11 @@ namespace Plateau.Components
             keyControlADown = content.Load<Texture2D>(Paths.INTERFACE_KEY_CONTROLS_A_DOWN);
             keyControlSDown = content.Load<Texture2D>(Paths.INTERFACE_KEY_CONTROLS_S_DOWN);
             keyControlDDown = content.Load<Texture2D>(Paths.INTERFACE_KEY_CONTROLS_D_DOWN);
+            keyControlArrows = content.Load<Texture2D>(Paths.INTERFACE_KEY_CONTROLS_ARROWS);
+            keyControlLeftDown = content.Load<Texture2D>(Paths.INTERFACE_KEY_CONTROLS_LEFT_DOWN);
+            keyControlRightDown = content.Load<Texture2D>(Paths.INTERFACE_KEY_CONTROLS_RIGHT_DOWN);
+            keyControlUpDown = content.Load<Texture2D>(Paths.INTERFACE_KEY_CONTROLS_UP_DOWN);
+            keyControlDownDown = content.Load<Texture2D>(Paths.INTERFACE_KEY_CONTROLS_DOWN_DOWN);
             menuControl = content.Load<Texture2D>(Paths.INTERFACE_MENU_CONTROLS);
 
             shiftOnPressed = content.Load<Texture2D>(Paths.INTERFACE_SHIFT_ON_PRESSED);
@@ -5587,23 +5593,16 @@ namespace Plateau.Components
                 {
                     if (!Config.HIDE_CONTROLS)
                     {
-                        sb.Draw(keyControl, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
+                        sb.Draw(KeyBinds.IsUsingDefaultMovement() ? keyControl : keyControlArrows, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
                         if (isSDown)
-                        {
-                            sb.Draw(keyControlSDown, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
-                        }
+                            sb.Draw(KeyBinds.IsUsingDefaultMovement() ? keyControlSDown : keyControlDownDown, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
                         if (isADown)
-                        {
-                            sb.Draw(keyControlADown, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
-                        }
+                            sb.Draw(KeyBinds.IsUsingDefaultMovement() ? keyControlADown : keyControlLeftDown, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
                         if (isWDown)
-                        {
-                            sb.Draw(keyControlWDown, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
-                        }
+                            sb.Draw(KeyBinds.IsUsingDefaultMovement() ? keyControlWDown : keyControlUpDown, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
                         if (isDDown)
-                        {
-                            sb.Draw(keyControlDDown, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
-                        }
+                            sb.Draw(KeyBinds.IsUsingDefaultMovement() ? keyControlDDown : keyControlDownDown, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION), Color.White);
+
                         WHITE_9SLICE.DrawString(sb, leftAction, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_LEFT_TEXT_POSITION) - (0.5f * leftActionStrSize), cameraBoundingBox, Color.White, Util.UI_BLACK_9SLICE.color);
                         WHITE_9SLICE.DrawString(sb, rightAction, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_RIGHT_TEXT_POSITION) - (0.5f * rightActionStrSize), cameraBoundingBox, Color.White, Util.UI_BLACK_9SLICE.color);
                         WHITE_9SLICE.DrawString(sb, upAction, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_UP_TEXT_POSITION) - (0.5f * upActionStrSize), cameraBoundingBox, Color.White, Util.UI_BLACK_9SLICE.color);
@@ -5617,7 +5616,7 @@ namespace Plateau.Components
                 Vector2 rightPosition = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_RIGHT_TEXT_POSITION_DIALOGUE) - (0.5f * rightActionStrSize);
                 Vector2 upPosition = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_UP_TEXT_POSITION_DIALOGUE) - (0.5f * upActionStrSize);
                 Vector2 downPosition = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_DOWN_TEXT_POSITION_DIALOGUE) - (0.5f * downActionStrSize);
-                sb.Draw(keyControl, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION_DIALOGUE), Color.White);
+                sb.Draw(KeyBinds.IsUsingDefaultMovement() ? keyControl : keyControlArrows, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, KEY_CONTROL_POSITION_DIALOGUE), Color.White);
                 WHITE_9SLICE.DrawString(sb, leftAction, leftPosition, cameraBoundingBox, Color.White, Color.Black);
                 WHITE_9SLICE.DrawString(sb, rightAction, rightPosition, cameraBoundingBox, Color.White, Color.Black);
                 WHITE_9SLICE.DrawString(sb, upAction, upPosition, cameraBoundingBox, Color.White, Color.Black);

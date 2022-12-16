@@ -189,8 +189,13 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/item_box.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls_a_down.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls_arrows.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls_d_down.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls_down_down.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls_left_down.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls_right_down.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls_s_down.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls_up_down.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/key_controls_w_down.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_logo.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/mainmenu_newgame.png</File>
@@ -2872,6 +2877,11 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_transition.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

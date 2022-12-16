@@ -76,6 +76,11 @@ namespace Plateau.Components
 
             CYCLE_HOTBAR = CYCLE_HOTBAR_DEFAULT;
             DISCARD_ITEM = DISCARD_ITEM_DEFAULT;
-    }
+        }
+
+        public static bool IsUsingDefaultMovement()
+        {
+            return LEFT == LEFT_DEFAULT && RIGHT == RIGHT_DEFAULT && UP == UP_DEFAULT && DOWN == DOWN_DEFAULT;
+        }
     }
 }
