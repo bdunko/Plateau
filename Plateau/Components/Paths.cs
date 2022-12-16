@@ -245,6 +245,7 @@ namespace Plateau.Components
         public static string INTERFACE_SETTINGS_HOTKEY_LRUD_ACTIVE = "interface/settings_hotkey_lrud_active";
         public static string INTERFACE_SETTINGS_HOTKEY_LRUD_HOVER = "interface/settings_hotkey_lrud_hover";
         public static string INTERFACE_SETTINGS_HOTKEY_LRUD_OVERLAP = "interface/settings_hotkey_lrud_overlap";
+        public static string INTERFACE_SETTINGS_HOTKEYRESET_HOVER = "interface/settings_hotkeyreset_hover";
         public static string INTERFACE_CHECKMARK = "interface/checkmark";
         public static string INTERFACE_CHECKMARK_HOVER = "interface/checkmark_hover";
 

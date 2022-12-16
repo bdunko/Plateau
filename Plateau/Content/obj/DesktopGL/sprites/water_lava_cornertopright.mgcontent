@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_cornertopright.png</SourceFile>
-  <SourceTime>2022-12-15T23:31:45.9462191-05:00</SourceTime>
+  <SourceTime>2022-12-16T00:43:54.6483826-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/water_lava_cornertopright.xnb</DestFile>
-  <DestTime>2022-12-15T23:37:37.9547041-05:00</DestTime>
+  <DestTime>2022-12-16T16:57:15.7267007-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

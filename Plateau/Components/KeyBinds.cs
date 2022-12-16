@@ -9,19 +9,31 @@ namespace Plateau.Components
 {
     public class KeyBinds
     {
-        public static Keys LEFT = Keys.A;
-        public static Keys RIGHT = Keys.D;
-        public static Keys UP = Keys.W;
-        public static Keys DOWN = Keys.S;
+        //default hotkeys
+        private static Keys LEFT_DEFAULT = Keys.A;
+        private static Keys RIGHT_DEFAULT = Keys.D;
+        private static Keys UP_DEFAULT = Keys.W;
+        private static Keys DOWN_DEFAULT = Keys.S;
+        private static Keys INVENTORY_DEFAULT = Keys.E;
+        private static Keys SCRAPBOOK_DEFAULT = Keys.Q;
+        private static Keys CRAFTING_DEFAULT = Keys.R;
+        private static Keys SETTINGS_DEFAULT = Keys.T;
+        private static Keys EDITMODE_DEFAULT = Keys.F;
+        private static Keys CYCLE_HOTBAR_DEFAULT = Keys.Tab;
+        private static Keys DISCARD_ITEM_DEFAULT = Keys.Z;
 
-        public static Keys INVENTORY = Keys.E;
-        public static Keys SCRAPBOOK = Keys.Q;
-        public static Keys CRAFTING = Keys.R;
-        public static Keys SETTINGS = Keys.T;
-        public static Keys EDITMODE = Keys.F;
-
-        public static Keys CYCLE_HOTBAR = Keys.Tab;
-        public static Keys DISCARD_ITEM = Keys.Z;
+        //actual/current hotkeys
+        public static Keys LEFT = LEFT_DEFAULT;
+        public static Keys RIGHT = RIGHT_DEFAULT;
+        public static Keys UP = UP_DEFAULT;
+        public static Keys DOWN = DOWN_DEFAULT;
+        public static Keys INVENTORY = INVENTORY_DEFAULT;
+        public static Keys SCRAPBOOK = SCRAPBOOK_DEFAULT;
+        public static Keys CRAFTING = CRAFTING_DEFAULT;
+        public static Keys SETTINGS = SETTINGS_DEFAULT;
+        public static Keys EDITMODE = EDITMODE_DEFAULT;
+        public static Keys CYCLE_HOTBAR = CYCLE_HOTBAR_DEFAULT;
+        public static Keys DISCARD_ITEM = DISCARD_ITEM_DEFAULT;
 
         public static Keys[] SHIFT = { Keys.LeftShift, Keys.RightShift };
 
@@ -31,6 +43,7 @@ namespace Plateau.Components
 
         public static Keys CONSOLE = Keys.OemTilde;
 
+        //Returns if there are more than 1 hotkeys bound to the given key
         public static bool HasOverlap(Keys key)
         {
             List<Keys> allKeys = new List<Keys>() { LEFT, RIGHT, UP, DOWN, INVENTORY, SCRAPBOOK, CRAFTING, SETTINGS, EDITMODE, CYCLE_HOTBAR, DISCARD_ITEM, ESCAPE, ENTER, CONSOLE };
@@ -47,5 +60,22 @@ namespace Plateau.Components
 
             return instances > 1;
         }
+
+        public static void ResetAllToDefaults()
+        {
+            LEFT = LEFT_DEFAULT;
+            RIGHT = RIGHT_DEFAULT;
+            UP = UP_DEFAULT;
+            DOWN = DOWN_DEFAULT;
+
+            INVENTORY = INVENTORY_DEFAULT;
+            SCRAPBOOK = SCRAPBOOK_DEFAULT;
+            CRAFTING = CRAFTING_DEFAULT;
+            SETTINGS = SETTINGS_DEFAULT;
+            EDITMODE = EDITMODE_DEFAULT;
+
+            CYCLE_HOTBAR = CYCLE_HOTBAR_DEFAULT;
+            DISCARD_ITEM = DISCARD_ITEM_DEFAULT;
+    }
     }
 }

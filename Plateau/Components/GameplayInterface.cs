@@ -387,7 +387,8 @@ namespace Plateau.Components
         private Texture2D settings, checkmark, checkmark_hover, 
             resolutionup_enlarge, resolutionup_disabled, resolutiondown_enlarge, resolutiondown_disabled, 
             sound_segment_end, sound_segment, sound_segment_farleft, sound_segment_end_farright, sound_segment_end_farleft,
-            hotkey_active, hotkey_hover, hotkey_overlap, hotkey_lrud_active, hotkey_lrud_hover, hotkey_lrud_overlap;
+            hotkey_active, hotkey_hover, hotkey_overlap, hotkey_lrud_active, hotkey_lrud_hover, hotkey_lrud_overlap,
+            hotkeyreset_hover;
         private static Vector2 SETTINGS_POSITION = new Vector2(63, 16);
         private static Vector2 SETTINGS_RESOLUTION_TEXT_POSITION = SETTINGS_POSITION + new Vector2(40, 38);
         private static RectangleF SETTINGS_KEYBIND_LEFT_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(116, 16), new Vector2(18, 10));
@@ -401,6 +402,9 @@ namespace Plateau.Components
         private static RectangleF SETTINGS_KEYBIND_EDITMODE_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(153, 87), new Vector2(30, 10));
         private static RectangleF SETTINGS_KEYBIND_CYCLE_HOTBAR_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(153, 101), new Vector2(30, 10));
         private static RectangleF SETTINGS_KEYBIND_DISCARD_ITEM_POSITION = new RectangleF(SETTINGS_POSITION + new Vector2(153, 112), new Vector2(30, 10));
+        private static RectangleF SETTINGS_RESET_KEYBINDS_RECT = new RectangleF(SETTINGS_POSITION + new Vector2(173, 4), new Vector2(7, 7));
+
+
         private enum Rebinds
         {
             LEFT, RIGHT, UP, DOWN, INVENTORY, SCRAPBOOK, CRAFTING, SETTINGS, EDITMODE, CYCLE_HOTBAR, DISCARD_ITEM, NONE
@@ -731,6 +735,7 @@ namespace Plateau.Components
             hotkey_lrud_active = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_HOTKEY_LRUD_ACTIVE);
             hotkey_lrud_hover = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_HOTKEY_LRUD_HOVER);
             hotkey_lrud_overlap = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_HOTKEY_LRUD_OVERLAP);
+            hotkeyreset_hover = content.Load<Texture2D>(Paths.INTERFACE_SETTINGS_HOTKEYRESET_HOVER);
 
 
             settingsOtherRectangles = new RectangleF[4];
@@ -4200,7 +4205,6 @@ namespace Plateau.Components
                     {
                         //preprocess input
                         String input = controller.GetStringInput();
-                        System.Diagnostics.Debug.WriteLine(input);
                         if (input != Keys.Left.ToString() && input != Keys.Right.ToString() && input != Keys.Up.ToString() && input != Keys.Down.ToString() && input != Keys.Tab.ToString())
                             input = input.Substring(0, 1).ToUpper();
 
@@ -4337,6 +4341,14 @@ namespace Plateau.Components
                             PlateauMain.UpdateWindowed();
                         } 
 
+                        if(SETTINGS_RESET_KEYBINDS_RECT.Contains(mousePosition))
+                        {
+                            KeyBinds.ResetAllToDefaults();
+                            currentRebind = Rebinds.NONE;
+                            controller.DeactivateStringInput();
+                            SaveManager.SaveConfig();
+                        }
+
                         //initiate hotkey rebind
                         if(SETTINGS_KEYBIND_LEFT_POSITION.Contains(mousePosition))
                         {
@@ -4404,6 +4416,7 @@ namespace Plateau.Components
                             currentRebind = Rebinds.DISCARD_ITEM;
                             controller.ActivateStringInput(true);
                         }
+
                     }
                 } 
                 else if (interfaceState == InterfaceState.CRAFTING) //workbench
@@ -5200,6 +5213,12 @@ namespace Plateau.Components
                 Vector2 resolutionTextLen = PlateauMain.FONT.MeasureString(PlateauMain.CURRENT_RESOLUTION.ToString()) * PlateauMain.FONT_SCALE;
                 Vector2 resolutionTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_RESOLUTION_TEXT_POSITION - new Vector2(resolutionTextLen.X/2, resolutionTextLen.Y));
                 QUEUED_STRINGS.Add(new QueuedString(PlateauMain.CURRENT_RESOLUTION.ToString(), resolutionTextPos, Color.Black));
+
+                if (SETTINGS_RESET_KEYBINDS_RECT.Contains(controller.GetMousePos()))
+                {
+                    tooltipName = "Reset Keybinds";
+                    sb.Draw(hotkeyreset_hover, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_RESET_KEYBINDS_RECT.TopLeft) - new Vector2(0, 1), Color.White);
+                }
 
                 Vector2 leftKeybindTextLen = PlateauMain.FONT.MeasureString(Util.KeyToString(KeyBinds.LEFT)) * PlateauMain.FONT_SCALE;
                 Vector2 leftKeybindTextPos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SETTINGS_KEYBIND_LEFT_POSITION.Center - new Vector2(leftKeybindTextLen.X / 2 - 0.5f, leftKeybindTextLen.Y / 2 - 0.25f));

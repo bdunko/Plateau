@@ -384,6 +384,7 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkey_lrud_hover.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkey_lrud_overlap.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkey_overlap.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkeyreset_hover.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_sound_segment.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_sound_segment_end.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_sound_segment_end_farleft.png</File>
@@ -2871,6 +2872,7 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_transition.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

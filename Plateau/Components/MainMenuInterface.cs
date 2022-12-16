@@ -148,7 +148,7 @@ namespace Plateau.Components
                     }
                 }
 
-                if(LOGO_RECT.Contains(mousePosition))
+                if(LOGO_RECT.Contains(mousePosition) && state == MainMenuState.NONE)
                 {
                     ui.SetTooltip("Plateau V1.0.0", "By Ben");
                 }

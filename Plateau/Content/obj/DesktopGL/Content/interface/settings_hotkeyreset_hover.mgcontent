@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_deep_cornerbottomright.png</SourceFile>
-  <SourceTime>2022-12-16T00:43:54.6573842-05:00</SourceTime>
-  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/sprites/water_swamp_deep_cornerbottomright.xnb</DestFile>
-  <DestTime>2022-12-16T16:57:15.8266995-05:00</DestTime>
+  <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/interface/settings_hotkeyreset_hover.png</SourceFile>
+  <SourceTime>2022-12-16T16:56:35.2159973-05:00</SourceTime>
+  <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/interface/settings_hotkeyreset_hover.xnb</DestFile>
+  <DestTime>2022-12-16T16:57:08.8116055-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
