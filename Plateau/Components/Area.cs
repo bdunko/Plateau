@@ -525,15 +525,68 @@ namespace Plateau
         //ALL NUMBERS ARE 1 HIGHER THAN TILED SAYS! TILED USES LACK OF A TILE AS ID=0; so IDS REALLY START AT 1
         //add 1 to all ids from tiled!
         //used for map collision
+        private class WaterTile
+        {
+            public enum Type
+            {
+                WATER, TOPWATER, DEEPWATER, CORNER
+            }
+
+            public int tileID;
+            public String texturePath;
+            public int frames;
+            public float frameSpeed;
+            public CollisionTypeEnum collisionType;
+
+            public WaterTile(int tileID, String texturePath, CollisionTypeEnum collisionType, int frames, float frameSpeed)
+            {
+                this.tileID = tileID;
+                this.texturePath = texturePath;
+                this.collisionType = collisionType;
+                this.frames = frames;
+                this.frameSpeed = frameSpeed;
+            }
+        }
+
+        private static WaterTile[] WATER_TILES =
+        {
+            new WaterTile(371, Paths.SPRITE_WATER_TOPPER, CollisionTypeEnum.TOP_WATER, 3, 0.25f),
+            new WaterTile(372, Paths.SPRITE_WATER, CollisionTypeEnum.WATER, 1, 0.25f),
+            new WaterTile(373, Paths.SPRITE_WATER_TRANSITION, CollisionTypeEnum.DEEP_WATER, 3, 0.25f),
+            new WaterTile(374, Paths.SPRITE_WATER_DEEP, CollisionTypeEnum.DEEP_WATER, 1, 0.25f),
+            new WaterTile(381, Paths.SPRITE_WATER_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f),
+            new WaterTile(382, Paths.SPRITE_WATER_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f),
+            new WaterTile(383, Paths.SPRITE_WATER_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f),
+            new WaterTile(384, Paths.SPRITE_WATER_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f),
+            new WaterTile(391, Paths.SPRITE_WATER_DEEP_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f),
+            new WaterTile(392, Paths.SPRITE_WATER_DEEP_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f),
+            new WaterTile(393, Paths.SPRITE_WATER_DEEP_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f),
+            new WaterTile(394, Paths.SPRITE_WATER_DEEP_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f),
+
+        };
+
         private static int WATER_TOPPER_ID = 208;
+        private static int WATER_ID = 205;
+        private static int WATER_TRANSITION_ID = 206;
+        private static int WATER_DEEP_ID = 207;
+        private static int WATER_CORNERTOPLEFT_ID = 200;
+        private static int WATER_CORNERTOPRIGHT_ID = 200;
+        private static int WATER_CORNERBOTTOMLEFT_ID = 200;
+        private static int WATER_CORNERBOTTOMRIGHT_ID = 200;
+        private static int WATER_DEEP_CORNERTOPLEFT_ID = 199;
+        private static int WATER_DEEP_CORNERTOPRIGHT_ID = 199;
+        private static int WATER_DEEP_CORNERBOTTOMLEFT_ID = 199;
+        private static int WATER_DEEP_CORNERBOTTOMRIGHT_ID = 199;
+
         private static int WATER_PURE_TOPPER_ID = 217;
         private static int WATER_SWAMP_TOPPER_ID = 270;
         private static int WATER_LAVA_TOPPER_ID = 290;
         private static int WATER_CLOUD_TOPPER_ID = 300;
         private static int WATER_CLOUD_MID_TOPPER_ID = 298;
-        private static int[] WATER_TOPPER_IDs = { 208, 217, 270, 290, 300, 298};
+        private static int[] TOP_WATER_TILE_IDS = { 208, 217, 270, 290, 300, 298};
         private static int[] WATER_TILE_IDS = { 205, 216, 267, 287, 297 };
         private static int[] DEEP_WATER_TILE_IDS = { 206, 207, 268, 269, 288, 289, 298, 299 };
+        private static int[] CORNER_WATER_TILE_IDS = { 199, 200, 219, 277, 278, 279, 280 };
 
         //used for particles & farmable placement
         private static int[] ORANGE_EARTH_TILE_IDS = { 151, 152, 153, 154, 156 }; //farm, town, stratum 0
@@ -1565,67 +1618,40 @@ namespace Plateau
             {
                 for (int y = 0; y < baseLayer.Height; y++)
                 {
-                    TiledMapTile? t;
-                    waterLayer.TryGetTile((ushort)x, (ushort)y, out t);
+                    TiledMapTile? tile;
+                    waterLayer.TryGetTile((ushort)x, (ushort)y, out tile);
 
-                    int tileGlobalId = t.Value.GlobalIdentifier;
-                    if (collisionMap[x, y] == CollisionTypeEnum.AIR)
+                    int tileGlobalId = tile.Value.GlobalIdentifier;
+
+                    WaterTile waterTile = null;
+                    foreach(WaterTile wt in WATER_TILES)
                     {
-                        if (Util.ArrayContains(WATER_TILE_IDS, tileGlobalId))
+                        if (wt.tileID == tileGlobalId)
                         {
-                            collisionMap[x, y] = CollisionTypeEnum.WATER;
-                        } else if (Util.ArrayContains(DEEP_WATER_TILE_IDS, tileGlobalId))
-                        {
-                            collisionMap[x, y] = CollisionTypeEnum.DEEP_WATER;
-                        } else if (Util.ArrayContains(WATER_TOPPER_IDs, tileGlobalId))
-                        {
-                            collisionMap[x, y] = CollisionTypeEnum.TOP_WATER;
-
-                            Texture2D topperTex;
-                            int frames = 3;
-                            float frameSpeed = 0.25f;
-
-                            if(tileGlobalId == WATER_PURE_TOPPER_ID)
-                            {
-                                topperTex = content.Load<Texture2D>(Paths.SPRITE_WATER_TOPPER_PURE);
-                            } else if (tileGlobalId == WATER_SWAMP_TOPPER_ID)
-                            {
-                                topperTex = content.Load<Texture2D>(Paths.SPRITE_WATER_TOPPER_SWAMP);
-                            } else if (tileGlobalId == WATER_LAVA_TOPPER_ID)
-                            {
-                                topperTex = content.Load<Texture2D>(Paths.SPRITE_WATER_TOPPER_LAVA);
-                            } else if (tileGlobalId == WATER_CLOUD_TOPPER_ID)
-                            {
-                                topperTex = content.Load<Texture2D>(Paths.SPRITE_WATER_TOPPER_CLOUD);
-                                frames = 8;
-                                frameSpeed = 0.5f;
-                            } else if (tileGlobalId == WATER_CLOUD_MID_TOPPER_ID)
-                            {
-                                topperTex = content.Load<Texture2D>(Paths.SPRITE_WATER_TOPPER);
-                                frames = 4;
-                                frameSpeed = 0.35f;
-                            } else if (tileGlobalId == WATER_TOPPER_ID)
-                            {
-                                topperTex = content.Load<Texture2D>(Paths.SPRITE_WATER_TOPPER);
-                            } else
-                            {
-                                topperTex = content.Load<Texture2D>(Paths.SPRITE_FRUIT_TREE);
-                                int wyz = 0;
-                                wyz = wyz / wyz;
-                            }
-
-                            AnimatedSprite sprite = new AnimatedSprite(topperTex, frames, 1, frames, Util.CreateAndFillArray(frames, frameSpeed));
-                            sprite.AddLoop("anim", 0, frames-1, true, false);
-                            sprite.SetLoop("anim");
-                            TEntityWaterTopper waterTop = new TEntityWaterTopper(new Vector2(x, y), sprite, 0.70f, DrawLayer.FOREGROUND);
-                            AddTileEntity(waterTop);
-
-                            AnimatedSprite sprite2 = new AnimatedSprite(topperTex, frames, 1, frames, Util.CreateAndFillArray(frames, frameSpeed));
-                            sprite2.AddLoop("anim", 0, frames-1, true, false);
-                            sprite2.SetLoop("anim");
-                            TEntityWaterTopper waterTopBack = new TEntityWaterTopper(new Vector2(x, y), sprite2, 1.0f, DrawLayer.BACKGROUND_BEHIND_WALL);
-                            AddTileEntity(waterTopBack);
+                            waterTile = wt;
+                            break;
                         }
+                    }
+
+                    if(waterTile != null)
+                    {
+                        collisionMap[x, y] = waterTile.collisionType;
+
+                        Texture2D waterTex = content.Load<Texture2D>(waterTile.texturePath);
+                        int frames = waterTile.frames;
+                        float frameSpeed = waterTile.frameSpeed;
+
+                        AnimatedSprite sprite = new AnimatedSprite(waterTex, frames, 1, frames, Util.CreateAndFillArray(frames, frameSpeed));
+                        sprite.AddLoop("anim", 0, frames - 1, true, false);
+                        sprite.SetLoop("anim");
+                        TEntityWaterTopper waterTop = new TEntityWaterTopper(new Vector2(x, y), sprite, 0.70f, DrawLayer.FOREGROUND);
+                        AddEntity(waterTop);
+
+                        AnimatedSprite sprite2 = new AnimatedSprite(waterTex, frames, 1, frames, Util.CreateAndFillArray(frames, frameSpeed));
+                        sprite2.AddLoop("anim", 0, frames - 1, true, false);
+                        sprite2.SetLoop("anim");
+                        TEntityWaterTopper waterTopBack = new TEntityWaterTopper(new Vector2(x, y), sprite2, 1.0f, DrawLayer.BACKGROUND_BEHIND_WALL);
+                        AddEntity(waterTopBack);
                     }
                 }
             }
@@ -1741,7 +1767,6 @@ namespace Plateau
                             XYTile toCheck = new XYTile(x / 8, y / 8);
                             if (IsCeilingTileEntityPlacementValid(toCheck.tileX, toCheck.tileY, 1, 1))
                             {
-                                
                                 validTiles.Add(toCheck);
                                 //System.Diagnostics.Debug.WriteLine("FOUND A VALID CEIL TILE: " + toCheck.tileX + "   " + toCheck.tileY);
                             }
@@ -1750,14 +1775,12 @@ namespace Plateau
                     ceil = true;
                 } else
                 {
-                    System.Diagnostics.Debug.WriteLine("TYPE IS INCORRECTLY SET TO: " + type);
+                    throw new Exception("TYPE IS INCORRECTLY SET TO: " + type);
                 }
 
                 if (validTiles.Count == 0)
                 {
-                    System.Diagnostics.Debug.WriteLine("NO VALID TYPES" + type);
-                    int exep = 0;
-                    int x = 10 / exep;
+                    throw new Exception("NO VALID TILES" + type + " " + tiledObject.Position.ToString());
                 }
 
                 SpawnZone spawnZone = new SpawnZone(validTiles, ceil, bridgesAllowed);
@@ -2435,7 +2458,7 @@ namespace Plateau
         {
             if (mapWater != null)
             {
-                sb.Draw(mapWater, Vector2.Zero, Color.White);
+                //sb.Draw(mapWater, Vector2.Zero, Color.White);
             }
         }
 
@@ -2443,7 +2466,7 @@ namespace Plateau
         {
             if (mapWaterBG != null)
             {
-                sb.Draw(mapWaterBG, Vector2.Zero, Color.White);
+                //sb.Draw(mapWaterBG, Vector2.Zero, Color.White);
             }
         }
 

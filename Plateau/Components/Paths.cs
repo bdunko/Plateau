@@ -510,6 +510,19 @@ namespace Plateau.Components
         public static string SPRITE_PARTICLE_ZIG5 = "sprites/particles/particle_zig5";
 
         public static string SPRITE_WATER_TOPPER = "sprites/water_topper";
+        public static string SPRITE_WATER = "sprites/water";
+        public static string SPRITE_WATER_DEEP = "sprites/water_deep";
+        public static string SPRITE_WATER_TRANSITION = "sprites/water_transition";
+        public static string SPRITE_WATER_CORNERTOPLEFT = "sprites/water_cornertopleft";
+        public static string SPRITE_WATER_CORNERBOTTOMLEFT = "sprites/water_cornerbottomleft";
+        public static string SPRITE_WATER_CORNERTOPRIGHT = "sprites/water_cornertopright";
+        public static string SPRITE_WATER_CORNERBOTTOMRIGHT = "sprites/water_cornerbottomright";
+        public static string SPRITE_WATER_DEEP_CORNERTOPLEFT = "sprites/water_deep_cornertopleft";
+        public static string SPRITE_WATER_DEEP_CORNERBOTTOMLEFT = "sprites/water_deep_cornerbottomleft";
+        public static string SPRITE_WATER_DEEP_CORNERTOPRIGHT = "sprites/water_deep_cornertopright";
+        public static string SPRITE_WATER_DEEP_CORNERBOTTOMRIGHT = "sprites/water_deep_cornerbottomright";
+
+
         public static string SPRITE_WATER_TOPPER_PURE = "sprites/water_topper_pure";
         public static string SPRITE_WATER_TOPPER_SWAMP = "sprites/water_topper_swamp";
         public static string SPRITE_WATER_TOPPER_LAVA = "sprites/water_topper_lava";

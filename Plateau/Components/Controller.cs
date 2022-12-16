@@ -74,6 +74,14 @@ namespace Plateau.Components
             return kStates.ElementAt(QUEUE_SIZE-1).IsKeyDown(key);
         }
 
+        public bool IsShiftDown()
+        {
+            foreach(Keys shiftKey in KeyBinds.SHIFT)
+                if (kStates.ElementAt(QUEUE_SIZE - 1).IsKeyDown(shiftKey))
+                    return true;
+            return false;
+        }
+
         //Key released this frame, was down last frame
         public bool IsKeyPressed(Keys key)
         {

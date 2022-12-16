@@ -3333,14 +3333,14 @@ namespace Plateau.Components
                         {
                             if(inventoryHeldItem.GetItem () != ItemDict.NONE)
                             {
-                                if (controller.IsKeyDown(KeyBinds.SHIFT))
+                                if (controller.IsShiftDown())
                                     DropInventoryHeldItemAll(world);
                                 else
                                     DropInventoryHeldItem(world);
                             }
                             else
                             {
-                                if (controller.IsKeyDown(KeyBinds.SHIFT))
+                                if (controller.IsShiftDown())
                                     DropHeldItemAll(world);
                                 else
                                     DropHeldItem(world);
@@ -3835,7 +3835,7 @@ namespace Plateau.Components
                             if (itemRectangles[i].Contains(mousePos))
                             {
                                 ItemStack selected = player.GetInventoryItemStack(i);
-                                if (controller.IsKeyDown(KeyBinds.SHIFT))
+                                if (controller.IsShiftDown())
                                 {
                                     if (interfaceState == InterfaceState.INVENTORY)
                                     {
@@ -3952,7 +3952,7 @@ namespace Plateau.Components
 
                         if (player.GetInterfaceState() == InterfaceState.INVENTORY)
                         {
-                            CheckClothingClick(player, mousePos, controller.IsKeyDown(KeyBinds.SHIFT));
+                            CheckClothingClick(player, mousePos, controller.IsShiftDown());
                         }
                         else if (player.GetInterfaceState() == InterfaceState.CHEST) //chest left click
                         {
@@ -3962,7 +3962,7 @@ namespace Plateau.Components
                                 if (chestRectangles[i].Contains(mousePos))
                                 {
                                     ItemStack selected = chest.GetInventoryItemStack(i);
-                                    if (controller.IsKeyDown(KeyBinds.SHIFT)) //shift click item from chest to inventory
+                                    if (controller.IsShiftDown()) //shift click item from chest to inventory
                                     {
                                         bool placedInInventory = false;
                                         //attempt to add to inventory
@@ -4059,7 +4059,7 @@ namespace Plateau.Components
                                 ItemStack selected = player.GetInventoryItemStack(i);
                                 if (inventoryHeldItem != null && inventoryHeldItem.GetItem() is DyeItem && selected.GetItem() != ItemDict.NONE)
                                 {
-                                    if (controller.IsKeyDown(KeyBinds.SHIFT))
+                                    if (controller.IsShiftDown())
                                     {
                                         for (int j = 0; j < 9; j++)
                                         {
@@ -4068,7 +4068,7 @@ namespace Plateau.Components
                                     }
                                     TryApplyDye(selected, player);
                                 }
-                                else if ((selected.GetItem() is ClothingItem || selected.GetItem().HasTag(Item.Tag.ACCESSORY)) && controller.IsKeyDown(KeyBinds.SHIFT) && interfaceState == InterfaceState.INVENTORY)
+                                else if ((selected.GetItem() is ClothingItem || selected.GetItem().HasTag(Item.Tag.ACCESSORY)) && controller.IsShiftDown() && interfaceState == InterfaceState.INVENTORY)
                                 {
                                     ShiftSwapClothingItem(player, i);
                                 }
@@ -4108,7 +4108,7 @@ namespace Plateau.Components
 
                         if (player.GetInterfaceState() == InterfaceState.INVENTORY)
                         {
-                            CheckClothingClick(player, mousePos, controller.IsKeyDown(KeyBinds.SHIFT));
+                            CheckClothingClick(player, mousePos, controller.IsShiftDown());
                         }
                         else if (player.GetInterfaceState() == InterfaceState.CHEST) //chest right click
                         {
@@ -4527,7 +4527,7 @@ namespace Plateau.Components
                         hoveringCraftButton = true;
                         if (controller.GetMouseLeftPress())
                         {
-                            for (int j = 0; j < (controller.IsKeyDown(KeyBinds.SHIFT) ? 5 : 1); j++) { 
+                            for (int j = 0; j < (controller.IsShiftDown() ? 5 : 1); j++) { 
                                 //check if player has all needed to craft...
                                 bool possible = true;
                                 foreach(ItemStack stack in selectedRecipe.components)
@@ -5521,7 +5521,7 @@ namespace Plateau.Components
                     Vector2 leftShiftMouseSize = PlateauMain.FONT.MeasureString(mouseLeftShiftAction) * PlateauMain.FONT_SCALE;
                     Vector2 rightMouseSize = PlateauMain.FONT.MeasureString(mouseRightAction) * PlateauMain.FONT_SCALE;
                     Vector2 rightShiftMouseSize = PlateauMain.FONT.MeasureString(mouseRightShiftAction) * PlateauMain.FONT_SCALE;
-                    if (controller.IsKeyDown(KeyBinds.SHIFT))
+                    if (controller.IsShiftDown())
                     {
                         WHITE_9SLICE.DrawString(sb, mouseLeftShiftAction, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MOUSE_LEFT_TEXT_POSITION) - (0.5f * leftShiftMouseSize), cameraBoundingBox, Color.LightGreen, Util.UI_BLACK_9SLICE.color);
                         WHITE_9SLICE.DrawString(sb, mouseRightShiftAction, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MOUSE_RIGHT_TEXT_POSITION) - (0.5f * rightShiftMouseSize), cameraBoundingBox, Color.LightGreen, Util.UI_BLACK_9SLICE.color);
@@ -5534,10 +5534,10 @@ namespace Plateau.Components
 
                     if (mouseLeftShiftAction != "" || mouseRightShiftAction != "")
                     {
-                        sb.Draw(controller.IsKeyDown(KeyBinds.SHIFT) ? shiftOnPressed : shiftOnUnpressed, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SHIFT_CONTROL_POSITION), Color.White);
+                        sb.Draw(controller.IsShiftDown() ? shiftOnPressed : shiftOnUnpressed, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SHIFT_CONTROL_POSITION), Color.White);
                         if (currentDialogue == null)
                         {
-                            string shiftTooltip = controller.IsKeyDown(KeyBinds.SHIFT) ? "" : "Shift for\nmore options";
+                            string shiftTooltip = controller.IsShiftDown() ? "" : "Shift for\nmore options";
                             if (shiftTooltip != "")
                             {
                                 WHITE_9SLICE.DrawString(sb, shiftTooltip, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SHIFT_TEXT_POSITION), cameraBoundingBox, Color.LightGreen, Util.UI_BLACK_9SLICE.color);
@@ -5546,7 +5546,7 @@ namespace Plateau.Components
                     }
                     else if ((!isHidden && currentDialogue == null))
                     {
-                        sb.Draw(controller.IsKeyDown(KeyBinds.SHIFT) ? shiftOffPressed : shiftOffUnpressed, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SHIFT_CONTROL_POSITION), Color.White);
+                        sb.Draw(controller.IsShiftDown() ? shiftOffPressed : shiftOffUnpressed, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SHIFT_CONTROL_POSITION), Color.White);
                     }
 
                     if (!isHidden && currentDialogue == null)
@@ -5785,7 +5785,7 @@ namespace Plateau.Components
                     QUEUED_STRINGS.Add(new QueuedString("Settings: " + Util.KeyToString(KeyBinds.SETTINGS), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_SETTINGS_HOTKEY_POSITION), Color.White));
                     QUEUED_STRINGS.Add(new QueuedString("Editmode: " + Util.KeyToString(KeyBinds.EDITMODE), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_EDITMODE_HOTKEY_POSITION), Color.White));
                     QUEUED_STRINGS.Add(new QueuedString("Cycle: " + Util.KeyToString(KeyBinds.CYCLE_HOTBAR), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_CYCLE_INVENTORY_HOTKEY_POSITION), Color.White));
-                    if(controller.IsKeyDown(KeyBinds.SHIFT))
+                    if(controller.IsShiftDown())
                         QUEUED_STRINGS.Add(new QueuedString("All: " + Util.KeyToString(KeyBinds.DISCARD_ITEM), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_DROP_HOTKEY_POSITION), Color.White));
                     else
                         QUEUED_STRINGS.Add(new QueuedString("Drop: " + Util.KeyToString(KeyBinds.DISCARD_ITEM), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, MENU_DROP_HOTKEY_POSITION), Color.White));

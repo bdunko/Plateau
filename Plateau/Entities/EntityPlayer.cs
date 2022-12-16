@@ -1508,7 +1508,7 @@ namespace Plateau.Entities
                 if ((targetEntity == null || !(targetEntity is IInteract) || ((IInteract)targetEntity).GetLeftClickAction(this).Equals("")) &&
                     (targetTileEntity == null || !(targetTileEntity is IInteract) || ((IInteract)targetTileEntity).GetLeftClickAction(this).Equals("")))
                 {
-                    if (leftMousePress && GetHeldItem().GetItem() is PlantableItem && grounded && !rolling && !useTool && !editmode && !controller.IsKeyDown(KeyBinds.SHIFT))
+                    if (leftMousePress && GetHeldItem().GetItem() is PlantableItem && grounded && !rolling && !useTool && !editmode && !controller.IsShiftDown())
                     {
                         PlantableItem plantableItem = (PlantableItem)GetHeldItem().GetItem();
                         TileEntity toAdd = (TileEntity)EntityFactory.GetEntity(plantableItem.GetPlantedType(), null, targetTile + (direction == DirectionEnum.LEFT ? new Vector2(-1, 0) : new Vector2(0, 0)) + plantableItem.GetPlacementOffset(), area);
@@ -1550,7 +1550,7 @@ namespace Plateau.Entities
                             AddNotification(new EntityPlayer.Notification("I can't plant the sapling in this spot.", Color.Red));
                         }
                     }
-                    else if (leftMousePress && GetHeldItem().GetItem() is EdibleItem && grounded && !rolling && !useTool && !controller.IsKeyDown(KeyBinds.SHIFT))
+                    else if (leftMousePress && GetHeldItem().GetItem() is EdibleItem && grounded && !rolling && !useTool && !controller.IsShiftDown())
                     {
                         externalVelocityX = 0;
                         DialogueNode foodPrompt = new DialogueNode("Eat the " + GetHeldItem().GetItem().GetName() + "?", DialogueNode.PORTRAIT_SYSTEM);
@@ -1566,7 +1566,7 @@ namespace Plateau.Entities
                         });
                         foodPrompt.decisionRightNode = new DialogueNode("I'm not so hungry anyway.", DialogueNode.PORTRAIT_SYSTEM);
                         SetCurrentDialogue(foodPrompt);
-                    } else if (leftMousePress && GetHeldItem().GetItem() is UsableItem && grounded && !rolling && !useTool && !controller.IsKeyDown(KeyBinds.SHIFT))
+                    } else if (leftMousePress && GetHeldItem().GetItem() is UsableItem && grounded && !rolling && !useTool && !controller.IsShiftDown())
                     {
                         ((UsableItem)GetHeldItem().GetItem()).Use(this);
                     }
@@ -1611,7 +1611,7 @@ namespace Plateau.Entities
                     leftClickAction = ((UsableItem)GetHeldItem().GetItem()).GetMouseText();
                 }
 
-                if (GetHeldItem().GetItem().HasTag(Item.Tag.TOOL) && grounded && !rolling && !groundPoundLock && !controller.IsKeyDown(KeyBinds.SHIFT)) { //using a tool
+                if (GetHeldItem().GetItem().HasTag(Item.Tag.TOOL) && grounded && !rolling && !groundPoundLock && !controller.IsShiftDown()) { //using a tool
                     if (GetHeldItem().GetItem().HasTag(Item.Tag.HOE))
                     {
                         leftClickAction = "Hoe";
@@ -1672,7 +1672,7 @@ namespace Plateau.Entities
                         }
                     }
 
-                    if (leftMouseDown && grounded && !rolling && !useTool && !groundPoundLock && !controller.IsKeyDown(KeyBinds.SHIFT))
+                    if (leftMouseDown && grounded && !rolling && !useTool && !groundPoundLock && !controller.IsShiftDown())
                     {
                         attemptToolHit = false;
                         inputVelocityX = 0;
@@ -1802,7 +1802,7 @@ namespace Plateau.Entities
                     {
                         if (leftMousePress)
                         {
-                            if (controller.IsKeyDown(KeyBinds.SHIFT))
+                            if (controller.IsShiftDown())
                             {
                                 ((IInteract)targetEntity).InteractLeftShift(this, area, world);
                             }
@@ -1813,7 +1813,7 @@ namespace Plateau.Entities
                         }
                         else if (rightMousePress)
                         {
-                            if (controller.IsKeyDown(KeyBinds.SHIFT))
+                            if (controller.IsShiftDown())
                             {
                                 ((IInteract)targetEntity).InteractRightShift(this, area, world);
                             }
@@ -1831,7 +1831,7 @@ namespace Plateau.Entities
                         { //it's nice to be able to fertilize farmables by holding down...
                             if (leftMouseDown)
                             {
-                                if (controller.IsKeyDown(KeyBinds.SHIFT))
+                                if (controller.IsShiftDown())
                                 {
                                     ((IInteract)targetTileEntity).InteractLeftShift(this, area, world);
                                 }
@@ -1843,7 +1843,7 @@ namespace Plateau.Entities
                         }
                         else if (leftMousePress)
                         {
-                            if (controller.IsKeyDown(KeyBinds.SHIFT))
+                            if (controller.IsShiftDown())
                             {
                                 ((IInteract)targetTileEntity).InteractLeftShift(this, area, world);
                             }
@@ -1854,7 +1854,7 @@ namespace Plateau.Entities
                         }
                         else if (rightMousePress)
                         {
-                            if (controller.IsKeyDown(KeyBinds.SHIFT))
+                            if (controller.IsShiftDown())
                             {
                                 ((IInteract)targetTileEntity).InteractRightShift(this, area, world);
                             }

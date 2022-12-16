@@ -227,7 +227,6 @@ namespace Plateau
             WINDOW.Title = "Plateau";
             WINDOW.Position = new Point(0, 0);
             WINDOW.IsBorderless = true;
-            WINDOW.AllowAltF4 = false;
 
             SCREEN_RESOLUTION_WIDTH = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width;
             SCREEN_RESOLUTION_HEIGHT = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height;

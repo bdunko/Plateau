@@ -2829,14 +2829,36 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/tree_palm_spritesheet.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/tree_pine_spritesheet.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/tree_thin_spritesheet.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_corner_bottomleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cornerbottomright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cornertopleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cornertopright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_deep.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_deep_cornerbottomleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_deep_cornerbottomright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_deep_cornertopleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_deep_cornertopright.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_cloud.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_cloud_mid.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_lava.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_pure.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_transition.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
