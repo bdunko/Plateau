@@ -1737,8 +1737,6 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/beach_decoration_fg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/beach_fg_cave.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/beach_walls.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/beach_water.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/beach_water_bg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/decor_tileset.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/farm.tmx</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/farm_base.png</File>
@@ -1749,40 +1747,30 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_decoration_fg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_fg_cave.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_walls.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_water.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/interior_water_bg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0.tmx</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0_base.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0_decoration.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0_decoration_fg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0_fg_cave.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0_walls.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0_water.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum0_water_bg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum1.tmx</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum1_base.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum1_decoration.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum1_decoration_fg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum1_fg_cave.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum1_walls.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum1_water.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum1_water_bg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum2.tmx</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum2_base.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum2_decoration.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum2_decoration_fg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum2_fg_cave.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum2_walls.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum2_water.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum2_water_bg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum3.tmx</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum3_base.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum3_decoration.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum3_decoration_fg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum3_fg_cave.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum3_walls.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum3_water.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum3_water_bg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum4.tmx</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/town.tmx</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/town_base.png</File>
@@ -1790,8 +1778,6 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/town_decoration_fg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/town_fg_cave.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/town_walls.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/town_water.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/town_water_bg.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/towntileset.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/maps/updtileset.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/shaders/light_large_spritesheet.png</File>
@@ -2830,7 +2816,18 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/tree_pine_spritesheet.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/tree_thin_spritesheet.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_corner_bottomleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud_cornerbottomleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud_cornerbottomright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud_cornertopleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud_cornertopright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud_deep.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud_deep_cornerbottomleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud_deep_cornerbottomright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud_deep_cornertopleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud_deep_cornertopright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cloud_transition.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cornerbottomleft.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cornerbottomright.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cornertopleft.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_cornertopright.png</File>
@@ -2839,15 +2836,64 @@
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_deep_cornerbottomright.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_deep_cornertopleft.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_deep_cornertopright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_cornerbottomleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_cornerbottomright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_cornertopleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_cornertopright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_deep.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_deep_cornerbottomleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_deep_cornerbottomright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_deep_cornertopleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_deep_cornertopright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_lava_transition.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_pure.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_pure_cornerbottomleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_pure_cornerbottomright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_pure_cornertopleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_pure_cornertopright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_cornerbottomleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_cornerbottomright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_cornertopleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_cornertopright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_deep.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_deep_cornerbottomleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_deep_cornerbottomright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_deep_cornertopleft.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_deep_cornertopright.png</File>
+    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_swamp_transition.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_cloud.png</File>
-    <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_cloud_mid.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_lava.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_pure.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_topper_swamp.png</File>
     <File>D:/Code/Plateau/Plateau/Plateau/Content/sprites/water_transition.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

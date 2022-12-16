@@ -33,8 +33,6 @@ namespace Plateau.Components
         public static string MAP_TOWN_WALLS = "maps/town_walls";
         public static string MAP_TOWN_DECORATION = "maps/town_decoration";
         public static string MAP_TOWN_DECORATION_FG = "maps/town_decoration_fg";
-        public static string MAP_TOWN_WATER = "maps/town_water";
-        public static string MAP_TOWN_WATER_BG = "maps/town_water_bg";
         public static string MAP_TOWN_FG_CAVE = "maps/town_fg_cave";
 
         public static string MAP_INTERIOR = "maps/interior";
@@ -51,7 +49,6 @@ namespace Plateau.Components
         public static string MAP_BEACH_DECORATION = "maps/beach_decoration";
         public static string MAP_BEACH_DECORATION_FG = "maps/beach_decoration_fg";
         public static string MAP_BEACH_WATER = "maps/beach_water";
-        public static string MAP_BEACH_WATER_BG = "maps/beach_water_bg";
         public static string MAP_BEACH_FG_CAVE = "maps/beach_fg_cave";
 
         public static string MAP_S0 = "maps/stratum0";
@@ -60,7 +57,6 @@ namespace Plateau.Components
         public static string MAP_S0_DECORATION = "maps/stratum0_decoration";
         public static string MAP_S0_DECORATION_FG = "maps/stratum0_decoration_fg";
         public static string MAP_S0_WATER = "maps/stratum0_water";
-        public static string MAP_S0_WATER_BG = "maps/stratum0_water_bg";
         public static string MAP_S0_FG_CAVE = "maps/stratum0_fg_cave";
 
         public static string MAP_S1 = "maps/stratum1";
@@ -69,7 +65,6 @@ namespace Plateau.Components
         public static string MAP_S1_DECORATION = "maps/stratum1_decoration";
         public static string MAP_S1_DECORATION_FG = "maps/stratum1_decoration_fg";
         public static string MAP_S1_WATER = "maps/stratum1_water";
-        public static string MAP_S1_WATER_BG = "maps/stratum1_water_bg";
         public static string MAP_S1_FG_CAVE = "maps/stratum1_fg_cave";
 
         public static string MAP_S2 = "maps/stratum2";
@@ -78,7 +73,6 @@ namespace Plateau.Components
         public static string MAP_S2_DECORATION = "maps/stratum2_decoration";
         public static string MAP_S2_DECORATION_FG = "maps/stratum2_decoration_fg";
         public static string MAP_S2_WATER = "maps/stratum2_water";
-        public static string MAP_S2_WATER_BG = "maps/stratum2_water_bg";
         public static string MAP_S2_FG_CAVE = "maps/stratum2_fg_cave";
 
         public static string MAP_S3 = "maps/stratum3";
@@ -87,7 +81,6 @@ namespace Plateau.Components
         public static string MAP_S3_DECORATION = "maps/stratum3_decoration";
         public static string MAP_S3_DECORATION_FG = "maps/stratum3_decoration_fg";
         public static string MAP_S3_WATER = "maps/stratum3_water";
-        public static string MAP_S3_WATER_BG = "maps/stratum3_water_bg";
         public static string MAP_S3_FG_CAVE = "maps/stratum3_fg_cave";
 
         public static string MAP_S4 = "maps/stratum4";
@@ -509,6 +502,7 @@ namespace Plateau.Components
         public static string SPRITE_PARTICLE_ZIG4 = "sprites/particles/particle_zig4";
         public static string SPRITE_PARTICLE_ZIG5 = "sprites/particles/particle_zig5";
 
+        //standard (ocean/pond) water
         public static string SPRITE_WATER_TOPPER = "sprites/water_topper";
         public static string SPRITE_WATER = "sprites/water";
         public static string SPRITE_WATER_DEEP = "sprites/water_deep";
@@ -522,12 +516,55 @@ namespace Plateau.Components
         public static string SPRITE_WATER_DEEP_CORNERTOPRIGHT = "sprites/water_deep_cornertopright";
         public static string SPRITE_WATER_DEEP_CORNERBOTTOMRIGHT = "sprites/water_deep_cornerbottomright";
 
-
+        //s1 pure water
         public static string SPRITE_WATER_TOPPER_PURE = "sprites/water_topper_pure";
+        public static string SPRITE_WATER_PURE = "sprites/water_pure";
+        public static string SPRITE_WATER_PURE_CORNERTOPLEFT = "sprites/water_pure_cornertopleft";
+        public static string SPRITE_WATER_PURE_CORNERBOTTOMLEFT = "sprites/water_pure_cornerbottomleft";
+        public static string SPRITE_WATER_PURE_CORNERTOPRIGHT = "sprites/water_pure_cornertopright";
+        public static string SPRITE_WATER_PURE_CORNERBOTTOMRIGHT = "sprites/water_pure_cornerbottomright";
+
+        //s2 swamp water
         public static string SPRITE_WATER_TOPPER_SWAMP = "sprites/water_topper_swamp";
+        public static string SPRITE_WATER_SWAMP = "sprites/water_swamp";
+        public static string SPRITE_WATER_SWAMP_CORNERTOPLEFT = "sprites/water_swamp_cornertopleft";
+        public static string SPRITE_WATER_SWAMP_CORNERBOTTOMLEFT = "sprites/water_swamp_cornerbottomleft";
+        public static string SPRITE_WATER_SWAMP_CORNERTOPRIGHT = "sprites/water_swamp_cornertopright";
+        public static string SPRITE_WATER_SWAMP_CORNERBOTTOMRIGHT = "sprites/water_swamp_cornerbottomright";
+        public static string SPRITE_WATER_SWAMP_TRANSITION = "sprites/water_swamp_transition";
+        public static string SPRITE_WATER_SWAMP_DEEP = "sprites/water_swamp_deep";
+        public static string SPRITE_WATER_SWAMP_DEEP_CORNERTOPLEFT = "sprites/water_swamp_deep_cornertopleft";
+        public static string SPRITE_WATER_SWAMP_DEEP_CORNERBOTTOMLEFT = "sprites/water_swamp_deep_cornerbottomleft";
+        public static string SPRITE_WATER_SWAMP_DEEP_CORNERTOPRIGHT = "sprites/water_swamp_deep_cornertopright";
+        public static string SPRITE_WATER_SWAMP_DEEP_CORNERBOTTOMRIGHT = "sprites/water_swamp_deep_cornerbottomright";
+
+        //s3 lava water
         public static string SPRITE_WATER_TOPPER_LAVA = "sprites/water_topper_lava";
-        public static string SPRITE_WATER_TOPPER_CLOUD_MID = "sprites/water_topper_cloud_mid";
+        public static string SPRITE_WATER_LAVA = "sprites/water_lava";
+        public static string SPRITE_WATER_LAVA_CORNERTOPLEFT = "sprites/water_lava_cornertopleft";
+        public static string SPRITE_WATER_LAVA_CORNERBOTTOMLEFT = "sprites/water_lava_cornerbottomleft";
+        public static string SPRITE_WATER_LAVA_CORNERTOPRIGHT = "sprites/water_lava_cornertopright";
+        public static string SPRITE_WATER_LAVA_CORNERBOTTOMRIGHT = "sprites/water_lava_cornerbottomright";
+        public static string SPRITE_WATER_LAVA_TRANSITION = "sprites/water_lava_transition";
+        public static string SPRITE_WATER_LAVA_DEEP = "sprites/water_lava_deep";
+        public static string SPRITE_WATER_LAVA_DEEP_CORNERTOPLEFT = "sprites/water_lava_deep_cornertopleft";
+        public static string SPRITE_WATER_LAVA_DEEP_CORNERBOTTOMLEFT = "sprites/water_lava_deep_cornerbottomleft";
+        public static string SPRITE_WATER_LAVA_DEEP_CORNERTOPRIGHT = "sprites/water_lava_deep_cornertopright";
+        public static string SPRITE_WATER_LAVA_DEEP_CORNERBOTTOMRIGHT = "sprites/water_lava_deep_cornerbottomright";
+
+        //s4 cloud water
         public static string SPRITE_WATER_TOPPER_CLOUD = "sprites/water_topper_cloud";
+        public static string SPRITE_WATER_CLOUD = "sprites/water_cloud";
+        public static string SPRITE_WATER_CLOUD_CORNERTOPLEFT = "sprites/water_cloud_cornertopleft";
+        public static string SPRITE_WATER_CLOUD_CORNERBOTTOMLEFT = "sprites/water_cloud_cornerbottomleft";
+        public static string SPRITE_WATER_CLOUD_CORNERTOPRIGHT = "sprites/water_cloud_cornertopright";
+        public static string SPRITE_WATER_CLOUD_CORNERBOTTOMRIGHT = "sprites/water_cloud_cornerbottomright";
+        public static string SPRITE_WATER_CLOUD_TRANSITION = "sprites/water_cloud_transition";
+        public static string SPRITE_WATER_CLOUD_DEEP = "sprites/water_cloud_deep";
+        public static string SPRITE_WATER_CLOUD_DEEP_CORNERTOPLEFT = "sprites/water_cloud_deep_cornertopleft";
+        public static string SPRITE_WATER_CLOUD_DEEP_CORNERBOTTOMLEFT = "sprites/water_cloud_deep_cornerbottomleft";
+        public static string SPRITE_WATER_CLOUD_DEEP_CORNERTOPRIGHT = "sprites/water_cloud_deep_cornertopright";
+        public static string SPRITE_WATER_CLOUD_DEEP_CORNERBOTTOMRIGHT = "sprites/water_cloud_deep_cornerbottomright";
 
         //wallpaper spritesheet
         public static string SPRITE_WALLPAPER_BUBBLE = "sprites/placeables/wallpaper_bubble";

@@ -649,7 +649,6 @@ namespace Plateau
                     world.DrawEntities(spriteBatch, DrawLayer.BACKGROUND_BEHIND_WALL, camera.GetBoundingBox(), 0.025f); //depth 0.10f
                     spriteBatch.End();
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
-                    world.DrawWaterBackground(spriteBatch, 0.025f);
                     world.DrawWalls(spriteBatch, 0.05f); //depth 0.05f
                     world.DrawEntities(spriteBatch, DrawLayer.BACKGROUND_WALLPAPER, camera.GetBoundingBox(), 0.10f); //depth 0.10f
                     world.DrawDecorations(spriteBatch, 0.05f);
@@ -667,7 +666,6 @@ namespace Plateau
                     spriteBatch.End();
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
                     world.DrawEntities(spriteBatch, DrawLayer.FOREGROUND, camera.GetBoundingBox(), 0.55f); //depth 0.55f
-                    world.DrawWater(spriteBatch, 0.60f); //depth 0.60f;
                     world.DrawForeground(spriteBatch, camera.GetBoundingBox(), 0.65f); //depth 0.65f
                     spriteBatch.End();
                 } else if (currentCutscene.background == CutsceneManager.CutsceneBackground.SKY)

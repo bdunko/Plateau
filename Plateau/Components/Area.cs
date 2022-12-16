@@ -481,8 +481,8 @@ namespace Plateau
         private int widthInTiles, heightInTiles;
 
         private TiledMap tiledMap;
-        private string mapWaterPath, mapDecorationFGPath, mapBasePath, mapDecorationPath, mapWallsPath, mapWaterBGPath, mapFGCavePath;
-        private Texture2D mapWater, mapDecorationFG, mapBase, mapDecoration, mapWalls, mapWaterBG, mapFGCave;
+        private string mapDecorationFGPath, mapBasePath, mapDecorationPath, mapWallsPath, mapFGCavePath;
+        private Texture2D mapDecorationFG, mapBase, mapDecoration, mapWalls, mapFGCave;
         private ContentManager layerContentManager;
         private CollisionTypeEnum[,] collisionMap;
         private bool[,] wallMap;
@@ -537,56 +537,84 @@ namespace Plateau
             public int frames;
             public float frameSpeed;
             public CollisionTypeEnum collisionType;
+            public float frontTransparency;
 
-            public WaterTile(int tileID, String texturePath, CollisionTypeEnum collisionType, int frames, float frameSpeed)
+            public WaterTile(int tileID, String texturePath, CollisionTypeEnum collisionType, int frames, float frameSpeed, float frontTransparency)
             {
                 this.tileID = tileID;
                 this.texturePath = texturePath;
                 this.collisionType = collisionType;
                 this.frames = frames;
                 this.frameSpeed = frameSpeed;
+                this.frontTransparency = frontTransparency;
             }
         }
 
         private static WaterTile[] WATER_TILES =
         {
-            new WaterTile(371, Paths.SPRITE_WATER_TOPPER, CollisionTypeEnum.TOP_WATER, 3, 0.25f),
-            new WaterTile(372, Paths.SPRITE_WATER, CollisionTypeEnum.WATER, 1, 0.25f),
-            new WaterTile(373, Paths.SPRITE_WATER_TRANSITION, CollisionTypeEnum.DEEP_WATER, 3, 0.25f),
-            new WaterTile(374, Paths.SPRITE_WATER_DEEP, CollisionTypeEnum.DEEP_WATER, 1, 0.25f),
-            new WaterTile(381, Paths.SPRITE_WATER_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f),
-            new WaterTile(382, Paths.SPRITE_WATER_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f),
-            new WaterTile(383, Paths.SPRITE_WATER_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f),
-            new WaterTile(384, Paths.SPRITE_WATER_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f),
-            new WaterTile(391, Paths.SPRITE_WATER_DEEP_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f),
-            new WaterTile(392, Paths.SPRITE_WATER_DEEP_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f),
-            new WaterTile(393, Paths.SPRITE_WATER_DEEP_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f),
-            new WaterTile(394, Paths.SPRITE_WATER_DEEP_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f),
+            new WaterTile(371, Paths.SPRITE_WATER_TOPPER, CollisionTypeEnum.TOP_WATER, 3, 0.25f, 0.7f),
+            new WaterTile(372, Paths.SPRITE_WATER, CollisionTypeEnum.WATER, 1, 0.25f, 0.7f),
+            new WaterTile(373, Paths.SPRITE_WATER_TRANSITION, CollisionTypeEnum.DEEP_WATER, 3, 0.25f, 0.7f),
+            new WaterTile(374, Paths.SPRITE_WATER_DEEP, CollisionTypeEnum.DEEP_WATER, 1, 0.25f, 0.7f),
+            new WaterTile(381, Paths.SPRITE_WATER_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.7f),
+            new WaterTile(382, Paths.SPRITE_WATER_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.7f),
+            new WaterTile(383, Paths.SPRITE_WATER_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.7f),
+            new WaterTile(384, Paths.SPRITE_WATER_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.7f),
+            new WaterTile(391, Paths.SPRITE_WATER_DEEP_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.7f),
+            new WaterTile(392, Paths.SPRITE_WATER_DEEP_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.7f),
+            new WaterTile(393, Paths.SPRITE_WATER_DEEP_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.7f),
+            new WaterTile(394, Paths.SPRITE_WATER_DEEP_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.7f),
 
+            new WaterTile(376, Paths.SPRITE_WATER_TOPPER_PURE, CollisionTypeEnum.TOP_WATER, 3, 0.25f, 0.4f),
+            new WaterTile(377, Paths.SPRITE_WATER_PURE, CollisionTypeEnum.WATER, 1, 0.25f, 0.4f),
+            new WaterTile(386, Paths.SPRITE_WATER_PURE_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.4f),
+            new WaterTile(387, Paths.SPRITE_WATER_PURE_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.4f),
+            new WaterTile(388, Paths.SPRITE_WATER_PURE_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.4f),
+            new WaterTile(389, Paths.SPRITE_WATER_PURE_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.4f),
+
+            new WaterTile(401, Paths.SPRITE_WATER_TOPPER_SWAMP, CollisionTypeEnum.TOP_WATER, 3, 0.25f, 0.97f),
+            new WaterTile(402, Paths.SPRITE_WATER_SWAMP, CollisionTypeEnum.WATER, 1, 0.25f, 0.97f),
+            new WaterTile(403, Paths.SPRITE_WATER_SWAMP_TRANSITION, CollisionTypeEnum.DEEP_WATER, 3, 0.25f, 0.97f),
+            new WaterTile(404, Paths.SPRITE_WATER_SWAMP_DEEP, CollisionTypeEnum.DEEP_WATER, 1, 0.25f, 0.97f),
+            new WaterTile(411, Paths.SPRITE_WATER_SWAMP_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.97f),
+            new WaterTile(412, Paths.SPRITE_WATER_SWAMP_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.97f),
+            new WaterTile(413, Paths.SPRITE_WATER_SWAMP_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.97f),
+            new WaterTile(414, Paths.SPRITE_WATER_SWAMP_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.97f),
+            new WaterTile(421, Paths.SPRITE_WATER_SWAMP_DEEP_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.97f),
+            new WaterTile(422, Paths.SPRITE_WATER_SWAMP_DEEP_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.97f),
+            new WaterTile(423, Paths.SPRITE_WATER_SWAMP_DEEP_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.97f),
+            new WaterTile(424, Paths.SPRITE_WATER_SWAMP_DEEP_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.97f),
+
+            new WaterTile(406, Paths.SPRITE_WATER_TOPPER_LAVA, CollisionTypeEnum.TOP_WATER, 3, 0.25f, 1f),
+            new WaterTile(407, Paths.SPRITE_WATER_LAVA, CollisionTypeEnum.WATER, 1, 0.25f, 1f),
+            new WaterTile(408, Paths.SPRITE_WATER_LAVA_TRANSITION, CollisionTypeEnum.DEEP_WATER, 3, 0.25f, 1f),
+            new WaterTile(409, Paths.SPRITE_WATER_LAVA_DEEP, CollisionTypeEnum.DEEP_WATER, 1, 0.25f, 1f),
+            new WaterTile(416, Paths.SPRITE_WATER_LAVA_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 1f),
+            new WaterTile(417, Paths.SPRITE_WATER_LAVA_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 1f),
+            new WaterTile(418, Paths.SPRITE_WATER_LAVA_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 1f),
+            new WaterTile(419, Paths.SPRITE_WATER_LAVA_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 1f),
+            new WaterTile(426, Paths.SPRITE_WATER_LAVA_DEEP_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 1f),
+            new WaterTile(427, Paths.SPRITE_WATER_LAVA_DEEP_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 1f),
+            new WaterTile(428, Paths.SPRITE_WATER_LAVA_DEEP_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 1f),
+            new WaterTile(429, Paths.SPRITE_WATER_LAVA_DEEP_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 1f),
+
+            new WaterTile(431, Paths.SPRITE_WATER_TOPPER_CLOUD, CollisionTypeEnum.TOP_WATER, 8, 0.5f, 0.5f),
+            new WaterTile(432, Paths.SPRITE_WATER_CLOUD, CollisionTypeEnum.WATER, 1, 0.25f, 0.5f),
+            new WaterTile(433, Paths.SPRITE_WATER_CLOUD_TRANSITION, CollisionTypeEnum.DEEP_WATER, 4, 0.5f, 0.5f),
+            new WaterTile(434, Paths.SPRITE_WATER_CLOUD_DEEP, CollisionTypeEnum.DEEP_WATER, 1, 0.25f, 0.5f),
+            new WaterTile(441, Paths.SPRITE_WATER_CLOUD_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.5f),
+            new WaterTile(442, Paths.SPRITE_WATER_CLOUD_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.5f),
+            new WaterTile(443, Paths.SPRITE_WATER_CLOUD_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.5f),
+            new WaterTile(444, Paths.SPRITE_WATER_CLOUD_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.5f),
+            new WaterTile(451, Paths.SPRITE_WATER_CLOUD_DEEP_CORNERTOPLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.5f),
+            new WaterTile(452, Paths.SPRITE_WATER_CLOUD_DEEP_CORNERTOPRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.5f),
+            new WaterTile(453, Paths.SPRITE_WATER_CLOUD_DEEP_CORNERBOTTOMLEFT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.5f),
+            new WaterTile(454, Paths.SPRITE_WATER_CLOUD_DEEP_CORNERBOTTOMRIGHT, CollisionTypeEnum.SOLID, 1, 0.25f, 0.5f),
         };
 
-        private static int WATER_TOPPER_ID = 208;
-        private static int WATER_ID = 205;
-        private static int WATER_TRANSITION_ID = 206;
-        private static int WATER_DEEP_ID = 207;
-        private static int WATER_CORNERTOPLEFT_ID = 200;
-        private static int WATER_CORNERTOPRIGHT_ID = 200;
-        private static int WATER_CORNERBOTTOMLEFT_ID = 200;
-        private static int WATER_CORNERBOTTOMRIGHT_ID = 200;
-        private static int WATER_DEEP_CORNERTOPLEFT_ID = 199;
-        private static int WATER_DEEP_CORNERTOPRIGHT_ID = 199;
-        private static int WATER_DEEP_CORNERBOTTOMLEFT_ID = 199;
-        private static int WATER_DEEP_CORNERBOTTOMRIGHT_ID = 199;
-
-        private static int WATER_PURE_TOPPER_ID = 217;
-        private static int WATER_SWAMP_TOPPER_ID = 270;
-        private static int WATER_LAVA_TOPPER_ID = 290;
-        private static int WATER_CLOUD_TOPPER_ID = 300;
-        private static int WATER_CLOUD_MID_TOPPER_ID = 298;
-        private static int[] TOP_WATER_TILE_IDS = { 208, 217, 270, 290, 300, 298};
-        private static int[] WATER_TILE_IDS = { 205, 216, 267, 287, 297 };
-        private static int[] DEEP_WATER_TILE_IDS = { 206, 207, 268, 269, 288, 289, 298, 299 };
-        private static int[] CORNER_WATER_TILE_IDS = { 199, 200, 219, 277, 278, 279, 280 };
+        //cloud mid frames 4 framespeed 0.35f
+        //cloud frames 8 framespeed 0.5f
+        //swamp transparency 0.9f
 
         //used for particles & farmable placement
         private static int[] ORANGE_EARTH_TILE_IDS = { 151, 152, 153, 154, 156 }; //farm, town, stratum 0
@@ -608,19 +636,17 @@ namespace Plateau
         private static int[] BROWN_MUD_TILE_IDS = { 271, 272, 273, 274, 275 };
 
         public Area(AreaEnum name, TiledMap map, bool cameraMoves, GraphicsDevice graphics, ContentManager content, ContentManager layerContentManager, EntityPlayer player, RectangleF cameraBoundingBox, LayeredBackground.BackgroundParams backgroundParameters, LayeredBackground.BackgroundParams foregroundParameters,
-            string mapWaterPath, string mapDecorationFGPath, string mapBasePath, string mapDecorationPath, string mapWallsPath, string mapWaterBGPath, string mapFGCavePath)
+            string mapDecorationFGPath, string mapBasePath, string mapDecorationPath, string mapWallsPath, string mapFGCavePath)
         {
             this.areaWeather = World.Weather.SUNNY;
             this.areaEnum = name;
             this.cameraMoves = cameraMoves;
 
             this.layerContentManager = layerContentManager;
-            this.mapWaterPath = mapWaterPath;
             this.mapDecorationFGPath = mapDecorationFGPath;
             this.mapBasePath = mapBasePath;
             this.mapDecorationPath = mapDecorationPath;
             this.mapWallsPath = mapWallsPath;
-            this.mapWaterBGPath = mapWaterBGPath;
             this.mapFGCavePath = mapFGCavePath;
             this.foregroundCaveTransparency = 1.0f;
             this.baseDarkLevel = 1.0f;
@@ -1635,7 +1661,8 @@ namespace Plateau
 
                     if(waterTile != null)
                     {
-                        collisionMap[x, y] = waterTile.collisionType;
+                        if(collisionMap[x, y] == CollisionTypeEnum.AIR)
+                            collisionMap[x, y] = waterTile.collisionType;
 
                         Texture2D waterTex = content.Load<Texture2D>(waterTile.texturePath);
                         int frames = waterTile.frames;
@@ -1644,7 +1671,7 @@ namespace Plateau
                         AnimatedSprite sprite = new AnimatedSprite(waterTex, frames, 1, frames, Util.CreateAndFillArray(frames, frameSpeed));
                         sprite.AddLoop("anim", 0, frames - 1, true, false);
                         sprite.SetLoop("anim");
-                        TEntityWaterTopper waterTop = new TEntityWaterTopper(new Vector2(x, y), sprite, 0.70f, DrawLayer.FOREGROUND);
+                        TEntityWaterTopper waterTop = new TEntityWaterTopper(new Vector2(x, y), sprite, waterTile.frontTransparency, DrawLayer.FOREGROUND);
                         AddEntity(waterTop);
 
                         AnimatedSprite sprite2 = new AnimatedSprite(waterTex, frames, 1, frames, Util.CreateAndFillArray(frames, frameSpeed));
@@ -2053,9 +2080,6 @@ namespace Plateau
          */
         public void LoadLayers()
         {
-            if (mapWaterPath != null) {
-                mapWater = layerContentManager.Load<Texture2D>(mapWaterPath);
-            }
             if (mapDecorationFGPath != null)
             {
                 mapDecorationFG = layerContentManager.Load<Texture2D>(mapDecorationFGPath);
@@ -2071,10 +2095,6 @@ namespace Plateau
             if (mapWallsPath != null)
             {
                 mapWalls = layerContentManager.Load<Texture2D>(mapWallsPath);
-            }
-            if (mapWaterBGPath != null)
-            {
-                mapWaterBG = layerContentManager.Load<Texture2D>(mapWaterBGPath);
             }
             if (mapFGCavePath != null)
             {
@@ -2451,22 +2471,6 @@ namespace Plateau
             foreach (Particle pa in particleList)
             {
                 pa.Draw(sb, layerDepth);
-            }
-        }
-
-        public void DrawWater(SpriteBatch sb, float layerDepth)
-        {
-            if (mapWater != null)
-            {
-                //sb.Draw(mapWater, Vector2.Zero, Color.White);
-            }
-        }
-
-        public void DrawWaterBackground(SpriteBatch sb, float layerDepth)
-        {
-            if (mapWaterBG != null)
-            {
-                //sb.Draw(mapWaterBG, Vector2.Zero, Color.White);
             }
         }
 
@@ -3355,7 +3359,7 @@ namespace Plateau
                 }
             }
 
-            //TODO DESPAWN LOGIC
+            //despawn some random entities
             foreach (Entity en in entityListManager.GetEntityList())
             {
                 if (en is TEntityFarmable)

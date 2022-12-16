@@ -128,7 +128,7 @@ namespace Plateau.Components
 
         public void Update(float deltaTime)
         {
-            if (!paused)
+            if (frameLengths.Length != 1 && !paused)
             {
                 currentFrameTime += deltaTime;
                 if (currentFrameTime + deltaTime > frameLengths[currentFrame])

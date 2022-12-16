@@ -184,45 +184,43 @@ namespace Plateau.Components
             areas[Area.AreaEnum.FARM] = new Area(Area.AreaEnum.FARM, Content.Load<TiledMap>(Paths.MAP_FARM), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, true, true),
-                null, null, Paths.MAP_FARM_BASE, null, Paths.MAP_FARM_WALLS, null, null);
+                null, Paths.MAP_FARM_BASE, null, Paths.MAP_FARM_WALLS, null);
             areas[Area.AreaEnum.TOWN] = new Area(Area.AreaEnum.TOWN, Content.Load<TiledMap>(Paths.MAP_TOWN), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, true, true),
-                Paths.MAP_TOWN_WATER, Paths.MAP_TOWN_DECORATION_FG, Paths.MAP_TOWN_BASE, Paths.MAP_TOWN_DECORATION, Paths.MAP_TOWN_WALLS, Paths.MAP_TOWN_WATER_BG, Paths.MAP_TOWN_FG_CAVE);
+                Paths.MAP_TOWN_DECORATION_FG, Paths.MAP_TOWN_BASE, Paths.MAP_TOWN_DECORATION, Paths.MAP_TOWN_WALLS, Paths.MAP_TOWN_FG_CAVE);
             areas[Area.AreaEnum.INTERIOR] = new Area(Area.AreaEnum.INTERIOR, Content.Load<TiledMap>(Paths.MAP_INTERIOR), false, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, false, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, false, true),
-                Paths.MAP_INTERIOR_WATER, Paths.MAP_INTERIOR_DECORATION_FG, Paths.MAP_INTERIOR_BASE, Paths.MAP_INTERIOR_DECORATION, Paths.MAP_INTERIOR_WALLS, null, Paths.MAP_INTERIOR_FG_CAVE);
-
+                Paths.MAP_INTERIOR_DECORATION_FG, Paths.MAP_INTERIOR_BASE, Paths.MAP_INTERIOR_DECORATION, Paths.MAP_INTERIOR_WALLS, Paths.MAP_INTERIOR_FG_CAVE);
             areas[Area.AreaEnum.BEACH] = new Area(Area.AreaEnum.BEACH, Content.Load<TiledMap>(Paths.MAP_BEACH), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, false, false),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, false, false),
-                Paths.MAP_BEACH_WATER, Paths.MAP_BEACH_DECORATION_FG, Paths.MAP_BEACH_BASE, Paths.MAP_BEACH_DECORATION, Paths.MAP_BEACH_WALLS, Paths.MAP_BEACH_WATER_BG, Paths.MAP_BEACH_FG_CAVE);
+                Paths.MAP_BEACH_DECORATION_FG, Paths.MAP_BEACH_BASE, Paths.MAP_BEACH_DECORATION, Paths.MAP_BEACH_WALLS, Paths.MAP_BEACH_FG_CAVE);
             areas[Area.AreaEnum.S0] = new Area(Area.AreaEnum.S0, Content.Load<TiledMap>(Paths.MAP_S0), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, true, true),
-                Paths.MAP_S0_WATER, Paths.MAP_S0_DECORATION_FG, Paths.MAP_S0_BASE, Paths.MAP_S0_DECORATION, Paths.MAP_S0_WALLS, Paths.MAP_S0_WATER_BG, Paths.MAP_S0_FG_CAVE);
+                Paths.MAP_S0_DECORATION_FG, Paths.MAP_S0_BASE, Paths.MAP_S0_DECORATION, Paths.MAP_S0_WALLS, Paths.MAP_S0_FG_CAVE);
             areas[Area.AreaEnum.S1] = new Area(Area.AreaEnum.S1, Content.Load<TiledMap>(Paths.MAP_S1), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, true, true),
-                Paths.MAP_S1_WATER, Paths.MAP_S1_DECORATION_FG, Paths.MAP_S1_BASE, Paths.MAP_S1_DECORATION, Paths.MAP_S1_WALLS, Paths.MAP_S1_WATER_BG, Paths.MAP_S1_FG_CAVE);
+                Paths.MAP_S1_DECORATION_FG, Paths.MAP_S1_BASE, Paths.MAP_S1_DECORATION, Paths.MAP_S1_WALLS, Paths.MAP_S1_FG_CAVE);
             areas[Area.AreaEnum.S2] = new Area(Area.AreaEnum.S2, Content.Load<TiledMap>(Paths.MAP_S2), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, false, false),
-                Paths.MAP_S2_WATER, Paths.MAP_S2_DECORATION_FG, Paths.MAP_S2_BASE, Paths.MAP_S2_DECORATION, Paths.MAP_S2_WALLS, Paths.MAP_S2_WATER_BG, Paths.MAP_S2_FG_CAVE);
+                Paths.MAP_S2_DECORATION_FG, Paths.MAP_S2_BASE, Paths.MAP_S2_DECORATION, Paths.MAP_S2_WALLS, Paths.MAP_S2_FG_CAVE);
             areas[Area.AreaEnum.S3] = new Area(Area.AreaEnum.S3, Content.Load<TiledMap>(Paths.MAP_S3), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, true, true),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, true, true),
-                Paths.MAP_S3_WATER, Paths.MAP_S3_DECORATION_FG, Paths.MAP_S3_BASE, Paths.MAP_S3_DECORATION, Paths.MAP_S3_WALLS, Paths.MAP_S3_WATER_BG, Paths.MAP_S3_FG_CAVE);
-
+                Paths.MAP_S3_DECORATION_FG, Paths.MAP_S3_BASE, Paths.MAP_S3_DECORATION, Paths.MAP_S3_WALLS, Paths.MAP_S3_FG_CAVE);
             areas[Area.AreaEnum.S4] = new Area(Area.AreaEnum.S4, Content.Load<TiledMap>(Paths.MAP_S4), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SKY, false, false),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SKY, false, false),
-                null, null, null, null, null, null, null);
+                null, null, null, null, null);
             areas[Area.AreaEnum.APEX] = new Area(Area.AreaEnum.APEX, Content.Load<TiledMap>(Paths.MAP_APEX), true, graphics, Content, PlateauMain.createContentManager(), player, cameraBoundingBox,
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.BACKGROUND_SPACE, false, false),
                 new LayeredBackground.BackgroundParams(LayeredBackground.BackgroundParams.Type.FOREGROUND_SPACE, false, false),
-                null, null, null, null, null, null, null);
+                null, null, null, null, null);
             //Console.WriteLine("FARM xy: " + areas[0].MapPixelWidth() + "  " + areas[0].MapPixelHeight());
 
             currentArea = areas[Area.AreaEnum.FARM]; //set starting area...
@@ -1044,11 +1042,6 @@ namespace Plateau.Components
             currentArea.DrawBackground(sb, cameraBoundingBox, layerDepth);
         }
 
-        public void DrawWaterBackground(SpriteBatch sb, float layerDepth)
-        {
-            currentArea.DrawWaterBackground(sb, layerDepth);
-        }
-
         public void DrawBuildingBlocks(SpriteBatch sb, float layerDepth)
         {
             currentArea.DrawBuildingBlocks(sb, layerDepth);
@@ -1067,11 +1060,6 @@ namespace Plateau.Components
         public void DrawBaseTerrain(SpriteBatch sb, float layerDepth)
         {
             currentArea.DrawBaseTerrain(sb, layerDepth); //draw the tiledmap
-        }
-
-        public void DrawWater(SpriteBatch sb, float layerDepth)
-        {
-            currentArea.DrawWater(sb, layerDepth);
         }
 
         public bool IsDayOver()
