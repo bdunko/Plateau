@@ -3844,7 +3844,7 @@
    <point/>
   </object>
  </objectgroup>
- <objectgroup color="#0000ff" id="10" name="entity" visible="0" locked="1">
+ <objectgroup color="#0000ff" id="10" name="entity">
   <object id="13" x="1480" y="1808">
    <properties>
     <property name="entity" value="door"/>
@@ -6160,7 +6160,7 @@ Did I do a good job, haiku? I'm a human enthusiast, so I built my home to emulat
    </properties>
    <point/>
   </object>
-  <object id="629" x="632" y="2448">
+  <object id="629" x="624" y="2448">
    <properties>
     <property name="dialogue" value="Have you tried the trampoline tunnels yet, haiku? You might need to roll up into a ball to fit, haiku."/>
     <property name="entity" value="spirit"/>

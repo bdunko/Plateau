@@ -18,10 +18,13 @@ namespace Plateau.Entities
         private float velocityY;
         private float velocityX;
         private static float GRAVITY = 8;
-        private static float WATER_FLOAT_VELOCITY_Y = -10.0f; //speed at which objects float up in water
-        private static float MAXIMUM_WATER_UPWARD_VELOCITY = -2.0f;
         private static float FRICTION_X_AIRBORNE = 0.6f;
         private static float FRICTION_X_GROUNDED = 1.5f;
+        private static float MAXIMUM_BOUNCE = -2.8f;
+
+        private static float WATER_FLOAT_VELOCITY_Y = -10.0f; //speed at which objects float up in water
+        private static float MAXIMUM_WATER_UPWARD_VELOCITY = -2.0f;
+
         private float timeElapsed;
 
         private static float TIME_BEFORE_COLLECTION = 0.55f;
@@ -174,6 +177,8 @@ namespace Plateau.Entities
                         if (velocityY > MINIMUM_BOUNCE)
                         {
                             velocityY = -velocityY * BOUNCE_MULTIPLIER;
+                            if (velocityY < MAXIMUM_BOUNCE)
+                                velocityY = MAXIMUM_BOUNCE;
                             //velocityX -= velocityX / 3;
                         }
                         else
