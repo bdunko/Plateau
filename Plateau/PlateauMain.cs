@@ -95,7 +95,7 @@ namespace Plateau
             cutsceneTransitionDone = false;
 
             IsFixedTimeStep = true; //nonvariable time steps...
-            TargetElapsedTime = TimeSpan.FromMilliseconds(16.66667f); //60fps
+            TargetElapsedTime = TimeSpan.FromSeconds(1d / 60d); //60fps
 
             RESOLUTIONS = new ResolutionSettings[5];
             /*RESOLUTIONS[0] = new ResolutionSettings(1280, 720, 4, 1, 33, 0.2425f);
