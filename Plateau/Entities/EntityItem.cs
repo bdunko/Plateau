@@ -50,7 +50,7 @@ namespace Plateau.Entities
         public EntityItem(Item itemForm, Vector2 position) : base(position, DrawLayer.PRIORITY)
         {
             this.itemForm = itemForm;
-           // this.grounded = false;
+            // this.grounded = false;
             velocityX = Util.RandInt(-40, 40) / 100.0f;
             velocityY = Util.RandInt(-31, -24) / 10.0f;
             this.timeElapsed = 0;
@@ -116,13 +116,11 @@ namespace Plateau.Entities
         public override void Update(float deltaTime, Area area)
         {
             //try to move to prevent being stuck in ground
-            if(firstUpdate)
+            if (firstUpdate)
             {
                 PerformInitialAdjustment(area);
                 firstUpdate = false;
             }
-
-            RectangleF collisionHitbox = new RectangleF(position.X + 6, position.Y + 11, 6, 5);
 
             timeElapsed += deltaTime;
 
@@ -131,7 +129,7 @@ namespace Plateau.Entities
             RectangleF waterCollisionHitbox = new RectangleF(position.X + 6, position.Y + 6, 6, 5);
             if (CollisionHelper.CheckSwimmingCollision(waterCollisionHitbox, area)) //if in water, apply gravity for water and buoyancy
             {
-                velocityY += GRAVITY/4 * deltaTime;
+                velocityY += GRAVITY / 4 * deltaTime;
                 velocityY += WATER_FLOAT_VELOCITY_Y * deltaTime;
             }
             else //apply gravity normally
@@ -155,8 +153,8 @@ namespace Plateau.Entities
             {
                 if (stepX != 0) //move X
                 {
-                    bool xCollision = CollisionHelper.CheckCollision(new RectangleF(collisionHitbox.X + stepX, collisionHitbox.Y, collisionHitbox.Width, collisionHitbox.Height), area, stepY >= 0);
-                    
+                    bool xCollision = CollisionHelper.CheckCollision(new RectangleF(position.X + 6 + stepX, position.Y + 11, 6, 5), area, stepY >= 0);
+
                     if (xCollision) //if next movement = collision
                     {
                         stepX = 0; //stop moving if collision
@@ -168,7 +166,7 @@ namespace Plateau.Entities
                 }
                 if (stepY != 0) //move Y
                 {
-                    bool yCollision = CollisionHelper.CheckCollision(new RectangleF(collisionHitbox.X, collisionHitbox.Y + stepY, collisionHitbox.Width, collisionHitbox.Height), area, stepY >= 0);
+                    bool yCollision = CollisionHelper.CheckCollision(new RectangleF(position.X + 6, position.Y + 11 + stepY, 6, 5), area, stepY >= 0);
                     if (yCollision)
                     {
                         stepY = 0;
@@ -194,12 +192,12 @@ namespace Plateau.Entities
 
         public override RectangleF GetCollisionRectangle()
         {
-            return new RectangleF(position.X-1, position.Y-1, 14, 14);
+            return new RectangleF(position.X - 1, position.Y - 1, 14, 14);
         }
 
         public void TickDaily(World timeData, Area area, EntityPlayer player)
         {
-            if(itemForm.HasTag(Item.Tag.NO_TRASH))
+            if (itemForm.HasTag(Item.Tag.NO_TRASH))
             {
                 if (!GameState.LOST_ITEMS.Contains(itemForm)) //allows removal of duplicate nodrop items; which is possible through shrine of creation giving extra tools
                 {
