@@ -40,6 +40,8 @@ namespace Plateau
 
         public static SpriteFont FONT;
         public static float FONT_SCALE;
+        public static float FONT_SCALE_DIALOGUE;
+
 
         public enum PlateauGameState
         {
@@ -192,6 +194,8 @@ namespace Plateau
 
             SCALE = newResolution.scale;
             FONT_SCALE = newResolution.font_scale;
+            FONT_SCALE_DIALOGUE = newResolution.font_scale;
+
             FONT.Spacing = newResolution.font_spacing;
             FONT.LineSpacing = newResolution.font_line_spacing;
 
@@ -711,14 +715,14 @@ namespace Plateau
                 if (currentState == PlateauGameState.DEBUG)
                 {
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
-                    GameplayInterface.QUEUED_STRINGS.Add(new QueuedString("Command: " + controller.GetStringInput(), Util.ConvertFromAbsoluteToCameraVector(camera.GetBoundingBox(), new Vector2(4, 30)), debugConsole.DidLastSucceed() ? Color.LightGreen : Color.DarkRed));
+                    GameplayInterface.QUEUED_STRINGS.Add(new QueuedString("Command: " + controller.GetStringInput(), Util.ConvertFromAbsoluteToCameraVector(camera.GetBoundingBox(), new Vector2(4, 30)), debugConsole.DidLastSucceed() ? Color.LightGreen : Color.DarkRed, PlateauMain.FONT_SCALE));
                     spriteBatch.DrawString(PlateauMain.FONT, "X: " + player.GetCenteredPosition().X + "  Y: " + player.GetCenteredPosition().Y, Util.ConvertFromAbsoluteToCameraVector(camera.GetBoundingBox(), new Vector2(4, 38)), Color.Black, 0.0f, Vector2.Zero, PlateauMain.FONT_SCALE, SpriteEffects.None, 0.0f);
                     int column = 0;
                     int counter = 0;
                     int yPos = 45;
                     foreach (string command in DebugConsole.COMMAND_LIST)
                     {
-                        GameplayInterface.QUEUED_STRINGS.Add(new QueuedString(command, Util.ConvertFromAbsoluteToCameraVector(camera.GetBoundingBox(), new Vector2(65 + (80 * column), yPos)), Color.Black));
+                        GameplayInterface.QUEUED_STRINGS.Add(new QueuedString(command, Util.ConvertFromAbsoluteToCameraVector(camera.GetBoundingBox(), new Vector2(65 + (80 * column), yPos)), Color.Black, PlateauMain.FONT_SCALE));
                         yPos += 8;
                         counter++;
                         if (counter == 10)

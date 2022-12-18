@@ -48,8 +48,6 @@ namespace Plateau.Components
                 if(map.ContainsKey(greyscale))
                     return map[greyscale];
 
-                //System.Diagnostics.Debug.Write("N!");
-
                 return greyscale;
                 //throw new Exception("No matching color found for greyscale recolor!");
             }
@@ -558,7 +556,6 @@ namespace Plateau.Components
 
         public static Texture2D GenerateRecolor(Texture2D greyscaleTexture, RecolorMap recolorMap, RecolorAdjustment adjustment = RecolorAdjustment.NORMAL)
         {
-            //System.Diagnostics.Debug.Write(greyscaleTexture.Name);
             Texture2D recoloredTexture = new Texture2D(PlateauMain.GRAPHICS.GraphicsDevice, greyscaleTexture.Width, greyscaleTexture.Height);
             Color[] recoloredColors = new Color[recoloredTexture.Width * recoloredTexture.Height];
             Color[] greyscaleColors = new Color[greyscaleTexture.Width * greyscaleTexture.Height];
@@ -572,7 +569,6 @@ namespace Plateau.Components
             }
             recoloredTexture.SetData<Color>(recoloredColors);
 
-            //System.Diagnostics.Debug.WriteLine("");
             return recoloredTexture;
         }
 
@@ -749,8 +745,37 @@ namespace Plateau.Components
             return funcs;
         }
 
-        public static int TOOLTIP_WRAP_LENGTH = 550;
-        public static int DIALOGUE_WRAP_LENGTH = 720;
+        public static int TOOLTIP_WRAP_LENGTH = 110;
+        public static int DIALOGUE_WRAP_LENGTH = 144;
+
+        public static List<string> WrapStringReturnLines(string str, int maxLen)
+        {
+            List<string> lines = new List<string>();
+
+            string[] chunks = str.Split("\n");
+            foreach(string chunk in chunks)
+            {
+                string[] words = chunk.Split(" ");
+                lines.Add("");
+                foreach (string word in words)
+                {
+                    if (PlateauMain.FONT.MeasureString(lines[lines.Count-1] + word).X * PlateauMain.FONT_SCALE_DIALOGUE > maxLen)
+                    {
+                        lines[lines.Count-1] += "\n";
+                        lines.Add("");
+                    }
+                    if(word.Contains("|"))
+                    {
+
+                    }
+
+                    lines[lines.Count-1] += word + " ";
+                }
+                lines[lines.Count - 1] += "\n";
+            }
+
+            return lines;
+        }
 
         public static string WrapString(string str, int maxLen)
         {
@@ -760,7 +785,7 @@ namespace Plateau.Components
             lines.Add("");
             for(int i = 0; i < words.Length; i++)
             {
-                if(PlateauMain.FONT.MeasureString(lines[currList]+words[i]).X > maxLen)
+                if (PlateauMain.FONT.MeasureString(lines[currList]+words[i]).X * PlateauMain.FONT_SCALE > maxLen)
                 {
                     lines[currList] += "\n";
                     lines.Add("");
@@ -819,35 +844,5 @@ namespace Plateau.Components
                 || key == Keys.Left || key == Keys.Right || key == Keys.Up || key == Keys.Down
                 || key == Keys.Tab;
         }
-
-        public static List<string> WrapStringReturnLines(string str, int maxLen)
-        {
-            List<string> lines = new List<string>();
-
-            string[] chunks = str.Split("\n");
-            foreach(string chunk in chunks)
-            {
-                string[] words = chunk.Split(" ");
-                lines.Add("");
-                foreach (string word in words)
-                {
-                    if (PlateauMain.FONT.MeasureString(lines[lines.Count-1] + word).X > maxLen)
-                    {
-                        lines[lines.Count-1] += "\n";
-                        lines.Add("");
-                    }
-                    if(word.Contains("|"))
-                    {
-
-                    }
-
-                    lines[lines.Count-1] += word + " ";
-                }
-                lines[lines.Count - 1] += "\n";
-            }
-
-            return lines;
-        }
-
     }
 }

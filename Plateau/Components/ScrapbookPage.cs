@@ -200,7 +200,7 @@ namespace Plateau.Components
             {
                 if(visible)
                 {
-                    stringsToDraw.Add(new QueuedString(text, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, position), color));
+                    stringsToDraw.Add(new QueuedString(text, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, position), color, PlateauMain.FONT_SCALE));
                 }
             }
         }
