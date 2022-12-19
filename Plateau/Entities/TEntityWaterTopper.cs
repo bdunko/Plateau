@@ -21,9 +21,9 @@ namespace Plateau.Entities
             this.transparency = transparency;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, this.position, Color.White * transparency, layerDepth);
+            sprite.Draw(sb, this.position, Color.White * transparency);
         }
 
         public override bool ShouldBeSaved()

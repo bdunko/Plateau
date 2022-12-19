@@ -50,7 +50,7 @@ namespace Plateau.Entities
             return this.healthBar;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
             sb.Draw(texture, position + new Vector2(shakeModX, ceiling ? 0 : 1), Color.White);
         }

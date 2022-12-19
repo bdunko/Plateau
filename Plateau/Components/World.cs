@@ -853,9 +853,9 @@ namespace Plateau.Components
             return 10000;
         }
 
-        public void DrawForeground(SpriteBatch sb, RectangleF cameraBoundingBox, float layerDepth)
+        public void DrawForeground(SpriteBatch sb, RectangleF cameraBoundingBox)
         {
-            currentArea.DrawForeground(sb, cameraBoundingBox, layerDepth);
+            currentArea.DrawForeground(sb, cameraBoundingBox);
         }
 
         public float GetDarkLevel()
@@ -1037,29 +1037,29 @@ namespace Plateau.Components
             return areas[areaEnum];
         }
 
-        public void DrawBackground(SpriteBatch sb, RectangleF cameraBoundingBox, float layerDepth)
+        public void DrawBackground(SpriteBatch sb, RectangleF cameraBoundingBox)
         {
-            currentArea.DrawBackground(sb, cameraBoundingBox, layerDepth);
+            currentArea.DrawBackground(sb, cameraBoundingBox);
         }
 
-        public void DrawBuildingBlocks(SpriteBatch sb, float layerDepth)
+        public void DrawBuildingBlocks(SpriteBatch sb)
         {
-            currentArea.DrawBuildingBlocks(sb, layerDepth);
+            currentArea.DrawBuildingBlocks(sb);
         }
 
-        public void DrawItemEntities(SpriteBatch sb, float layerDepth)
+        public void DrawItemEntities(SpriteBatch sb)
         {
-            currentArea.DrawItemEntities(sb, layerDepth);
+            currentArea.DrawItemEntities(sb);
         }
 
-        public void DrawEntities(SpriteBatch sb, DrawLayer layer, RectangleF cameraBoundingBox, float layerDepth)
+        public void DrawEntities(SpriteBatch sb, DrawLayer layer, RectangleF cameraBoundingBox)
         {
-            currentArea.DrawEntities(sb, layer, cameraBoundingBox, layerDepth);
+            currentArea.DrawEntities(sb, layer, cameraBoundingBox);
         }
 
-        public void DrawBaseTerrain(SpriteBatch sb, float layerDepth)
+        public void DrawBaseTerrain(SpriteBatch sb)
         {
-            currentArea.DrawBaseTerrain(sb, layerDepth); //draw the tiledmap
+            currentArea.DrawBaseTerrain(sb); //draw the tiledmap
         }
 
         public bool IsDayOver()
@@ -1217,19 +1217,19 @@ namespace Plateau.Components
             this.currentWeather = newWeather;
         }
 
-        public void DrawWalls(SpriteBatch sb, float layerDepth)
+        public void DrawWalls(SpriteBatch sb)
         {
-            currentArea.DrawWalls(sb, layerDepth);
+            currentArea.DrawWalls(sb);
         }
 
-        public void DrawDecorations(SpriteBatch sb, float layerDepth)
+        public void DrawDecorations(SpriteBatch sb)
         {
-            currentArea.DrawDecorations(sb, layerDepth);
+            currentArea.DrawDecorations(sb);
         }
 
-        public void DrawParticles(SpriteBatch sb, float layerDepth)
+        public void DrawParticles(SpriteBatch sb)
         {
-            currentArea.DrawParticles(sb, layerDepth);
+            currentArea.DrawParticles(sb);
         }
 
         public void SetTime(int hour, int minute, EntityPlayer player)

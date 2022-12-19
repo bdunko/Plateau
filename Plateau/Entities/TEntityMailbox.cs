@@ -237,16 +237,16 @@ namespace Plateau.Entities
             }
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sb.Draw(texture, position + new Vector2(0, 1), texture.Bounds, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+            sb.Draw(texture, position + new Vector2(0, 1), texture.Bounds, Color.White);
             if (boxRecolored != null)
             {
-                sb.Draw(boxRecolored, position + new Vector2(0, 1), texture.Bounds, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+                sb.Draw(boxRecolored, position + new Vector2(0, 1), texture.Bounds, Color.White);
             }
             if(haveMail)
             {
-                sb.Draw(exclaimation, position + new Vector2(texture.Width/2, -8), exclaimation.Bounds, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+                sb.Draw(exclaimation, position + new Vector2(texture.Width/2, -8), exclaimation.Bounds, Color.White);
             }
         }
 

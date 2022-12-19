@@ -591,7 +591,7 @@ namespace Plateau
                 GRAPHICS.GraphicsDevice.Clear(Color.CadetBlue);
                 spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend);
                 mmi.Draw(spriteBatch, camera.GetBoundingBox());
-                ui.Draw(spriteBatch, camera.GetBoundingBox(), 0.99f); //necessary for transitions to appear correctly
+                ui.Draw(spriteBatch, camera.GetBoundingBox()); //necessary for transitions to appear correctly
                 spriteBatch.End();
 
                 //draw tooltip & queued strings
@@ -649,35 +649,35 @@ namespace Plateau
                     GRAPHICS.GraphicsDevice.SetRenderTarget(mainTarget);
                     GRAPHICS.GraphicsDevice.Clear(Color.CadetBlue);
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
-                    world.DrawBackground(spriteBatch, camera.GetBoundingBox(), 0.0f); //depth 0.0f
-                    world.DrawEntities(spriteBatch, DrawLayer.BACKGROUND_BEHIND_WALL, camera.GetBoundingBox(), 0.025f); //depth 0.10f
+                    world.DrawBackground(spriteBatch, camera.GetBoundingBox());
+                    world.DrawEntities(spriteBatch, DrawLayer.BACKGROUND_BEHIND_WALL, camera.GetBoundingBox()); 
                     spriteBatch.End();
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
-                    world.DrawWalls(spriteBatch, 0.05f); //depth 0.05f
-                    world.DrawEntities(spriteBatch, DrawLayer.BACKGROUND_WALLPAPER, camera.GetBoundingBox(), 0.10f); //depth 0.10f
-                    world.DrawDecorations(spriteBatch, 0.05f);
-                    world.DrawBuildingBlocks(spriteBatch, 0.075f); //depth 0.075f
-                    world.DrawEntities(spriteBatch, DrawLayer.BACKGROUND_WALL, camera.GetBoundingBox(), 0.15f); //depth 0.15f
-                    world.DrawEntities(spriteBatch, DrawLayer.NORMAL, camera.GetBoundingBox(), 0.20f); //depth 0.2f
+                    world.DrawWalls(spriteBatch);
+                    world.DrawEntities(spriteBatch, DrawLayer.BACKGROUND_WALLPAPER, camera.GetBoundingBox());
+                    world.DrawDecorations(spriteBatch);
+                    world.DrawEntities(spriteBatch, DrawLayer.BACKGROUND_WALL, camera.GetBoundingBox());
+                    world.DrawEntities(spriteBatch, DrawLayer.NORMAL, camera.GetBoundingBox()); 
+                    world.DrawBuildingBlocks(spriteBatch); 
                     spriteBatch.End();
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
-                    world.DrawBaseTerrain(spriteBatch, 0.25f); //depth 0.25f
-                    world.DrawEntities(spriteBatch, DrawLayer.FOREGROUND_CARPET, camera.GetBoundingBox(), 0.30f); //depth 0.3f
-                    world.DrawParticles(spriteBatch, 0.35f); //depth 0.35f
-                    world.DrawEntities(spriteBatch, DrawLayer.PRIORITY, camera.GetBoundingBox(), 0.4f); //depth 0.4f
-                    world.DrawItemEntities(spriteBatch, 0.45f); //depth 0.45f
-                    player.Draw(spriteBatch, 0.5f); //depth 0.5f
+                    world.DrawBaseTerrain(spriteBatch); 
+                    world.DrawEntities(spriteBatch, DrawLayer.FOREGROUND_CARPET, camera.GetBoundingBox());
+                    world.DrawParticles(spriteBatch);
+                    world.DrawEntities(spriteBatch, DrawLayer.PRIORITY, camera.GetBoundingBox());
+                    world.DrawItemEntities(spriteBatch); 
+                    player.Draw(spriteBatch); 
                     spriteBatch.End();
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
-                    world.DrawEntities(spriteBatch, DrawLayer.FOREGROUND, camera.GetBoundingBox(), 0.55f); //depth 0.55f
-                    world.DrawForeground(spriteBatch, camera.GetBoundingBox(), 0.65f); //depth 0.65f
+                    world.DrawEntities(spriteBatch, DrawLayer.FOREGROUND, camera.GetBoundingBox());
+                    world.DrawForeground(spriteBatch, camera.GetBoundingBox()); 
                     spriteBatch.End();
                 } else if (currentCutscene.background == CutsceneManager.CutsceneBackground.SKY)
                 {
                     GRAPHICS.GraphicsDevice.SetRenderTarget(mainTarget);
                     GRAPHICS.GraphicsDevice.Clear(Color.CadetBlue);
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
-                    world.DrawBackground(spriteBatch, camera.GetBoundingBox(), 0.0f); //depth 0.0f
+                    world.DrawBackground(spriteBatch, camera.GetBoundingBox());
                     spriteBatch.End();
                 } else if (currentCutscene.background == CutsceneManager.CutsceneBackground.BLACK)
                 {
@@ -739,7 +739,7 @@ namespace Plateau
                 GRAPHICS.GraphicsDevice.SetRenderTarget(uiTarget);
                 GRAPHICS.GraphicsDevice.Clear(Color.Transparent);
                 spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
-                ui.Draw(spriteBatch, camera.GetBoundingBox(), 0.99f);
+                ui.Draw(spriteBatch, camera.GetBoundingBox());
                 Util.Draw(spriteBatch, 1.0f);
                 spriteBatch.End();
 

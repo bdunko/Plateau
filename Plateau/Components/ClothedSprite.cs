@@ -279,48 +279,48 @@ namespace Plateau.Components
             }
         }
 
-        public void Draw(SpriteBatch sb, Vector2 position, float layerDepth, SpriteEffects effect, float scale, float opacity)
+        public void Draw(SpriteBatch sb, Vector2 position, SpriteEffects effect, float scale, float opacity)
         {
-            back.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
-            skin.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
-            eyes.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
-            socks.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
+            back.Draw(sb, position, Color.White * opacity, effect, scale);
+            skin.Draw(sb, position, Color.White * opacity, effect, scale);
+            eyes.Draw(sb, position, Color.White * opacity, effect, scale);
+            socks.Draw(sb, position, Color.White * opacity, effect, scale);
             if (!drawPantsOverShoes)
             {
-                pants.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
+                pants.Draw(sb, position, Color.White * opacity, effect, scale);
             }
-            shoes.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
+            shoes.Draw(sb, position, Color.White * opacity, effect, scale);
             if (drawPantsOverShoes)
             {
-                pants.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
+                pants.Draw(sb, position, Color.White * opacity, effect, scale);
             }
-            shirt.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
-            outerwear.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
-            gloves.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
-            earrings.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
+            shirt.Draw(sb, position, Color.White * opacity, effect, scale);
+            outerwear.Draw(sb, position, Color.White * opacity, effect, scale);
+            gloves.Draw(sb, position, Color.White * opacity, effect, scale);
+            earrings.Draw(sb, position, Color.White * opacity, effect, scale);
 
             if (!hideHair)
             {
-                hair.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale); //eventually edit this...
+                hair.Draw(sb, position, Color.White * opacity, effect, scale); //eventually edit this...
             }
             if (!hideFacialHair)
             {
-                facialhair.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale); //MUST CHANGE
+                facialhair.Draw(sb, position, Color.White * opacity, effect, scale); //MUST CHANGE
             }
-            glasses.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
-            hat.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
-            scarf.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
-            sailcloth.Draw(sb, position, Color.White * opacity, layerDepth, effect, scale);
+            glasses.Draw(sb, position, Color.White * opacity, effect, scale);
+            hat.Draw(sb, position, Color.White * opacity, effect, scale);
+            scarf.Draw(sb, position, Color.White * opacity, effect, scale);
+            sailcloth.Draw(sb, position, Color.White * opacity, effect, scale);
         }
 
         public void Draw(SpriteBatch sb, Vector2 position, float layerDepth, float scale)
         {
-            Draw(sb, position, layerDepth, SpriteEffects.None, scale, 1.0f);
+            Draw(sb, position, SpriteEffects.None, scale, 1.0f);
         }
 
         public void Draw(SpriteBatch sb, Vector2 position, float layerDepth)
         {
-            Draw(sb, position, layerDepth, SpriteEffects.None, 1.0f, 1.0f);
+            Draw(sb, position, SpriteEffects.None, 1.0f, 1.0f);
         }        
     }
 }

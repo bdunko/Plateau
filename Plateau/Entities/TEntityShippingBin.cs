@@ -51,9 +51,9 @@ namespace Plateau.Entities
             }
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, this.position + new Vector2(0, 1), Color.White, layerDepth);
+            sprite.Draw(sb, this.position + new Vector2(0, 1), Color.White);
         }
 
         public override void LoadSave(SaveState state)

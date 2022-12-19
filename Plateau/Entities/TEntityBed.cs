@@ -41,12 +41,12 @@ namespace Plateau.Entities
             }
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sb.Draw(texture, position + new Vector2(0, 1) + drawAdjustment, texture.Bounds, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+            sb.Draw(texture, position + new Vector2(0, 1) + drawAdjustment, texture.Bounds, Color.White);
             if(sheetsRecolored != null)
             {
-                sb.Draw(sheetsRecolored, position + new Vector2(0, 1) + drawAdjustment, texture.Bounds, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+                sb.Draw(sheetsRecolored, position + new Vector2(0, 1) + drawAdjustment, texture.Bounds, Color.White);
             }
         }
 

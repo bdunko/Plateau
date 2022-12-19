@@ -331,13 +331,13 @@ namespace Plateau.Entities
             this.quality = 0;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
             sprite.SetLoopIfNot(isWatered ? fertilizerState.WET : fertilizerState.DRY);
-            sprite.Draw(sb, new Vector2(position.X, position.Y+1), Color.White, layerDepth);
+            sprite.Draw(sb, new Vector2(position.X, position.Y+1), Color.White);
             if(planted != null)
             {
-                cropSprite.Draw(sb, new Vector2(position.X, position.Y + 1), Color.White, layerDepth);
+                cropSprite.Draw(sb, new Vector2(position.X, position.Y + 1), Color.White);
             }
         }
 

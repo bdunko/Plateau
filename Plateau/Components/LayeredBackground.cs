@@ -84,24 +84,24 @@ namespace Plateau.Components
                 }
             }
 
-            public virtual void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, Color colorTint, float layerDepth)
+            public virtual void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, Color colorTint)
             {
                 if (isFixedPosition)
                 {
                     if (stretchToFit)
                     {
                         //System.Diagnostics.Debug.WriteLine(cameraBoundingBox);
-                        sb.Draw(texture, cameraBoundingBox.TopLeft + position, texture.Bounds, colorTint, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+                        sb.Draw(texture, cameraBoundingBox.TopLeft + position, texture.Bounds, colorTint);
                     }
                     else
                     {
-                        sb.Draw(texture, cameraBoundingBox.TopLeft + position, texture.Bounds, colorTint, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+                        sb.Draw(texture, cameraBoundingBox.TopLeft + position, texture.Bounds, colorTint);
                     }
                 } else
                 {
                     if (new RectangleF(position.X, position.Y, texture.Width, texture.Height).Intersects(cameraBoundingBox))
                     {
-                        sb.Draw(texture, position, texture.Bounds, colorTint, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+                        sb.Draw(texture, position, texture.Bounds, colorTint);
                     }
                 }
             }
@@ -124,7 +124,7 @@ namespace Plateau.Components
                 angle += rotationSpeed;
             }
 
-            public override void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, Color colorTint, float layerDepth)
+            public override void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, Color colorTint)
             {
                 if (isFixedPosition)
                 {
@@ -132,13 +132,13 @@ namespace Plateau.Components
                     {
                         Console.WriteLine("LAYEREDBACKGROUND:STRETCHTOFIT IS WEIRD");
                     }
-                    sb.Draw(texture, cameraBoundingBox.TopLeft + position, texture.Bounds, colorTint, angle, new Vector2(texture.Width / 2, texture.Height / 2), 1.0f, SpriteEffects.None, layerDepth);
+                    sb.Draw(texture, cameraBoundingBox.TopLeft + position, texture.Bounds, colorTint, angle, new Vector2(texture.Width / 2, texture.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
                 }
                 else
                 {
                     if (new RectangleF(position.X, position.Y, texture.Width, texture.Height).Intersects(cameraBoundingBox))
                     {
-                        sb.Draw(texture, position, texture.Bounds, colorTint, angle, new Vector2(texture.Width / 2, texture.Height / 2), 1.0f, SpriteEffects.None, layerDepth);
+                        sb.Draw(texture, position, texture.Bounds, colorTint, angle, new Vector2(texture.Width / 2, texture.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
                     }
                 }
             }
@@ -224,10 +224,10 @@ namespace Plateau.Components
                 this.transparency = transparency;
             }
 
-            public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, float layerDepth, float layerTransparency) {
+            public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, float layerTransparency) {
                 foreach(Element element in elements)
                 {
-                    element.Draw(sb, cameraBoundingBox, colorTint * transparency * layerTransparency, layerDepth);
+                    element.Draw(sb, cameraBoundingBox, colorTint * transparency * layerTransparency);
                 }
             }
         }
@@ -805,14 +805,14 @@ namespace Plateau.Components
 
         }
 
-        public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, float layerDepth, float transparency)
+        public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, float transparency)
         {
             //Vector2 cameraPosition = cameraBoundingBox.Center;
             foreach(string layerName in layers.Keys)
             {
                 if (!layers[layerName].IsDisabled())
                 {
-                    layers[layerName].Draw(sb, cameraBoundingBox, layerDepth, transparency);
+                    layers[layerName].Draw(sb, cameraBoundingBox, transparency);
                 }
             }
         }

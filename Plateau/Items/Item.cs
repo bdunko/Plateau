@@ -118,13 +118,13 @@ namespace Plateau.Items
             return false;
         }
 
-        public virtual void Draw(SpriteBatch sb, Vector2 position, Color color, float layerDepth)
+        public virtual void Draw(SpriteBatch sb, Vector2 position, Color color)
         {
             if (!this.IsLoaded())
             {
                 Load();
             }
-            sb.Draw(texture, position, texture.Bounds, color, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+            sb.Draw(texture, position, texture.Bounds, color);
         }
     }
 }

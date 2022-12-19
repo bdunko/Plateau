@@ -30,19 +30,19 @@ namespace Plateau.Entities
             this.forceRoll = forceRoll;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
             if (type == TrampolineType.DOWN)
             {
-                sprite.Draw(sb, position, Color.White, layerDepth, SpriteEffects.FlipVertically);
+                sprite.Draw(sb, position, Color.White, SpriteEffects.FlipVertically);
             }
             else if (type == TrampolineType.LEFT)
             {
-                sprite.Draw(sb, position, Color.White, layerDepth, SpriteEffects.FlipHorizontally);
+                sprite.Draw(sb, position, Color.White, SpriteEffects.FlipHorizontally);
             }
             else
             {
-                sprite.Draw(sb, position, Color.White, layerDepth);
+                sprite.Draw(sb, position, Color.White);
             }
         }
 

@@ -61,9 +61,9 @@ namespace Plateau.Entities
             this.grounded = false;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            itemForm.Draw(sb, new Vector2(position.X, position.Y + 2), Color.White, layerDepth);
+            itemForm.Draw(sb, new Vector2(position.X, position.Y + 2), Color.White);
         }
 
         public bool CanBeCollected()

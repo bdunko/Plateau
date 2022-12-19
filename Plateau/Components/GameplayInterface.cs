@@ -4817,7 +4817,7 @@ namespace Plateau.Components
             }
         }
 
-        public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox, float layerDepth)
+        public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox)
         {
             //draw grid
             if(editMode && !Config.HIDE_GRID)
@@ -4858,7 +4858,7 @@ namespace Plateau.Components
             //draw healthbars
             foreach (HealthBar healthBar in healthBars)
             {
-                healthBar.Draw(sb, layerDepth);
+                healthBar.Draw(sb);
             }
 
             //draw collected tooltips
@@ -5004,23 +5004,23 @@ namespace Plateau.Components
                 //draw inventory
                 sb.Draw(inventory, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, INVENTORY_POSITION), Color.White);
                 //sb.Draw(playerSprite, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, INVENTORY_PLAYER_PREVIEW), null, Color.White, 0.0f, Vector2.Zero, 2.0f, SpriteEffects.None, 0.0f);
-                playerSprite.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, INVENTORY_PLAYER_PREVIEW), layerDepth, 2.0f);
+                playerSprite.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, INVENTORY_PLAYER_PREVIEW), 2.0f);
                 //draw clothing
-                glasses.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, GLASSES_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                back.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, BACK_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                sailcloth.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SAILCLOTH_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                scarf.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SCARF_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                outerwear.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, OUTERWEAR_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                socks.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SOCKS_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                hat.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, HAT_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                shirt.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SHIRT_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                pants.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, PANTS_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                earrings.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, EARRINGS_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                gloves.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, GLOVES_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                shoes.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SHOES_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                accessory1.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, ACCESSORY1_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                accessory2.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, ACCESSORY2_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
-                accessory3.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, ACCESSORY3_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White, layerDepth);
+                glasses.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, GLASSES_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                back.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, BACK_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                sailcloth.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SAILCLOTH_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                scarf.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SCARF_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                outerwear.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, OUTERWEAR_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                socks.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SOCKS_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                hat.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, HAT_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                shirt.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SHIRT_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                pants.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, PANTS_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                earrings.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, EARRINGS_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                gloves.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, GLOVES_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                shoes.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, SHOES_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                accessory1.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, ACCESSORY1_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                accessory2.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, ACCESSORY2_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
+                accessory3.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, ACCESSORY3_INVENTORY_RECT.TopLeft) + new Vector2(1, 1), Color.White);
                 DrawClothingHeldIndicator(sb, cameraBoundingBox);
 
                 //draw garbage can
@@ -5038,7 +5038,7 @@ namespace Plateau.Components
                 {
                     Item item = inventoryItems[i].GetItem();
                     Vector2 position = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(itemRectangles[i].X, itemRectangles[i].Y)) + new Vector2(1, 1);
-                    item.Draw(sb, position, Color.White, layerDepth);
+                    item.Draw(sb, position, Color.White);
                     if (item.GetStackCapacity() != 1 && inventoryItems[i].GetQuantity() != 0)
                     {
                         Vector2 itemQuantityPosition = new Vector2(itemRectangles[i].X + 12, itemRectangles[i].Y + 10);
@@ -5066,7 +5066,7 @@ namespace Plateau.Components
                     {
                         Item item = chestInventory[i].GetItem();
                         Vector2 position = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(chestRectangles[i].X, chestRectangles[i].Y)) + new Vector2(1, 1);
-                        item.Draw(sb, position, Color.White, layerDepth);
+                        item.Draw(sb, position, Color.White);
                         if (item.GetStackCapacity() != 1 && chestInventory[i].GetQuantity() != 0)
                         {
                             Vector2 chestQuantityPosition = new Vector2(chestRectangles[i].X + 12, chestRectangles[i].Y + 10);
@@ -5445,7 +5445,7 @@ namespace Plateau.Components
 
                         currentRecipes[i].result.GetItem().Draw(sb,
                             recipePosition,
-                            currentRecipes[i].haveBlueprint ? Color.White : Color.Black, layerDepth);
+                            currentRecipes[i].haveBlueprint ? Color.White : Color.Black);
 
                         if (!currentRecipes[i].haveBlueprint)
                         {
@@ -5473,7 +5473,7 @@ namespace Plateau.Components
                 {
                     GameState.CraftingRecipe selected = selectedRecipe;
                     Vector2 selectedRecipePos = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, WORKBENCH_SELECTED_RECIPE_POSITION);
-                    selected.result.GetItem().Draw(sb, selectedRecipePos, Color.White, layerDepth);
+                    selected.result.GetItem().Draw(sb, selectedRecipePos, Color.White);
                     if (selected.result.GetQuantity() != 1)
                     {
                         Vector2 itemQuantityPosition = new Vector2(selectedRecipePos.X + 11, selectedRecipePos.Y + 9);
@@ -5503,7 +5503,7 @@ namespace Plateau.Components
                                 break;
                         }
                         //draw the "need" part
-                        selected.components[i].GetItem().Draw(sb, pos, Color.White, layerDepth);
+                        selected.components[i].GetItem().Draw(sb, pos, Color.White);
                         Vector2 itemQuantityPosition = new Vector2(pos.X + 11, pos.Y + 9);
                         sb.Draw(numbers[selected.components[i].GetQuantity() % 10], itemQuantityPosition, Color.White);
                         if (selected.components[i].GetQuantity() >= 10)
@@ -5514,7 +5514,7 @@ namespace Plateau.Components
 
                         //draw the "have" part
                         pos.Y += haveBoxesDeltaY;
-                        selected.components[i].GetItem().Draw(sb, pos, Color.White, layerDepth);
+                        selected.components[i].GetItem().Draw(sb, pos, Color.White);
                         itemQuantityPosition = new Vector2(pos.X + 11, pos.Y + 9);
                         int quantity = numMaterialsOfRecipe[i];
                         bool haveEnough = quantity >= selectedRecipe.components[i].GetQuantity();
@@ -5739,7 +5739,7 @@ namespace Plateau.Components
                 {
                     Vector2 position = Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, new Vector2(itemRectangles[i].X, itemRectangles[i].Y)) + new Vector2(1, 1);
                     Item item = inventoryItems[i].GetItem();
-                    item.Draw(sb, position, Color.White, layerDepth);
+                    item.Draw(sb, position, Color.White);
                     if (item.GetStackCapacity() != 1 && inventoryItems[i].GetQuantity() != 0)
                     {
                         Vector2 itemQuantityPosition = new Vector2(itemRectangles[i].X + 12, itemRectangles[i].Y + 10);
@@ -5833,7 +5833,7 @@ namespace Plateau.Components
             //draw the dialogue bubble
             if(inDialogue)
             { 
-                dialogueBox.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_BOX_POSITION), Color.White, layerDepth);
+                dialogueBox.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_BOX_POSITION), Color.White);
                 if (dialogueBox.IsCurrentLoopFinished() && dialogueBox.IsCurrentLoop("anim"))
                 {
                     if (currentDialogue == null)
@@ -5846,7 +5846,7 @@ namespace Plateau.Components
                         QUEUED_STRINGS.Add(new QueuedString(currentDialogue.GetText((int)currentDialogueNumChars, dialogueNodePage), Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_TEXT_POSITION), Color.Black, PlateauMain.FONT_SCALE_DIALOGUE));
                         if (currentDialogueNumChars >= currentDialogue.dialogueTexts[dialogueNodePage].Length)
                         {
-                            bounceArrow.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_BOUNCE_ARROW_POSITION), Color.White, layerDepth);
+                            bounceArrow.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, DIALOGUE_BOUNCE_ARROW_POSITION), Color.White);
                         }
                     }
                 } else if (dialogueBox.IsCurrentLoopFinished() && dialogueBox.IsCurrentLoop("close"))
@@ -5861,7 +5861,7 @@ namespace Plateau.Components
                 Vector2 mousePos = controller.GetMousePos();
                 mousePos.X -= 8;
                 mousePos.Y -= 8;
-                inventoryHeldItem.GetItem().Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, mousePos), Color.White, layerDepth);
+                inventoryHeldItem.GetItem().Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, mousePos), Color.White);
                 if (inventoryHeldItem.GetItem().GetStackCapacity() != 1 && inventoryHeldItem.GetQuantity() != 0)
                 {
                     Vector2 itemQuantityPosition = new Vector2(mousePos.X + 11, mousePos.Y + 9);

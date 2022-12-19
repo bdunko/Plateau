@@ -21,9 +21,9 @@ namespace Plateau.Entities
             this.itemForm = sourceItem;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, new Vector2(position.X, position.Y + ((GetDrawLayer() != DrawLayer.FOREGROUND_CARPET && GetDrawLayer() != DrawLayer.BACKGROUND_WALL && GetDrawLayer() != DrawLayer.BACKGROUND_WALLPAPER)? 1 : 0)), Color.White, layerDepth);
+            sprite.Draw(sb, new Vector2(position.X, position.Y + ((GetDrawLayer() != DrawLayer.FOREGROUND_CARPET && GetDrawLayer() != DrawLayer.BACKGROUND_WALL && GetDrawLayer() != DrawLayer.BACKGROUND_WALLPAPER)? 1 : 0)), Color.White);
         }
 
         public override void LoadSave(SaveState state)

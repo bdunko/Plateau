@@ -174,7 +174,7 @@ namespace Plateau.Components
             return paused;
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color, float layerDepth, SpriteEffects spriteEffect, float scale = 1.0f)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color, SpriteEffects spriteEffect, float scale = 1.0f)
         {
             if (currentFrame > numFrames)
             {
@@ -192,12 +192,12 @@ namespace Plateau.Components
             spriteBatch.Draw(spriteSheet, new Vector2(location.X, location.Y - 1f), sourceRectangle, Color.Black);*/
 
             //spritefects flip vertically for antigrav?
-            spriteBatch.Draw(spriteSheet, location, sourceRectangle, color, 0.0f, Vector2.Zero, scale, spriteEffect, layerDepth);
+            spriteBatch.Draw(spriteSheet, location, sourceRectangle, color, 0.0f, Vector2.Zero, scale, spriteEffect, 1.0f);
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color, float layerDepth, float scale=1.0f)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color, float scale=1.0f)
         {
-            Draw(spriteBatch, location, color, layerDepth, SpriteEffects.None, scale);
+            Draw(spriteBatch, location, color, SpriteEffects.None, scale);
         }
 
         public Texture2D GetSpritesheet()

@@ -69,9 +69,9 @@ namespace Plateau.Entities
                 return this.fishingPartType;
             }
 
-            public void Draw(SpriteBatch sb, float layerDepth)
+            public void Draw(SpriteBatch sb)
             {
-                sb.Draw(tex, position, tex.Bounds, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+                sb.Draw(tex, position, tex.Bounds, Color.White);
             }
         }
 
@@ -2533,7 +2533,7 @@ namespace Plateau.Entities
             grounded = true;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
             //Vector2 modifiedPosition = Util.Vec2FloatToInt(position); 
             Vector2 modifiedPosition = new Vector2(position.X, position.Y);
@@ -2558,17 +2558,17 @@ namespace Plateau.Entities
             }
 
 
-            sprite.Draw(sb, modifiedPosition, layerDepth, gravityState == GravityState.REVERSED ? SpriteEffects.FlipVertically : SpriteEffects.None, 1.0f, 1.0f);
+            sprite.Draw(sb, modifiedPosition, gravityState == GravityState.REVERSED ? SpriteEffects.FlipVertically : SpriteEffects.None, 1.0f, 1.0f);
             if (sprite.IsCurrentLoopFinished())
             {
                 foreach (FishlinePart part in fishlineParts)
                 {
                     if (!part.IsExclaimation())
                     {
-                        part.Draw(sb, layerDepth);
+                        part.Draw(sb);
                     } else if (fishingDamage >= currentFishingPool.difficulty)
                     {
-                        part.Draw(sb, layerDepth);
+                        part.Draw(sb);
                     }
                 }
             }

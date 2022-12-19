@@ -100,7 +100,7 @@ namespace Plateau.Components
                 if(visible)
                 {
                     sb.Draw(bgTex, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, position), Color.White);
-                    item.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, position) + OFFSET, Color.White, 1.0f);
+                    item.Draw(sb, Util.ConvertFromAbsoluteToCameraVector(cameraBoundingBox, position) + OFFSET, Color.White);
                 }
             }
         }

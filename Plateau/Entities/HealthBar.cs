@@ -75,7 +75,7 @@ namespace Plateau.Entities
             this.position = position;
         }
 
-        public void Draw(SpriteBatch sb, float layerDepth)
+        public void Draw(SpriteBatch sb)
         {
             if (timeSinceDamage < TIME_VISIBLE_AFTER_DAMAGE)
             {
@@ -110,7 +110,7 @@ namespace Plateau.Entities
                 Vector2 offset = new Vector2(0, 0);
                 while (sectionsFilled > 0)
                 {
-                    sb.Draw(section, position + SECTION_START_OFFSET + offset + bonusOffset, section.Bounds, Color.White * opacity, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+                    sb.Draw(section, position + SECTION_START_OFFSET + offset + bonusOffset, section.Bounds, Color.White * opacity);
                     offset.X -= 1;
                     sectionsFilled--;
                 }

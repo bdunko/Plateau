@@ -41,7 +41,7 @@ namespace Plateau.Entities
         }
 
         public abstract RectangleF GetCollisionRectangle();
-        public abstract void Draw(SpriteBatch sb, float layerDepth);
+        public abstract void Draw(SpriteBatch sb);
         public abstract void Update(float deltaTime, Area area);
     }
 }

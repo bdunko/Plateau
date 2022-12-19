@@ -60,9 +60,9 @@ namespace Plateau.Entities
             SpinNormal();
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, this.position, Color.White, layerDepth);
+            sprite.Draw(sb, this.position, Color.White);
         }
 
         public override bool ShouldBeSaved()

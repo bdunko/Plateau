@@ -178,7 +178,7 @@ namespace Plateau.Components
 
         public void Draw(SpriteBatch sb, RectangleF cameraBoundingBox)
         {
-            background.Draw(sb, cameraBoundingBox, 1.0f, 1.0f);
+            background.Draw(sb, cameraBoundingBox, 1.0f);
 
             if (state != MainMenuState.SETTINGS)
             {

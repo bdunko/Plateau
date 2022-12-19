@@ -85,10 +85,10 @@ namespace Plateau.Components
             nonrecolor.Update(deltaTime);
         }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color, float layerDepth, float scale = 1.0f)
+        public void Draw(SpriteBatch spriteBatch, Vector2 location, Color color, float scale = 1.0f)
         {
-            nonrecolor.Draw(spriteBatch, location, Color.White, layerDepth, scale);
-            recolor.Draw(spriteBatch, location, Color.White, layerDepth, scale);
+            nonrecolor.Draw(spriteBatch, location, Color.White, scale);
+            recolor.Draw(spriteBatch, location, Color.White, scale);
         }
 
     }

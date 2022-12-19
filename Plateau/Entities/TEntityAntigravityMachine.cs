@@ -24,7 +24,7 @@ namespace Plateau.Entities
             this.upsideDown = upsideDown;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
             if(currentlyReversed)
             {
@@ -33,7 +33,7 @@ namespace Plateau.Entities
             {
                 sprite.SetLoopIfNot("normal");
             }
-            sprite.Draw(sb, this.position, Color.White, layerDepth, upsideDown ? SpriteEffects.FlipVertically : SpriteEffects.None);
+            sprite.Draw(sb, this.position, Color.White, upsideDown ? SpriteEffects.FlipVertically : SpriteEffects.None);
         }
 
         public override RectangleF GetCollisionRectangle()

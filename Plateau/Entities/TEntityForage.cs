@@ -29,9 +29,9 @@ namespace Plateau.Entities
             this.particleColor2 = particle2;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sb.Draw(texture, position + new Vector2(0, 1), texture.Bounds, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+            sb.Draw(texture, position + new Vector2(0, 1), texture.Bounds, Color.White);
         }
 
         public override RectangleF GetCollisionRectangle()

@@ -31,9 +31,9 @@ namespace Plateau.Entities
             sprite.SetLoop("placement");
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, new Vector2(position.X, position.Y + 1), Color.White, layerDepth);
+            sprite.Draw(sb, new Vector2(position.X, position.Y + 1), Color.White);
         }
 
         public override void Update(float deltaTime, Area area)

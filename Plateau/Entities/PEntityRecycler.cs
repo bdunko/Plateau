@@ -35,9 +35,9 @@ namespace Plateau.Entities
             this.state = RecyclerState.IDLE;
             this.timeRemaining = 0;
         }
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, new Vector2(position.X, position.Y + 1), Color.White, layerDepth);
+            sprite.Draw(sb, new Vector2(position.X, position.Y + 1), Color.White);
         }
 
         public override SaveState GenerateSave()

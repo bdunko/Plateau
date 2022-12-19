@@ -59,9 +59,9 @@ namespace Plateau.Entities
             return velocity;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, position, isOverlapping ? Color.LightGray * 0.8f : Color.White, layerDepth);
+            sprite.Draw(sb, position, isOverlapping ? Color.LightGray * 0.8f : Color.White);
         }
 
         public override RectangleF GetCollisionRectangle()

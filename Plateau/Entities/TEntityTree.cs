@@ -89,9 +89,9 @@ namespace Plateau.Entities
             return this.healthBar;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, position + new Vector2(-drawOffset, 1) + new Vector2(shakeModX, 0), Color.White, layerDepth);
+            sprite.Draw(sb, position + new Vector2(-drawOffset, 1) + new Vector2(shakeModX, 0), Color.White);
             healthBar.SetPosition(this.position + new Vector2(-drawOffset, 1) + new Vector2((sprite.GetFrameWidth() / 2) - (healthBar.GetWidth() / 2), (sprite.GetFrameHeight() - GetStageHeight()) - 8));
         }
 

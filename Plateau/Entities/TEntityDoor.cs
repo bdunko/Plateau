@@ -39,7 +39,7 @@ namespace Plateau.Entities
             }
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
             //doesn't draw
         }

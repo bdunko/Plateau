@@ -70,9 +70,9 @@ namespace Plateau.Items
             return new BuildingBlock(this, tilePositionPlaced, this.placedTexture, type);
         }
 
-        public override void Draw(SpriteBatch sb, Vector2 position, Color color, float layerDepth)
+        public override void Draw(SpriteBatch sb, Vector2 position, Color color)
         {
-            base.Draw(sb, position, color, layerDepth);
+            base.Draw(sb, position, color);
             if (textureRecolor != null)
                 sb.Draw(textureRecolor, position, color);
         }

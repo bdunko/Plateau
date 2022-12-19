@@ -39,7 +39,7 @@ namespace Plateau.Entities
                 position += new Vector2(2, 2);
                 if (itemStack.GetItem() != ItemDict.NONE)
                 {
-                    itemStack.GetItem().Draw(sb, position, Color.White * opacity, layerDepth);
+                    itemStack.GetItem().Draw(sb, position, Color.White * opacity);
                     if (itemStack.GetItem().GetStackCapacity() != 1 && itemStack.GetQuantity() > 1)
                     {
                         Vector2 itemQuantityPosition = new Vector2(position.X + 11, position.Y + 9);

@@ -45,16 +45,16 @@ namespace Plateau.Entities
             UpdateCurrentSaleItem();
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            base.Draw(sb, layerDepth);
+            base.Draw(sb);
             if (quantityRemaining != 0)
             {
                 Vector2 pos = this.position;
                 pos.Y += sprite.GetFrameHeight();
                 pos.Y -= furnitureItem.GetFrameHeight();
                     
-                furnitureItem.Draw(sb, pos, Color.White, layerDepth);
+                furnitureItem.Draw(sb, pos, Color.White);
             }
         }
 

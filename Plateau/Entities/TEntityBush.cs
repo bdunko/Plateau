@@ -56,9 +56,9 @@ namespace Plateau.Entities
             return this.healthBar;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, position + new Vector2(shakeModX, 0), Color.White, layerDepth);
+            sprite.Draw(sb, position + new Vector2(shakeModX, 0), Color.White);
         }
 
         public override RectangleF GetCollisionRectangle()

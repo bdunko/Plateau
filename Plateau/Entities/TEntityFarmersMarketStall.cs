@@ -170,14 +170,14 @@ namespace Plateau.Entities
             return false;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
             if (!empty && activeStall != null)
             {
-                activeStall.Draw(sb, layerDepth);
+                activeStall.Draw(sb);
             } else
             {
-                sb.Draw(emptyTexture, position + new Vector2(0, 1), emptyTexture.Bounds, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+                sb.Draw(emptyTexture, position + new Vector2(0, 1), emptyTexture.Bounds, Color.White);
             }
         }
 

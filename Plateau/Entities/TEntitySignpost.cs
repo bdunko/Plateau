@@ -30,7 +30,7 @@ namespace Plateau.Entities
             this.dialogue = dialogue;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
             sb.Draw(texture, position, Color.White);
         }

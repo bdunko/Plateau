@@ -30,15 +30,15 @@ namespace Plateau.Particles
             this.angle = 3.14f/2;
         }
 
-        public void Draw(SpriteBatch sb, float layerDepth)
+        public void Draw(SpriteBatch sb)
         {
             if(timeSinceCreation < duration/2)
             {
-                sb.Draw(particleShape, position, new Rectangle(0, 0, particleShape.Height, particleShape.Width), particleColor, angle, new Vector2(particleShape.Width/2, particleShape.Height/2), 1.0f, SpriteEffects.None, layerDepth);
+                sb.Draw(particleShape, position, new Rectangle(0, 0, particleShape.Height, particleShape.Width), particleColor, angle, new Vector2(particleShape.Width/2, particleShape.Height/2), 1.0f, SpriteEffects.None, 1.0f);
             } else
             {
                 sb.Draw(particleShape, position, new Rectangle(0, 0, particleShape.Height, particleShape.Width), particleColor * (1f - ((timeSinceCreation - duration / 2) / (duration / 2))), 
-                    angle, new Vector2(particleShape.Width / 2, particleShape.Height / 2), 1.0f, SpriteEffects.None, layerDepth);
+                    angle, new Vector2(particleShape.Width / 2, particleShape.Height / 2), 1.0f, SpriteEffects.None, 1.0f);
             }
             
         }

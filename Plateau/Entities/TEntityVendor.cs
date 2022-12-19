@@ -50,9 +50,9 @@ namespace Plateau.Entities
             return false;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, this.position + new Vector2(0, 1), Color.White, layerDepth);
+            sprite.Draw(sb, this.position + new Vector2(0, 1), Color.White);
         }
 
         public override void Update(float deltaTime, Area area)

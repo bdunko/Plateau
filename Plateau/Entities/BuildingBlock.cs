@@ -52,9 +52,9 @@ namespace Plateau.Entities
             }
         }
 
-        public void Draw(SpriteBatch sb, float layerDepth)
+        public void Draw(SpriteBatch sb)
         {
-            sb.Draw(this.texture, this.position, texture.Bounds, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+            sb.Draw(this.texture, this.position, texture.Bounds, Color.White);
         }
 
         public SaveState GenerateSave()

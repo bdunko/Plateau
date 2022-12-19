@@ -2323,9 +2323,9 @@ namespace Plateau
             return entityListManager.GetCollideableEntityList();
         }
 
-        public void DrawBackground(SpriteBatch sb, RectangleF cameraBoundingBox, float layerDepth)
+        public void DrawBackground(SpriteBatch sb, RectangleF cameraBoundingBox)
         {
-            background.Draw(sb, cameraBoundingBox, layerDepth, 1.0f);
+            background.Draw(sb, cameraBoundingBox, 1.0f);
         }
 
         public World.Weather GetWeather()
@@ -2456,7 +2456,7 @@ namespace Plateau
             return null;
         }
 
-        public void DrawBaseTerrain(SpriteBatch sb, float layerDepth)
+        public void DrawBaseTerrain(SpriteBatch sb)
         {
             if (mapBase != null) {
                 sb.Draw(mapBase, Vector2.Zero, Color.White);
@@ -2466,11 +2466,11 @@ namespace Plateau
                 sb.Draw(mapDecorationFG, Vector2.Zero, Color.White);
             }
         }
-        public void DrawParticles(SpriteBatch sb, float layerDepth)
+        public void DrawParticles(SpriteBatch sb)
         {
             foreach (Particle pa in particleList)
             {
-                pa.Draw(sb, layerDepth);
+                pa.Draw(sb);
             }
         }
 
@@ -2479,11 +2479,11 @@ namespace Plateau
             return lights;
         }
 
-        public void DrawBuildingBlocks(SpriteBatch sb, float layerDepth)
+        public void DrawBuildingBlocks(SpriteBatch sb)
         {
             foreach (BuildingBlock block in buildingBlockList)
             {
-                block.Draw(sb, layerDepth);
+                block.Draw(sb);
             }
         }
 
@@ -3440,7 +3440,7 @@ namespace Plateau
             }
         }
 
-        public void DrawEntities(SpriteBatch sb, DrawLayer layer, RectangleF cameraBoundingBox, float layerDepth)
+        public void DrawEntities(SpriteBatch sb, DrawLayer layer, RectangleF cameraBoundingBox)
         {
             foreach (Entity en in entityListManager.GetEntitiesByDrawLayer(layer))
             {
@@ -3448,20 +3448,20 @@ namespace Plateau
                 colRect.Inflate(48, 48);
                 if (colRect.Intersects(cameraBoundingBox))
                 {
-                    en.Draw(sb, layerDepth);
+                    en.Draw(sb);
                 }
             }
         }
 
-        public void DrawItemEntities(SpriteBatch sb, float layerDepth)
+        public void DrawItemEntities(SpriteBatch sb)
         {
             foreach(EntityItem ien in itemEntities)
             {
-                ien.Draw(sb, layerDepth);
+                ien.Draw(sb);
             }
         }
 
-        public void DrawWalls(SpriteBatch sb, float layerDepth)
+        public void DrawWalls(SpriteBatch sb)
         {
             if (mapWalls != null)
             {
@@ -3469,7 +3469,7 @@ namespace Plateau
             }
         }
 
-        public void DrawDecorations(SpriteBatch sb, float layerDepth)
+        public void DrawDecorations(SpriteBatch sb)
         {
             if (mapDecoration != null)
             {
@@ -3477,13 +3477,13 @@ namespace Plateau
             }
         }
 
-        public void DrawForeground(SpriteBatch sb, RectangleF cameraBoundingBox, float layerDepth)
+        public void DrawForeground(SpriteBatch sb, RectangleF cameraBoundingBox)
         {
             if (mapFGCave != null)
             {
                 sb.Draw(mapFGCave, Vector2.Zero, Color.White * foregroundCaveTransparency);
             }
-            foreground.Draw(sb, cameraBoundingBox, layerDepth, foregroundCaveTransparency);
+            foreground.Draw(sb, cameraBoundingBox, foregroundCaveTransparency);
         }
 
         private int GetTileIdFor(int tileX, int tileY)

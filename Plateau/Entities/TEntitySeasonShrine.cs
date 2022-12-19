@@ -22,9 +22,9 @@ namespace Plateau.Entities
             this.winterShrine = winterShrine;
             UpdateForSeason(area);
         }
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            currentShrine.Draw(sb, layerDepth);
+            currentShrine.Draw(sb);
         }
 
         public override void Update(float deltaTime, Area area)

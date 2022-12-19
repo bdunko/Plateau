@@ -143,9 +143,9 @@ namespace Plateau.Items
             return placedType;
         }
 
-        public override void Draw(SpriteBatch sb, Vector2 position, Color color, float layerDepth)
+        public override void Draw(SpriteBatch sb, Vector2 position, Color color)
         {
-            base.Draw(sb, position, color, layerDepth);
+            base.Draw(sb, position, color);
             sb.Draw(textureRecolor, position, color);
         }
     }

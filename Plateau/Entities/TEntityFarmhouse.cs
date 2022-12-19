@@ -265,20 +265,20 @@ namespace Plateau.Entities
             return true;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            baseSprite.Draw(sb, drawPosition, Color.White, layerDepth);
+            baseSprite.Draw(sb, drawPosition, Color.White);
             if(roofSprite != null)
             {
-                roofSprite.Draw(sb, drawPosition, Color.White, layerDepth);
+                roofSprite.Draw(sb, drawPosition, Color.White);
             }
             if(wallsSprite != null)
             {
-                wallsSprite.Draw(sb, drawPosition, Color.White, layerDepth);
+                wallsSprite.Draw(sb, drawPosition, Color.White);
             }
             if(trimSprite != null)
             {
-                trimSprite.Draw(sb, drawPosition, Color.White, layerDepth);
+                trimSprite.Draw(sb, drawPosition, Color.White);
             }
         }
 

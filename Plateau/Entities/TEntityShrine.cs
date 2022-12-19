@@ -46,12 +46,12 @@ namespace Plateau.Entities
             this.timeSinceParticleR = 0.0f;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, this.position + new Vector2(0, 1), Color.White, layerDepth);
+            sprite.Draw(sb, this.position + new Vector2(0, 1), Color.White);
             if (offeredIncenseToday)
             {
-                incenseSprite.Draw(sb, this.position + new Vector2(0, 1), Color.White, layerDepth);
+                incenseSprite.Draw(sb, this.position + new Vector2(0, 1), Color.White);
             }
         }
 

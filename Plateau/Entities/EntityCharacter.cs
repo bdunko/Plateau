@@ -1049,17 +1049,17 @@ namespace Plateau.Entities
             }
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
             Vector2 modifiedPosition = new Vector2(position.X, position.Y);
             if (direction == DirectionEnum.LEFT)
             {
                 modifiedPosition.X++;
             }
-            sprite.Draw(sb, modifiedPosition, layerDepth, SpriteEffects.None, 1.0f, opacity);
+            sprite.Draw(sb, modifiedPosition, SpriteEffects.None, 1.0f, opacity);
 
             Vector2 emotionPanelPos = modifiedPosition + new Vector2(26.5f, -6);
-            emotionPanel.Draw(sb, emotionPanelPos, Color.White, layerDepth);
+            emotionPanel.Draw(sb, emotionPanelPos, Color.White);
         }
 
         //used for collision calculations internally. Not as wide as GetCollisionRectangle, which is wider to allow player to interact from a range 

@@ -37,9 +37,9 @@ namespace Plateau.Entities
             UpdateAnimation();
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, position, Color.White, layerDepth);
+            sprite.Draw(sb, position, Color.White);
         }
 
         public override RectangleF GetCollisionRectangle()

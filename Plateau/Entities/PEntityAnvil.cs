@@ -84,10 +84,10 @@ namespace Plateau.Entities
             }
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, new Vector2(position.X, position.Y + 1), Color.White, layerDepth);
-            resultHoverBox.Draw(sb, new Vector2(position.X + (sprite.GetFrameWidth() / 2), position.Y), layerDepth);
+            sprite.Draw(sb, new Vector2(position.X, position.Y + 1), Color.White);
+            resultHoverBox.Draw(sb, new Vector2(position.X + (sprite.GetFrameWidth() / 2), position.Y));
         }
 
         public override SaveState GenerateSave()

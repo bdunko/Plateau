@@ -70,12 +70,12 @@ namespace Plateau.Entities
             updatedStock = false;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            base.Draw(sb, layerDepth);
+            base.Draw(sb);
             if (quantityRemaining != 0)
             {
-                clothesItem.Draw(sb, this.position - new Vector2(24, 9), Color.White, layerDepth);
+                clothesItem.Draw(sb, this.position - new Vector2(24, 9), Color.White);
             }
         }
 

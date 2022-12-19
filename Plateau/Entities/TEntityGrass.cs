@@ -40,9 +40,9 @@ namespace Plateau.Entities
             sprite.SetLoop("spring");
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sprite.Draw(sb, position - new Vector2(0, 8), Color.White, layerDepth);
+            sprite.Draw(sb, position - new Vector2(0, 8), Color.White);
         }
 
         public override RectangleF GetCollisionRectangle()

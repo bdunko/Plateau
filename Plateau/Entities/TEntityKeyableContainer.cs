@@ -49,9 +49,9 @@ namespace Plateau.Entities
             this.key = key;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
-            sb.Draw(harvested ? harvestedTexture : texture, position + new Vector2(shakeModX, 0), texture.Bounds, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, layerDepth);
+            sb.Draw(harvested ? harvestedTexture : texture, position + new Vector2(shakeModX, 0), texture.Bounds, Color.White);
         }
 
         public override RectangleF GetCollisionRectangle()

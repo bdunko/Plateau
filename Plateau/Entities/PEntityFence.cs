@@ -25,7 +25,7 @@ namespace Plateau.Entities
             this.fenceState = FenceState.SINGLE;
         }
 
-        public override void Draw(SpriteBatch sb, float layerDepth)
+        public override void Draw(SpriteBatch sb)
         {
             switch(fenceState)
             {
@@ -42,7 +42,7 @@ namespace Plateau.Entities
                     sprite.SetLoopIfNot("right");
                     break;
             }
-            base.Draw(sb, layerDepth);
+            base.Draw(sb);
         }
 
         public override void Update(float deltaTime, Area area)

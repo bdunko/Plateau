@@ -56,7 +56,7 @@ namespace Plateau.Entities
         }
 
         //position is the upper middle spot of placeable item...
-        public void Draw(SpriteBatch sb, Vector2 position, float layerDepth)
+        public void Draw(SpriteBatch sb, Vector2 position)
         {
             if (itemStack.GetItem() != ItemDict.NONE)
             {
@@ -65,7 +65,7 @@ namespace Plateau.Entities
                 sb.Draw(GameplayInterface.hoveringItemBox, drawPos, Color.White * 0.9f);
 
                 drawPos += new Vector2(2, 2);
-                itemStack.GetItem().Draw(sb, drawPos, Color.White, layerDepth);
+                itemStack.GetItem().Draw(sb, drawPos, Color.White);
                 if (itemStack.GetItem().GetStackCapacity() != 1 && itemStack.GetQuantity() > 1)
                 {
                     Vector2 itemQuantityPosition = new Vector2(drawPos.X + 11, drawPos.Y + 9);
