@@ -1,4 +1,5 @@
 # Plateau
 
 A life simulation game built using MonoGame. 
-See bdunko.github.io/plateau.
+
+See [here](https://bdunko.github.io/plateau.html).
