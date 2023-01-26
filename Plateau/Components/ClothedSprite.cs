@@ -313,14 +313,9 @@ namespace Plateau.Components
             sailcloth.Draw(sb, position, Color.White * opacity, effect, scale);
         }
 
-        public void Draw(SpriteBatch sb, Vector2 position, float layerDepth, float scale)
+        public void Draw(SpriteBatch sb, Vector2 position, float scale)
         {
             Draw(sb, position, SpriteEffects.None, scale, 1.0f);
-        }
-
-        public void Draw(SpriteBatch sb, Vector2 position, float layerDepth)
-        {
-            Draw(sb, position, SpriteEffects.None, 1.0f, 1.0f);
-        }        
+        }   
     }
 }
