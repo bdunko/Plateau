@@ -704,14 +704,6 @@ namespace Plateau
                     spriteBatch.End();
                 }
 
-                //GraphicsDevice.SetRenderTarget(null);
-                //GraphicsDevice.Clear(Color.CadetBlue);
-                /*spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp);
-                lightsShader.Parameters["lightMask"].SetValue(lightsTarget);
-                lightsShader.Parameters["darknessLevel"].SetValue(world.GetDarkLevel());
-                lightsShader.CurrentTechnique.Passes[0].Apply();
-                spriteBatch.End();*/
-
                 if (currentState == PlateauGameState.DEBUG)
                 {
                     spriteBatch.Begin(transformMatrix: camera.GetViewMatrix(), samplerState: SamplerState.PointClamp, blendState: BlendState.AlphaBlend, sortMode: SpriteSortMode.Deferred);
@@ -761,7 +753,6 @@ namespace Plateau
                 {
                     lightsShader.CurrentTechnique.Passes[0].Apply();
                 }
-                spriteBatch.Draw(lightsTarget, SHIFT_VECTOR, Color.White);
                 spriteBatch.Draw(mainTarget, SHIFT_VECTOR, Color.White);
                 spriteBatch.End();
 
