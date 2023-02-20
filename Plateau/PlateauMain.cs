@@ -761,7 +761,7 @@ namespace Plateau
                 {
                     lightsShader.CurrentTechnique.Passes[0].Apply();
                 }
-                //spriteBatch.Draw(lightsTarget, SHIFT_VECTOR, Color.White);
+                spriteBatch.Draw(lightsTarget, SHIFT_VECTOR, Color.White);
                 spriteBatch.Draw(mainTarget, SHIFT_VECTOR, Color.White);
                 spriteBatch.End();
 
