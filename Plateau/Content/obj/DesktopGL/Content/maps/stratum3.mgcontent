@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum3.tmx</SourceFile>
-  <SourceTime>2022-12-16T23:48:06.8333859-05:00</SourceTime>
+  <SourceTime>2023-02-20T00:51:07.792213-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/maps/stratum3.xnb</DestFile>
-  <DestTime>2022-12-16T23:49:02.2421932-05:00</DestTime>
+  <DestTime>2023-06-12T20:07:50.7860188-04:00</DestTime>
   <Importer>TiledMapImporter</Importer>
   <ImporterTime>2020-08-29T17:17:30-04:00</ImporterTime>
   <Processor>TiledMapProcessor</Processor>
