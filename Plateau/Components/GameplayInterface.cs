@@ -277,7 +277,7 @@ namespace Plateau.Components
         private static Vector2 HOTBAR_POSITION = new Vector2(57f, 157);
         private static Vector2 HOTBAR_SELECTED_POSITION_0 = new Vector2(63f, 158);
         private static Vector2 CHEST_INVENTORY_POSITION = INVENTORY_POSITION - new Vector2(0, 9);
-        private static Vector2 INVENTORY_PLAYER_PREVIEW = new Vector2(48.5f, 0);
+        private static Vector2 INVENTORY_PLAYER_PREVIEW = new Vector2(47f, 0);
         private static Vector2 DATETIME_PANEL_POSITION = new Vector2(271, 2);
         private static Vector2 DATETIME_PANEL_DAYTEXT_OFFSET = new Vector2(1, 15);
         private static Vector2 DATETIME_PANEL_SEASONTEXT_OFFSET = new Vector2(2, 1);
