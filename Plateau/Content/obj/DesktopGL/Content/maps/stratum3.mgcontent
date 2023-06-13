@@ -3,7 +3,7 @@
   <SourceFile>D:/Code/Plateau/Plateau/Plateau/Content/maps/stratum3.tmx</SourceFile>
   <SourceTime>2023-02-20T00:51:07.792213-05:00</SourceTime>
   <DestFile>D:/Code/Plateau/Plateau/Plateau/Content/bin/DesktopGL/Content/maps/stratum3.xnb</DestFile>
-  <DestTime>2023-06-12T20:07:50.7860188-04:00</DestTime>
+  <DestTime>2023-06-12T20:47:56.0016893-04:00</DestTime>
   <Importer>TiledMapImporter</Importer>
   <ImporterTime>2020-08-29T17:17:30-04:00</ImporterTime>
   <Processor>TiledMapProcessor</Processor>
