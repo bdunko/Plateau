@@ -265,7 +265,7 @@ namespace Plateau.Components
         private static int FOREGROUND_PX_PER_PARTICLE = 4100;
         private static int BACKGROUND_PX_PER_CLOUD_FRONT = 30000;
         private static int BACKGROUND_PX_PER_CLOUD = 16000;
-        //private static int FOREGROUND_PX_PER_CLOUD = 125000;
+        private static int FOREGROUND_PX_PER_CLOUD = 105000;
         private static int BACKGROUND_PX_PER_RAIN = 1300;
         private static int BACKGROUND_PX_PER_SNOW = 1500;
         private static int BACKGROUND_PX_PER_PARTICLE = 2500;
@@ -491,7 +491,7 @@ namespace Plateau.Components
                         }
                     }
 
-                    /*LayeredBackground.Layer foregroundCloudLayer = new LayeredBackground.Layer(FOREGROUND_LAYER_CLOUDS, Color.White * Util.FOREGROUND_TRANSPARENCY, 0.1f);
+                    LayeredBackground.Layer foregroundCloudLayer = new LayeredBackground.Layer(FOREGROUND_LAYER_CLOUDS, Color.White * Util.FOREGROUND_TRANSPARENCY, 0.1f);
                     for (int i = 0; i < area / FOREGROUND_PX_PER_CLOUD; i++)
                     {
                         switch (Util.RandInt(1, 6))
@@ -515,13 +515,13 @@ namespace Plateau.Components
                                 foregroundCloudLayer.AddElement(new LayeredBackground.Element(Content.Load<Texture2D>(Paths.BACKGROUND_CLOUD_LG6), inflatedBounds, new Vector2(Util.RandInt(35, 42), 0)));
                                 break;
                         }
-                    }*/
+                    }
 
                     LayeredBackground.Layer filterLayer = new LayeredBackground.Layer(FILTER_LAYER, Color.White, 1.0f);
-                    filterLayer.AddElement(new LayeredBackground.Element(Content.Load<Texture2D>(Paths.INTERFACE_BACKGROUND_BLACK), new Vector2(-9, -9), new Vector2(0, 0)));
+                    filterLayer.AddElement(new LayeredBackground.Element(Content.Load<Texture2D>(Paths.INTERFACE_BACKGROUND_WHITE), new Vector2(0, 0), new Vector2(0, 0)));
 
                     this.AddLayer(foregroundParticleLayer);
-                    //this.AddLayer(foregroundCloudLayer);
+                    this.AddLayer(foregroundCloudLayer);
                     this.AddLayer(foregroundSnowLayer);
                     this.AddLayer(foregroundRainLayer);
                     this.AddLayer(filterLayer);
@@ -709,6 +709,8 @@ namespace Plateau.Components
                     switch (areaWeather)
                     {
                         case World.Weather.CLOUDY:
+                            //disable sun
+                            TryDisableLayer(BACKGROUND_LAYER_SUN);
                             break;
                         case World.Weather.RAINY:
                             //disable particles
@@ -731,7 +733,6 @@ namespace Plateau.Components
                             TryDisableLayer(BACKGROUND_LAYER_SUN);
                             break;
                         case World.Weather.SUNNY:
-                            TryDisableLayer(BACKGROUND_LAYER_CLOUDS_MIDDLE);
                             TryDisableLayer(BACKGROUND_LAYER_CLOUDS_BACK);
                             break;
                     }

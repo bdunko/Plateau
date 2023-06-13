@@ -134,8 +134,8 @@ namespace Plateau.Components
         public static NamedColor PARTICLE_WHITE_WISP = new NamedColor(new Color(227, 230, 255), "Particle White Wisp");
 
         public static NamedColor RAIN_FILTER = new NamedColor(new Color(20, 52, 100) * 0.2f, "Filter Rain");
-        public static NamedColor CLOUDY_FILTER = new NamedColor(new Color(179, 185, 209) * (16.0f/255.0f), "Filter Cloudy");
-        public static NamedColor SNOWY_FILTER = new NamedColor(new Color(185, 191, 251) * (26.0f / 255.0f), "Filter Snowy");
+        public static NamedColor CLOUDY_FILTER = new NamedColor(new Color(218, 224, 234) * 0.1f, "Filter Cloudy");
+        public static NamedColor SNOWY_FILTER = new NamedColor(new Color(185, 191, 251) * 0.08f, "Filter Snowy");
         /*public static NamedColor SPRING_FILTER =  new NamedColor(new Color(232, 106, 115) *(10.0f/255.0f), "Filter Spring");
         public static NamedColor SUMMER_FILTER = new NamedColor(new Color(20, 160, 46) * (10.0f/255.0f), "Filter Summer");
         public static NamedColor FALL_FILTER = new NamedColor(new Color(180, 132, 42) * (10.0f / 255.0f), "Filter Fall");
